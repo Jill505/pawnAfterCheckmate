@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class unit : MonoBehaviour
 {
+    public SpriteRenderer mySr;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
