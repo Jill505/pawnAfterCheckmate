@@ -3,7 +3,8 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.UI;   
+using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 public class testRoundMaster : MonoBehaviour
 {
@@ -16,6 +17,16 @@ public class testRoundMaster : MonoBehaviour
     public GameObject testGameStartButton;
     public GameObject gameCanvas;
     public GameObject GameEnviroment;
+
+    [Header("關卡 Scriptable Object")]
+    public SO_Level config;
+
+    [Header("一般世界生成係數")]
+    public GameObject GameCellUnit;
+    public GameObject GameEReference;
+    public float spawnInterval = 1f;
+    public Vector2 spawnReferencePoint = Vector2.zero;
+
 
     public void GameStart()
     {
@@ -38,12 +49,23 @@ public class testRoundMaster : MonoBehaviour
         yield return null;
     }
 
-    public void GameInitialization(GameConfig config)
+    public void GameInitialization(SO_Level config)
     {
-
+        spawnReferencePoint = Vector2.zero;
+        //生成
+        for (int j = 0; j < config.gridSizeY; j++)//Y
+        {
+            spawnReferencePoint.y = j * spawnInterval;
+            //Switch row
+            for (int i = 0; i < config.gridSizeX; i++)//X
+            {
+                spawnReferencePoint.x = i * spawnInterval;
+                GameObject obj =  Instantiate(GameCellUnit, spawnReferencePoint, Quaternion.identity);
+                obj.transform.SetParent(GameEReference.transform, false);
+            }
+        }
     }
 
-    public GameConfig config;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

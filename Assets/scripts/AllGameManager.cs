@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AllGameManager : MonoBehaviour
 {
+    static Language languageSelect = Language.T_Mandarin;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,4 +15,12 @@ public class AllGameManager : MonoBehaviour
     {
         
     }
+}
+
+public enum Language
+{
+    T_Mandarin,
+    C_Mandarin,
+    En,
+    Jp
 }
