@@ -5,6 +5,9 @@ public class unit : MonoBehaviour
 {
     public testRoundMaster roundMaster;
     public SpriteRenderer mySr;
+
+    public int myX;
+    public int myY;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,5 +34,6 @@ public class unit : MonoBehaviour
     private void OnMouseDown()
     {
         //¦^¶ÇGameMaster
+        roundMaster.selectingVector = new Vector2(myX,myY);
     }
 }
