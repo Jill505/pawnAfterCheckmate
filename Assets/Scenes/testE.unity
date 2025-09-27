@@ -620,7 +620,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 6.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 4.5, z: -10}
+  m_LocalPosition: {x: 4.5, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -717,7 +717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000000014842954, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 253.3108, y: 47.496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580331053
@@ -903,7 +903,11 @@ MonoBehaviour:
   GameEReference: {fileID: 552859668}
   spawnInterval: 1
   spawnReferencePoint: {x: 0, y: 0}
+  ChessPrefab: {fileID: 696692380885238862, guid: aafb1b4a9fb45124e8e48a9277d266ef, type: 3}
   selectingVector: {x: 0, y: 0}
+  SelectObject: {fileID: 0}
+  onFloatingVector: {x: -1, y: -1}
+  onFloatingObject: {fileID: 0}
 --- !u!1 &1348732332
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +978,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'L Info
+
+'
 --- !u!222 &1348732335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1372,6 +1378,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8849811575621646054, guid: f600eddaed47955488030ce8cff36bb9, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902480544174155083, guid: f600eddaed47955488030ce8cff36bb9, type: 3}
+      propertyPath: selecting
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

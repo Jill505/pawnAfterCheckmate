@@ -10,21 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
-  m_Name: SO_Level
+  m_Name: testLevel
   m_EditorClassIdentifier: 
-  levelName: Def name
+  levelName: "\u3010\u3011"
   levelID: Def ID
   levelDesc: Def Desc
-  allowDeployTroopNumber: 3
-  hasPerform: 0
-  myPerform:
-    myPerform: 0
   gridSizeX: 10
   gridSizeY: 10
-  levelContext:
-  - locationX: 0
-    locationY: 0
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+  levelContext: []
