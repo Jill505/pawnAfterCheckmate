@@ -1,7 +1,10 @@
-using Unity.Android.Gradle;
+
 using UnityEngine;
-using static UnityEngine.Rendering.STP;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
+using JetBrains.Annotations;
+using static UnityEngine.Rendering.STP;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,8 +25,14 @@ public class GameManager : MonoBehaviour
     public Vector2 spawnReferencePoint = Vector2.zero;
 
     [Header("Ref Objects")]
+    public GameObject TroopPrefab;
+
     public GameObject[,] chessBoardObjectRefArr;
     public GameObject GameEReference;
+    public GameObject TroopEReference;
+
+    public GameObject MyTroop;
+    public List<GameObject> Troops;
 
     [Header("World Spawn Variable")]
     public float spawnInterval = 1f;
@@ -107,6 +116,10 @@ public class GameManager : MonoBehaviour
                 levelData = levelConstructor.levelInfo;
                 LoadGame(levelConstructor.levelInfo);
                 GameInitialization(levelConstructor.levelInfo);
+
+                ChessSpawn(levelConstructor.levelInfo);
+
+                roundManager.roundState = RoundState.MyRound;
             }
         }
     }
@@ -123,5 +136,36 @@ public class GameManager : MonoBehaviour
             Debug.Break();
         }
         levelConstructor = constructors[0];
+    }
+
+    public void ChessSpawn(SO_Level config)
+    {
+        Troops.Clear();
+
+        //增加自己
+        //set my 
+        GameObject myTObj = Instantiate(TroopPrefab);
+        Troop myT = myTObj.GetComponent<Troop>();
+        myT.myNowX = 4;
+        myT.myNowY = 0;
+        myT.isPlayer = true;
+        Troops.Add(myTObj);
+        MyTroop = myTObj;
+
+        SpawnLevelTroop(config);
+    }
+    public void SpawnLevelTroop(SO_Level config)
+    {
+        for (int i = 0; i < config.chessInsData.Count; i++)
+        {
+            GameObject myTObj = Instantiate(TroopPrefab);
+            Troop myT = myTObj.GetComponent<Troop>();
+            myT.myChessData = config.chessInsData[i].chessFile;
+            myT.LoadSOData();
+            myT.myNowX = config.chessInsData[i].locationX;
+            myT.myNowY = config.chessInsData[i].locationY;
+
+            Troops.Add(myTObj);
+        }
     }
 }

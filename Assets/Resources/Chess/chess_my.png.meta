@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80bd083adeaae964a9419707596e3df2
+guid: b6fb446f3e647cb4bb6a821028f5f4d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4917610722473913247
-    second: Dana_Z__0
+      213: -1002546226982619216
+    second: chess_my_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dana_Z__0
+      name: chess_my_0
       rect:
         serializedVersion: 2
         x: 49
         y: 0
-        width: 260
-        height: 373
+        width: 1003
+        height: 1011
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9ba5b0c5ecde3440800000000000000
-      internalID: 4917610722473913247
+      spriteID: 0b7facda48d3612f0800000000000000
+      internalID: -1002546226982619216
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dana_Z__0: 4917610722473913247
+      chess_my_0: -1002546226982619216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

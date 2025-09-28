@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 [CreateAssetMenu(fileName = "SO_Chess", menuName = "Scriptable Objects/SO_Chess")]
 public class SO_Chess : ScriptableObject
@@ -16,10 +17,15 @@ public class SO_Chess : ScriptableObject
     public int maxHp = 1;
     public int hp = 1;
 
-
     public Sprite skin;
 
     public ability[] abilities;
+
+    [Header("´Ñ¤l¼Æ­È")]
+    public int horBlockMoveAbility = 1;
+    public int diagonalBlockMoveAbility = 0;
+    public int knightBlockMoveAbility = 0;
+    public int AttackStr = 1;
 
 
     public string ReturnSOData()

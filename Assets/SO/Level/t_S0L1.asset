@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
-  m_Name: testLevel
+  m_Name: t_S0L1
   m_EditorClassIdentifier: 
-  levelName: "\u3010\u3011"
+  levelName: Def name
   levelID: Def ID
   levelDesc: Def Desc
   allowDeployTroopNumber: 3
@@ -51,7 +51,7 @@ MonoBehaviour:
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: t_start
   - locationX: 0
     locationY: 5
     isDeployed: 0
@@ -76,12 +76,6 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
-  - locationX: 0
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
   - locationX: 1
     locationY: 0
     isDeployed: 0
@@ -132,12 +126,6 @@ MonoBehaviour:
     performID: 
   - locationX: 1
     locationY: 8
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 9
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -196,12 +184,6 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
-  - locationX: 2
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
   - locationX: 3
     locationY: 0
     isDeployed: 0
@@ -252,12 +234,6 @@ MonoBehaviour:
     performID: 
   - locationX: 3
     locationY: 8
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 3
-    locationY: 9
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -316,12 +292,6 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
-  - locationX: 4
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
   - locationX: 5
     locationY: 0
     isDeployed: 0
@@ -372,12 +342,6 @@ MonoBehaviour:
     performID: 
   - locationX: 5
     locationY: 8
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 5
-    locationY: 9
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -436,12 +400,6 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
-  - locationX: 6
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
   - locationX: 7
     locationY: 0
     isDeployed: 0
@@ -492,12 +450,6 @@ MonoBehaviour:
     performID: 
   - locationX: 7
     locationY: 8
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 9
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -508,3 +460,55 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
+  - locationX: 8
+    locationY: 1
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 2
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 3
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 4
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 5
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 6
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 7
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  chessInsData:
+  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    locationX: 5
+    locationY: 3

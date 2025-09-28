@@ -92,9 +92,10 @@ public class GameBoardCell
     ///Enemy_Archer => 敵人弓兵
 
 }
+[System.Serializable]
 public class GameBoardInsChess
 {
-    public SO_Chess[] chessFile;
+    public SO_Chess chessFile;
     public int locationX = 0;
     public int locationY = 0;
 }
@@ -112,4 +113,4 @@ public class Perform //場地外觀
 public enum performStyle
 {
 
-}
+}   
