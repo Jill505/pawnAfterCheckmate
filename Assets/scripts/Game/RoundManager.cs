@@ -119,12 +119,16 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         //Var 1 - 逐個移動 每回合開始時告訴玩家行動預告 (如.陷陣之志)
-        foreach (Troop enemy in EnemyAITroop)
+        /*foreach (Troop enemy in EnemyAITroop)
         {
             enemy.MoveToNext();
             yield return new WaitForSeconds(0.3f);
-        }
+        }*/
 
+        for (int i = 0; i < EnemyAITroop.Count; i++)
+        {
+            //EnemyAITroop[i].MoveToNext();
+        }
         //Var 2 - 每次移動一個目標
 
         roundState = RoundState.Finished;

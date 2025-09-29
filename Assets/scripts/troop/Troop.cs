@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Troop : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class Troop : MonoBehaviour
     }
 
     [Header("敵人邏輯宣告")]
-    public List<Vector2> OnSelectChessAllowMoveVector;
+    public List<Vector2> OnSelectChessAllowMoveVector = new List<Vector2>();
 
     public Vector2 myNextDes;
     #region 敵人邏輯
@@ -123,6 +124,18 @@ public class Troop : MonoBehaviour
     }
     public void ReduceOnSelectChessAllowMoveVector()
     {
+        for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
+        {
+            foreach (GameObject obj in gameManager.chessBoardObjectRefArr)
+            {
+                if (obj.GetComponent<unit>().TroopsOnMe != null && new Vector2(obj.GetComponent<unit>().myX, obj.GetComponent<unit>().myY) == OnSelectChessAllowMoveVector[i])
+                {
+                    OnSelectChessAllowMoveVector.Remove(OnSelectChessAllowMoveVector[i]);
+                }
+            }
+        }
+        
+            /*
         foreach (Vector2 vec in OnSelectChessAllowMoveVector)
         {
             foreach (GameObject obj in gameManager.chessBoardObjectRefArr)
@@ -132,7 +145,7 @@ public class Troop : MonoBehaviour
                     OnSelectChessAllowMoveVector.Remove(vec);
                 }
             }
-        }
+        }*/
     }
 
     public void UpdateOnSelectChessAllowMoveVector(List<Vector2> Vec2List, Troop T) // 可移動地塊更新 重要函式！！！

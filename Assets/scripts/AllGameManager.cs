@@ -29,7 +29,7 @@ public enum Language
 
 public enum gear
 {
-    noGear = 0, //無道具
+    noGear, //無道具
     bow, //弓箭
     car, //戰車
     horse //馬
@@ -54,14 +54,14 @@ public enum SaveFileType
 public enum Camp
 {
     Player,
-    Enemy = 0,
+    Enemy,
     Bucket,
     Item
 }
 
 public enum BucketType
 {
-    noType =0,
-    firePowderBucket = 1
+    noType,
+    firePowderBucket
 
 }

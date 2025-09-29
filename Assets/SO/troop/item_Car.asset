@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: item_Car
   m_EditorClassIdentifier: 
   chessName: "\u8ECA(\u5E15\u62C9\u6885\u62C9)"
-  myCamp: 2
+  myCamp: 3
   photoSticker: {fileID: 735805723, guid: 37c0e388759e695459bf95fc565dfe0a, type: 3}
   spawnGear: 2
   bucketType: 0

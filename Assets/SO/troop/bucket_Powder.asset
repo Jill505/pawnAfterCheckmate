@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bucket_Powder
   m_EditorClassIdentifier: 
   chessName: "\u70B8\u85E5\u6876"
-  myCamp: 1
+  myCamp: 2
   photoSticker: {fileID: -7130850037016274770, guid: 8bc15a8764d13ba4dae781f7f68c29b4, type: 3}
   spawnGear: 0
   bucketType: 0

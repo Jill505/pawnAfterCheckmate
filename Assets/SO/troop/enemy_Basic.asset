@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: enemy_Basic
   m_EditorClassIdentifier: 
   chessName: "\u57FA\u672C\u6575\u65B9\u55AE\u4F4D"
-  myCamp: 0
+  myCamp: 1
   photoSticker: {fileID: 0}
   spawnGear: 0
   bucketType: 0
-  chessDesc: 
+  chessDesc: a
   Level: 1
   Exp: 0
   move: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: enemy_Bow
   m_EditorClassIdentifier: 
   chessName: "\u5F13\u7BAD\u624B\u5F35\u5BA5\u921E"
-  myCamp: 0
+  myCamp: 1
   photoSticker: {fileID: 6711913997770717108, guid: ae0a36d0c308f8749ad9784d6ebd679f, type: 3}
   spawnGear: 1
   bucketType: 0
