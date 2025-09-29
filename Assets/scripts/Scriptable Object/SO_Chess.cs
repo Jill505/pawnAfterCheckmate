@@ -5,7 +5,11 @@ using UnityEngine.UIElements.Experimental;
 public class SO_Chess : ScriptableObject
 {
     public string chessName;
+    public Camp myCamp;
     public Sprite photoSticker; //Require = 1:1 picture.
+
+    public gear spawnGear = gear.noGear;
+    public BucketType bucketType = BucketType.noType;
 
     [TextArea(3, 10)]
     public string chessDesc;

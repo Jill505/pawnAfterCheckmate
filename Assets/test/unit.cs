@@ -94,24 +94,66 @@ public class unit : MonoBehaviour
                         }
                         else
                         {
-                            //若已有棋子，對其造成傷害
-                            TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
-                            //若攻擊未殺死目標，則留在前一格
-                            if (TroopsOnMe.hp <= 0)
+                            switch (TroopsOnMe.myCamp)
                             {
-                                //被殺死
-                                roundManager.SelectObjectTroop.myNowX = myX;
-                                roundManager.SelectObjectTroop.myNowY = myY;
-                                TroopsOnMe.killTroop();
-                            }
-                            else
-                            {
-                                //沒被殺死
-                                //先不管
-                            }
-                           
-                        }
+                                case Camp.Enemy:
+                                    //若已有對手棋子，對其造成傷害
+                                    TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
+                                    //若攻擊未殺死目標，則留在前一格
+                                    if (TroopsOnMe.hp <= 0)
+                                    {
+                                        //被殺死
+                                        roundManager.SelectObjectTroop.myNowX = myX;
+                                        roundManager.SelectObjectTroop.myNowY = myY;
+                                        TroopsOnMe.killTroop();
 
+                                        gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
+
+                                        //奪取道具？
+                                        if (TroopsOnMe.holdingGear != gear.noGear)
+                                        {
+                                            roundManager.SelectObjectTroop.holdingGear = TroopsOnMe.holdingGear;
+                                            gameManager.hintManager.SpawnHintWordPrefab("搶奪道具 - " + TroopsOnMe.holdingGear);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //沒被殺死
+                                        //先不管
+                                    }
+                                    break;
+
+                                case Camp.Bucket: //場地互動道具 如.爆破桶等
+                                    TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
+                                    gameManager.hintManager.SpawnHintWordPrefab("擊破桶子 - " + TroopsOnMe.myChessData.chessName);
+
+                                    //被殺死
+                                    roundManager.SelectObjectTroop.myNowX = myX;
+                                    roundManager.SelectObjectTroop.myNowY = myY;
+                                    TroopsOnMe.killTroop();
+
+                                    //依照種類觸發效果
+                                    switch (TroopsOnMe.bucketType)
+                                    {
+                                        case BucketType.noType:
+                                            Debug.Log("無事發生 歲月靜好 你選擇了一個Bucket類 但沒有選擇觸發效果");
+                                            break;
+
+                                    }
+                                    break;
+
+                                case Camp.Item: //道具
+
+                                    //被殺死
+                                    roundManager.SelectObjectTroop.myNowX = myX;
+                                    roundManager.SelectObjectTroop.myNowY = myY;
+                                    TroopsOnMe.killTroop();
+
+                                    roundManager.SelectObjectTroop.holdingGear = TroopsOnMe.holdingGear;
+                                    gameManager.hintManager.SpawnHintWordPrefab("得到道具 - " + TroopsOnMe.myChessData.chessName);
+                                    break;
+                            }
+                        }
                         //TODO 並且呼叫RoundMaster回合完成器
                         roundManager.MyRoundEnd();
                     }
@@ -124,19 +166,30 @@ public class unit : MonoBehaviour
     bool _colorClog;
     void Update()
     {
-        //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 標記藍色
-        isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX,myY));
-        if (isPlayerAllowMoveSpace)
-        {
-            mySr.color = new Color(0, 0, 1, 1f);
-            _colorClog = true;
-        }
-        else
-        {
-            if (_colorClog)
-            {
-                _colorClog = false;mySr.color = new Color(1, 1, 1, 1);
-            }
+        switch (roundManager.roundState) {
+            case RoundState.MyRound:
+                //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 標記藍色
+                isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX, myY));
+                if (isPlayerAllowMoveSpace)
+                {
+                    mySr.color = new Color(0, 0, 1, 1f);
+                    _colorClog = true;
+                }
+                else
+                {
+                    if (_colorClog)
+                    {
+                        _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
+                    }
+                }
+                break;
+
+            case RoundState.EnemyRound:
+                if (_colorClog)
+                {
+                    _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
+                }
+                break;
         }
 
         syncTroopOnMe();

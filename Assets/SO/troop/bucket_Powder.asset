@@ -10,12 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
-  m_Name: enemyBasic
+  m_Name: bucket_Powder
   m_EditorClassIdentifier: 
-  chessName: "\u57FA\u672C\u6575\u65B9\u55AE\u4F4D"
+  chessName: "\u70B8\u85E5\u6876"
+  myCamp: 1
+  photoSticker: {fileID: -7130850037016274770, guid: 8bc15a8764d13ba4dae781f7f68c29b4, type: 3}
+  spawnGear: 0
+  bucketType: 0
+  chessDesc: 
   Level: 1
   Exp: 0
   move: 1
+  maxHp: 1
   hp: 1
-  skin: {fileID: 4917610722473913247, guid: 80bd083adeaae964a9419707596e3df2, type: 3}
-  abilities: 00000000
+  skin: {fileID: 735805723, guid: 37c0e388759e695459bf95fc565dfe0a, type: 3}
+  abilities: 
+  horBlockMoveAbility: 1
+  diagonalBlockMoveAbility: 0
+  knightBlockMoveAbility: 0
+  AttackStr: 1

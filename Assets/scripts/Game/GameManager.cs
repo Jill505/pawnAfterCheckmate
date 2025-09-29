@@ -1,17 +1,16 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using static UnityEngine.Rendering.STP;
-
 public class GameManager : MonoBehaviour
 {
     [Header("System")]
     public RoundManager roundManager;
     public LevelConstructor levelConstructor;
     public SO_Level levelData;
+
+    [Header("Scene System")]
+    public HintManager hintManager;
 
 
     [Header("Control Variable")]
@@ -149,6 +148,9 @@ public class GameManager : MonoBehaviour
         myT.myNowX = 4;
         myT.myNowY = 0;
         myT.isPlayer = true;
+
+        myT.myCamp = Camp.Player;
+
         Troops.Add(myTObj);
         MyTroop = myTObj;
 
@@ -162,6 +164,8 @@ public class GameManager : MonoBehaviour
             Troop myT = myTObj.GetComponent<Troop>();
             myT.myChessData = config.chessInsData[i].chessFile;
             myT.LoadSOData();
+
+
             myT.myNowX = config.chessInsData[i].locationX;
             myT.myNowY = config.chessInsData[i].locationY;
 

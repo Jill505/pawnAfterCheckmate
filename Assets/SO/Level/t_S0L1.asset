@@ -512,3 +512,12 @@ MonoBehaviour:
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
     locationX: 5
     locationY: 3
+  - chessFile: {fileID: 11400000, guid: 98cb2ca9a367b794d89862d18f574a39, type: 2}
+    locationX: 8
+    locationY: 5
+  - chessFile: {fileID: 11400000, guid: cc5d3c7105b381b41a6c550654818c01, type: 2}
+    locationX: 2
+    locationY: 2
+  - chessFile: {fileID: 11400000, guid: 03bf59fb4171f4d4695572622903ab04, type: 2}
+    locationX: 3
+    locationY: 8

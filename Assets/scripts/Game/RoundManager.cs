@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Experimental.GlobalIllumination;
 using System.Collections;
+using UnityEditor;
 
 public class RoundManager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class RoundManager : MonoBehaviour
 
     [Header("CONST")]
     public readonly Vector2 EMPTY_VECTOR = new Vector2 (-1,-1);
+
+    [Header("Round Variable")]
+    public int roundCount =0;
 
     [Header("Functional Variable")]
     public Vector2 selectingVector = new Vector2(-1, -1);
@@ -35,15 +39,21 @@ public class RoundManager : MonoBehaviour
     public string deployStateStr = "部屬";
     public string myRoundStateStr = "我的回合";
     public string enemyRoundStateStr = "敵人回合";
+    public Text RoundCountShowcase;
 
     [Header("選擇系統")]
     public List<Vector2> OnSelectChessAllowMoveVector;
+    public List<Vector2> OnEnemyChessAllowAttackVector;
 
     [Header("敵人AI")]
     public Coroutine EnemyAIProcessing;
+    public List<Troop> EnemyAITroop;
 
     void Start()
     {
+        //INN
+        roundCount = 0;
+
         GameStartFunc();
     }
 
@@ -94,12 +104,30 @@ public class RoundManager : MonoBehaviour
                     EnemyAIProcessing = StartCoroutine(EnemyRoundCoroutine());
                 }
                 break;
+
+            case RoundState.Finished:
+                roundCount++;
+                roundState = RoundState.MyRound;
+                break;
         }
+
+        SyncUI();
+        DebugSyncEnemyAITroop();
     }
     IEnumerator EnemyRoundCoroutine()
     {
         yield return new WaitForSeconds(1);
-        roundState = RoundState.MyRound;
+
+        //Var 1 - 逐個移動 每回合開始時告訴玩家行動預告 (如.陷陣之志)
+        foreach (Troop enemy in EnemyAITroop)
+        {
+            enemy.MoveToNext();
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        //Var 2 - 每次移動一個目標
+
+        roundState = RoundState.Finished;
         EnemyAIProcessing = null;
     }
 
@@ -137,7 +165,7 @@ public class RoundManager : MonoBehaviour
         obj.GetComponent<SpriteRenderer>().color = Color.white;     
     }
     #region 選擇系統
-    public bool IsMeSelectableUnit(Vector2 myVec)
+    public bool IsMeSelectableUnit(Vector2 myVec) //玩家可以移動到的地點
     {
         foreach (Vector2 tVec in OnSelectChessAllowMoveVector)
         {
@@ -146,8 +174,22 @@ public class RoundManager : MonoBehaviour
 
         return false;
     }
-    public void UpdateOnSelectChessAllowMoveVector() // 可移動地塊更新 重要函式！！！
+
+    public bool IsMeOnAttackableUnit(Vector2 myVec) //這個地點會不會被攻擊
     {
+        foreach (Vector2 tVec in OnEnemyChessAllowAttackVector)
+        {
+            if (myVec == tVec) return true;
+        }
+
+        return false;
+    }
+
+    public void UpdateOnSelectChessAllowMoveVector() // 玩家 可移動地塊更新 重要函式！！！
+    {
+        SelectObjectTroop.UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, SelectObjectTroop);
+        #region 隨便啦 註解掉的東西摺疊起來
+        /*
         OnSelectChessAllowMoveVector.Clear();
         //get current XY
         Vector2 currentXY = new Vector2(SelectObjectTroop.myNowX, SelectObjectTroop.myNowY);
@@ -159,6 +201,22 @@ public class RoundManager : MonoBehaviour
             OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y + i));
             OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y - i));
         }
+
+        switch (SelectObjectTroop.holdingGear)
+        {
+            case gear.car:
+                for (int i = 1; 8 >= i; i++)
+                {
+                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x + i, currentXY.y));
+                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x - i, currentXY.y));
+                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y + i));
+                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y - i));
+                }
+
+                SelectObjectTroop.holdingGear = gear.noGear;
+                break;
+        }*/
+        #endregion
     }
     #endregion
 
@@ -168,6 +226,22 @@ public class RoundManager : MonoBehaviour
         resetUnitSelectState();
 
         roundState = RoundState.EnemyRound;
+    }
+
+    public void EnemyRoundEnd()
+    {
+    }
+
+    #region UI Functions
+    public void SyncUI()
+    {
+        RoundCountShowcase.text = "回合數："+roundCount;
+    }
+    #endregion
+
+    public void DebugSyncEnemyAITroop()
+    {
+
     }
 }
 public enum RoundState
