@@ -68,7 +68,7 @@ public class Troop : MonoBehaviour
         if (myCamp == Camp.Enemy)
         {
             RoundManager RM = FindAnyObjectByType<RoundManager>();
-            RM.EnemyAITroop.Add(this);
+            RM.EnemyAITroop.Remove(this);
         }
 
         gameManager.Troops.Remove(gameObject);
@@ -96,7 +96,7 @@ public class Troop : MonoBehaviour
 
         float d = 100000f;
 
-        if (OnSelectChessAllowMoveVector.Count > 0)
+        if (OnSelectChessAllowMoveVector.Count <= 0)
         {
             return new Vector2(-1, -1);
         }
@@ -118,6 +118,7 @@ public class Troop : MonoBehaviour
 
     public void EnemyLogic()
     {
+        Debug.Log("Enemy Logic Trigger");
         OnSelectChessAllowMoveVector.Clear();
         UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, this);
         ReduceOnSelectChessAllowMoveVector();
@@ -130,7 +131,7 @@ public class Troop : MonoBehaviour
             {
                 if (obj.GetComponent<unit>().TroopsOnMe != null && new Vector2(obj.GetComponent<unit>().myX, obj.GetComponent<unit>().myY) == OnSelectChessAllowMoveVector[i])
                 {
-                    OnSelectChessAllowMoveVector.Remove(OnSelectChessAllowMoveVector[i]);
+                    //OnSelectChessAllowMoveVector.Remove(OnSelectChessAllowMoveVector[i]);
                 }
             }
         }
@@ -150,6 +151,7 @@ public class Troop : MonoBehaviour
 
     public void UpdateOnSelectChessAllowMoveVector(List<Vector2> Vec2List, Troop T) // 可移動地塊更新 重要函式！！！
     {
+        Debug.Log(gameObject.name + "\n camp is:" + myCamp +"\nUpdateOnSelectChessAllowMoveVector Triggered.");
         Vec2List.Clear();
         //get current XY
         Vector2 currentXY = new Vector2(T.myNowX, T.myNowY);

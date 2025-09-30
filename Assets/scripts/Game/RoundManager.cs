@@ -127,7 +127,7 @@ public class RoundManager : MonoBehaviour
 
         for (int i = 0; i < EnemyAITroop.Count; i++)
         {
-            //EnemyAITroop[i].MoveToNext();
+            EnemyAITroop[i].MoveToNext();
         }
         //Var 2 - 每次移動一個目標
 
