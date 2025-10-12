@@ -13,6 +13,9 @@ public class SO_Level : ScriptableObject
     [Header("Level setting")]
     public int allowDeployTroopNumber = 3;
 
+    public MissionType myMissionType = MissionType.Survive;
+    public int SurviveRound = 10;
+    public GameBoardInsChess goldenTarget;
 
     public bool hasPerform;
     public Perform myPerform;
@@ -20,6 +23,8 @@ public class SO_Level : ScriptableObject
     public int gridSizeY = 10;
     public List<GameBoardCell> levelContext = new List<GameBoardCell>();
     public List<GameBoardInsChess> chessInsData = new List<GameBoardInsChess>();
+
+    public List<SO_Chess> spawnChessData = new List<SO_Chess>();
 
 #if UNITY_EDITOR
     private void OnValidate()

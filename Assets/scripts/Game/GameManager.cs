@@ -160,16 +160,29 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < config.chessInsData.Count; i++)
         {
+            SpawnLevelTroop(config.chessInsData[i]);
+            /*
             GameObject myTObj = Instantiate(TroopPrefab);
             Troop myT = myTObj.GetComponent<Troop>();
             myT.myChessData = config.chessInsData[i].chessFile;
             myT.LoadSOData();
 
-
             myT.myNowX = config.chessInsData[i].locationX;
             myT.myNowY = config.chessInsData[i].locationY;
 
-            Troops.Add(myTObj);
+            Troops.Add(myTObj);*/
         }
+    }
+    public void SpawnLevelTroop(GameBoardInsChess GBIC)
+    {
+        GameObject myTObj = Instantiate(TroopPrefab);
+        Troop myT = myTObj.GetComponent<Troop>();
+        myT.myChessData = GBIC.chessFile;
+        myT.LoadSOData();
+
+        myT.myNowX = GBIC.locationX;
+        myT.myNowY = GBIC.locationY;
+
+        Troops.Add(myTObj);
     }
 }

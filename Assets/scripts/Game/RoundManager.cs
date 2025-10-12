@@ -1,9 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.Experimental.GlobalIllumination;
 using System.Collections;
-using UnityEditor;
 
 public class RoundManager : MonoBehaviour
 {
@@ -49,6 +47,10 @@ public class RoundManager : MonoBehaviour
     public Coroutine EnemyAIProcessing;
     public List<Troop> EnemyAITroop;
 
+    [Header("特殊回合相關宣告")]
+    public float specialTime = 1.6f;
+    public Coroutine specialCoroutine;
+
     void Start()
     {
         //INN
@@ -93,6 +95,25 @@ public class RoundManager : MonoBehaviour
                 RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
 
                 break;
+            case RoundState.MySpecialRound:
+                //自動選擇玩家物件
+                //CALL
+                if (SelectObject != null) // Has Selecting Object
+                {
+                    SelectObject.GetComponent<SpriteRenderer>().color = Color.red;
+                    //Sync information on the UI board
+                }
+                else
+                {
+                    //reset the game board UI information
+                }
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    resetUnitSelectState();
+                }
+                RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
+                break;
 
             case RoundState.EnemyRound:
                 RoundStateShowCase.text = "回合狀態：" + enemyRoundStateStr;
@@ -107,6 +128,10 @@ public class RoundManager : MonoBehaviour
 
             case RoundState.Finished:
                 roundCount++;
+                Debug.Log("AA");
+                //新敵人加入戰場
+                RandomSpawnEnemy(gameManager.levelData);
+                RandomSpawnEnemy(gameManager.levelData);
                 roundState = RoundState.MyRound;
                 break;
         }
@@ -135,18 +160,27 @@ public class RoundManager : MonoBehaviour
         EnemyAIProcessing = null;
     }
 
-    public void winLoseJudge()
+    public void MakePlayerDie()
+    {
+        gameManager.MyTroop.GetComponent<Troop>().PlayerDieReaction();
+        Lose();
+    }
+
+    public void WinLoseJudge()
     {
 
     }
 
-    public void win()
+    public void Win()
     {
 
     }
-    public void lose()
+    [Header("SPECIAL DECLARE SWAP")]
+    public Animator playerDieCanvasAnimator;
+    public void Lose()
     {
-
+        playerDieCanvasAnimator.SetTrigger("PlayerDie");
+        Debug.Log("Player Death");
     }
 
     public void GameStartFunc()
@@ -247,11 +281,79 @@ public class RoundManager : MonoBehaviour
     {
 
     }
+
+    public void StartSpecialRound()
+    {
+        //Set Timer;
+        specialCoroutine = StartCoroutine(SpecialRoundTimer(specialTime));
+    }
+
+    public IEnumerator SpecialRoundTimer(float time)
+    {
+        float timeCT = time;
+        while (timeCT > 0)
+        {
+            timeCT-= Time.deltaTime;
+            yield return null;
+        }
+        //使特殊回合失效
+        yield return null;
+    }
+
+    public void RandomSpawnEnemy(SO_Level sO_Level)
+    {
+        if (sO_Level.spawnChessData.Count <= 0)
+        {
+            Debug.Log("AK ERROR: Round Manager - 該關卡無額外生成敵人資料");
+            return;
+        }
+
+        int ranSpawnObjSort = Random.Range(0, sO_Level.spawnChessData.Count);
+
+        //getRandomSpawnPos
+        int L = gameManager.chessBoardObjectRefArr.Length;
+        List<int> sort = new List<int>();
+        List<GameObject> refObjs= new List<GameObject>();
+        foreach (GameObject tObj in gameManager.chessBoardObjectRefArr)
+        {
+            refObjs.Add(tObj);
+        }
+        for(int i=0; i< L; i++) sort.Add(i);
+        int ranSpotSort = 0;
+        Vector2 tarSpawnVector = EMPTY_VECTOR;
+        while (sort.Count > 0)
+        {
+            ranSpotSort = Random.Range(0, sort.Count);
+            if (refObjs[ranSpotSort].gameObject.GetComponent<unit>().TroopsOnMe == null)
+            {
+                //Target is ran spot
+                tarSpawnVector = new Vector2(refObjs[ranSpotSort].gameObject.GetComponent<unit>().myX, refObjs[ranSpotSort].gameObject.GetComponent<unit>().myY);
+                break;
+            }
+            else
+            {
+                refObjs.RemoveAt(ranSpotSort);
+            }
+        }
+        //Check if there's no empty space
+        if (tarSpawnVector == EMPTY_VECTOR)
+        {
+            Debug.Log("AK ERROR: Round Manager - 無法生成新敵人");
+            return;
+        }
+        //Spawn A chess
+        GameBoardInsChess GBIC = new GameBoardInsChess();
+        GBIC.chessFile = sO_Level.spawnChessData[ranSpawnObjSort];
+        GBIC.locationX = (int)tarSpawnVector.x;
+        GBIC.locationY = (int)tarSpawnVector.y;
+        gameManager.SpawnLevelTroop(GBIC);
+    }
 }
 public enum RoundState
 {
     Deploy, //部署
     MyRound, //我的回合
+    MySpecialRound, //獎勵及時特殊回合
     EnemyRound, //敵人回合
     AnimatePlay, //動畫進行
     Finished //完成階段

@@ -9,6 +9,7 @@ public class Troop : MonoBehaviour
     public GameManager gameManager;
     public SO_Chess myChessData;
     public bool isPlayer = false;
+    public RoundManager roundManager;
 
     public Camp myCamp;
 
@@ -39,6 +40,7 @@ public class Troop : MonoBehaviour
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        roundManager = FindAnyObjectByType<RoundManager>();
         LoadSOData();
 
         if (myCamp == Camp.Enemy)
@@ -64,6 +66,11 @@ public class Troop : MonoBehaviour
     public void killTroop()
     {
         //TODO: 將自己從註冊表中移除
+        if (myChessData.isGoldenTarget)
+        {
+            //Let Player Win.
+            roundManager.Win();
+        }
 
         if (myCamp == Camp.Enemy)
         {
@@ -87,6 +94,9 @@ public class Troop : MonoBehaviour
         myNextDes = ClosestVector();
         myNowX = (int)myNextDes.x;
         myNowY = (int)myNextDes.y;
+
+        //傷害判定
+        EnemyOnMouseDownEvent(gameManager.chessBoardObjectRefArr[myNowY, myNowX].GetComponent<unit>());
     }
     
     public Vector2 ClosestVector()
@@ -148,10 +158,83 @@ public class Troop : MonoBehaviour
             }
         }*/
     }
+    public void EnemyOnMouseDownEvent(unit tarUnit) //此方法與unit.cs中的PlayerOnMouseDownEvent相似 修改時請考慮到另外一邊
+    {
+        Debug.Log("tarUnit xy - " + tarUnit.myX + "/" + tarUnit.myY);
+        if (tarUnit.TroopsOnMe == null)
+        {
+            //不攻擊純移動
+        }
+        else
+        {
+
+            switch (tarUnit.TroopsOnMe.myCamp)
+            {
+                case Camp.Enemy: //友方棋子 不該行動或是造成傷害
+
+                    /*TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
+                    //若攻擊未殺死目標，則留在前一格
+                    if (TroopsOnMe.hp <= 0)
+                    {
+                        //被殺死
+                        roundManager.SelectObjectTroop.myNowX = myX;
+                        roundManager.SelectObjectTroop.myNowY = myY;
+                        TroopsOnMe.killTroop();
+
+                        gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
+
+                        //奪取道具？
+                        if (TroopsOnMe.holdingGear != gear.noGear)
+                        {
+                            roundManager.SelectObjectTroop.holdingGear = TroopsOnMe.holdingGear;
+                            gameManager.hintManager.SpawnHintWordPrefab("搶奪道具 - " + TroopsOnMe.holdingGear);
+                        }
+                    }
+                    else
+                    {
+                        //沒被殺死
+                        //先不管
+                    }*/
+                    break;
+
+                case Camp.Bucket: //場地互動道具 如.爆破桶等
+                    tarUnit.TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
+                    gameManager.hintManager.SpawnHintWordPrefab("MOB擊破桶子 - " + tarUnit.TroopsOnMe.myChessData.chessName);
+
+                    //被殺死
+                    tarUnit.TroopsOnMe.killTroop();
+
+                    //依照種類觸發效果 記得可以合併到unit裡面觸發
+                    switch (tarUnit.TroopsOnMe.bucketType)
+                    {
+                        case BucketType.noType:
+                            Debug.Log("MOB 無事發生 歲月靜好 你選擇了一個Bucket類 但沒有選擇觸發效果");
+                            break;
+
+                    }
+                    break;
+
+                case Camp.Item: //道具
+
+                    //被殺死
+                    tarUnit.TroopsOnMe.killTroop();
+
+                    roundManager.SelectObjectTroop.holdingGear = tarUnit.TroopsOnMe.holdingGear;
+                    gameManager.hintManager.SpawnHintWordPrefab("MOB 得到道具 - " + tarUnit.TroopsOnMe.myChessData.chessName);
+                    break;
+
+                case Camp.Player:
+                    //Kill Player
+                    roundManager.MakePlayerDie();
+                    break;
+            }
+        }
+    }
+    #endregion
 
     public void UpdateOnSelectChessAllowMoveVector(List<Vector2> Vec2List, Troop T) // 可移動地塊更新 重要函式！！！
     {
-        Debug.Log(gameObject.name + "\n camp is:" + myCamp +"\nUpdateOnSelectChessAllowMoveVector Triggered.");
+        Debug.Log(gameObject.name + "\n camp is:" + myCamp + "\nUpdateOnSelectChessAllowMoveVector Triggered.");
         Vec2List.Clear();
         //get current XY
         Vector2 currentXY = new Vector2(T.myNowX, T.myNowY);
@@ -179,6 +262,10 @@ public class Troop : MonoBehaviour
                 break;
         }
     }
-    #endregion
+
+    public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+    }
 }
 

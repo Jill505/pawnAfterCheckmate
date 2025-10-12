@@ -16,6 +16,12 @@ MonoBehaviour:
   levelID: Def ID
   levelDesc: Def Desc
   allowDeployTroopNumber: 3
+  myMissionType: 0
+  SurviveRound: 10
+  goldenTarget:
+    chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
+    locationX: 0
+    locationY: 0
   hasPerform: 0
   myPerform:
     myPerform: 0
@@ -521,3 +527,5 @@ MonoBehaviour:
   - chessFile: {fileID: 11400000, guid: 03bf59fb4171f4d4695572622903ab04, type: 2}
     locationX: 3
     locationY: 8
+  spawnChessData:
+  - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}

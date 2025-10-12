@@ -25,6 +25,8 @@ public class SO_Chess : ScriptableObject
 
     public ability[] abilities;
 
+    public bool isGoldenTarget;
+
     [Header("´Ñ¤l¼Æ­È")]
     public int horBlockMoveAbility = 1;
     public int diagonalBlockMoveAbility = 0;

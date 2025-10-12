@@ -61,7 +61,12 @@ public class unit : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        switch (roundManager.roundState) {
+        PlayerOnMouseDownEvent();
+    }
+    public void PlayerOnMouseDownEvent()//此方法與Troop.cs中的EnemyOnMouseDownEvent相似 修改時請考慮到另外一邊
+    {
+        switch (roundManager.roundState)
+        {
             case RoundState.MyRound:
 
                 //if(是我可以移動的範圍)
@@ -80,7 +85,7 @@ public class unit : MonoBehaviour
                         roundManager.UpdateOnSelectChessAllowMoveVector();
                     }
                 }
-                else 
+                else
                 {
                     if (isPlayerAllowMoveSpace)
                     {
@@ -158,11 +163,11 @@ public class unit : MonoBehaviour
                         roundManager.MyRoundEnd();
                     }
                 }
-
                 //回傳GameMaster
                 break;
         }
     }
+
     bool _colorClog;
     void Update()
     {

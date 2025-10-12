@@ -63,5 +63,10 @@ public enum BucketType
 {
     noType,
     firePowderBucket
+}
 
+public enum MissionType
+{
+    Survive,
+    KillTarget
 }
