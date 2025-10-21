@@ -50,6 +50,11 @@ public class RoundManager : MonoBehaviour
     [Header("特殊回合相關宣告")]
     public float specialTime = 1.6f;
     public Coroutine specialCoroutine;
+    public float specialTimeCal = 0f;
+
+    public bool isOnSpecialKill;
+
+    public int playerHitCombo = 0;
 
     void Start()
     {
@@ -92,12 +97,19 @@ public class RoundManager : MonoBehaviour
                     resetUnitSelectState();
                 }
 
-                RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
+                if (!isOnSpecialKill)
+                {
+                    RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
+                }
+                else 
+                {
+                    RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
+                }
 
                 break;
             case RoundState.MySpecialRound:
-                //自動選擇玩家物件
-                //CALL
+                //自動選擇玩家物件並觸發地塊選擇
+                //
                 if (SelectObject != null) // Has Selecting Object
                 {
                     SelectObject.GetComponent<SpriteRenderer>().color = Color.red;
@@ -107,15 +119,11 @@ public class RoundManager : MonoBehaviour
                 {
                     //reset the game board UI information
                 }
-
-                if (Input.GetKeyDown(KeyCode.Mouse1))
-                {
-                    resetUnitSelectState();
-                }
-                RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
+                RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
                 break;
 
             case RoundState.EnemyRound:
+                playerHitCombo = 0;
                 RoundStateShowCase.text = "回合狀態：" + enemyRoundStateStr;
                 if (EnemyAIProcessing != null)
                 {
@@ -258,11 +266,14 @@ public class RoundManager : MonoBehaviour
     }
     #endregion
 
-    public void MyRoundEnd()
+    public void RoundSelectClean()
     {
         OnSelectChessAllowMoveVector.Clear();
         resetUnitSelectState();
-
+    }
+    public void MyRoundEnd()
+    {
+        RoundSelectClean();
         roundState = RoundState.EnemyRound;
     }
 
@@ -282,22 +293,36 @@ public class RoundManager : MonoBehaviour
 
     }
 
-    public void StartSpecialRound()
+    public void StartSpecialRound(int hit)
     {
         //Set Timer;
-        specialCoroutine = StartCoroutine(SpecialRoundTimer(specialTime));
+        //roundState = RoundState.MySpecialRound;
+        isOnSpecialKill = true;
+        float suppT = 0;
+        if (hit > 3) suppT = 1f;
+        specialCoroutine = StartCoroutine(SpecialRoundTimer(specialTime + suppT));
     }
 
     public IEnumerator SpecialRoundTimer(float time)
     {
-        float timeCT = time;
-        while (timeCT > 0)
+        specialTimeCal = time;
+        while (specialTimeCal > 0)
         {
-            timeCT-= Time.deltaTime;
+            specialTimeCal -= Time.deltaTime;
             yield return null;
         }
         //使特殊回合失效
+        SpecialRoundEndFunc();
         yield return null;
+    }
+    public void SpecialRoundEndFunc()
+    {
+        isOnSpecialKill = false;
+        if (specialCoroutine != null)
+        {
+            StopCoroutine(specialCoroutine);
+        }
+        roundState = RoundState.EnemyRound;
     }
 
     public void RandomSpawnEnemy(SO_Level sO_Level)

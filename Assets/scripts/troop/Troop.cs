@@ -160,7 +160,7 @@ public class Troop : MonoBehaviour
     }
     public void EnemyOnMouseDownEvent(unit tarUnit) //此方法與unit.cs中的PlayerOnMouseDownEvent相似 修改時請考慮到另外一邊
     {
-        Debug.Log("tarUnit xy - " + tarUnit.myX + "/" + tarUnit.myY);
+        //Debug.Log("tarUnit xy - " + tarUnit.myX + "/" + tarUnit.myY);
         if (tarUnit.TroopsOnMe == null)
         {
             //不攻擊純移動
@@ -218,9 +218,10 @@ public class Troop : MonoBehaviour
 
                     //被殺死
                     tarUnit.TroopsOnMe.killTroop();
-
+                    roundManager.SelectObjectTroop = this;
                     roundManager.SelectObjectTroop.holdingGear = tarUnit.TroopsOnMe.holdingGear;
                     gameManager.hintManager.SpawnHintWordPrefab("MOB 得到道具 - " + tarUnit.TroopsOnMe.myChessData.chessName);
+                    roundManager.SelectObjectTroop = null;
                     break;
 
                 case Camp.Player:

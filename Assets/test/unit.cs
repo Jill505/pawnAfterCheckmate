@@ -1,4 +1,5 @@
 
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class unit : MonoBehaviour
@@ -56,6 +57,7 @@ public class unit : MonoBehaviour
         else
         {
             //Debug.Log("OnMouseEnter");
+            Debug.LogWarning("Exit還原");
             mySr.color = new Color(1, 1, 1, 1f);
         }
     }
@@ -65,6 +67,7 @@ public class unit : MonoBehaviour
     }
     public void PlayerOnMouseDownEvent()//此方法與Troop.cs中的EnemyOnMouseDownEvent相似 修改時請考慮到另外一邊
     {
+        bool specialKillClog = false;
         switch (roundManager.roundState)
         {
             case RoundState.MyRound:
@@ -90,15 +93,20 @@ public class unit : MonoBehaviour
                     if (isPlayerAllowMoveSpace)
                     {
                         Debug.Log("呼叫結束");
+                        #region 玩家攻擊相關代碼
                         //TODO: 如果我身上有Troop 代表對Troop進行攻擊
                         if (TroopsOnMe == null)
                         {
                             //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 將玩家棋子移動到我身上(改變其XY)
                             roundManager.SelectObjectTroop.myNowX = myX;
                             roundManager.SelectObjectTroop.myNowY = myY;
+
+                            //無殺死目標
+                            roundManager.SpecialRoundEndFunc();
                         }
                         else
                         {
+                            specialKillClog = true;
                             switch (TroopsOnMe.myCamp)
                             {
                                 case Camp.Enemy:
@@ -159,11 +167,27 @@ public class unit : MonoBehaviour
                                     break;
                             }
                         }
+                        #endregion
+                        roundManager.RoundSelectClean();
                         //TODO 並且呼叫RoundMaster回合完成器
-                        roundManager.MyRoundEnd();
+                        if (specialKillClog)
+                        {
+                            //開始特殊回合
+                            roundManager.playerHitCombo++;
+                            roundManager.StartSpecialRound(roundManager.playerHitCombo);
+                        }
+                        else
+                        {
+                            roundManager.MyRoundEnd();
+                        }
                     }
                 }
                 //回傳GameMaster
+                break;
+
+            case RoundState.MySpecialRound:
+
+
                 break;
         }
     }
@@ -185,6 +209,7 @@ public class unit : MonoBehaviour
                     if (_colorClog)
                     {
                         _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
+                        Debug.LogWarning("MyRound還原");
                     }
                 }
                 break;
@@ -193,7 +218,32 @@ public class unit : MonoBehaviour
                 if (_colorClog)
                 {
                     _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
+                    Debug.LogWarning("Enemy還原");
                 }
+                break;
+
+            case RoundState.MySpecialRound:
+                if (gameManager.MyTroop != null)
+                {
+                    if (gameManager.MyTroop.TryGetComponent<Troop>(out Troop myTroopOut))
+                    {
+                        //我要選擇一個目標
+                        roundManager.selectingVector = new Vector2(myX, myY);
+                        roundManager.resetUnitSelectState();
+                        roundManager.SelectObject = roundManager.gameManager.chessBoardObjectRefArr[myY, myX];
+                        //roundManager.SelectObjectTroop = roundManager.SelectObject.GetComponent<Troop>();
+                        //如果地塊上有自己的物件
+                        if (gameManager.MyTroop.GetComponent<Troop>().myNowX == myX && gameManager.MyTroop.GetComponent<Troop>().myNowY == myY)
+                        {
+                            Debug.Log("Triggered" + gameObject.name);
+                            roundManager.SelectObjectTroop = gameManager.MyTroop.GetComponent<Troop>();
+                            roundManager.UpdateOnSelectChessAllowMoveVector();
+                        }
+                    }
+                }
+
+                isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX, myY));
+                //Debug.Log(gameObject.name + "觸發鍊" + isPlayerAllowMoveSpace);
                 break;
         }
 
