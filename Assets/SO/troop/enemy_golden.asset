@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: enemy_golden
   m_EditorClassIdentifier: 
   chessName: 
-  myCamp: 0
-  photoSticker: {fileID: 0}
+  myCamp: 1
+  photoSticker: {fileID: 3301429180262542064, guid: 2e1557f6b65454349a299ee89b9201a2, type: 3}
   spawnGear: 0
   bucketType: 0
   chessDesc: 
@@ -23,9 +23,9 @@ MonoBehaviour:
   move: 1
   maxHp: 1
   hp: 1
-  skin: {fileID: 0}
+  skin: {fileID: 3301429180262542064, guid: 2e1557f6b65454349a299ee89b9201a2, type: 3}
   abilities: 
-  isGoldenTarget: 0
+  isGoldenTarget: 1
   horBlockMoveAbility: 1
   diagonalBlockMoveAbility: 0
   knightBlockMoveAbility: 0

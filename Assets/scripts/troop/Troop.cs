@@ -13,6 +13,8 @@ public class Troop : MonoBehaviour
 
     public Camp myCamp;
 
+    public int surviveRound = 0;
+
     [Range(0, 9)]
     public int myNowX = 0;
     [Range(0, 9)]
@@ -76,6 +78,7 @@ public class Troop : MonoBehaviour
         {
             RoundManager RM = FindAnyObjectByType<RoundManager>();
             RM.EnemyAITroop.Remove(this);
+            roundManager.specialClogAutoSelectionClog = true;
         }
 
         gameManager.Troops.Remove(gameObject);

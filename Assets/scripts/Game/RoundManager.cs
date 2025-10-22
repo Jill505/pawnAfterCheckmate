@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class RoundManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class RoundManager : MonoBehaviour
 
     [Header("Round Variable")]
     public int roundCount =0;
+    public bool goldenTargetSpawned = false;
 
     [Header("Functional Variable")]
     public Vector2 selectingVector = new Vector2(-1, -1);
@@ -54,6 +56,7 @@ public class RoundManager : MonoBehaviour
 
     public bool isOnSpecialKill;
 
+    public bool specialClogAutoSelectionClog;
     public int playerHitCombo = 0;
 
     void Start()
@@ -101,15 +104,32 @@ public class RoundManager : MonoBehaviour
                 {
                     RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
                 }
-                else 
+                else
                 {
+                    if (specialClogAutoSelectionClog)
+                    {
+                        //Waiting;
+                    }
+                    else
+                    {
+                        resetUnitSelectState();
+                        SelectObject = gameManager.chessBoardObjectRefArr[gameManager.Troops[0].GetComponent<Troop>().myNowY, gameManager.Troops[0].GetComponent<Troop>().myNowX];
+                        selectingVector = new Vector2(gameManager.Troops[0].GetComponent<Troop>().myNowX, gameManager.Troops[0].GetComponent<Troop>().myNowY);
+
+                        Debug.Log("Triggered");
+                        SelectObjectTroop = gameManager.MyTroop.GetComponent<Troop>();
+                        UpdateOnSelectChessAllowMoveVector();
+
+                        specialClogAutoSelectionClog = true;
+                    }
                     RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
                 }
 
                 break;
             case RoundState.MySpecialRound:
                 //自動選擇玩家物件並觸發地塊選擇
-                //
+                resetUnitSelectState();
+                SelectObject = gameManager.chessBoardObjectRefArr[gameManager.Troops[0].GetComponent<Troop>().myNowY, gameManager.Troops[0].GetComponent<Troop>().myNowX];
                 if (SelectObject != null) // Has Selecting Object
                 {
                     SelectObject.GetComponent<SpriteRenderer>().color = Color.red;
@@ -136,10 +156,24 @@ public class RoundManager : MonoBehaviour
 
             case RoundState.Finished:
                 roundCount++;
+                resetUnitSelectState();
                 Debug.Log("AA");
                 //新敵人加入戰場
-                RandomSpawnEnemy(gameManager.levelData);
-                RandomSpawnEnemy(gameManager.levelData);
+                RandomSpawnEnemy(gameManager.levelData, false);
+                //RandomSpawnEnemy(gameManager.levelData);
+
+                //勝利狀態判定與生成黃金敵人
+                switch (gameManager.levelData.myMissionType)
+                {
+                    case MissionType.Survive:
+                        if (!goldenTargetSpawned && roundCount >= gameManager.levelData.SurviveRound) 
+                        {
+                            //Spawn Golden Enemy;
+                            RandomSpawnEnemy(gameManager.levelData, true);
+                        }
+                        break;
+                }
+
                 roundState = RoundState.MyRound;
                 break;
         }
@@ -161,6 +195,7 @@ public class RoundManager : MonoBehaviour
         for (int i = 0; i < EnemyAITroop.Count; i++)
         {
             EnemyAITroop[i].MoveToNext();
+            yield return new WaitForSeconds(0.275f); 
         }
         //Var 2 - 每次移動一個目標
 
@@ -181,7 +216,7 @@ public class RoundManager : MonoBehaviour
 
     public void Win()
     {
-
+        Debug.Log("玩家勝利");
     }
     [Header("SPECIAL DECLARE SWAP")]
     public Animator playerDieCanvasAnimator;
@@ -204,6 +239,7 @@ public class RoundManager : MonoBehaviour
             SelectObject = null;
             SelectObjectTroop = null;
             selectingVector = EMPTY_VECTOR;
+            OnSelectChessAllowMoveVector.Clear();
         }
     }
     private void resetUnitSelectState(GameObject obj) //將物件選擇效果狀態清空
@@ -297,6 +333,16 @@ public class RoundManager : MonoBehaviour
     {
         //Set Timer;
         //roundState = RoundState.MySpecialRound;
+
+        resetUnitSelectState();
+        SelectObject = gameManager.chessBoardObjectRefArr[gameManager.Troops[0].GetComponent<Troop>().myNowY, gameManager.Troops[0].GetComponent<Troop>().myNowX];
+        selectingVector = new Vector2(gameManager.Troops[0].GetComponent<Troop>().myNowX, gameManager.Troops[0].GetComponent<Troop>().myNowY);
+
+        Debug.Log("Triggered");
+        SelectObjectTroop = gameManager.MyTroop.GetComponent<Troop>();
+        UpdateOnSelectChessAllowMoveVector();
+
+
         isOnSpecialKill = true;
         float suppT = 0;
         if (hit > 3) suppT = 1f;
@@ -325,7 +371,7 @@ public class RoundManager : MonoBehaviour
         roundState = RoundState.EnemyRound;
     }
 
-    public void RandomSpawnEnemy(SO_Level sO_Level)
+    public void RandomSpawnEnemy(SO_Level sO_Level, bool isSpawnGoldenTarget)
     {
         if (sO_Level.spawnChessData.Count <= 0)
         {
@@ -368,7 +414,14 @@ public class RoundManager : MonoBehaviour
         }
         //Spawn A chess
         GameBoardInsChess GBIC = new GameBoardInsChess();
-        GBIC.chessFile = sO_Level.spawnChessData[ranSpawnObjSort];
+        if (isSpawnGoldenTarget)
+        {
+            GBIC = sO_Level.goldenTarget;
+        }
+        else
+        {
+            GBIC.chessFile = sO_Level.spawnChessData[ranSpawnObjSort];
+        }
         GBIC.locationX = (int)tarSpawnVector.x;
         GBIC.locationY = (int)tarSpawnVector.y;
         gameManager.SpawnLevelTroop(GBIC);
