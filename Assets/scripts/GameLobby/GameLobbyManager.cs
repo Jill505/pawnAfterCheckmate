@@ -16,8 +16,11 @@ public class GameLobbyManager : MonoBehaviour
 
     public void Start()
     {
-        scrollViewManger.AllowScroll = true;
-        scrollViewManger.AllowZoom = true;
+        if (scrollViewManger != null)
+        {
+            scrollViewManger.AllowScroll = true;
+            scrollViewManger.AllowZoom = true;
+        }
     }
     public void StartLevelInspect(LevelWorldButton levelButt)
     {

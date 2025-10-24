@@ -13,7 +13,7 @@ public class SO_PlayerConfig : ScriptableObject
     public string ReturnSOData()
     {
         string jsonStr = JsonUtility.ToJson(this);
-        SaveAllChess();
+        //SaveAllChess();
         return jsonStr;
     }
     public void SaveAllChess()
@@ -33,7 +33,7 @@ public class SO_PlayerConfig : ScriptableObject
             string p = Application.persistentDataPath + AllGameManager.path + "_myChess_" + i;
             if (File.Exists(p))
             {
-                allChess[i].LoadSOData(File.ReadAllText(p));
+                //allChess[i].LoadSOData(File.ReadAllText(p));
             }
             else
             {
