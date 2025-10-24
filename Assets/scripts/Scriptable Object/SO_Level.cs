@@ -19,37 +19,14 @@ public class SO_Level : ScriptableObject
 
     public bool hasPerform;
     public Perform myPerform;
-    public int gridSizeX  =10;
-    public int gridSizeY = 10;
+    public int gridSizeX  =9;
+    public int gridSizeY = 9;
     public List<GameBoardCell> levelContext = new List<GameBoardCell>();
     public List<GameBoardInsChess> chessInsData = new List<GameBoardInsChess>();
 
     public List<SO_Chess> spawnChessData = new List<SO_Chess>();
 
-#if UNITY_EDITOR
-    private void OnValidate()
-    {/*
-        if (gridSizeX < 1) gridSizeX = 1;
-        if (gridSizeY < 1) gridSizeY = 1;
-        //自動更新
-        
-        //bigger
-        if (levelContext.Count > (gridSizeX * gridSizeY))
-        {
-            for (int i = levelContext.Count; i < gridSizeX * gridSizeY; i++)
-            {
-                levelContext.Add(new GameBoardCell());
-            }
-        }
-
-        //smaller
-        if (levelContext.Count < (gridSizeX * gridSizeY))
-        {
-            for (int i = levelContext.Count - 1; i > gridSizeX * gridSizeY; i--)
-            {
-                levelContext.RemoveAt(i);
-            }
-        }*/
+/*#if UNITY_EDITOR
         if (gridSizeX < 1) gridSizeX = 1;
         if (gridSizeY < 1) gridSizeY = 1;
 
@@ -76,7 +53,7 @@ public class SO_Level : ScriptableObject
             }
         }
     }
-#endif
+#endif*/
 }
 
 [System.Serializable]

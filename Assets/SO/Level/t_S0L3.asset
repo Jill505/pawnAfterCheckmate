@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
-  m_Name: SO_Level
+  m_Name: t_S0L3
   m_EditorClassIdentifier: 
   levelName: Def name
   levelID: Def ID
@@ -33,486 +33,499 @@ MonoBehaviour:
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 0
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 0
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 0
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 0
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 0
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 0
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 0
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 0
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 0
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 1
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 1
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 1
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 1
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 1
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 1
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 1
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 1
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 1
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 2
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 2
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 2
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 2
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 2
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 2
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 2
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 2
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 2
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 2
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 3
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 3
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 3
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 3
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 3
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 3
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 3
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 3
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 3
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 3
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 4
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 4
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 4
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 4
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 4
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 4
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 4
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 4
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 4
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 4
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 5
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 5
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 5
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 5
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 5
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 5
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 5
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 5
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 5
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 5
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 6
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 6
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 6
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 6
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 6
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 6
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 6
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 6
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 6
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 6
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 7
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 7
     locationY: 1
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 7
     locationY: 2
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 7
     locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 7
     locationY: 4
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 7
     locationY: 5
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 7
     locationY: 6
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 7
     locationY: 7
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
+    performID: DarkerTerrain
   - locationX: 7
     locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 9
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
+    performID: LighterTerrain
   - locationX: 8
     locationY: 0
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
-    performID: 
-  chessInsData: []
-  spawnChessData: []
+    performID: DarkerTerrain
+  - locationX: 8
+    locationY: 1
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: LighterTerrain
+  - locationX: 8
+    locationY: 2
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: DarkerTerrain
+  - locationX: 8
+    locationY: 3
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: LighterTerrain
+  - locationX: 8
+    locationY: 4
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: DarkerTerrain
+  - locationX: 8
+    locationY: 5
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: LighterTerrain
+  - locationX: 8
+    locationY: 6
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: DarkerTerrain
+  - locationX: 8
+    locationY: 7
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: LighterTerrain
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: DarkerTerrain
+  chessInsData:
+  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    locationX: 0
+    locationY: 5
+  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    locationX: 5
+    locationY: 0
+  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    locationX: 5
+    locationY: 5
+  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    locationX: 0
+    locationY: 0
+  spawnChessData:
+  - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}

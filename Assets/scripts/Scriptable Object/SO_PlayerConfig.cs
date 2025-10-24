@@ -13,7 +13,7 @@ public class SO_PlayerConfig : ScriptableObject
     public string ReturnSOData()
     {
         string jsonStr = JsonUtility.ToJson(this);
-        //SaveAllChess();
+        SaveAllChess();
         return jsonStr;
     }
     public void SaveAllChess()

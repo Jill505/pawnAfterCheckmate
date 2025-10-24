@@ -82,38 +82,8 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
-  - locationX: 1
-    locationY: 0
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 1
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 2
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 3
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 4
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 1
-    locationY: 5
+  - locationX: 0
+    locationY: 9
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -125,13 +95,25 @@ MonoBehaviour:
     passable: 1
     performID: 
   - locationX: 1
-    locationY: 7
+    locationY: 8
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
     performID: 
   - locationX: 1
-    locationY: 8
+    locationY: 9
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 1
+    locationY: 10
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 1
+    locationY: 12
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -190,6 +172,30 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
+  - locationX: 2
+    locationY: 9
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 2
+    locationY: 10
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 2
+    locationY: 11
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 2
+    locationY: 12
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
   - locationX: 3
     locationY: 0
     isDeployed: 0
@@ -244,6 +250,30 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
+  - locationX: 3
+    locationY: 9
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 3
+    locationY: 10
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 3
+    locationY: 11
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 3
+    locationY: 12
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
   - locationX: 4
     locationY: 0
     isDeployed: 0
@@ -298,6 +328,30 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
+  - locationX: 4
+    locationY: 9
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 4
+    locationY: 10
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 4
+    locationY: 11
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 4
+    locationY: 12
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
   - locationX: 5
     locationY: 0
     isDeployed: 0
@@ -352,6 +406,30 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
+  - locationX: 5
+    locationY: 9
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 5
+    locationY: 10
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 5
+    locationY: 11
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 5
+    locationY: 12
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
   - locationX: 6
     locationY: 0
     isDeployed: 0
@@ -364,122 +442,8 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
-  - locationX: 6
-    locationY: 2
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 6
-    locationY: 3
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 6
-    locationY: 4
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 6
-    locationY: 5
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 6
-    locationY: 6
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 6
-    locationY: 7
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 6
+  - locationX: 8
     locationY: 8
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 0
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 1
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 2
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 3
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 4
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 5
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 6
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 7
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 7
-    locationY: 8
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 8
-    locationY: 0
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 8
-    locationY: 1
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 8
-    locationY: 2
-    isDeployed: 0
-    isAbleToDeploy: 0
-    passable: 1
-    performID: 
-  - locationX: 8
-    locationY: 3
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1
@@ -510,6 +474,42 @@ MonoBehaviour:
     performID: 
   - locationX: 8
     locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 8
+    locationY: 8
+    isDeployed: 0
+    isAbleToDeploy: 0
+    passable: 1
+    performID: 
+  - locationX: 1
+    locationY: 11
     isDeployed: 0
     isAbleToDeploy: 0
     passable: 1

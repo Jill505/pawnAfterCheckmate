@@ -1610,7 +1610,7 @@ PrefabInstance:
     - target: {fileID: 8577903923214914723, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: levelInfo
       value: 
-      objectReference: {fileID: 11400000, guid: c5003c366ce5c2d4b8d8396228f2e0fb, type: 2}
+      objectReference: {fileID: 11400000, guid: ccfccc156abc5814b8f7da76c0cb9991, type: 2}
     - target: {fileID: 8577903923214914723, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: playerConfig
       value: 

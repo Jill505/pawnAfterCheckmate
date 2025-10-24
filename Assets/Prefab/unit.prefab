@@ -101,8 +101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a7a866f12ee0f439b10000009c13ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundMaster: {fileID: 0}
+  gameManager: {fileID: 0}
+  roundManager: {fileID: 0}
   mySr: {fileID: 1332353344513940129}
+  myX: 0
+  myY: 0
+  selecting: 0
+  passable: 1
+  isDeployed: 0
+  isAbleToDeploy: 0
+  isPlayerAllowMoveSpace: 0
+  TroopsOnMe: {fileID: 0}
 --- !u!61 &5626426293944665110
 BoxCollider2D:
   m_ObjectHideFlags: 0
