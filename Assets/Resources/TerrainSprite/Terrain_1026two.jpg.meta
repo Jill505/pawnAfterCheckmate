@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6684ac145896f2a41beed49c88cb3e6c
+guid: cca6e7ba47c164c43b6e9c1950ff4484
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3681983570184523233
-    second: LighterTerrain_0
+      213: -6603180229689492777
+    second: Terrain_1026two_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2126
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LighterTerrain_0
+      name: Terrain_1026two_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f12b35e6377f6ecc0800000000000000
-      internalID: -3681983570184523233
+      spriteID: 7dab975f09acc54a0800000000000000
+      internalID: -6603180229689492777
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LighterTerrain_0: -3681983570184523233
+      Terrain_1026two_0: -6603180229689492777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

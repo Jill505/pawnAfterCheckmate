@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     [Header("System")]
@@ -86,7 +88,7 @@ public class GameManager : MonoBehaviour
         //´è¬VÂÐ»\
         for (int i = 0; i < config.levelContext.Count; i++)
         {
-            Debug.Log("Render config...");
+            //Debug.Log("Render config...");
             GameObject tarObj = chessBoardObjectRefArr[config.levelContext[i].locationX, config.levelContext[i].locationY];
             unit tarUnit = tarObj.GetComponent<unit>();
             tarUnit.ApplyPerform(config.levelContext[i].performID);
@@ -184,5 +186,10 @@ public class GameManager : MonoBehaviour
         myT.myNowY = GBIC.locationY;
 
         Troops.Add(myTObj);
+    }
+
+    public void SwapFunction_BackToLobby()
+    {
+        SceneManager.LoadScene(1);
     }
 }

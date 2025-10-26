@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements.Experimental;
 
 [CreateAssetMenu(fileName = "SO_Chess", menuName = "Scriptable Objects/SO_Chess")]
@@ -27,8 +28,9 @@ public class SO_Chess : ScriptableObject
 
     public bool isGoldenTarget;
 
-    [Header("棋子數值")]
+    [Header("棋子初始數值")]
     public int horBlockMoveAbility = 1;
+    public int verticalBlockMoveAbility = 1;
     public int diagonalBlockMoveAbility = 0;
     public int knightBlockMoveAbility = 0;
     public int AttackStr = 1;

@@ -155,6 +155,9 @@ public class RoundManager : MonoBehaviour
                 break;
 
             case RoundState.Finished:
+
+                EnemyEvolve();
+
                 roundCount++;
                 resetUnitSelectState();
                 Debug.Log("AA");
@@ -166,7 +169,7 @@ public class RoundManager : MonoBehaviour
                 switch (gameManager.levelData.myMissionType)
                 {
                     case MissionType.Survive:
-                        if (!goldenTargetSpawned && roundCount >= gameManager.levelData.SurviveRound) 
+                        if (!goldenTargetSpawned && roundCount == gameManager.levelData.SurviveRound) 
                         {
                             //Spawn Golden Enemy;
                             RandomSpawnEnemy(gameManager.levelData, true);
@@ -214,9 +217,12 @@ public class RoundManager : MonoBehaviour
 
     }
 
+    public GameObject WinCanvas_DeclareForSwap;
     public void Win()
     {
+        WinCanvas_DeclareForSwap.SetActive(true);
         Debug.Log("玩家勝利");
+        
     }
     [Header("SPECIAL DECLARE SWAP")]
     public Animator playerDieCanvasAnimator;
@@ -246,6 +252,16 @@ public class RoundManager : MonoBehaviour
     {
         obj.GetComponent<SpriteRenderer>().color = Color.white;     
     }
+
+    public void EnemyEvolve()
+    {
+        for (int i = 1; i < gameManager.Troops.Count; i++)
+        {
+            gameManager.Troops[i].GetComponent<Troop>().surviveRound++;
+            gameManager.Troops[i].GetComponent<Troop>().EnemyEvo();
+        }
+    }
+
     #region 選擇系統
     public bool IsMeSelectableUnit(Vector2 myVec) //玩家可以移動到的地點
     {

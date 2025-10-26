@@ -42,6 +42,11 @@ public enum ability
     bowElt,    //弓箭擅長
     carElt,    //車擅長
     canonElt, //炮擅長
+
+    evo_HorMoveAbility,
+    evo_VarMoveAbility,
+
+    evo_XMoveAbility,
 }
 
 public enum SaveFileType

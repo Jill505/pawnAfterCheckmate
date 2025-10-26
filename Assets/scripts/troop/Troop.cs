@@ -1,8 +1,7 @@
-
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class Troop : MonoBehaviour
 {
@@ -28,6 +27,26 @@ public class Troop : MonoBehaviour
     public bool isPassable = false;
     public BucketType bucketType;
 
+    [Header("棋子UI顯示")]
+    public Text MySurviveRoundShowCase;
+
+    [Header("能力")]
+    public ability[] myAbilities;
+
+
+    [Header("旗子移動數值")]
+    public int horBlockMoveAbility = 0;
+    public int verticalBlockMoveAbility = 0;
+    public int diagonalBlockMoveAbility = 0;
+    public int knightBlockMoveAbility = 0;
+    public int AttackStr = 1;
+
+    [Header("盾牌")]
+    public bool hasUpperShield = false;
+    public bool hasLowerShield = false;
+    public bool hasLeftShield = false;  
+    public bool hasRightShield = false;
+
     public void LoadSOData()
     {
         hp = myChessData.hp;
@@ -37,6 +56,15 @@ public class Troop : MonoBehaviour
         myCamp = myChessData.myCamp;
         holdingGear = myChessData.spawnGear;
         bucketType = myChessData.bucketType;
+
+        horBlockMoveAbility = myChessData.horBlockMoveAbility;
+        verticalBlockMoveAbility = myChessData.verticalBlockMoveAbility;
+        diagonalBlockMoveAbility = myChessData.diagonalBlockMoveAbility;
+        knightBlockMoveAbility = myChessData.knightBlockMoveAbility;
+
+        AttackStr = myChessData.AttackStr;
+
+        myAbilities = myChessData.abilities;
     }
 
     void Start()
@@ -55,13 +83,29 @@ public class Troop : MonoBehaviour
     void Update()
     {
         myPosSync();
+        myUISync();
     }
     public void myPosSync()
     {
-        if (gameManager.chessBoardObjectRefArr.GetLength(0) > myNowX && gameManager.chessBoardObjectRefArr.GetLength(1) > myNowY && myNowX >=0 && myNowY >=0)
+        if (gameManager.chessBoardObjectRefArr.GetLength(0) > myNowX && gameManager.chessBoardObjectRefArr.GetLength(1) > myNowY && myNowX >= 0 && myNowY >= 0)
         {
             Vector2 vec = gameManager.chessBoardObjectRefArr[myNowY, myNowX].transform.position;
             transform.position = vec;
+        }
+    }
+
+    public void myUISync()
+    {
+        if (myCamp == Camp.Player)
+        {
+            MySurviveRoundShowCase.text = "";
+        }
+        else
+        {
+            if (MySurviveRoundShowCase != null)
+            {
+                MySurviveRoundShowCase.text = surviveRound + "";
+            }
         }
     }
 
@@ -101,7 +145,7 @@ public class Troop : MonoBehaviour
         //傷害判定
         EnemyOnMouseDownEvent(gameManager.chessBoardObjectRefArr[myNowY, myNowX].GetComponent<unit>());
     }
-    
+
     public Vector2 ClosestVector()
     {
         Vector2 tar = new Vector2();
@@ -125,7 +169,7 @@ public class Troop : MonoBehaviour
             }
         }
 
-        return tar; 
+        return tar;
     }
 
 
@@ -140,23 +184,35 @@ public class Troop : MonoBehaviour
     {
         for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
         {
+            // 先把目前要比的目標存起來，避免移除後再用索引取值
+            var target = OnSelectChessAllowMoveVector[i];
+
+            foreach (var obj in gameManager.chessBoardObjectRefArr)
+            {
+                if (obj == null) continue;
+                if (!obj.TryGetComponent<unit>(out unit u)) continue;
+                if (u.TroopsOnMe == null) continue;//二次檢查
+
+                if (u.TroopsOnMe.myCamp == Camp.Player) continue;
+
+                // 建議整個專案改用 Vector2Int；若現在列表是 Vector2，可先 RoundToInt
+                // 這段GPT改的
+                var pos = new Vector2Int(u.myX, u.myY);
+                if (pos == Vector2Int.RoundToInt(target) )
+                {
+                    OnSelectChessAllowMoveVector.RemoveAt(i);
+                    break; // 避免在同一個 i 上繼續讀取已被縮短的 List
+                }
+            }
+        }
+
+        /*for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
+        {
             foreach (GameObject obj in gameManager.chessBoardObjectRefArr)
             {
                 if (obj.GetComponent<unit>().TroopsOnMe != null && new Vector2(obj.GetComponent<unit>().myX, obj.GetComponent<unit>().myY) == OnSelectChessAllowMoveVector[i])
                 {
-                    //OnSelectChessAllowMoveVector.Remove(OnSelectChessAllowMoveVector[i]);
-                }
-            }
-        }
-        
-            /*
-        foreach (Vector2 vec in OnSelectChessAllowMoveVector)
-        {
-            foreach (GameObject obj in gameManager.chessBoardObjectRefArr)
-            {
-                if (obj.GetComponent<unit>().TroopsOnMe != null && new Vector2(obj.GetComponent<unit>().myX, obj.GetComponent<unit>().myY) == vec)
-                {
-                    OnSelectChessAllowMoveVector.Remove(vec);
+                    OnSelectChessAllowMoveVector.Remove(OnSelectChessAllowMoveVector[i]);
                 }
             }
         }*/
@@ -243,10 +299,14 @@ public class Troop : MonoBehaviour
         //get current XY
         Vector2 currentXY = new Vector2(T.myNowX, T.myNowY);
         //Hor select cal
-        for (int i = 1; T.myChessData.horBlockMoveAbility >= i; i++)
+        for (int i = 1; T.horBlockMoveAbility >= i; i++)
         {
             Vec2List.Add(new Vector2(currentXY.x + i, currentXY.y));
             Vec2List.Add(new Vector2(currentXY.x - i, currentXY.y));
+        }
+
+        for (int i = 1; T.verticalBlockMoveAbility >= i; i++)
+        {
             Vec2List.Add(new Vector2(currentXY.x, currentXY.y + i));
             Vec2List.Add(new Vector2(currentXY.x, currentXY.y - i));
         }
@@ -269,7 +329,38 @@ public class Troop : MonoBehaviour
 
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void EnemyEvo()
+    {
+        if (myCamp == Camp.Enemy)
+        {
+            for (int i = 0; i < myAbilities.Length; i++)
+            {
+                EvoFunction(myAbilities[i]);
+            }
+        }
+    }
+    public void EvoFunction(ability abi)
+    {
+        switch (abi)
+        {
+            case ability.evo_HorMoveAbility:
+                horBlockMoveAbility++;
+                break;
+
+
+            case ability.evo_VarMoveAbility:
+                verticalBlockMoveAbility++;
+                break;
+
+
+            case ability.evo_XMoveAbility:
+                diagonalBlockMoveAbility++;
+                break;
+        }
     }
 }
+
 
