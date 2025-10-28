@@ -3,11 +3,14 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Experimental.GlobalIllumination;
+using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
     [Header("System")]
     public GameManager gameManager;
+    public CameraManager cameraManager;
 
     [Header("Game Information")]
     public bool GameGoing = false;
@@ -220,16 +223,27 @@ public class RoundManager : MonoBehaviour
     public GameObject WinCanvas_DeclareForSwap;
     public void Win()
     {
-        WinCanvas_DeclareForSwap.SetActive(true);
+        //WinCanvas_DeclareForSwap.SetActive(true);
+        //cameraManager.ExitGameCamera();
         Debug.Log("ª±®a³Ó§Q");
-        
+
+        StartCoroutine(WaitExitCall());
     }
+    IEnumerator WaitExitCall()
+    {
+        cameraManager.ExitGameCamera();
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
+    }
+
     [Header("SPECIAL DECLARE SWAP")]
     public Animator playerDieCanvasAnimator;
     public void Lose()
     {
         playerDieCanvasAnimator.SetTrigger("PlayerDie");
         Debug.Log("Player Death");
+
+        StartCoroutine(WaitExitCall());
     }
 
     public void GameStartFunc()
