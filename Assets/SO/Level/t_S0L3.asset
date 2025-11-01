@@ -518,7 +518,7 @@ MonoBehaviour:
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
     locationX: 0
     locationY: 5
-  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+  - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
     locationX: 5
     locationY: 0
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}

@@ -300,35 +300,8 @@ public class RoundManager : MonoBehaviour
     public void UpdateOnSelectChessAllowMoveVector() // 玩家 可移動地塊更新 重要函式！！！
     {
         SelectObjectTroop.UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, SelectObjectTroop);
-        #region 隨便啦 註解掉的東西摺疊起來
-        /*
-        OnSelectChessAllowMoveVector.Clear();
-        //get current XY
-        Vector2 currentXY = new Vector2(SelectObjectTroop.myNowX, SelectObjectTroop.myNowY);
-        //Hor select cal
-        for (int i = 1; SelectObjectTroop.myChessData.horBlockMoveAbility >= i; i++)
-        {
-            OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x + i, currentXY.y));
-            OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x - i, currentXY.y));
-            OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y + i));
-            OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y - i));
-        }
+        //玩家Reduce
 
-        switch (SelectObjectTroop.holdingGear)
-        {
-            case gear.car:
-                for (int i = 1; 8 >= i; i++)
-                {
-                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x + i, currentXY.y));
-                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x - i, currentXY.y));
-                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y + i));
-                    OnSelectChessAllowMoveVector.Add(new Vector2(currentXY.x, currentXY.y - i));
-                }
-
-                SelectObjectTroop.holdingGear = gear.noGear;
-                break;
-        }*/
-        #endregion
     }
     #endregion
 

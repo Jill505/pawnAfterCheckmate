@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using Mono.Cecil;
+using Unity.VisualScripting;
 
 public class Troop : MonoBehaviour
 {
@@ -178,6 +180,7 @@ public class Troop : MonoBehaviour
         Debug.Log("Enemy Logic Trigger");
         OnSelectChessAllowMoveVector.Clear();
         UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, this);
+        //For Mob Reduce
         ReduceOnSelectChessAllowMoveVector();
     }
     public void ReduceOnSelectChessAllowMoveVector()
@@ -311,6 +314,26 @@ public class Troop : MonoBehaviour
             Vec2List.Add(new Vector2(currentXY.x, currentXY.y - i));
         }
 
+        for (int i = 1; T.diagonalBlockMoveAbility >= i; i++)
+        {
+            Vec2List.Add(new Vector2(currentXY.x + i, currentXY.y + i));
+            Vec2List.Add(new Vector2(currentXY.x + i, currentXY.y - i));
+            Vec2List.Add(new Vector2(currentXY.x - i, currentXY.y + i));
+            Vec2List.Add(new Vector2(currentXY.x - i, currentXY.y - i));
+        }
+
+        for (int i = 1; T.knightBlockMoveAbility >= i; i++)
+        {
+            Vec2List.Add(new Vector2(currentXY.x - 1, currentXY.y + 2));
+            Vec2List.Add(new Vector2(currentXY.x + 1, currentXY.y + 2));
+            Vec2List.Add(new Vector2(currentXY.x - 2, currentXY.y + 1));
+            Vec2List.Add(new Vector2(currentXY.x - 2, currentXY.y + -1));
+            Vec2List.Add(new Vector2(currentXY.x + 2, currentXY.y + 1));
+            Vec2List.Add(new Vector2(currentXY.x + 2, currentXY.y - 1));
+            Vec2List.Add(new Vector2(currentXY.x + 1, currentXY.y - 2));
+            Vec2List.Add(new Vector2(currentXY.x - 1, currentXY.y - 2));
+        }
+
         switch (T.holdingGear)
         {
             case gear.car:
@@ -325,6 +348,99 @@ public class Troop : MonoBehaviour
                 T.holdingGear = gear.noGear;
                 break;
         }
+
+        GeneralReduceRule(Vec2List, T);
+    }
+    public void GeneralReduceRule(List<Vector2> Vec2List, Troop T)
+    {
+        Debug.Log("學士路東觸發");
+        //shield reduce - 上盾牌 抵擋來自上方的攻擊 即檢測玩家正下方地塊目標
+        #region 上盾牌
+        for (int i = Vec2List.Count - 1; i >= 0; i--)
+        {
+            //檢測為玩家下方, 即x相同, y小於的區塊, 這個區域內的上盾牌可以發揮作用
+            if (Vec2List[i].x == T.myNowX && Vec2List[i].y < T.myNowY)
+            {
+                //檢測該座標是否存在
+                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                //檢測該座標對應區塊是否有單位存在
+                Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
+                if (ST == null) continue;
+
+                //檢測該單位是否擁有上盾牌 有則將其於可移動地塊中刪除
+                if (ST.hasUpperShield)
+                {
+                    Vec2List.Remove(Vec2List[i]);
+                    Debug.Log("學士路東觸發 - 上");
+                }
+            }
+        }
+        #endregion
+
+        //shield reduce - 下盾牌 抵擋來自下方的攻擊 即檢測玩家正上方地塊目標
+        #region 下盾牌
+        for (int i = Vec2List.Count - 1; i >= 0; i--)
+        {
+            //檢測為玩家下方, 即x相同, y小於的區塊, 這個區域內的上盾牌可以發揮作用
+            if (Vec2List[i].x == T.myNowX && Vec2List[i].y > T.myNowY)
+            {
+                //檢測該座標是否存在
+                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                //檢測該座標對應區塊是否有單位存在
+                Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
+                if (ST == null) continue;
+
+                //檢測該單位是否擁有上盾牌 有則將其於可移動地塊中刪除
+                if (ST.hasLowerShield)
+                {
+                    Vec2List.Remove(Vec2List[i]);
+                    Debug.Log("學士路東觸發 - 下");
+                }
+            }
+        }
+        #endregion
+
+        //shield reduce - 左盾牌 抵擋來自左方的攻擊 即檢測玩家正右方地塊目標
+        #region 左盾牌
+        for (int i = Vec2List.Count - 1; i >= 0; i--)
+        {
+            if (Vec2List[i].x > T.myNowX && Vec2List[i].y == T.myNowY)
+            {
+                //檢測該座標是否存在
+                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                //檢測該座標對應區塊是否有單位存在
+                Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
+                if (ST == null) continue;
+
+                //檢測該單位是否擁有上盾牌 有則將其於可移動地塊中刪除
+                if (ST.hasLeftShield)
+                {
+                    Vec2List.Remove(Vec2List[i]);
+                    Debug.Log("學士路東觸發 - 左");
+                }
+            }
+        }
+        #endregion
+        #region 右盾牌
+        for (int i = Vec2List.Count - 1; i >= 0; i--)
+        {
+            if (Vec2List[i].x < T.myNowX && Vec2List[i].y == T.myNowY)
+            {
+                //檢測該座標是否存在
+                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                //檢測該座標對應區塊是否有單位存在
+                Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
+                if (ST == null) continue;
+
+                //檢測該單位是否擁有上盾牌 有則將其於可移動地塊中刪除
+                if (ST.hasRightShield)
+                {
+                    Vec2List.Remove(Vec2List[i]);
+                    Debug.Log("學士路東觸發 - 右");
+                }
+            }
+        }
+        #endregion
     }
 
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
