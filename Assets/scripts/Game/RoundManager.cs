@@ -44,6 +44,11 @@ public class RoundManager : MonoBehaviour
     public string enemyRoundStateStr = "敵人回合";
     public Text RoundCountShowcase;
 
+    public Image TroopSkinShowcase;
+    public Text TroopNameShowcase;
+    public Text TroopSurviveShowcase;
+    public Text TroopDescShowcase;
+
     [Header("選擇系統")]
     public List<Vector2> OnSelectChessAllowMoveVector;
     public List<Vector2> OnEnemyChessAllowAttackVector;
@@ -320,10 +325,26 @@ public class RoundManager : MonoBehaviour
     {
     }
 
-    #region UI Functions
+    #region UI 功能
     public void SyncUI()
     {
         RoundCountShowcase.text = "回合數："+roundCount;
+        TroopInformationUISync();
+    }
+    public void TroopInformationUISync()
+    {
+        if (onFloatingObject != null)
+        {
+            if (onFloatingObject.GetComponent<unit>().TroopsOnMe != null)
+            {
+                Troop ST = onFloatingObject.GetComponent<unit>().TroopsOnMe;
+                TroopSkinShowcase.sprite = ST.myChessData.skin;
+
+                TroopNameShowcase.text = ST.myChessData.chessName;
+                TroopSurviveShowcase.text = "存活回合：" + ST.surviveRound;
+                TroopDescShowcase.text = ST.myChessData.chessDesc;
+            }
+        }
     }
     #endregion
 

@@ -26,8 +26,8 @@ MonoBehaviour:
   skin: {fileID: -9084773156736857509, guid: 647de99163c338146bf09a28c5ed9f7c, type: 3}
   abilities: 
   isGoldenTarget: 0
-  horBlockMoveAbility: 0
-  verticalBlockMoveAbility: 0
-  diagonalBlockMoveAbility: 0
-  knightBlockMoveAbility: 1
+  horBlockMoveAbility: 2
+  verticalBlockMoveAbility: 2
+  diagonalBlockMoveAbility: 2
+  knightBlockMoveAbility: 0
   AttackStr: 1

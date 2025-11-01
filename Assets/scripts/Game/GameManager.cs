@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI context")]
     public Text levelName;
-
+    public Text GameTarget;
 
     [Header("Calculate Variable")]
     public Vector2 spawnReferencePoint = Vector2.zero;
@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     {
         CheckLevelConstructorCount();
         LevelCheckAndLoad();
+
+        GameTargetUISet();
     }
 
     // Update is called once per frame
@@ -191,5 +193,17 @@ public class GameManager : MonoBehaviour
     public void SwapFunction_BackToLobby()
     {
         SceneManager.LoadScene(1);
+    }
+    public void GameTargetUISet()
+    {
+        string TargetStr = "";
+        
+        switch (levelData.myMissionType) {
+            case (MissionType.Survive):
+                TargetStr = "目標\n存活" + levelData.SurviveRound +  "回合";
+                break;
+        }
+
+        GameTarget.text = TargetStr;
     }
 }
