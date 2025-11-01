@@ -70,6 +70,8 @@ public class GameLobbyCameraController : MonoBehaviour
         gameLobbyManager.scrollViewManger.AllowScroll = false;
         gameLobbyManager.scrollViewManger.AllowZoom = false;
 
+        OnAutoOrthographicSize = 1.8f;
+
         movingCount = 0f;
         offset = -1*(CameraOffsetRefObject.transform.localPosition);
         targetPos = pos + offset;
