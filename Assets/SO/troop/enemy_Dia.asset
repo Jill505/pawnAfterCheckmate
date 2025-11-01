@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
-  m_Name: enemy_golden
+  m_Name: enemy_Dia
   m_EditorClassIdentifier: 
-  chessName: "\u738B"
+  chessName: "\u659C\u8D70\u5175"
   myCamp: 1
-  photoSticker: {fileID: 3235302403164516975, guid: b0d781625bfa1f649b5de52fcdbde89a, type: 3}
+  photoSticker: {fileID: -6639742022292056089, guid: 39ab08c46675c664888cf512b94fb803, type: 3}
   spawnGear: 0
   bucketType: 0
-  chessDesc: "\u63CF\u8FF0"
+  chessDesc: "\u659C\u8457\u8D70\u7684\u5175\uFF0C\u6BCF\u56DE\u5408\u9032\u5316\u4E00\u6B21"
   Level: 1
   Exp: 0
   move: 1
   maxHp: 1
   hp: 1
-  skin: {fileID: 3235302403164516975, guid: b0d781625bfa1f649b5de52fcdbde89a, type: 3}
-  abilities: 
-  isGoldenTarget: 1
-  horBlockMoveAbility: 1
-  verticalBlockMoveAbility: 1
-  diagonalBlockMoveAbility: 0
+  skin: {fileID: -6639742022292056089, guid: 39ab08c46675c664888cf512b94fb803, type: 3}
+  abilities: 07000000
+  isGoldenTarget: 0
+  horBlockMoveAbility: 0
+  verticalBlockMoveAbility: 0
+  diagonalBlockMoveAbility: 1
   knightBlockMoveAbility: 0
   AttackStr: 1
