@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Loading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class LevelLoader : MonoBehaviour
     [Header("Component Ref")]
     public SO_Level loadLevel;
     public GameObject levelConstructorGameObject;
+    public GameLobbyCameraController GLCC;
 
     [Header("Level Canvas")]
     public Text levelShowName;
@@ -28,8 +30,18 @@ public class LevelLoader : MonoBehaviour
             swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
             DontDestroyOnLoad(swap);
 
-            SceneManager.LoadScene("Fight");
+            StartCoroutine(LoadSceneCoroutine());
+            //SceneManager.LoadScene("Fight");
         }
+    }
+
+    public Animator canvasMaskAnimator;
+    public IEnumerator LoadSceneCoroutine()
+    {
+        GLCC.OnAutoOrthographicSize = 0.05f;
+        canvasMaskAnimator.SetTrigger("MaskT");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Fight");
     }
 
     public void ShowLevelContext(SO_Level soLevel)

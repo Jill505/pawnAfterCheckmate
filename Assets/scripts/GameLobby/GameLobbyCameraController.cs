@@ -9,6 +9,9 @@ public class GameLobbyCameraController : MonoBehaviour
     public Vector2 targetPos;
 
     public Camera mainCamera;
+    public ScrollViewGameLobby SVGL;
+
+    public GameObject LevelInfoCanvas;
 
     public bool OnAutoCamera = false;
 
@@ -23,6 +26,7 @@ public class GameLobbyCameraController : MonoBehaviour
 
     private void Start()
     {
+        OnAutoCamera = true;
         if (gameLobbyManager == null)
         {
             gameLobbyManager = GameObject.Find("GameLobbyManager").GetComponent<GameLobbyManager>();
@@ -54,11 +58,22 @@ public class GameLobbyCameraController : MonoBehaviour
             else
             {
                // Debug.Log("FinishMoving");
-                OnAutoCamera = false;
+
                 //mainCamera.orthographicSize = OnAutoOrthographicSize;
                 //transform.position = targetPos;
             }
+            if (transform.position == (Vector3)targetPos && mainCamera.orthographicSize == OnAutoOrthographicSize)
+            {
+                OnAutoCamera = false;
+            }
         }
+    }
+    public void CancelLevelInspect()
+    {
+        SVGL.AllowScroll = true;
+        SVGL.AllowZoom = true;
+        OnAutoOrthographicSize = 5f;
+        LevelInfoCanvas.SetActive(false);
     }
     public void LerpMoveCamera(Vector2 pos)
     {
