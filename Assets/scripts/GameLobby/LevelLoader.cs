@@ -40,7 +40,7 @@ public class LevelLoader : MonoBehaviour
     {
         GLCC.OnAutoOrthographicSize = 0.05f;
         canvasMaskAnimator.SetTrigger("MaskT");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene("Fight");
     }
 
