@@ -2591,6 +2591,7 @@ GameObject:
   - component: {fileID: 1438481424}
   - component: {fileID: 1438481426}
   - component: {fileID: 1438481425}
+  - component: {fileID: 1438481427}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2673,6 +2674,7 @@ MonoBehaviour:
   roundManager: {fileID: 1438481425}
   levelConstructor: {fileID: 0}
   levelData: {fileID: 0}
+  soundManager: {fileID: 1438481427}
   hintManager: {fileID: 2117300640}
   alreadyLoaded: 0
   levelName: {fileID: 530284305}
@@ -2685,6 +2687,21 @@ MonoBehaviour:
   Troops: []
   spawnInterval: 1
   GameCellUnit: {fileID: 8849811575621646054, guid: f600eddaed47955488030ce8cff36bb9, type: 3}
+--- !u!114 &1438481427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438481423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79c3b2743b33bb479bba76a7b84caee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Musics: []
+  SFXs: []
+  AudioObject: {fileID: 2802728769307266718, guid: bc66b7b174d477e46b974fc13f002efd, type: 3}
 --- !u!1 &1493154379
 GameObject:
   m_ObjectHideFlags: 0

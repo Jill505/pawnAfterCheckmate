@@ -7,6 +7,7 @@ public class unit : MonoBehaviour
     public GameManager gameManager;
     public RoundManager roundManager;
     public SpriteRenderer mySr;
+    public SoundManager soundManager;
 
     public int myX;
     public int myY;
@@ -20,6 +21,11 @@ public class unit : MonoBehaviour
     public bool isPlayerAllowMoveSpace; //是玩家可以站在地地方
 
     public Troop TroopsOnMe;
+
+    private void Awake()
+    {
+        soundManager = FindFirstObjectByType<SoundManager>();
+    }
 
     public void ApplyPerform(string ID)
     {
@@ -112,6 +118,22 @@ public class unit : MonoBehaviour
                                 case Camp.Enemy:
                                     //若已有對手棋子，對其造成傷害
                                     TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
+
+                                    //播放音樂音效
+                                    if (TroopsOnMe.myChessData.isGoldenTarget)
+                                    {
+                                        soundManager.PlaySFX("boss_slash_test_2");
+                                    }
+                                    else if (roundManager.playerHitCombo >= 3)//連殺
+                                    {
+                                        soundManager.PlaySFX("pawn_slash_hard");
+                                    }
+                                    else
+                                    {
+                                        soundManager.PlaySFX("pawn_slash_hard");
+                                        //soundManager.PlaySFX("pawn_slash_normal");
+                                    }
+
                                     //若攻擊未殺死目標，則留在前一格
                                     if (TroopsOnMe.hp <= 0)
                                     {

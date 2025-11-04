@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public RoundManager roundManager;
     public LevelConstructor levelConstructor;
     public SO_Level levelData;
+    public SoundManager soundManager;
 
     [Header("Scene System")]
     public HintManager hintManager;
