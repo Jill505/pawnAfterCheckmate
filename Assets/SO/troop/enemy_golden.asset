@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
   m_Name: enemy_golden
   m_EditorClassIdentifier: 
-  chessName: "\u738B"
+  chessName: "\u7665\u7D50"
   myCamp: 1
   photoSticker: {fileID: -2626914976997312903, guid: 97fbbf2361102864a96e8bf2c2d9ff46, type: 3}
   spawnGear: 0
   bucketType: 0
-  chessDesc: "\u63CF\u8FF0"
+  chessDesc: "\u6C38\u4E45\u4E5D\u5BAE\u683C\u79FB\u52D5\u3002\u64CA\u6557\u8A72\u65D7\u5B50\u904A\u6232\u4FBF\u52DD\u5229\u3002\n\u60E1\u5922\u7684\u4E3B\u5BB0\uFF0C\u662F\u5C07\u4E5F\u662F\u738B\uFF0C\u8C61\u5FB5\u8457\u5B89\u5167\u5FC3\u6700\u5BB3\u6015\u7684\u4E8B\u7269\u3002"
   Level: 1
   Exp: 0
   move: 1
@@ -28,6 +28,6 @@ MonoBehaviour:
   isGoldenTarget: 1
   horBlockMoveAbility: 1
   verticalBlockMoveAbility: 1
-  diagonalBlockMoveAbility: 0
+  diagonalBlockMoveAbility: 1
   knightBlockMoveAbility: 0
   AttackStr: 1

@@ -348,6 +348,30 @@ MonoBehaviour:
           m_StringArgument: button_float
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1724691618}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wooden_Floor_Walking_Sound_3
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1724691618}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wooden_Floor_Walking_Sound_3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &118907279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6534,6 +6558,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: character_move
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1724691618}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wooden_Floor_Walking_Sound_3
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1724691618}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wooden_Floor_Walking_Sound_3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1231922936
@@ -12928,7 +12976,7 @@ PrefabInstance:
     - target: {fileID: 3140823362929085925, guid: 7fb4d0179f5f5c4498bce7d1ba1a6727, type: 3}
       propertyPath: levelInfo
       value: 
-      objectReference: {fileID: 11400000, guid: c6da16584569d40488a71665a087f5a6, type: 2}
+      objectReference: {fileID: 11400000, guid: ccfccc156abc5814b8f7da76c0cb9991, type: 2}
     - target: {fileID: 3140823362929085925, guid: 7fb4d0179f5f5c4498bce7d1ba1a6727, type: 3}
       propertyPath: gameLobbyManager
       value: 

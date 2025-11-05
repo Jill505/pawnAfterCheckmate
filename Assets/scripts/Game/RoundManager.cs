@@ -11,6 +11,7 @@ public class RoundManager : MonoBehaviour
     [Header("System")]
     public GameManager gameManager;
     public CameraManager cameraManager;
+    public SoundManager soundManager;
 
     [Header("Game Information")]
     public bool GameGoing = false;
@@ -56,6 +57,8 @@ public class RoundManager : MonoBehaviour
     [Header("敵人AI")]
     public Coroutine EnemyAIProcessing;
     public List<Troop> EnemyAITroop;
+
+    public float enemyMoveDur = 0.275f;
 
     [Header("特殊回合相關宣告")]
     public float specialTime = 1.6f;
@@ -167,6 +170,7 @@ public class RoundManager : MonoBehaviour
                 EnemyEvolve();
 
                 roundCount++;
+                gameManager.GameTargetUISet();
                 resetUnitSelectState();
                 Debug.Log("AA");
                 //新敵人加入戰場
@@ -206,7 +210,7 @@ public class RoundManager : MonoBehaviour
         for (int i = 0; i < EnemyAITroop.Count; i++)
         {
             EnemyAITroop[i].MoveToNext();
-            yield return new WaitForSeconds(0.275f); 
+            yield return new WaitForSeconds(enemyMoveDur); 
         }
         //Var 2 - 每次移動一個目標
 

@@ -11,6 +11,7 @@ public class Troop : MonoBehaviour
     public SO_Chess myChessData;
     public bool isPlayer = false;
     public RoundManager roundManager;
+    public SoundManager soundManager;
 
     public Camp myCamp;
 
@@ -72,7 +73,8 @@ public class Troop : MonoBehaviour
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        roundManager = FindAnyObjectByType<RoundManager>();
+        roundManager = FindFirstObjectByType<RoundManager>();
+        soundManager = FindFirstObjectByType<SoundManager>();
         LoadSOData();
 
         if (myCamp == Camp.Enemy)
@@ -143,6 +145,11 @@ public class Troop : MonoBehaviour
         myNextDes = ClosestVector();
         myNowX = (int)myNextDes.x;
         myNowY = (int)myNextDes.y;
+
+        //Play sound effect
+        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
 
         //¶Ë®`§P©w
         EnemyOnMouseDownEvent(gameManager.chessBoardObjectRefArr[myNowY, myNowX].GetComponent<unit>());

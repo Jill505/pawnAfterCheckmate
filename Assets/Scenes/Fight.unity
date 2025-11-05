@@ -2628,6 +2628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1438481426}
   cameraManager: {fileID: 1931046469}
+  soundManager: {fileID: 0}
   GameGoing: 0
   isPlayerRound: 0
   leftRoundCount: 5
@@ -2679,6 +2680,7 @@ MonoBehaviour:
   alreadyLoaded: 0
   levelName: {fileID: 530284305}
   GameTarget: {fileID: 1581841388}
+  gameTargetAnimator: {fileID: 1581841390}
   spawnReferencePoint: {x: 0, y: 0}
   TroopPrefab: {fileID: 696692380885238862, guid: aafb1b4a9fb45124e8e48a9277d266ef, type: 3}
   GameEReference: {fileID: 765258061}
@@ -2687,6 +2689,7 @@ MonoBehaviour:
   Troops: []
   spawnInterval: 1
   GameCellUnit: {fileID: 8849811575621646054, guid: f600eddaed47955488030ce8cff36bb9, type: 3}
+  bGM_name: pawn's_(demo)_2
 --- !u!114 &1438481427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,7 +2702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79c3b2743b33bb479bba76a7b84caee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Musics: []
+  Music: []
   SFXs: []
   AudioObject: {fileID: 2802728769307266718, guid: bc66b7b174d477e46b974fc13f002efd, type: 3}
 --- !u!1 &1493154379
@@ -2976,6 +2979,7 @@ GameObject:
   - component: {fileID: 1581841387}
   - component: {fileID: 1581841389}
   - component: {fileID: 1581841388}
+  - component: {fileID: 1581841390}
   m_Layer: 5
   m_Name: GameTarget
   m_TagString: Untagged
@@ -3044,6 +3048,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581841386}
   m_CullTransparentMesh: 1
+--- !u!95 &1581841390
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581841386}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f44b7f58f85cf204eabfe227ff5dd676, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1617977197
 GameObject:
   m_ObjectHideFlags: 0

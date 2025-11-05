@@ -9,6 +9,9 @@ public class unit : MonoBehaviour
     public SpriteRenderer mySr;
     public SoundManager soundManager;
 
+    public Sprite myOriginalSprite;
+    public Sprite myHighLightSprite;
+
     public int myX;
     public int myY;
 
@@ -33,43 +36,76 @@ public class unit : MonoBehaviour
         if (ID == "")
         {
             mySr.sprite = Resources.Load<Sprite>("TerrainSprite/TS_Default");
+            myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/TS_Default_highLighted");
         }
         else
         {
             mySr.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
+            myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
+            myHighLightSprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_HL");
         }
     }
 
     private void OnMouseEnter()
     {
-        roundManager.onFloatingObject = roundManager.gameManager.chessBoardObjectRefArr[myY, myX];
-        roundManager.onFloatingVector = new Vector2(myX, myY);
-        if (selecting == true)
+        //soundManager.PlaySFX("button_float");
+
+        if (roundManager.roundState == RoundState.MyRound)
         {
-            mySr.color = new Color(1, 0, 0, 1f);
+            int ran = Random.Range(0, 5);
+            switch (ran)
+            {
+                case 0: soundManager.PlaySFX("Wooden_Floor_Walking_Sound_1"); break;
+                case 1: soundManager.PlaySFX("Wooden_Floor_Walking_Sound_2"); break;
+                case 2: soundManager.PlaySFX("Wooden_Floor_Walking_Sound_5"); break;
+                case 3: soundManager.PlaySFX("Wooden_Floor_Walking_Sound_4"); break;
+                    //case 4: soundManager.PlaySFX("Wooden_Floor_Walking_Sound_5"); break;
+            }
+
+            roundManager.onFloatingObject = roundManager.gameManager.chessBoardObjectRefArr[myY, myX];
+            roundManager.onFloatingVector = new Vector2(myX, myY);
+            if (selecting == true)
+            {
+                mySr.color = new Color(1, 1, 1, 1f);
+                mySr.sprite = myHighLightSprite;
+            }
+            else
+            {
+                //Debug.Log("OnMouseEnter");
+                mySr.color = new Color(1, 1, 1, 0.2f);
+                mySr.sprite = myOriginalSprite;
+            }
         }
-        else
-        {
-            //Debug.Log("OnMouseEnter");
-            mySr.color = new Color(1, 1, 1, 0.2f);
-        }
+
+        
     }
     private void OnMouseExit()
     {
         if (selecting == true)
         {
-            mySr.color = new Color(1, 0, 0, 1f);
+            mySr.color = new Color(1, 1, 1, 1f);
+            mySr.sprite = myHighLightSprite;
         }
         else
         {
             //Debug.Log("OnMouseEnter");
             Debug.LogWarning("Exit還原");
             mySr.color = new Color(1, 1, 1, 1f);
+            mySr.sprite = myOriginalSprite;
         }
     }
     private void OnMouseDown()
     {
-        PlayerOnMouseDownEvent();
+        if (roundManager.roundState == RoundState.MyRound)
+        {
+            soundManager.PlaySFX("button_press");
+
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+
+            PlayerOnMouseDownEvent();
+        }
     }
     public void PlayerOnMouseDownEvent()//此方法與Troop.cs中的EnemyOnMouseDownEvent相似 修改時請考慮到另外一邊
     {
@@ -223,14 +259,17 @@ public class unit : MonoBehaviour
                 isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX, myY));
                 if (isPlayerAllowMoveSpace)
                 {
-                    mySr.color = new Color(0, 0, 1, 1f);
+                    mySr.color = new Color(1, 1, 1, 1f);
+                    mySr.sprite = myHighLightSprite;
                     _colorClog = true;
                 }
                 else
                 {
                     if (_colorClog)
                     {
-                        _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
+                        _colorClog = false; 
+                        mySr.color = new Color(1, 1, 1, 1);
+                        mySr.sprite = myOriginalSprite;
                         Debug.LogWarning("MyRound還原");
                     }
                 }
@@ -240,6 +279,7 @@ public class unit : MonoBehaviour
                 if (_colorClog)
                 {
                     _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
+                    mySr.sprite = myOriginalSprite;
                     Debug.LogWarning("Enemy還原");
                 }
                 break;

@@ -35,6 +35,7 @@ public class SoundManager : MonoBehaviour
 
         GameObject obj = Instantiate(AudioObject);
         AK_Audio AKA =  obj.GetComponent<AK_Audio>();
+        AKA.myAudioSource.clip = sAC;
         AKA.myST = SoundType.Bgm;
         AKA.myAudioClip = sAC;
 

@@ -1,8 +1,8 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,13 +15,13 @@ public class GameManager : MonoBehaviour
     [Header("Scene System")]
     public HintManager hintManager;
 
-
     [Header("Control Variable")]
     public bool alreadyLoaded = false;
 
     [Header("UI context")]
     public Text levelName;
     public Text GameTarget;
+    public Animator gameTargetAnimator;
 
     [Header("Calculate Variable")]
     public Vector2 spawnReferencePoint = Vector2.zero;
@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject GameCellUnit;
 
+    [Header("Music")]
+    public string bGM_name = "GiveMeYourFastFist";
+
     // Start is called on   ce before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +52,8 @@ public class GameManager : MonoBehaviour
         LevelCheckAndLoad();
 
         GameTargetUISet();
+
+        PlayBgm();
     }
 
     // Update is called once per frame
@@ -198,13 +203,30 @@ public class GameManager : MonoBehaviour
     public void GameTargetUISet()
     {
         string TargetStr = "";
-        
+
+        gameTargetAnimator.SetTrigger("DoJump");
+
         switch (levelData.myMissionType) {
             case (MissionType.Survive):
-                TargetStr = "目標\n存活" + levelData.SurviveRound +  "回合";
+                if (levelData.SurviveRound - roundManager.roundCount > 0)
+                {
+                    TargetStr = "目標\n存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
+                    GameTarget.color = Color.black;
+                }
+                else 
+                {
+                    TargetStr = "目標\n殺死癥結！";
+                    GameTarget.color = Color.red;
+                }
                 break;
         }
 
         GameTarget.text = TargetStr;
+    }
+
+    public void PlayBgm()
+    {
+        Debug.Log("AA");
+        soundManager.PlayBGM(bGM_name);
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3bcf77fe5f06e814f9ebed1962d91626
+guid: 65cb47457deb7f44da49cce4db7defa7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3681983570184523233
-    second: LighterTerrain_0
+      213: 3769631362346916161
+    second: Click_Terrain_Darker_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LighterTerrain_0
+      name: Click_Terrain_Darker_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f12b35e6377f6ecc0800000000000000
-      internalID: -3681983570184523233
+      spriteID: 1491cde60cb605430800000000000000
+      internalID: 3769631362346916161
       vertices: []
       indices: 
       edges: []
@@ -161,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LighterTerrain_0: -3681983570184523233
+      Click_Terrain_Darker_0: 3769631362346916161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

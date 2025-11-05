@@ -19,10 +19,25 @@ public class AK_Audio : MonoBehaviour
     private void Start()
     {
         //myAudioSource.clip = myAudioClip;
+        switch (myST)
+        {
+            case SoundType.Sfx:
+                autoDel = true;
+
+                DontDestroyOnLoad(this);
+                break;
+
+            case SoundType.Bgm:
+                myAudioSource.loop = true;
+                break;
+        }
+
         if (autoDel)
         {
             Invoke("KysSound", audioClipPlayTime);
         }
+
+        myAudioSource.Play();
     }
 
     public void PlaySound()
