@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public Text blitzCountDownText;
     public Coroutine blitzCoroutine;
 
+    [Header("CopySoul System")]
+    public bool isCopySoulOn;
+
     [Header("Control Variable")]
     public bool alreadyLoaded = false;
 
@@ -260,7 +263,7 @@ public class GameManager : MonoBehaviour
         while (CT >0)
         {
             CT -= Time.deltaTime;
-            SyncBlitzUI(CT/allowReactTime , allowReactTime+CT);
+            SyncBlitzUI(CT/allowReactTime , CT);
             yield return null;  
         }
         //Call Complete Round;

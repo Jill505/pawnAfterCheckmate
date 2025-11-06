@@ -1654,6 +1654,7 @@ MonoBehaviour:
   isPlayer: 0
   roundManager: {fileID: 0}
   soundManager: {fileID: 0}
+  troopOutfit: {fileID: 0}
   myCamp: 0
   surviveRound: 0
   myNowX: 0
@@ -2837,9 +2838,10 @@ MonoBehaviour:
   soundManager: {fileID: 1438481427}
   hintManager: {fileID: 2117300640}
   isBlitzOn: 1
-  blitzTime: 3
+  blitzTime: 7
   blitzCountDownImage: {fileID: 1613897024}
   blitzCountDownText: {fileID: 963389991}
+  isCopySoulOn: 1
   alreadyLoaded: 0
   levelName: {fileID: 530284305}
   GameTarget: {fileID: 1581841388}

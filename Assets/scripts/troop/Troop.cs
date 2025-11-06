@@ -13,6 +13,8 @@ public class Troop : MonoBehaviour
     public RoundManager roundManager;
     public SoundManager soundManager;
 
+    public TroopOutfit troopOutfit;
+
     public Camp myCamp;
 
     public int surviveRound = 0;
@@ -483,6 +485,20 @@ public class Troop : MonoBehaviour
                 diagonalBlockMoveAbility++;
                 break;
         }
+    }
+
+    //½Æ»sª±ªk
+    public void CopySoul(Troop otherT)
+    {
+        horBlockMoveAbility = otherT.horBlockMoveAbility;
+        verticalBlockMoveAbility = otherT.verticalBlockMoveAbility;
+        diagonalBlockMoveAbility = otherT.diagonalBlockMoveAbility;
+        knightBlockMoveAbility = otherT.knightBlockMoveAbility;
+
+        hasLeftShield = otherT.hasLeftShield;
+        hasRightShield = otherT.hasRightShield;
+        hasLowerShield = otherT.hasLowerShield;
+        hasUpperShield = otherT.hasUpperShield;
     }
 }
 

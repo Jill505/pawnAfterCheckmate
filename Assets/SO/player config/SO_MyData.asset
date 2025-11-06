@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chessName: "\u7B26"
   myCamp: 0
-  photoSticker: {fileID: -8529017730160861356, guid: 4e3996cdfa0783f4f92f5cf83b760603, type: 3}
+  photoSticker: {fileID: -7319966370450596002, guid: e96c39aa30938d34488a6c40ba0c7740, type: 3}
   spawnGear: 0
   bucketType: 0
   chessDesc: "\u7F6A\u60E1\u7684\u9748\u9B42"
@@ -23,7 +23,7 @@ MonoBehaviour:
   move: 1
   maxHp: 1
   hp: 1
-  skin: {fileID: -8529017730160861356, guid: 4e3996cdfa0783f4f92f5cf83b760603, type: 3}
+  skin: {fileID: -7319966370450596002, guid: e96c39aa30938d34488a6c40ba0c7740, type: 3}
   abilities: 
   isGoldenTarget: 0
   horBlockMoveAbility: 2

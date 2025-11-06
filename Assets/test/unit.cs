@@ -89,7 +89,7 @@ public class unit : MonoBehaviour
         else
         {
             //Debug.Log("OnMouseEnter");
-            Debug.LogWarning("Exit還原");
+            //Debug.LogWarning("Exit還原");
             mySr.color = new Color(1, 1, 1, 1f);
             mySr.sprite = myOriginalSprite;
         }
@@ -176,6 +176,12 @@ public class unit : MonoBehaviour
                                         //被殺死
                                         roundManager.SelectObjectTroop.myNowX = myX;
                                         roundManager.SelectObjectTroop.myNowY = myY;
+
+                                        if (gameManager.isCopySoulOn)
+                                        {
+                                            //Player Copy Soul
+                                            roundManager.SelectObjectTroop.CopySoul(TroopsOnMe);
+                                        }
                                         TroopsOnMe.killTroop();
 
                                         gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
@@ -280,7 +286,7 @@ public class unit : MonoBehaviour
                 {
                     _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
                     mySr.sprite = myOriginalSprite;
-                    Debug.LogWarning("Enemy還原");
+                    //Debug.LogWarning("Enemy還原");
                 }
                 break;
 
