@@ -13,6 +13,8 @@ public class Troop : MonoBehaviour
     public RoundManager roundManager;
     public SoundManager soundManager;
 
+    public TroopOutfit troopOutfit;
+
     public Camp myCamp;
 
     public int surviveRound = 0;

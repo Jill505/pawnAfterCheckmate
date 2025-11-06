@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8237164599577822679}
   - component: {fileID: 5335027806682689085}
+  - component: {fileID: 635301961431133842}
   m_Layer: 0
   m_Name: TroopObject
   m_TagString: Untagged
@@ -50,6 +51,8 @@ MonoBehaviour:
   myChessData: {fileID: 11400000, guid: 556dc37fe1d156840a60f449467ab8ff, type: 2}
   isPlayer: 0
   roundManager: {fileID: 0}
+  soundManager: {fileID: 0}
+  troopOutfit: {fileID: 635301961431133842}
   myCamp: 0
   surviveRound: 0
   myNowX: 0
@@ -60,8 +63,31 @@ MonoBehaviour:
   isPassable: 0
   bucketType: 0
   MySurviveRoundShowCase: {fileID: 4566632804348659393}
+  myAbilities: 
+  horBlockMoveAbility: 0
+  verticalBlockMoveAbility: 0
+  diagonalBlockMoveAbility: 0
+  knightBlockMoveAbility: 0
+  AttackStr: 1
+  hasUpperShield: 0
+  hasLowerShield: 0
+  hasLeftShield: 0
+  hasRightShield: 0
   OnSelectChessAllowMoveVector: []
   myNextDes: {x: 0, y: 0}
+--- !u!114 &635301961431133842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696692380885238862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c694a1e95c45d940ae8e0e169440b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTroop: {fileID: 5335027806682689085}
 --- !u!1 &2101368732275444030
 GameObject:
   m_ObjectHideFlags: 0
