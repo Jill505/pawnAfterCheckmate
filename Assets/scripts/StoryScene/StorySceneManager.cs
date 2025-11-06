@@ -34,16 +34,18 @@ public class StorySceneManager : MonoBehaviour
     static public bool ADR_IsStoryLoading = false;  
 
     public AKSO_Story[] RegisterAKSO_Story;
+    public GameObject[] ASKO_Ref_StoryAnimatorObject;
 
     [Header("´ú¸Õ")]
     public bool isTesting = false;
+    public int testScene = 0;
 
     private void Awake()
     {
         if (isTesting)
         {
             ADR_IsStoryLoading  =true;
-            ADR_LoadStorySort = 0;
+            ADR_LoadStorySort = testScene;
 
             Debug.Log("YESA");
         }
@@ -57,6 +59,7 @@ public class StorySceneManager : MonoBehaviour
         {
             ADR_IsStoryLoading = false;
             ReceiveAKSO_Story(RegisterAKSO_Story[ADR_LoadStorySort]);
+            ASKO_Ref_StoryAnimatorObject[ADR_LoadStorySort].SetActive(true);
             NextPage();
 
             Debug.Log("YES");
@@ -89,7 +92,7 @@ public class StorySceneManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("¸ü¤J - " + storyText[readingPage]);
+        //Debug.Log("¸ü¤J - " + storyText[readingPage]);
         if (ReadingCoroutine == null)
         {
             ReadingCoroutine = StartCoroutine(ReadingLine(storyText[readingPage]));

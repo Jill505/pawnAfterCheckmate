@@ -291,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &689187429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1122696685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -503,9 +503,13 @@ MonoBehaviour:
   StoryLine:
   - "\u65E9\u5B89"
   - AKComm/NextPage
+  - AAA
   - AKComm/NextPage
+  - AAA
   - AKComm/NextPage
+  - AAA
   - AKComm/NextPage
+  - AAA
   - AKComm/NextPage
   - AAA
   StoryLength: 0
@@ -869,7 +873,11 @@ MonoBehaviour:
   RegisterAKSO_Story:
   - {fileID: 1468937630}
   - {fileID: 1434358317}
+  ASKO_Ref_StoryAnimatorObject:
+  - {fileID: 1122696684}
+  - {fileID: 689187428}
   isTesting: 1
+  testScene: 1
 --- !u!4 &1752130178
 Transform:
   m_ObjectHideFlags: 0
