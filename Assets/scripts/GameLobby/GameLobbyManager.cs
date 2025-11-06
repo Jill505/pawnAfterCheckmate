@@ -42,6 +42,15 @@ public class GameLobbyManager : MonoBehaviour
     public void LoadIntoTheGame()
     {
         LoadPlayerSaveFile();
+
+        if (SaveSystem.SF.storyRead[0] == false)
+        {
+            //¼½©ñ°Êµe
+            StorySceneManager.ADR_LoadStorySort = 1;
+            StorySceneManager.ADR_IsStoryLoading = true;
+            SceneManager.LoadScene(3);
+        }
+
         SceneManager.LoadScene("GameLobby");
     }
     IEnumerator LoadIntoTheGameCoroutine()

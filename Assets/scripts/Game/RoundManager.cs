@@ -190,6 +190,10 @@ public class RoundManager : MonoBehaviour
                 }
 
                 roundState = RoundState.MyRound;
+                if (gameManager.isBlitzOn)
+                {
+                    gameManager.StartBlitzCoroutine(gameManager.blitzTime);
+                }
                 break;
         }
 
@@ -322,6 +326,7 @@ public class RoundManager : MonoBehaviour
     public void MyRoundEnd()
     {
         RoundSelectClean();
+        gameManager.StopBlitzCoroutine();
         roundState = RoundState.EnemyRound;
     }
 
@@ -453,6 +458,11 @@ public class RoundManager : MonoBehaviour
         GBIC.locationX = (int)tarSpawnVector.x;
         GBIC.locationY = (int)tarSpawnVector.y;
         gameManager.SpawnLevelTroop(GBIC);
+    }
+
+    public void PlayerRoundInterrupt()
+    {
+        MyRoundEnd();
     }
 }
 public enum RoundState

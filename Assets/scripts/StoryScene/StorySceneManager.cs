@@ -27,7 +27,7 @@ public class StorySceneManager : MonoBehaviour
     public Animator myAnimator;
 
     public bool allowSkipSwitch;//設定控制的是這個！！
-    public bool allowSkipClog;
+    bool allowSkipClog;
 
     [Header("全端接收站")]
     static public int ADR_LoadStorySort;
@@ -137,7 +137,17 @@ public class StorySceneManager : MonoBehaviour
         conversationShowingText = "";
         conversationShowcase.text = "";
 
-        myAnimator.SetTrigger("NextPage");
+        if (str == "AKComm/NextPage")
+        {
+            myAnimator.SetTrigger("NextPage");
+
+            Coroutine SC = ReadingCoroutine;
+            ReadingCoroutine = null;
+
+            //讀到指令自動下一行
+            NextPage();
+            StopCoroutine(SC);
+        }
 
         onReadingClog = true;
         allowSkipClog = true;

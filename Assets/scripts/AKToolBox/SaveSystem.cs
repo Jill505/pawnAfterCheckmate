@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    public SaveFile SF;
+    static public SaveFile SF;
 
     public string saveFilePath = "SaveFile" + 0;
 
     private void Start()
+    {
+        LoadSF();
+    }
+
+    private void Update()
     {
         
     }
@@ -25,11 +30,21 @@ public class SaveSystem : MonoBehaviour
         if (string.IsNullOrEmpty(fullPath) || !File.Exists(fullPath))
         {
             Debug.Log("載入失敗：路徑是空的或找不到檔案，嘗試生成一個新的檔案。");
-            SaveFile sSF = new SaveFile();
-            File.WriteAllText(fullPath, JsonUtility.ToJson(sSF));
+            ResetSF();
         }
 
-        SaveFile SF = JsonUtility.FromJson<SaveFile>(fullPath + saveFilePath);
+        SaveFile sSF = JsonUtility.FromJson<SaveFile>(fullPath + saveFilePath);
+        SF = sSF;
+    }
+
+    public void ResetSF()
+    {
+        string fullPath = Application.persistentDataPath + saveFilePath;
+
+        SaveFile sSF = new SaveFile();
+        File.WriteAllText(fullPath, JsonUtility.ToJson(sSF));
+
+        SF = sSF;
     }
 }
 
@@ -39,5 +54,5 @@ public class SaveFile
     public string SaveName;
 
     public int gameProcess;
-    public bool[] storyRead;
+    public bool[] storyRead = new bool[100];
 }

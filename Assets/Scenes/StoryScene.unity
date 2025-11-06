@@ -502,10 +502,12 @@ MonoBehaviour:
   myAnimator: {fileID: 689187430}
   StoryLine:
   - "\u65E9\u5B89"
-  - "\u65E9\u5B89"
-  - "\u65E9\u5B89"
-  - "\u65E9\u5B89"
-  - "\u65E9\u5B89"
+  - AKComm/NextPage
+  - AKComm/NextPage
+  - AKComm/NextPage
+  - AKComm/NextPage
+  - AKComm/NextPage
+  - AAA
   StoryLength: 0
   fromEvent: 0
   toEvent: 0
@@ -864,7 +866,6 @@ MonoBehaviour:
   storyText: []
   myAnimator: {fileID: 0}
   allowSkipSwitch: 1
-  allowSkipClog: 0
   RegisterAKSO_Story:
   - {fileID: 1468937630}
   - {fileID: 1434358317}

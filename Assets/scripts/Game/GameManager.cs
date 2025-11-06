@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using JetBrains.Annotations;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Scene System")]
     public HintManager hintManager;
+
+    [Header("Blitz System")]
+    public bool isBlitzOn;
+    public float blitzTime = 3f;
+    public Image blitzCountDownImage;
+    public Text blitzCountDownText;
+    public Coroutine blitzCoroutine;
 
     [Header("Control Variable")]
     public bool alreadyLoaded = false;
@@ -128,7 +135,13 @@ public class GameManager : MonoBehaviour
 
                 ChessSpawn(levelConstructor.levelInfo);
 
+                //考慮加入倒數
+
                 roundManager.roundState = RoundState.MyRound;
+                if (isBlitzOn)
+                {
+                    StartBlitzCoroutine(blitzTime);
+                }
             }
         }
     }
@@ -228,5 +241,35 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("AA");
         soundManager.PlayBGM(bGM_name);
+    }
+
+    public void StartBlitzCoroutine(float allowReactTime)
+    {
+        blitzCoroutine = StartCoroutine(BlitzCoroutine(allowReactTime));
+    }
+    public void StopBlitzCoroutine()
+    {
+        if (blitzCoroutine != null)
+        {
+            StopCoroutine(blitzCoroutine);
+        }
+    }
+    IEnumerator BlitzCoroutine(float allowReactTime)
+    {
+        float CT = allowReactTime;
+        while (CT >0)
+        {
+            CT -= Time.deltaTime;
+            SyncBlitzUI(CT/allowReactTime , allowReactTime+CT);
+            yield return null;  
+        }
+        //Call Complete Round;
+        roundManager.PlayerRoundInterrupt();
+        yield return null;
+    }
+    public void SyncBlitzUI(float percentage, float countDown)
+    {
+        blitzCountDownImage.fillAmount = percentage;
+        blitzCountDownText.text = "Count Down\n" + countDown.ToString("F2");
     }
 }
