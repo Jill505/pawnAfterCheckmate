@@ -40,6 +40,8 @@ public class StorySceneManager : MonoBehaviour
     public bool isTesting = false;
     public int testScene = 0;
 
+    private bool autoSkipClog;
+
     private void Awake()
     {
         if (isTesting)
@@ -60,6 +62,7 @@ public class StorySceneManager : MonoBehaviour
             ADR_IsStoryLoading = false;
             ReceiveAKSO_Story(RegisterAKSO_Story[ADR_LoadStorySort]);
             ASKO_Ref_StoryAnimatorObject[ADR_LoadStorySort].SetActive(true);
+
             NextPage();
 
             Debug.Log("YES");
@@ -93,9 +96,14 @@ public class StorySceneManager : MonoBehaviour
         }
 
         //Debug.Log("載入 - " + storyText[readingPage]);
-        if (ReadingCoroutine == null)
+        if (ReadingCoroutine == null && autoSkipClog == false)
         {
+            Debug.Log("開啟對話CLOG" + readingPage);
             ReadingCoroutine = StartCoroutine(ReadingLine(storyText[readingPage]));
+        }
+        else
+        {
+            autoSkipClog = false;
         }
 
 
@@ -136,6 +144,8 @@ public class StorySceneManager : MonoBehaviour
 
     public IEnumerator ReadingLine(string str)
     {
+        bool selfDebugClog = false;
+
         conversationText = str;
         conversationShowingText = "";
         conversationShowcase.text = "";
@@ -148,26 +158,35 @@ public class StorySceneManager : MonoBehaviour
             ReadingCoroutine = null;
 
             //讀到指令自動下一行
+
+            selfDebugClog = true;
             NextPage();
-            StopCoroutine(SC);
+            if (SC != null)
+            {
+                StopCoroutine(SC);
+            }
         }
 
         onReadingClog = true;
         allowSkipClog = true;
 
-        for (int i = 0; i < conversationText.Length; i++)
+        if (!selfDebugClog)
         {
-            if (onReadingClog == true)
+            for (int i = 0; i < conversationText.Length; i++)
             {
-                conversationShowingText += conversationText[i];
-                conversationShowcase.text = conversationShowingText;
-                yield return new WaitForSeconds(wordGenDur);
-            }
-            else
-            {
-                conversationShowingText = conversationText;
-                conversationShowcase.text = conversationShowingText;
-                break; 
+                if (onReadingClog == true)
+                {
+                    Debug.Log("問問問" + i);
+                    conversationShowingText += conversationText[i];
+                    conversationShowcase.text = conversationShowingText;
+                    yield return new WaitForSeconds(wordGenDur);
+                }
+                else
+                {
+                    conversationShowingText = conversationText;
+                    conversationShowcase.text = conversationShowingText;
+                    break;
+                }
             }
         }
         onReadingClog = false;
