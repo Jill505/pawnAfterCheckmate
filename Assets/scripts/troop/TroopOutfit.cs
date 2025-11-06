@@ -41,7 +41,6 @@ public class TroopOutfit : MonoBehaviour
 
     public void GoldenTargetOutfit()
     {
-        goldenTargetGlow.SetActive(myTroop.myChessData.isGoldenTarget);
         goldenTargetRing.SetActive(myTroop.myChessData.isGoldenTarget);
     }
 

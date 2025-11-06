@@ -263,7 +263,7 @@ public class GameManager : MonoBehaviour
         while (CT >0)
         {
             CT -= Time.deltaTime;
-            SyncBlitzUI(CT/allowReactTime , allowReactTime+CT);
+            SyncBlitzUI(CT/allowReactTime , CT);
             yield return null;  
         }
         //Call Complete Round;

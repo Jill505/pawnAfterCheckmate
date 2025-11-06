@@ -89,7 +89,7 @@ public class unit : MonoBehaviour
         else
         {
             //Debug.Log("OnMouseEnter");
-            Debug.LogWarning("Exit還原");
+            //Debug.LogWarning("Exit還原");
             mySr.color = new Color(1, 1, 1, 1f);
             mySr.sprite = myOriginalSprite;
         }
@@ -286,7 +286,7 @@ public class unit : MonoBehaviour
                 {
                     _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
                     mySr.sprite = myOriginalSprite;
-                    Debug.LogWarning("Enemy還原");
+                    //Debug.LogWarning("Enemy還原");
                 }
                 break;
 
