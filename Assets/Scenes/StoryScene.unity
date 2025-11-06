@@ -503,7 +503,7 @@ MonoBehaviour:
   StoryLine:
   - "\u65E9\u5B89"
   - AKComm/NextPage
-  - AAA
+  - "\u65E9\u5B89\u6211"
   - AKComm/NextPage
   - AAA
   - AKComm/NextPage
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLoadAKSO_Story: {fileID: 1434358317}
   hasStoryLoad: 0
-  readingPage: 0
+  readingPage: -1
   maxPage: 0
   loadSceneSort: 1
   onReadingClog: 0

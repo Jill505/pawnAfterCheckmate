@@ -5,7 +5,11 @@ public class SaveSystem : MonoBehaviour
 {
     static public SaveFile SF;
 
-    public string saveFilePath = "SaveFile" + 0;
+    [Header("存檔可視化")]
+    [SerializeField]bool SFSync;
+    public SaveFile SFShowCase;
+
+    static public string saveFilePath = "SaveFile" + 0;
 
     private void Start()
     {
@@ -14,16 +18,19 @@ public class SaveSystem : MonoBehaviour
 
     private void Update()
     {
-        
+        if (SFSync)
+        {
+            SFShowCase = SF;
+        }
     }
 
-    public void SaveSF()
+    static public void SaveSF()
     {
         string fullPath = Application.persistentDataPath + saveFilePath;
         File.WriteAllText(fullPath, JsonUtility.ToJson(SF));
     }
 
-    public void LoadSF()
+    static public void LoadSF()
     {
         string fullPath = Application.persistentDataPath + saveFilePath;
 
@@ -33,11 +40,11 @@ public class SaveSystem : MonoBehaviour
             ResetSF();
         }
 
-        SaveFile sSF = JsonUtility.FromJson<SaveFile>(fullPath + saveFilePath);
+        SaveFile sSF = JsonUtility.FromJson<SaveFile>(File.ReadAllText(fullPath));
         SF = sSF;
     }
 
-    public void ResetSF()
+    static public void ResetSF()
     {
         string fullPath = Application.persistentDataPath + saveFilePath;
 
@@ -55,4 +62,6 @@ public class SaveFile
 
     public int gameProcess;
     public bool[] storyRead = new bool[100];
+
+    //Stats
 }
