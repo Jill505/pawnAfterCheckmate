@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public Text blitzCountDownText;
     public Coroutine blitzCoroutine;
 
+    [Header("CopySoul System")]
+    public bool isCopySoulOn;
+
     [Header("Control Variable")]
     public bool alreadyLoaded = false;
 

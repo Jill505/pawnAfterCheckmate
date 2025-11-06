@@ -176,6 +176,12 @@ public class unit : MonoBehaviour
                                         //³Q±þ¦º
                                         roundManager.SelectObjectTroop.myNowX = myX;
                                         roundManager.SelectObjectTroop.myNowY = myY;
+
+                                        if (gameManager.isCopySoulOn)
+                                        {
+                                            //Player Copy Soul
+                                            roundManager.SelectObjectTroop.CopySoul(TroopsOnMe);
+                                        }
                                         TroopsOnMe.killTroop();
 
                                         gameManager.hintManager.SpawnHintWordPrefab("À»¯} - " + TroopsOnMe.myChessData.chessName);

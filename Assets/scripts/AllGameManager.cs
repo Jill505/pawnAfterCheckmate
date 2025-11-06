@@ -43,6 +43,7 @@ public enum ability
     carElt,    //車擅長
     canonElt, //炮擅長
 
+    //進化玩法
     evo_HorMoveAbility,
     evo_VarMoveAbility,
 
