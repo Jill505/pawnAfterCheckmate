@@ -222,14 +222,15 @@ public class GameManager : MonoBehaviour
 
         gameTargetAnimator.SetTrigger("DoJump");
 
-        switch (levelData.myMissionType) {
+        switch (levelData.myMissionType)
+        {
             case (MissionType.Survive):
                 if (levelData.SurviveRound - roundManager.roundCount > 0)
                 {
                     TargetStr = "目標\n存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
                     GameTarget.color = Color.black;
                 }
-                else 
+                else
                 {
                     TargetStr = "目標\n殺死癥結！";
                     GameTarget.color = Color.red;
@@ -260,11 +261,11 @@ public class GameManager : MonoBehaviour
     IEnumerator BlitzCoroutine(float allowReactTime)
     {
         float CT = allowReactTime;
-        while (CT >0)
+        while (CT > 0)
         {
             CT -= Time.deltaTime;
-            SyncBlitzUI(CT/allowReactTime , CT);
-            yield return null;  
+            SyncBlitzUI(CT / allowReactTime, CT);
+            yield return null;
         }
         //Call Complete Round;
         roundManager.PlayerRoundInterrupt();
@@ -274,5 +275,16 @@ public class GameManager : MonoBehaviour
     {
         blitzCountDownImage.fillAmount = percentage;
         blitzCountDownText.text = "Count Down\n" + countDown.ToString("F2");
+    }
+
+    public void FrameSkipping()
+    {
+        StartCoroutine(FrameSkippingCoroutine());
+    }
+    IEnumerator FrameSkippingCoroutine()
+    {
+        Time.timeScale = 0.3f;
+        yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 1f;
     }
 }

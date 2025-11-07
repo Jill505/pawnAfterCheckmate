@@ -123,6 +123,10 @@ public class Troop : MonoBehaviour
             //Let Player Win.
             roundManager.Win();
         }
+        else if(myChessData.myCamp != Camp.Player)
+        {
+            gameManager.FrameSkipping();
+        }
 
         if (myCamp == Camp.Enemy)
         {
