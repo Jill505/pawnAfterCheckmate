@@ -240,6 +240,9 @@ public class RoundManager : MonoBehaviour
         //cameraManager.ExitGameCamera();
         Debug.Log("ª±®a³Ó§Q");
 
+        gameManager.gameBGM.FadeOut(0.5f);
+        soundManager.PlaySFX("Holy_Shotgun_original", true);
+
         StartCoroutine(WaitExitCall());
     }
     IEnumerator WaitExitCall()
@@ -261,6 +264,9 @@ public class RoundManager : MonoBehaviour
     {
         playerDieCanvasAnimator.SetTrigger("PlayerDie");
         Debug.Log("Player Death");
+
+        gameManager.gameBGM.FadeOut(0.5f);
+        soundManager.PlaySFX("bell_lose", true);
 
         StartCoroutine(WaitExitCall());
     }

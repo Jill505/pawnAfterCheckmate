@@ -46,11 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myST: 0
-  myVolume: 1
+  myCurrentVolume: 0
+  myNormalVolume: 1
   audioClipPlayTime: 10
+  isSyncPitch: 0
   myAudioSource: {fileID: -522895228954315544}
   myAudioClip: {fileID: 0}
   autoDel: 0
+  dontDestroyOnLoadSwitch: 0
 --- !u!82 &-522895228954315544
 AudioSource:
   m_ObjectHideFlags: 0

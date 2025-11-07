@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class SoundManager : MonoBehaviour
 {
@@ -23,14 +24,14 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void PlayBGM(string BgmName)
+    public AK_Audio PlayBGM(string BgmName)
     {
         AudioClip sAC = Resources.Load<AudioClip>("Music/" + BgmName);
 
         if (sAC == null)
         {
             Debug.LogWarning("AK Warning - 音樂未找到檔案 拒絕播放");
-            return;
+            return null;
         }
 
         GameObject obj = Instantiate(AudioObject);
@@ -40,6 +41,8 @@ public class SoundManager : MonoBehaviour
         AKA.myAudioClip = sAC;
 
         AKA.PlaySound();
+
+        return AKA;
     }
 
     public void PlaySFX(string SFXName)
@@ -49,7 +52,7 @@ public class SoundManager : MonoBehaviour
         if (sAC == null)
         {
             Debug.LogWarning("AK Warning - 音效未找到檔案 拒絕播放");
-            return;
+            //return null;
         }
 
         GameObject obj = Instantiate(AudioObject);
@@ -59,6 +62,36 @@ public class SoundManager : MonoBehaviour
         AKA.myST = SoundType.Sfx;
 
         AKA.PlaySound();
+
+        //return AKA;
+    }
+
+    public AK_Audio PlaySFX(string SFXName, bool isDontDestroyOnLoad)
+    {
+        AudioClip sAC = Resources.Load<AudioClip>("SFX/" + SFXName);
+
+        if (sAC == null)
+        {
+            Debug.LogWarning("AK Warning - 音效未找到檔案 拒絕播放");
+            return null;
+        }
+
+
+        GameObject obj = Instantiate(AudioObject);
+        AK_Audio AKA = obj.GetComponent<AK_Audio>();
+        AKA.myAudioClip = sAC;
+        AKA.myAudioSource.clip = sAC;
+        AKA.myST = SoundType.Sfx;
+
+        AKA.PlaySound();
+
+
+        if (isDontDestroyOnLoad)
+        {
+            AKA.dontDestroyOnLoadSwitch = true;
+        }
+
+        return AKA;
     }
 }
 

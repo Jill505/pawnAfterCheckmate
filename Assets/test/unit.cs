@@ -274,7 +274,7 @@ public class unit : MonoBehaviour
                         _colorClog = false; 
                         mySr.color = new Color(1, 1, 1, 1);
                         mySr.sprite = myOriginalSprite;
-                        Debug.LogWarning("MyRound還原");
+                        //Debug.LogWarning("MyRound還原");
                     }
                 }
                 break;

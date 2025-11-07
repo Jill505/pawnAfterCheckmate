@@ -2337,7 +2337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8582608258599549643, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2787,7 +2787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1438481426}
   cameraManager: {fileID: 1931046469}
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 1438481427}
   GameGoing: 0
   isPlayerRound: 0
   leftRoundCount: 5
@@ -2854,6 +2854,7 @@ MonoBehaviour:
   Troops: []
   spawnInterval: 1
   GameCellUnit: {fileID: 8849811575621646054, guid: f600eddaed47955488030ce8cff36bb9, type: 3}
+  gameBGM: {fileID: 0}
   bGM_name: pawn's_(demo)_2
 --- !u!114 &1438481427
 MonoBehaviour:
@@ -4013,15 +4014,21 @@ MonoBehaviour:
   startPosition:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+    orthographic: 0
   cameraConstPosition:
     position: {x: 0, y: 0, z: -11.35}
     rotation: {x: 0, y: 0, z: 0}
+    orthographic: 0
   currentCameraPosition:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+    orthographic: 0
   targetCameraPosition:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+    orthographic: 0
+  currentOrthographic: 0
+  targetOrthographic: 0
   fluent: 7
   targetLookingAt: {fileID: 620100415}
 --- !u!1 &1946046437

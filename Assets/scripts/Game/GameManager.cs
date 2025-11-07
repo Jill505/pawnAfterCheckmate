@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public GameObject GameCellUnit;
 
     [Header("Music")]
+    public AK_Audio gameBGM;
     public string bGM_name = "GiveMeYourFastFist";
 
     // Start is called on   ce before the first execution of Update after the MonoBehaviour is created
@@ -243,8 +244,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayBgm()
     {
-        Debug.Log("AA");
-        soundManager.PlayBGM(bGM_name);
+        gameBGM = soundManager.PlayBGM(bGM_name);
+        gameBGM.FadeIn(2f);
     }
 
     public void StartBlitzCoroutine(float allowReactTime)
@@ -279,12 +280,18 @@ public class GameManager : MonoBehaviour
 
     public void FrameSkipping()
     {
-        StartCoroutine(FrameSkippingCoroutine());
+        Debug.Log("Frame Skip ");
+        StartCoroutine(FrameSkippingCoroutine(0.3f, 0.4f));
     }
-    IEnumerator FrameSkippingCoroutine()
+    public void FrameSkipping(float lateRate, float lateTime)
     {
-        Time.timeScale = 0.3f;
-        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Frame Skip ¯S©w");
+        StartCoroutine(FrameSkippingCoroutine(lateRate, lateTime));
+    }
+    IEnumerator FrameSkippingCoroutine(float lateRate, float lateTime)
+    {
+        Time.timeScale = lateRate;
+        yield return new WaitForSecondsRealtime(lateTime);
         Time.timeScale = 1f;
     }
 }

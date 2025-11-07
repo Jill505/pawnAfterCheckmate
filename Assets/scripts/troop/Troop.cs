@@ -121,11 +121,13 @@ public class Troop : MonoBehaviour
         if (myChessData.isGoldenTarget)
         {
             //Let Player Win.
+            gameManager.FrameSkipping(0.1f, 1.2f);
             roundManager.Win();
         }
-        else if(myChessData.myCamp != Camp.Player)
+
+        if (myCamp == Camp.Player)
         {
-            gameManager.FrameSkipping();
+            gameManager.FrameSkipping(0.1f, 2f);
         }
 
         if (myCamp == Camp.Enemy)
@@ -133,6 +135,7 @@ public class Troop : MonoBehaviour
             RoundManager RM = FindAnyObjectByType<RoundManager>();
             RM.EnemyAITroop.Remove(this);
             roundManager.specialClogAutoSelectionClog = true;
+            gameManager.FrameSkipping();
         }
 
         gameManager.Troops.Remove(gameObject);
@@ -366,7 +369,7 @@ public class Troop : MonoBehaviour
     }
     public void GeneralReduceRule(List<Vector2> Vec2List, Troop T)
     {
-        Debug.Log("學士路東觸發");
+        //Debug.Log("學士路東觸發");
         //shield reduce - 上盾牌 抵擋來自上方的攻擊 即檢測玩家正下方地塊目標
         #region 上盾牌
         for (int i = Vec2List.Count - 1; i >= 0; i--)
