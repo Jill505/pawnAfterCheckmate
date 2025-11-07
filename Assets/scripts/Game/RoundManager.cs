@@ -244,6 +244,12 @@ public class RoundManager : MonoBehaviour
     }
     IEnumerator WaitExitCall()
     {
+        //Make time flow slow and maybe a close up?
+
+        Time.timeScale = 0.6f;
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1f;
+
         cameraManager.ExitGameCamera();
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);

@@ -76,8 +76,6 @@ public class unit : MonoBehaviour
                 mySr.sprite = myOriginalSprite;
             }
         }
-
-        
     }
     private void OnMouseExit()
     {
