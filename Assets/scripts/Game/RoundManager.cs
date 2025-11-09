@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
-using UnityEngine.Experimental.GlobalIllumination;
-using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
@@ -174,7 +172,10 @@ public class RoundManager : MonoBehaviour
                 resetUnitSelectState();
                 Debug.Log("AA");
                 //新敵人加入戰場
-                RandomSpawnEnemy(gameManager.levelData, false);
+                for (int i = 0; i < gameManager.levelData.enemySpawnEachRound; i++)
+                {
+                    RandomSpawnEnemy(gameManager.levelData, false);
+                }
                 //RandomSpawnEnemy(gameManager.levelData);
 
                 //勝利狀態判定與生成黃金敵人

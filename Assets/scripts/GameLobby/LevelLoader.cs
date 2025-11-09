@@ -46,7 +46,7 @@ public class LevelLoader : MonoBehaviour
 
     public void ShowLevelContext(SO_Level soLevel)
     {
-        levelShowName.text = soLevel.name;
+        levelShowName.text = soLevel.levelName;
         levelShowDesc.text = soLevel.levelDesc;
 
         loadLevel = soLevel;

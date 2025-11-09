@@ -24,7 +24,11 @@ public class SO_Level : ScriptableObject
     public List<GameBoardCell> levelContext = new List<GameBoardCell>();
     public List<GameBoardInsChess> chessInsData = new List<GameBoardInsChess>();
 
+    [Header("Enemy spawn information")]
+    public int enemySpawnEachRound =1 ;
+
     public List<SO_Chess> spawnChessData = new List<SO_Chess>();
+
 
 /*#if UNITY_EDITOR
         if (gridSizeX < 1) gridSizeX = 1;

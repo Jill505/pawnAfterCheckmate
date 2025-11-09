@@ -1,10 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine.UI;
-using Mono.Cecil;
-using Unity.VisualScripting;
-
 public class Troop : MonoBehaviour
 {
     public GameManager gameManager;
@@ -152,6 +148,7 @@ public class Troop : MonoBehaviour
     {
         EnemyLogic();
         myNextDes = ClosestVector();
+
         myNowX = (int)myNextDes.x;
         myNowY = (int)myNextDes.y;
 
@@ -162,6 +159,7 @@ public class Troop : MonoBehaviour
 
         //¶Ë®`§P©w
         EnemyOnMouseDownEvent(gameManager.chessBoardObjectRefArr[myNowY, myNowX].GetComponent<unit>());
+
     }
 
     public Vector2 ClosestVector()
