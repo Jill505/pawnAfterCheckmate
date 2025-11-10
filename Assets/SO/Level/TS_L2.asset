@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: "\u95DC\u53612"
   levelID: Def ID
-  levelDesc: Def Desc
+  levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u8FD4\u795D\uFF01\u300D"
   allowDeployTroopNumber: 3
   myMissionType: 0
-  SurviveRound: 10
+  SurviveRound: 6
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     locationX: 3
     locationY: 3
+  PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
     myPerform: 0

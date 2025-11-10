@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Unity.Properties;
+
 public class Troop : MonoBehaviour
 {
     public GameManager gameManager;
@@ -80,6 +82,11 @@ public class Troop : MonoBehaviour
             RoundManager RM = FindAnyObjectByType<RoundManager>();
             RM.EnemyAITroop.Add(this);
         }
+
+        for (int i = 0; i < myAbilities.Length; i++)
+        {
+            TroopAbilityApply(myAbilities[i]);
+        }
     }
 
     void Update()
@@ -143,7 +150,6 @@ public class Troop : MonoBehaviour
 
     public Vector2 myNextDes;
     #region 敵人邏輯
-
     public void MoveToNext()
     {
         EnemyLogic();
@@ -151,6 +157,17 @@ public class Troop : MonoBehaviour
 
         myNowX = (int)myNextDes.x;
         myNowY = (int)myNextDes.y;
+
+        if (myNowX < 0)
+        {
+            Debug.Log("myNowX - " + myNowX);
+            Debug.LogError("Out of Range");
+        }
+        if (myNowY < 0)
+        {
+            Debug.Log("myNowY - " + myNowY);
+            Debug.LogError("Out of Range");
+        }
 
         //Play sound effect
         soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
@@ -212,27 +229,22 @@ public class Troop : MonoBehaviour
 
                 if (u.TroopsOnMe.myCamp == Camp.Player) continue;
 
-                // 建議整個專案改用 Vector2Int；若現在列表是 Vector2，可先 RoundToInt
                 // 這段GPT改的
                 var pos = new Vector2Int(u.myX, u.myY);
-                if (pos == Vector2Int.RoundToInt(target) )
+                if (pos == Vector2Int.RoundToInt(target))
                 {
                     OnSelectChessAllowMoveVector.RemoveAt(i);
                     break; // 避免在同一個 i 上繼續讀取已被縮短的 List
                 }
-            }
-        }
 
-        /*for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
-        {
-            foreach (GameObject obj in gameManager.chessBoardObjectRefArr)
-            {
-                if (obj.GetComponent<unit>().TroopsOnMe != null && new Vector2(obj.GetComponent<unit>().myX, obj.GetComponent<unit>().myY) == OnSelectChessAllowMoveVector[i])
+                if (target.x < 0 || target.y < 0)
                 {
-                    OnSelectChessAllowMoveVector.Remove(OnSelectChessAllowMoveVector[i]);
+                    OnSelectChessAllowMoveVector.RemoveAt(i);
+                    Debug.Log("Out of range解釋");
+                    break;
                 }
             }
-        }*/
+        }
     }
     public void EnemyOnMouseDownEvent(unit tarUnit) //此方法與unit.cs中的PlayerOnMouseDownEvent相似 修改時請考慮到另外一邊
     {
@@ -460,6 +472,28 @@ public class Troop : MonoBehaviour
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
     {
         gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void TroopAbilityApply(ability abi)
+    {
+        switch (abi)
+        {
+            case ability.UpperShield:
+                hasUpperShield = true;
+                break;
+
+            case ability.LowerShield:
+                hasLowerShield = true;
+                break;
+
+            case ability.LeftShield:
+                hasLeftShield = true;
+                break;
+
+            case ability.RightShield:
+                hasRightShield = true;
+                break;
+        }
     }
 
     public void EnemyEvo()

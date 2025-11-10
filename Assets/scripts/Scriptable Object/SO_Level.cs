@@ -17,6 +17,10 @@ public class SO_Level : ScriptableObject
     public int SurviveRound = 10;
     public GameBoardInsChess goldenTarget;
 
+    [Header("Player Level Setting")]
+    public Vector2 PlayerSpawnPos;
+
+    [Header("Perform Settings")]
     public bool hasPerform;
     public Perform myPerform;
     public int gridSizeX  =9;

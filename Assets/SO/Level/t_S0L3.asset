@@ -22,6 +22,7 @@ MonoBehaviour:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     locationX: 3
     locationY: 3
+  PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
     myPerform: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
     locationX: 0
     locationY: 0
+  enemySpawnEachRound: 1
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}

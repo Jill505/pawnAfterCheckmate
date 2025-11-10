@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: "\u95DC\u53614"
   levelID: Def ID
-  levelDesc: Def Desc
+  levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\u300D"
   allowDeployTroopNumber: 3
   myMissionType: 0
   SurviveRound: 10
@@ -22,6 +22,7 @@ MonoBehaviour:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     locationX: 3
     locationY: 3
+  PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
     myPerform: 0
@@ -517,16 +518,16 @@ MonoBehaviour:
   chessInsData:
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
     locationX: 0
-    locationY: 5
+    locationY: 3
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-    locationX: 5
+    locationX: 8
     locationY: 0
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
-    locationX: 5
-    locationY: 5
-  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
-    locationX: 0
-    locationY: 0
+    locationX: 8
+    locationY: 8
+  - chessFile: {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
+    locationX: 4
+    locationY: 4
   enemySpawnEachRound: 2
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}

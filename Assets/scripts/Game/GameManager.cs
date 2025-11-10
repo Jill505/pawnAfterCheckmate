@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
                 if (levelData.SurviveRound - roundManager.roundCount > 0)
                 {
                     TargetStr = "目標\n存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
-                    GameTarget.color = Color.black;
+                    GameTarget.color = Color.white;
                 }
                 else
                 {

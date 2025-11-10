@@ -48,6 +48,12 @@ public enum ability
     evo_VarMoveAbility,
 
     evo_XMoveAbility,
+
+    //¬ÞµP
+    UpperShield,
+    LowerShield,
+    LeftShield,
+    RightShield,
 }
 
 public enum SaveFileType
