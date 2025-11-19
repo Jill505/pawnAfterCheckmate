@@ -54,6 +54,10 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("AK Warning - 音效未找到檔案 拒絕播放");
             //return null;
         }
+        else
+        {
+            //Debug.Log("play sound effect" + SFXName);
+        }
 
         GameObject obj = Instantiate(AudioObject);
         AK_Audio AKA = obj.GetComponent<AK_Audio>();

@@ -37,6 +37,7 @@ public class AK_Audio : MonoBehaviour
         {
             case SoundType.Sfx:
                 autoDel = true;
+                isSyncPitch = false;
 
                 DontDestroyOnLoad(this);
                 break;
@@ -88,7 +89,7 @@ public class AK_Audio : MonoBehaviour
 
     public void FadeIn(float time)
     {
-        Debug.Log(gameObject.name + "fade");
+        //Debug.Log(gameObject.name + "fade");
         if (nowFaceFunc != null)
         {
             //return;
@@ -98,12 +99,12 @@ public class AK_Audio : MonoBehaviour
     }
     public IEnumerator FadeInCoroutine(float time)
     {
-        Debug.Log("Trigger Fade Coroutine");
+        //Debug.Log("Trigger Fade Coroutine");
         myCurrentVolume = 0;
 
         while (myCurrentVolume < myNormalVolume)
         {
-            Debug.Log("adding ");
+           // Debug.Log("adding ");
             myCurrentVolume += (Time.deltaTime / time);
             yield return null;
         }

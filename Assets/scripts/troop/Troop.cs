@@ -237,7 +237,7 @@ public class Troop : MonoBehaviour
                     break; // 避免在同一個 i 上繼續讀取已被縮短的 List
                 }
 
-                if (target.x < 0 || target.y < 0)
+                if (target.x < 0 || target.y < 0 || target.x >= gameManager.levelData.gridSizeX || target.y >= gameManager.levelData.gridSizeY)
                 {
                     OnSelectChessAllowMoveVector.RemoveAt(i);
                     Debug.Log("Out of range解釋");
@@ -323,7 +323,7 @@ public class Troop : MonoBehaviour
 
     public void UpdateOnSelectChessAllowMoveVector(List<Vector2> Vec2List, Troop T) // 可移動地塊更新 重要函式！！！
     {
-        Debug.Log(gameObject.name + "\n camp is:" + myCamp + "\nUpdateOnSelectChessAllowMoveVector Triggered.");
+        //Debug.Log(gameObject.name + "\n camp is:" + myCamp + "\nUpdateOnSelectChessAllowMoveVector Triggered.");
         Vec2List.Clear();
         //get current XY
         Vector2 currentXY = new Vector2(T.myNowX, T.myNowY);

@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void GameInitialization(SO_Level config)
     {
-        Debug.Log("INN");
+        Debug.Log("關卡生成初始化");
 
         spawnReferencePoint = Vector2.zero;
         chessBoardObjectRefArr = new GameObject[config.gridSizeX, config.gridSizeY];
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Start Render");
+        Debug.Log("開始覆蓋場景");
         //渲染覆蓋
         for (int i = 0; i < config.levelContext.Count; i++)
         {
@@ -281,7 +281,7 @@ public class GameManager : MonoBehaviour
     public void FrameSkipping()
     {
         Debug.Log("Frame Skip ");
-        StartCoroutine(FrameSkippingCoroutine(0.3f, 0.4f));
+        //StartCoroutine(FrameSkippingCoroutine(0.3f, 0.4f));
     }
     public void FrameSkipping(float lateRate, float lateTime)
     {

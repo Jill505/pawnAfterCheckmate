@@ -124,6 +124,7 @@ public class unit : MonoBehaviour
                     if (gameManager.MyTroop.GetComponent<Troop>().myNowX == myX && gameManager.MyTroop.GetComponent<Troop>().myNowY == myY)
                     {
                         Debug.Log("Triggered");
+                        Debug.Log("玩家行為");
                         roundManager.SelectObjectTroop = gameManager.MyTroop.GetComponent<Troop>();
                         roundManager.UpdateOnSelectChessAllowMoveVector();
                     }
@@ -153,19 +154,40 @@ public class unit : MonoBehaviour
                                     //若已有對手棋子，對其造成傷害
                                     TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
 
+                                    Debug.Log("播放擊殺音效");
+
                                     //播放音樂音效
                                     if (TroopsOnMe.myChessData.isGoldenTarget)
                                     {
                                         soundManager.PlaySFX("boss_slash_test_2");
                                     }
-                                    else if (roundManager.playerHitCombo >= 3)//連殺
+                                    else if (roundManager.playerHitCombo >= 4)//連殺
                                     {
-                                        soundManager.PlaySFX("pawn_slash_hard");
+                                        Debug.Log("播放擊殺音效5");
+                                        soundManager.PlaySFX("kill_5");
                                     }
+                                    else if (roundManager.playerHitCombo >= 3)
+                                    {
+                                        Debug.Log("播放擊殺音效4");
+                                        soundManager.PlaySFX("kill_4");
+                                    }
+
+                                    else if (roundManager.playerHitCombo >= 2)
+                                    {
+                                        Debug.Log("播放擊殺音效3");
+                                        soundManager.PlaySFX("kill_3");
+                                    }
+
+                                    else if (roundManager.playerHitCombo >= 1)
+                                    {
+                                        Debug.Log("播放擊殺音效2");
+                                        soundManager.PlaySFX("kill_2");
+                                    }
+
                                     else
                                     {
-                                        soundManager.PlaySFX("pawn_slash_hard");
-                                        //soundManager.PlaySFX("pawn_slash_normal");
+                                        Debug.Log("播放擊殺音效1");
+                                        soundManager.PlaySFX("kill_1");
                                     }
 
                                     //若攻擊未殺死目標，則留在前一格
