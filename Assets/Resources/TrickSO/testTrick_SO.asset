@@ -9,16 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30c27d8e974eeda43882c5d993095c3a, type: 3}
-  m_Name: MyPlayerConfig
+  m_Script: {fileID: 11500000, guid: 9637cc1ea743ab545a2697af3057526d, type: 3}
+  m_Name: testTrick_SO
   m_EditorClassIdentifier: 
-  allChess:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  squads: 000000000100000002000000
-  ranStr: "\u65E9\u5B89"
+  trickName: "\u9810\u8A2D\u6232\u6CD5\u540D\u7A31"
+  myTrickType: 0
+  mySprite: {fileID: 0}
+  trickRequireEnergy: 100
+  maxTrickAmount: 1

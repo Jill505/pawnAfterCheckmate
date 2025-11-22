@@ -11,8 +11,9 @@ public class SaveSystem : MonoBehaviour
 
     static public string saveFilePath = "SaveFile" + 0;
 
-    private void Start()
+    private void Awake()
     {
+        Debug.Log("載入儲存單元");
         LoadSF();
     }
 
@@ -21,6 +22,12 @@ public class SaveSystem : MonoBehaviour
         if (SFSync)
         {
             SFShowCase = SF;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log("測試 - 手動儲存");
+            SaveSF();
         }
     }
 
@@ -58,10 +65,25 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class SaveFile
 {
+    //SaveFile Sets
     public string SaveName;
 
+    //Player System Setting
+    public float BgmVolume = 1f;
+    public float SFXVolume = 1f;
+
+    public int difficulty = 0; // 0= easy 1= hard. 為了未來可能加入的新難度
+
+    //Game Process
     public int gameProcess;
     public bool[] storyRead = new bool[100];
 
+    public int[] trickLevel; // less then 0 means the trick didn't unlocks
+
+    //Player GamePlay Setting
+    public TrickType holdingTrickType;
+    
     //Stats
+
+
 }

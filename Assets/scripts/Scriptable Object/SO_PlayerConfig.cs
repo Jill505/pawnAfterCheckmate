@@ -4,9 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_PlayerConfig", menuName = "Scriptable Objects/SO_PlayerConfig")]
 public class SO_PlayerConfig : ScriptableObject
 {
+    // 警告 以下程式碼已經廢棄 新的儲存系統統一至 SaveSystem.cs中
     [Header("Chess")]
     public SO_Chess[] allChess;
     public int[] squads = new int[3];
+
 
     [Header("Game Process")]
     public string ranStr = "我還沒想好這個地方要怎麼做所以先放一個String在這裡";
