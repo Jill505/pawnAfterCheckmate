@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9637cc1ea743ab545a2697af3057526d, type: 3}
-  m_Name: TestTrick
+  m_Name: NoTrick_SO
   m_EditorClassIdentifier: 
   trickName: "\u9810\u8A2D\u6232\u6CD5\u540D\u7A31"
   myTrickType: 0

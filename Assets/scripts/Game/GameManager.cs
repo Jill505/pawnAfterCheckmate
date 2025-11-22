@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public LevelConstructor levelConstructor;
     public SO_Level levelData;
     public SoundManager soundManager;
+    public TrickManager trickManager;
 
     [Header("Scene System")]
     public HintManager hintManager;
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
     public AK_Audio gameBGM;
     public string bGM_name = "GiveMeYourFastFist";
 
+
     // Start is called on   ce before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -68,9 +70,22 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
+    public bool bgmOnOffForTest = true;
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            bgmOnOffForTest = !bgmOnOffForTest;
+            if (bgmOnOffForTest)
+            {
+                gameBGM.FadeIn(0.4f);
+            }
+            else
+            {
+                gameBGM.FadeOut(0.4f);
 
+            }
+        }
     }
 
     public void LoadGame(SO_Level config)

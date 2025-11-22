@@ -10,6 +10,7 @@ public class Troop : MonoBehaviour
     public bool isPlayer = false;
     public RoundManager roundManager;
     public SoundManager soundManager;
+    public TrickManager trickManager;
 
     public TroopOutfit troopOutfit;
 
@@ -75,6 +76,7 @@ public class Troop : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         roundManager = FindFirstObjectByType<RoundManager>();
         soundManager = FindFirstObjectByType<SoundManager>();
+        trickManager = FindFirstObjectByType<TrickManager>();
         LoadSOData();
 
         if (myCamp == Camp.Enemy)

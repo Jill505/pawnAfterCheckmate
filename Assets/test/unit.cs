@@ -8,6 +8,7 @@ public class unit : MonoBehaviour
     public RoundManager roundManager;
     public SpriteRenderer mySr;
     public SoundManager soundManager;
+    public TrickManager trickManager;
 
     public Sprite myOriginalSprite;
     public Sprite myHighLightSprite;
@@ -28,6 +29,7 @@ public class unit : MonoBehaviour
     private void Awake()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
+        trickManager = FindAnyObjectByType<TrickManager>();
     }
 
     public void ApplyPerform(string ID)
@@ -258,6 +260,8 @@ public class unit : MonoBehaviour
                         {
                             //開始特殊回合
                             roundManager.playerHitCombo++;
+                            //TOT
+                            trickManager.GainEnergyFromKill(roundManager.playerHitCombo);
                             roundManager.StartSpecialRound(roundManager.playerHitCombo);
                         }
                         else

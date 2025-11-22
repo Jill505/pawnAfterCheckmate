@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,23 +11,34 @@ public class TrickManager : MonoBehaviour
     public TrickType myTrickType;
     public SO_Trick trickSOFile;
 
-    public int maxHoldTrick;
+    public int myNowHoldTrickNum;
     public float myNowEnergy;
+    public bool isMaxContain;
+
+    [Header("Player Energy Config")]
+    public float[] energyGetWhenKill;
 
     [Header("UI system")]
     public Text trickNameShowCase;
     public Button trickButton;
     public Image trickButtonImage;
 
+    public Image processImage;
+    public float targetAmount_forShow;
+    public Text trickHoldTrickNumTextShowcase;
+    public Text trickHoldTrickNumTextShowcase_Bg;
     void Start()
     {
         LoadTrick();
     }
     void Update()
     {
-        if ( roundManager.roundState == RoundState.MyRound &&  maxHoldTrick > 0)
+        TrickEnergyLogic();
+        UILogic();
+
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            trickButton.interactable = true;
+            GainEnergy(20);
         }
     }
 
@@ -37,6 +49,9 @@ public class TrickManager : MonoBehaviour
         string trickPath = "TrickSO/";
         switch (myTrickType)
         {
+            case TrickType.noTrick:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "NoTrick_SO");
+                break;
             case TrickType.testTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "testTrick_SO");
                 break;
@@ -53,15 +68,38 @@ public class TrickManager : MonoBehaviour
             Debug.LogError("戲法SO資料不存在");
         }
     }
-
+    public void GainEnergyFromKill(int killCT)
+    {
+        if (killCT >= energyGetWhenKill.Length)
+        {
+            killCT = energyGetWhenKill.Length -1;
+        }
+        GainEnergy(energyGetWhenKill[killCT]);
+    }
     public void GainEnergy(float energyGet)
     {
+        if (isMaxContain == true)
+        {
+            return; 
+        }
+
         myNowEnergy += energyGet;
+
+        if (myNowEnergy >= trickSOFile.trickRequireEnergy)
+        {
+            myNowEnergy -= trickSOFile.trickRequireEnergy;
+
+            if (myNowHoldTrickNum < trickSOFile.maxTrickAmount)
+            {
+                myNowHoldTrickNum += 1;
+                
+            }
+        }
     }
 
     public void UseTrick()
     {
-        if (maxHoldTrick <= 0)
+        if (myNowHoldTrickNum <= 0)
         {
             Debug.Log("無法觸發戲法 - 沒有充能");
             return;
@@ -85,7 +123,7 @@ public class TrickManager : MonoBehaviour
                 break;
         }
 
-        maxHoldTrick -= 1;
+        myNowHoldTrickNum -= 1;
     }
 
     public void DoTrick_TestTrick()
@@ -93,5 +131,42 @@ public class TrickManager : MonoBehaviour
         Debug.Log("use test trick from test system.");
     }
 
+    public void UILogic()
+    {
+        if (roundManager.roundState == RoundState.MyRound && myNowHoldTrickNum > 0)
+        {
+            trickButton.interactable = true;
+        }
+        else
+        {
+            trickButton.interactable = false;
+        }
 
+        if (isMaxContain)
+        {
+            processImage.fillAmount = 1;
+            trickHoldTrickNumTextShowcase.text = myNowHoldTrickNum + "";
+            trickHoldTrickNumTextShowcase_Bg.text = myNowHoldTrickNum + "";
+        }
+        else
+        {
+            targetAmount_forShow = myNowEnergy / trickSOFile.trickRequireEnergy;
+            processImage.fillAmount = Mathf.Lerp(processImage.fillAmount, targetAmount_forShow, 0.2f);
+            trickHoldTrickNumTextShowcase.text = myNowHoldTrickNum + "";
+            trickHoldTrickNumTextShowcase_Bg.text = myNowHoldTrickNum + "";
+
+        }
+    }
+
+    public void TrickEnergyLogic()
+    {
+        if (myNowHoldTrickNum >= trickSOFile.maxTrickAmount)
+        {
+            isMaxContain = true;
+        }
+        else
+        {
+            isMaxContain = false;
+        }
+    }
 }

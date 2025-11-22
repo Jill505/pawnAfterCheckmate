@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9637cc1ea743ab545a2697af3057526d, type: 3}
   m_Name: testTrick_SO
   m_EditorClassIdentifier: 
-  trickName: "\u9810\u8A2D\u6232\u6CD5\u540D\u7A31"
-  myTrickType: 0
-  mySprite: {fileID: 0}
+  trickName: "\u6E2C\u8A66\u6232\u6CD5"
+  myTrickType: 1
+  mySprite: {fileID: -855298285791758126, guid: 16f4281138741b34c8a0ffb53df5f134, type: 3}
   trickRequireEnergy: 100
   maxTrickAmount: 1
