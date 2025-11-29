@@ -16,5 +16,5 @@ public enum TrickType
 {
     noTrick,
     testTrick,
-    magicMissile,
+    StrawMan,
 }

@@ -210,7 +210,7 @@ public class Troop : MonoBehaviour
 
     public void EnemyLogic()
     {
-        Debug.Log("Enemy Logic Trigger");
+        //Debug.Log("Enemy Logic Trigger");
         OnSelectChessAllowMoveVector.Clear();
         UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, this);
         //For Mob Reduce
@@ -242,7 +242,7 @@ public class Troop : MonoBehaviour
                 if (target.x < 0 || target.y < 0 || target.x >= gameManager.levelData.gridSizeX || target.y >= gameManager.levelData.gridSizeY)
                 {
                     OnSelectChessAllowMoveVector.RemoveAt(i);
-                    Debug.Log("Out of range¸ÑÄÀ");
+                    //Debug.Log("Out of range¸ÑÄÀ");
                     break;
                 }
             }

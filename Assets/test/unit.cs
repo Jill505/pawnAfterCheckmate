@@ -1,5 +1,3 @@
-
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class unit : MonoBehaviour
@@ -26,6 +24,13 @@ public class unit : MonoBehaviour
 
     public Troop TroopsOnMe;
 
+    [Header("Showcase stuff")]
+    public bool isEnemyAttackHighLighting = false;
+    public SpriteRenderer MyEnemyHighLightSR;
+
+    [Header("Placement and trick variables")]
+    public bool isPlaceableTarget = false;
+
     private void Awake()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
@@ -45,6 +50,8 @@ public class unit : MonoBehaviour
             mySr.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
             myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
             myHighLightSprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_HL");
+
+            MyEnemyHighLightSR.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_ENHL");
         }
     }
 
@@ -93,16 +100,57 @@ public class unit : MonoBehaviour
             mySr.color = new Color(1, 1, 1, 1f);
             mySr.sprite = myOriginalSprite;
         }
+
+        roundManager.EnemyAttackRangeShowcaseReduce();
     }
     private void OnMouseDown()
     {
         if (roundManager.roundState == RoundState.MyRound)
         {
+            //Placement Skill Function Works Here.
             soundManager.PlaySFX("button_press");
 
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+
+            if (roundManager.isCastingPlacementTrick)
+            {
+                //如果自己是可以被放置的範圍 有個旗標變數被打開
+                if (isPlaceableTarget && TroopsOnMe == null)
+                {
+                    //這個地塊是空的
+                    //他是系統認定的可放置目標
+                    
+                    //如果點下去 觸發在自己身上放置目標，具體目標由方法傳入
+                    //感覺參數不多可以直接巢狀下去
+                    if (roundManager.isCastingTrick_StrawMan)
+                    {
+                        //代表傳入的是StrawMan
+                        //依照等級去Call 
+                        GameBoardInsChess GBIC = new GameBoardInsChess();
+
+                        GBIC.chessFile = trickManager.TroopSpawnSwap_SO;
+                        GBIC.locationX = myX;
+                        GBIC.locationY = myY;
+
+                        gameManager.SpawnLevelTroop(GBIC);
+
+                        roundManager.isCastingPlacementTrick = false;
+                        roundManager.isCastingTrick_StrawMan = false;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    //在Casting placement trick狀態下，視作覆蓋玩家移動功能，故不執行Player On MouseDown Event
+                    //直接 return結束這一回合 避免夜長夢多
+                    return;
+                }
+            }
 
             PlayerOnMouseDownEvent();
         }
@@ -340,6 +388,7 @@ public class unit : MonoBehaviour
         }
 
         syncTroopOnMe();
+        SkinLogic();
     }
 
     public void syncTroopOnMe()
@@ -354,5 +403,18 @@ public class unit : MonoBehaviour
             }
         }
         TroopsOnMe = null;
+    }
+
+    public void SkinLogic()
+    {
+        //敵人攻擊範圍顯示
+        if (isEnemyAttackHighLighting)
+        {
+            MyEnemyHighLightSR.gameObject.SetActive(true);
+        }
+        else
+        {
+            MyEnemyHighLightSR.gameObject.SetActive(false);
+        }
     }
 }

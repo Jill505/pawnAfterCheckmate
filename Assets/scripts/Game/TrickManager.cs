@@ -1,4 +1,5 @@
-using System.Runtime.InteropServices.WindowsRuntime;
+using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,15 @@ public class TrickManager : MonoBehaviour
     public float targetAmount_forShow;
     public Text trickHoldTrickNumTextShowcase;
     public Text trickHoldTrickNumTextShowcase_Bg;
+
+    [Header("Spawn Troop Variables")]
+    public SO_Chess TroopSpawnSwap_SO;
+    public List<Vector2> AllowSpawnSpace;
+
+    [Header("Rely Refs")]
+    public SO_Chess StrawMan_SO;
+
+    public 
     void Start()
     {
         LoadTrick();
@@ -54,6 +64,9 @@ public class TrickManager : MonoBehaviour
                 break;
             case TrickType.testTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "testTrick_SO");
+                break;
+            case TrickType.StrawMan:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "StrawMan_SO");
                 break;
         }
 
@@ -118,12 +131,36 @@ public class TrickManager : MonoBehaviour
                 DoTrick_TestTrick();
                 break;
 
+            case TrickType.StrawMan:
+                DoTrick_StrawMan();
+                break;  
+
             default:
                 DoTrick_TestTrick();        
                 break;
         }
 
         myNowHoldTrickNum -= 1;
+    }
+
+
+    public void DoTrick_StrawMan()
+    {
+        Debug.Log("Do Straw man trick.");
+
+        TroopSpawnSwap_SO = StrawMan_SO;
+        
+        //Let the range sync, make unit's variable open;
+        //先寫一個全圖版
+        foreach (GameObject tObj in gameManager.chessBoardObjectRefArr)
+        {
+            tObj.GetComponent<unit>().isPlaceableTarget = true;
+        }
+
+        //UpdateTargetPlace(); //高配版 之後優化 
+
+        roundManager.isCastingPlacementTrick = true;
+        roundManager.isCastingTrick_StrawMan = true;
     }
 
     public void DoTrick_TestTrick()
@@ -167,6 +204,21 @@ public class TrickManager : MonoBehaviour
         else
         {
             isMaxContain = false;
+        }
+    }
+
+    public void UpdateTargetPlace(List<Vector2> tarVecList)
+    {
+        foreach (Vector2 vec in tarVecList)
+        {
+            gameManager.chessBoardObjectRefArr[(int)vec.y, (int)vec.x].GetComponent<unit>().isPlaceableTarget = true;
+        }
+    }
+    public void ResetTargetPlace()
+    {
+        foreach (GameObject tObj in gameManager.chessBoardObjectRefArr)
+        {
+            tObj.GetComponent<unit>().isPlaceableTarget = false;
         }
     }
 }

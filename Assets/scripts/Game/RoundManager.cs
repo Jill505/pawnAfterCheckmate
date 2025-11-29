@@ -68,6 +68,10 @@ public class RoundManager : MonoBehaviour
     public bool specialClogAutoSelectionClog;
     public int playerHitCombo = 0;
 
+    [Header("Trick系統相關")]
+    public bool isCastingPlacementTrick = false;
+    public bool isCastingTrick_StrawMan = false;
+
     void Start()
     {
         //INN
@@ -133,9 +137,9 @@ public class RoundManager : MonoBehaviour
                     }
                     RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
                 }
-
                 break;
-            case RoundState.MySpecialRound:
+                
+            case RoundState.MySpecialRound: //注意 Special Round 系統已經被CLOG與旗標完全取代
                 //自動選擇玩家物件並觸發地塊選擇
                 resetUnitSelectState();
                 SelectObject = gameManager.chessBoardObjectRefArr[gameManager.Troops[0].GetComponent<Troop>().myNowY, gameManager.Troops[0].GetComponent<Troop>().myNowX];
@@ -365,6 +369,9 @@ public class RoundManager : MonoBehaviour
                 TroopNameShowcase.text = ST.myChessData.chessName;
                 TroopSurviveShowcase.text = "存活回合：" + ST.surviveRound;
                 TroopDescShowcase.text = ST.myChessData.chessDesc;
+
+                EnemyAttackRangeShowcase(ST);
+                Debug.Log("AK通知 敵人攻擊範圍 UI Sync");
             }
         }
     }
@@ -477,6 +484,34 @@ public class RoundManager : MonoBehaviour
     {
         MyRoundEnd();
     }
+
+    public void EnemyAttackRangeShowcase(Troop troopShowTarget)
+    {
+        if (troopShowTarget == null)
+        {
+            return;
+        }
+        if (troopShowTarget.myCamp == Camp.Enemy)
+        {
+            troopShowTarget.EnemyLogic();
+
+            for (int i = 0; i < troopShowTarget.OnSelectChessAllowMoveVector.Count; i++)
+            {
+                Vector2 tarVec2 = troopShowTarget.OnSelectChessAllowMoveVector[i];
+                unit tarUnit = gameManager.chessBoardObjectRefArr[(int)tarVec2.y, (int)tarVec2.x].GetComponent<unit>();
+                tarUnit.isEnemyAttackHighLighting = true;
+            }
+        }
+    }
+
+    public void EnemyAttackRangeShowcaseReduce()
+    {
+        foreach (GameObject tarUnitObject in gameManager.chessBoardObjectRefArr)
+        {
+            unit tarUnit = tarUnitObject.GetComponent<unit>();
+            tarUnit.isEnemyAttackHighLighting = false;
+        }
+    }
 }
 public enum RoundState
 {
@@ -485,5 +520,5 @@ public enum RoundState
     MySpecialRound, //獎勵及時特殊回合
     EnemyRound, //敵人回合
     AnimatePlay, //動畫進行
-    Finished //完成階段
+    Finished, //完成階段
 }
