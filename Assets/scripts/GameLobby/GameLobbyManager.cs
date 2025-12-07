@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameLobbyManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameLobbyManager : MonoBehaviour
 
     [Header("GameObject Refs")]
     public GameObject LevelInspectCanvas;
+
 
     public void Start()
     {
@@ -39,41 +41,4 @@ public class GameLobbyManager : MonoBehaviour
         cameraController.OnAutoCamera = false;
     }
 
-    public void LoadIntoTheGame()
-    {
-        LoadPlayerSaveFile();
-
-        if (SaveSystem.SF.storyRead[0] == false)
-        {
-            //¼½©ñ°Êµe
-            StorySceneManager.ADR_LoadStorySort = 1;
-            StorySceneManager.ADR_IsStoryLoading = true;
-            SaveSystem.SF.storyRead[0] = true;
-            SaveSystem.SaveSF();
-            SceneManager.LoadScene(3);
-        }
-        else
-        {
-            SceneManager.LoadScene("GameLobby");
-        }
-    }
-    IEnumerator LoadIntoTheGameCoroutine()
-    {
-        //wait until the animation and load complete
-        LoadPlayerSaveFile();
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("GameLobby");
-    }
-    
-    
-    public void LoadPlayerSaveFile()
-    {
-        //TODO: load player save file eth.
-        Debug.LogWarning("Save/Load Function haven't complete yet.");
-    }
-
-    public void LeaveGame()
-    {
-        Application.Quit();
-    }
 }

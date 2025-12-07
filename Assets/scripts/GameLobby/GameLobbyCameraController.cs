@@ -5,7 +5,6 @@ public class GameLobbyCameraController : MonoBehaviour
 {
     public GameLobbyManager gameLobbyManager;
 
-
     public Vector2 targetPos;
 
     public Camera mainCamera;

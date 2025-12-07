@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using Unity.Properties;
+using Unity.VisualScripting;
 
 public class Troop : MonoBehaviour
 {
@@ -216,6 +217,14 @@ public class Troop : MonoBehaviour
         //For Mob Reduce
         ReduceOnSelectChessAllowMoveVector();
     }
+
+    public void EnemyCalculateAttackRange()
+    {
+        OnSelectChessAllowMoveVector.Clear();
+        UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, this);
+        ReduceOnSelectChessAllowMoveVector_ForLogicCalculationSpecialFunc_RememberToMakeItOverride();
+    }
+    
     public void ReduceOnSelectChessAllowMoveVector()
     {
         for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
@@ -229,7 +238,43 @@ public class Troop : MonoBehaviour
                 if (!obj.TryGetComponent<unit>(out unit u)) continue;
                 if (u.TroopsOnMe == null) continue;//二次檢查
 
+                if (u.TroopsOnMe.myCamp == Camp.Player) continue; //玩家保留顯示
+
+                //往下都是不允許攻擊的Reduce
+
+                // 這段GPT改的
+                var pos = new Vector2Int(u.myX, u.myY);
+                if (pos == Vector2Int.RoundToInt(target))
+                {
+                    OnSelectChessAllowMoveVector.RemoveAt(i);
+                    break; // 避免在同一個 i 上繼續讀取已被縮短的 List
+                }
+
+                if (target.x < 0 || target.y < 0 || target.x >= gameManager.levelData.gridSizeX || target.y >= gameManager.levelData.gridSizeY)
+                {
+                    OnSelectChessAllowMoveVector.RemoveAt(i);
+                    //Debug.Log("Out of range解釋");
+                    break;
+                }
+            }
+        }
+    }
+    public void ReduceOnSelectChessAllowMoveVector_ForLogicCalculationSpecialFunc_RememberToMakeItOverride()
+    {
+        for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
+        {
+            var target = OnSelectChessAllowMoveVector[i];
+
+            foreach (var obj in gameManager.chessBoardObjectRefArr)
+            {
+                if (obj == null) continue;
+                if (!obj.TryGetComponent<unit>(out unit u)) continue;
+                if (u.TroopsOnMe == null) continue;
+
                 if (u.TroopsOnMe.myCamp == Camp.Player) continue;
+                if (u.TroopsOnMe.myCamp == Camp.Enemy) continue;
+
+                //往下都是不允許攻擊的Reduce
 
                 // 這段GPT改的
                 var pos = new Vector2Int(u.myX, u.myY);

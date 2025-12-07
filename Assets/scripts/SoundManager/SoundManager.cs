@@ -21,7 +21,8 @@ public class SoundManager : MonoBehaviour
     
     void Update()
     {
-
+        BgmVolume = SaveSystem.SF.BgmVolume;
+        SfxVolume = SaveSystem.SF.SFXVolume;
     }
 
     public AK_Audio PlayBGM(string BgmName)

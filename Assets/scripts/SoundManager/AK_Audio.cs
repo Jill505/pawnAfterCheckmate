@@ -1,7 +1,9 @@
 using JetBrains.Annotations;
 using System.Collections;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AK_Audio : MonoBehaviour
 {
@@ -10,7 +12,9 @@ public class AK_Audio : MonoBehaviour
     public float myNormalVolume = 1;
     public float audioClipPlayTime = 10f;
 
+    public bool isSpecSoundProcessing;
     public bool isSyncPitch;
+    public bool isFading;
 
     public AudioSource myAudioSource;
     public AudioClip myAudioClip;
@@ -23,6 +27,17 @@ public class AK_Audio : MonoBehaviour
     private void Awake()
     {
         if (myAudioClip != null) audioClipPlayTime = myAudioClip.length;
+
+        switch (myST)
+        {
+            case SoundType.Sfx:
+                myNormalVolume = SaveSystem.SF.SFXVolume;
+                break;
+
+            case SoundType.Bgm:
+                myNormalVolume = SaveSystem.SF.BgmVolume;
+                break;
+        }
     }
     private void Start()
     {
@@ -48,9 +63,10 @@ public class AK_Audio : MonoBehaviour
                 break;
         }
 
-        if (autoDel)
+        if (autoDel && myAudioClip != null)
         {
-            Invoke("KysSound", audioClipPlayTime);
+            //Invoke("KysSound", audioClipPlayTime);
+            Destroy(gameObject, myAudioClip.length);
         }
 
         myAudioSource.Play();
@@ -74,6 +90,12 @@ public class AK_Audio : MonoBehaviour
                 break;
         }
 
+        if (!isSpecSoundProcessing)
+        {
+            myCurrentVolume = myNormalVolume;
+        }
+
+
         if (isSyncPitch)
         {
             myAudioSource.pitch = Time.timeScale;
@@ -84,7 +106,7 @@ public class AK_Audio : MonoBehaviour
 
     public void KysSound()
     {
-
+        Destroy(gameObject);
     }
 
     public void FadeIn(float time)
@@ -99,15 +121,25 @@ public class AK_Audio : MonoBehaviour
     }
     public IEnumerator FadeInCoroutine(float time)
     {
+        isSpecSoundProcessing = true;
         //Debug.Log("Trigger Fade Coroutine");
         myCurrentVolume = 0;
 
-        while (myCurrentVolume < myNormalVolume)
+        if (myNormalVolume <= 0)
         {
-           // Debug.Log("adding ");
-            myCurrentVolume += (Time.deltaTime / time);
-            yield return null;
+            //do nothing
         }
+        else
+        {
+
+            while (myCurrentVolume < myNormalVolume)
+            {
+                // Debug.Log("adding ");
+                myCurrentVolume += (Time.deltaTime / time);
+                yield return null;
+            }
+        }
+        isSpecSoundProcessing = false;
     }
 
     public void FadeOut(float time)
@@ -120,10 +152,12 @@ public class AK_Audio : MonoBehaviour
     }
     public IEnumerator FadeOutCoroutine(float time)
     {
+        isSpecSoundProcessing = true;
         while (myCurrentVolume > 0)
         {
             myCurrentVolume -= (Time.deltaTime / time);
             yield return null;
         }
+        isSpecSoundProcessing = false;  
     }
 }

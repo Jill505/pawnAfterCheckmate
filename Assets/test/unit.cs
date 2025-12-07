@@ -28,6 +28,9 @@ public class unit : MonoBehaviour
     public bool isEnemyAttackHighLighting = false;
     public SpriteRenderer MyEnemyHighLightSR;
 
+    public bool isSkillPlacementHighLighting = false;
+    public SpriteRenderer MySkillHighLightSR;
+
     [Header("Placement and trick variables")]
     public bool isPlaceableTarget = false;
 
@@ -52,6 +55,7 @@ public class unit : MonoBehaviour
             myHighLightSprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_HL");
 
             MyEnemyHighLightSR.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_ENHL");
+            MySkillHighLightSR.sprite = myHighLightSprite;
         }
     }
 
@@ -138,6 +142,7 @@ public class unit : MonoBehaviour
 
                         roundManager.isCastingPlacementTrick = false;
                         roundManager.isCastingTrick_StrawMan = false;
+                        trickManager.ResetTargetPlace();
                     }
                     else
                     {
@@ -415,6 +420,27 @@ public class unit : MonoBehaviour
         else
         {
             MyEnemyHighLightSR.gameObject.SetActive(false);
+        }
+
+
+        //ÅÞ¿è¤¾Âø ¥i¥HÀu¤Æ
+        if (isPlaceableTarget)
+        {
+            isSkillPlacementHighLighting = true;
+        }
+        else
+        {
+            isSkillPlacementHighLighting = false;
+        }
+
+
+        if (isSkillPlacementHighLighting)
+        {
+            MySkillHighLightSR.gameObject.SetActive(true);
+        }
+        else
+        {
+            MySkillHighLightSR.gameObject.SetActive(false);
         }
     }
 }

@@ -3159,6 +3159,8 @@ MonoBehaviour:
   isOnSpecialKill: 0
   specialClogAutoSelectionClog: 0
   playerHitCombo: 0
+  isCastingPlacementTrick: 0
+  isCastingTrick_StrawMan: 0
   WinCanvas_DeclareForSwap: {fileID: 539234657}
   playerDieCanvasAnimator: {fileID: 1493154380}
 --- !u!114 &1438481426
@@ -3246,6 +3248,9 @@ MonoBehaviour:
   targetAmount_forShow: 0
   trickHoldTrickNumTextShowcase: {fileID: 64630007}
   trickHoldTrickNumTextShowcase_Bg: {fileID: 410185346}
+  TroopSpawnSwap_SO: {fileID: 0}
+  AllowSpawnSpace: []
+  StrawMan_SO: {fileID: 11400000, guid: f2e63deb07177514bb31105dbfd925e1, type: 2}
 --- !u!114 &1438481429
 MonoBehaviour:
   m_ObjectHideFlags: 0
