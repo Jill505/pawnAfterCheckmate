@@ -25,7 +25,7 @@ public class GameLobbyCameraController : MonoBehaviour
 
     private void Start()
     {
-        OnAutoCamera = true;
+        //OnAutoCamera = true;
         if (gameLobbyManager == null)
         {
             gameLobbyManager = GameObject.Find("GameLobbyManager").GetComponent<GameLobbyManager>();
@@ -34,6 +34,7 @@ public class GameLobbyCameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*
         if (OnAutoCamera)
         {
             movingCount += Time.fixedDeltaTime;
@@ -65,7 +66,7 @@ public class GameLobbyCameraController : MonoBehaviour
             {
                 OnAutoCamera = false;
             }
-        }
+        }*/
     }
     public void CancelLevelInspect()
     {

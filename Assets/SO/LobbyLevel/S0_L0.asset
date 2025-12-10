@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b5b5387a0818e4c9b7d334db670677, type: 3}
   m_Name: S0_L0
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 6176511443112562264, guid: b5cc879a53fa8d84cbbdd2e46f051357, type: 3}
   myStageIndex: 0
   myLevelIndex: 0
-  mySO_Level: {fileID: 0}
+  mySO_Level: {fileID: 11400000, guid: c6da16584569d40488a71665a087f5a6, type: 2}

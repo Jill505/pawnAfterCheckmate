@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class GameLobbyManager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class GameLobbyManager : MonoBehaviour
     public Button LoadLevelButton;
     public SpriteRenderer backgroundImageSpriteRenderer;
 
+    public Text LevelName;
+    public Text LevelDesc;
+
     public Image playerChoosingTrick;
     public Text playerTrickName;
     public Text playerTrickDesc;
@@ -33,6 +37,7 @@ public class GameLobbyManager : MonoBehaviour
 
     public TrickType[] nowShowTrickArray;
     static public int nowSelectingTrickIndex;
+    public int nowSelectingTrickIndexInspect;
 
     private void Awake()
     {
@@ -56,6 +61,11 @@ public class GameLobbyManager : MonoBehaviour
         SelectTrick(nowShowTrickArray[nowSelectingTrickIndex]);
     }
 
+    public void Update()
+    {
+        nowSelectingTrickIndexInspect = nowSelectingTrickIndex;
+    }
+
     #region UI Related
 
     public void DoSwitchLobbyLevel(int StageIndex, int LevelIndex)
@@ -76,7 +86,8 @@ public class GameLobbyManager : MonoBehaviour
         }
 
         backgroundImageSpriteRenderer.sprite = SO_L.backgroundImage;
-
+        LevelName.text = SO_L.mySO_Level.levelName;
+        LevelDesc.text = SO_L.mySO_Level.levelDesc;
     }
 
     public void LoadNormalLobbyContext()
@@ -90,7 +101,7 @@ public class GameLobbyManager : MonoBehaviour
     #endregion
 
     #region TrickSystem
-    public void DoSwitchIndexAdd()
+    public void DoTrickSwitchIndexAdd()
     {
         nowSelectingTrickIndex += 1;
         if (nowSelectingTrickIndex >= nowShowTrickArray.Length)
@@ -100,7 +111,7 @@ public class GameLobbyManager : MonoBehaviour
         }
         SwitchSkillInspect(nowSelectingTrickIndex);
     }
-    public void DoSwitchIndexMinus()
+    public void DoTrickSwitchIndexMinus()
     {
         nowSelectingTrickIndex -= 1;   
         if (nowSelectingTrickIndex < 0)
@@ -112,6 +123,7 @@ public class GameLobbyManager : MonoBehaviour
     }
     public void SwitchSkillInspect(int index)
     {
+        SaveSystem.SF.nowSelectingTrickIndex = index;
         SelectTrick(nowShowTrickArray[index]);
     }
 
