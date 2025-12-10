@@ -11,6 +11,8 @@ public class SO_Trick : ScriptableObject
 
     public float trickRequireEnergy = 100f;
     public int maxTrickAmount = 1;
+
+    public string trickDesc = "¹w³]À¸ªk´y­z";
 }
 public enum TrickType
 {

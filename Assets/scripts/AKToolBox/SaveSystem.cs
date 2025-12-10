@@ -72,10 +72,17 @@ public class SaveFile
     public float BgmVolume = 1f;
     public float SFXVolume = 1f;
 
+    public int saveStageIndex = 0 ;
+    public int saveLevelIndex = 0;
+    public int nowSelectingTrickIndex = 0;
+
     public int difficulty = 0; // 0= easy 1= hard. 為了未來可能加入的新難度
 
     //Game Process
     public int gameProcess;
+    public int gameProcess_Stage;
+    public int gameProcess_Level;
+
     public bool[] storyRead = new bool[100];
 
     public int[] trickLevel; // less then 0 means the trick didn't unlocks
