@@ -1,0 +1,161 @@
+
+using JetBrains.Annotations;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameLobbyUIManager : MonoBehaviour
+{
+    [Header("Ref Component")]
+    public GameLobbyCameraController gameLobbyCameraController;
+
+    public GameObject mouseRefGameObject;
+    public Vector2 zeroVector = new Vector2();
+    public Vector2 mousePos;
+
+    [Header("Floating Visual Effect")]
+    public float FloatingVisualEffectFactor = 0.2f;
+    public GameObject background_GameObject;
+
+    [Header("Fade Effect Variables")]
+    public float fadeEffectCal_factor = 0.25f;
+    public float fadeEffectCal_Var_Facter = 0.2f;
+
+    public GameObject fadeEffectCalRefPt_L;
+    public float fadeEffectCalRefPt_L_Distance =1f;
+    public Image fadeEffect_Image_L;
+
+    public GameObject fadeEffectCalRefPt_R;
+    public float fadeEffectCalRefPt_R_Distance = 1f;
+    public Image fadeEffect_Image_R;
+
+    public GameObject fadeEffectCalRefPt_T;
+    public float fadeEffectCalRefPt_T_Distance = 1f;
+    public Image fadeEffect_Image_T;
+    public Image ToNextLevelButton_Image;
+
+    public GameObject fadeEffectCalRefPt_B;
+    public float fadeEffectCalRefPt_B_Distance = 1f;
+    public Image fadeEffect_Image_B;
+    public Image ToLastLevelButton_Image;
+
+    [Header("Level Name")]
+    public Text LevelName;
+    public Animator LevelNameAnimator;
+
+    [Header("Start Game Button")]
+    public Animator StartGameButtonAnimator;
+    public Button StartGameButton;
+    public Text StartGameButtonText;
+
+    [Header("Focus Mode")]
+    public bool OnFocus = false;
+    public GameLobbyDecArea TrickShowArea;
+    public GameLobbyDecArea LevelInformationShowArea;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        StartGameButtonAnimator.Play("StartGameButtonHide", -1, 1);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        MousePosSync();
+        if (OnFocus)
+        {
+            FadeElementReset();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                QuitFocusDoor();
+            }
+        }
+        else
+        {
+            VisualEffect_fadeEffectCa_L();
+            VisualEffect_fadeEffectCa_R();
+            VisualEffect_fadeEffectCa_T();
+            VisualEffect_fadeEffectCa_B();
+        }
+    }
+
+    public void MousePosSync()
+    {
+        mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        mouseRefGameObject.transform.position = mousePos;
+    }
+
+    public void OnFocusDoor()
+    {
+        OnFocus = true;
+        gameLobbyCameraController.allowFloatingCamera = false;
+        //Call camera pull in;
+
+        //Make Enter Game Button Show
+        StartGameButtonAnimator.Play("StartGameButtonShow", -1, 0);
+
+        //Make Trick Selector and Level Information Show(Call Animator)
+        TrickShowArea.OnInspectShow_On();
+        LevelInformationShowArea.OnInspectShow_On();
+    }
+    public void QuitFocusDoor()
+    {
+        OnFocus = false;
+        gameLobbyCameraController.allowFloatingCamera = true;
+        //Call camera pull out;
+
+        //Make Enter Game Button Hide
+        StartGameButtonAnimator.Play("StartGameButtonHide", -1, 0);
+
+        //Make Trick Selector and Level Information Hide(Call Animator)
+        TrickShowArea.OnInspectShow_Off();
+        LevelInformationShowArea.OnInspectShow_Off();
+    }
+
+    public void FadeElementReset() //使所有互動元素為初始狀態
+    {
+
+    }
+
+    public void VisualEffect_fadeEffectCa_L()
+    {
+        float distance = Vector2.Distance(mousePos, fadeEffectCalRefPt_L.transform.position);
+
+        float calAlpha = (fadeEffectCalRefPt_L_Distance - distance) * fadeEffectCal_factor;
+        fadeEffect_Image_L.color = new Color(1f, 1f, 1f, calAlpha);
+    }
+
+    public void VisualEffect_fadeEffectCa_R()
+    {
+        float distance = Vector2.Distance(mousePos, fadeEffectCalRefPt_R.transform.position);
+
+        float calAlpha = (fadeEffectCalRefPt_R_Distance - distance) * fadeEffectCal_factor;
+        fadeEffect_Image_R.color = new Color(1f, 1f, 1f, calAlpha);
+    }
+
+    public void VisualEffect_fadeEffectCa_T()
+    {
+        float distance = Vector2.Distance(mousePos, fadeEffectCalRefPt_T.transform.position);
+
+        float calAlpha = (fadeEffectCalRefPt_T_Distance - distance) * fadeEffectCal_Var_Facter;
+        fadeEffect_Image_T.color = new Color(1f, 1f, 1f, calAlpha);
+        ToNextLevelButton_Image.color = new Color(1f, 1f, 1f, calAlpha);
+
+    }
+    public void VisualEffect_fadeEffectCa_B()
+    {
+        float distance = Vector2.Distance(mousePos, fadeEffectCalRefPt_B.transform.position);
+
+        float calAlpha = (fadeEffectCalRefPt_B_Distance - distance) * fadeEffectCal_Var_Facter;
+        fadeEffect_Image_B.color = new Color(1f, 1f, 1f, calAlpha);
+        ToLastLevelButton_Image.color = new Color(1f, 1f, 1f, calAlpha);
+
+    }
+
+
+    public void Do_LevelNameFadeIn()
+    {
+        LevelNameAnimator.Play("Show", -1, 0);
+    }
+}

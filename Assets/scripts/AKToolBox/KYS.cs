@@ -1,4 +1,5 @@
 using UnityEngine;
+using AnkrhaDebugLogSystem;
 
 public class KYS : MonoBehaviour
 {

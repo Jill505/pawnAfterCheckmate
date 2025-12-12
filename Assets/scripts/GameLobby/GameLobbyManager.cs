@@ -14,6 +14,7 @@ public class GameLobbyManager : MonoBehaviour
     public ScrollViewGameLobby scrollViewManger;
     public GameLobbyCameraController cameraController;
     public LevelLoader levelLoader;
+    public GameLobbyUIManager gameLobbyUIManager;
 
     [Header("GameObject Refs")]
     public GameObject LevelInspectCanvas;
@@ -23,6 +24,10 @@ public class GameLobbyManager : MonoBehaviour
     public int nowStageIndex = 0;
     public int nowLevelIndex = 0;
 
+    [Header("ESC Stuff")]
+    public GameObject ECS_Canvas;
+    public bool isESCIng;
+    
     [Header("UI Stuff")]
     public Button LoadLevelButton;
     public SpriteRenderer backgroundImageSpriteRenderer;
@@ -64,12 +69,16 @@ public class GameLobbyManager : MonoBehaviour
     public void Update()
     {
         nowSelectingTrickIndexInspect = nowSelectingTrickIndex;
+        ESC_CanvasControl();
     }
 
     #region UI Related
 
     public void DoSwitchLobbyLevel(int StageIndex, int LevelIndex)
     {
+        gameLobbyUIManager.OnFocus = false;
+        cameraController.allowFloatingCamera = true;
+        gameLobbyUIManager.Do_LevelNameFadeIn();
         LoadLobbyLevel(myGameStages[StageIndex].levels[LevelIndex]);
     }
     public void LoadLobbyLevel(SO_LobbyLevel SO_L)
@@ -95,8 +104,6 @@ public class GameLobbyManager : MonoBehaviour
         //Load Player Skill Tool Box
         ShowTrickContext();
     }
-
-
 
     #endregion
 
@@ -187,5 +194,30 @@ public class GameLobbyManager : MonoBehaviour
         scrollViewManger.AllowScroll = true;
         scrollViewManger.AllowZoom = true;
         cameraController.OnAutoCamera = false;
+    }
+
+    public void ESC_CanvasControl()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isESCIng == false)
+            {
+                ECS_Canvas.SetActive(true);
+                isESCIng = true;
+            }
+            else
+            {
+                CloseESCTab();
+            }
+        }
+    }
+    public void CloseESCTab()
+    {
+        ECS_Canvas.SetActive(false);
+        isESCIng = false;
+    }
+    public void ESC_backToLobby()
+    {
+        SceneManager.LoadScene(0);
     }
 }
