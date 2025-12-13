@@ -37,11 +37,19 @@ public class GameLobbyCameraController : MonoBehaviour
     public GameObject MainCameraCarrier;
 
     [Header("Orthographic Variable")]
+    public float nowOrthographic;
+    public float targetOrthographic = 5f;
+
     public float NormalOrthographic = 5.49f;
     public float FocusOrthographic = 4.28f;
 
+    public float CameraSmooth = 0.2f;
+
     private void Start()
     {
+        nowOrthographic = NormalOrthographic;
+        targetOrthographic = NormalOrthographic;
+
         RefStartPt = MainCameraCarrier.transform.position;
 
         //OnAutoCamera = true;
@@ -61,6 +69,13 @@ public class GameLobbyCameraController : MonoBehaviour
         {
             FloatingCameraEffect();
         }
+        else
+        {
+            floatingCameraOffsetVector = new Vector2();
+        }
+
+        nowOrthographic = Mathf.Lerp(nowOrthographic, targetOrthographic, CameraSmooth * Time.deltaTime);
+        mainCamera.orthographicSize = nowOrthographic;
     }
     private void FixedUpdate()
     {

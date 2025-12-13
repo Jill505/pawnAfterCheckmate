@@ -37,8 +37,8 @@ public class GameLobbyDecArea : MonoBehaviour
          if (gameLobbyUIManager.OnFocus)
         {
             allowDetect = false;
-            OnInspect = true;
-            OnInspectShow();
+            //OnInspect = true;
+            //OnInspectShow();
         }
         else
         {

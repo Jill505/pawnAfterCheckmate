@@ -1,7 +1,9 @@
 
-using JetBrains.Annotations;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
 
 public class GameLobbyUIManager : MonoBehaviour
 {
@@ -11,10 +13,6 @@ public class GameLobbyUIManager : MonoBehaviour
     public GameObject mouseRefGameObject;
     public Vector2 zeroVector = new Vector2();
     public Vector2 mousePos;
-
-    [Header("Floating Visual Effect")]
-    public float FloatingVisualEffectFactor = 0.2f;
-    public GameObject background_GameObject;
 
     [Header("Fade Effect Variables")]
     public float fadeEffectCal_factor = 0.25f;
@@ -52,6 +50,9 @@ public class GameLobbyUIManager : MonoBehaviour
     public GameLobbyDecArea TrickShowArea;
     public GameLobbyDecArea LevelInformationShowArea;
 
+    [Header("Fader Animator")]
+    public Animator faderAnimator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,9 +62,10 @@ public class GameLobbyUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MousePosSync();
         if (OnFocus)
         {
+            mousePos = zeroVector;
+
             FadeElementReset();
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -72,6 +74,8 @@ public class GameLobbyUIManager : MonoBehaviour
         }
         else
         {
+            MousePosSync();
+
             VisualEffect_fadeEffectCa_L();
             VisualEffect_fadeEffectCa_R();
             VisualEffect_fadeEffectCa_T();
@@ -89,8 +93,11 @@ public class GameLobbyUIManager : MonoBehaviour
     public void OnFocusDoor()
     {
         OnFocus = true;
+        TrickShowArea.OnInspectShow_On();
+        LevelInformationShowArea.OnInspectShow_On();
         gameLobbyCameraController.allowFloatingCamera = false;
         //Call camera pull in;
+        gameLobbyCameraController.targetOrthographic = gameLobbyCameraController.FocusOrthographic;
 
         //Make Enter Game Button Show
         StartGameButtonAnimator.Play("StartGameButtonShow", -1, 0);
@@ -104,6 +111,7 @@ public class GameLobbyUIManager : MonoBehaviour
         OnFocus = false;
         gameLobbyCameraController.allowFloatingCamera = true;
         //Call camera pull out;
+        gameLobbyCameraController.targetOrthographic = gameLobbyCameraController.NormalOrthographic;
 
         //Make Enter Game Button Hide
         StartGameButtonAnimator.Play("StartGameButtonHide", -1, 0);
@@ -117,6 +125,48 @@ public class GameLobbyUIManager : MonoBehaviour
     {
 
     }
+
+    public void LoadGame_Func(Action delegateFunc)
+    {
+        StartCoroutine(LoadGame_Ani_Coroutine(delegateFunc));
+    }
+    IEnumerator LoadGame_Ani_Coroutine(Action delegateFunc)
+    {
+        //Call UI Back
+        //TrickShowArea.OnInspect = false;
+        //LevelInformationShowArea.OnInspect = false;
+        OnFocus = false;
+        TrickShowArea.OnInspectShow_Off();
+        LevelInformationShowArea.OnInspectShow_Off();
+        yield return new WaitForSeconds(0.3f);
+        faderAnimator.Play("Lobby_Glow_GetInDoor", -1, 0);
+        //Set Target
+        gameLobbyCameraController.targetOrthographic = 1f;
+        
+        yield return null;
+        //Wait Animation Finish
+        yield return new WaitForSeconds(0.6f);
+        delegateFunc();
+    }
+
+    public void LoadNextRoom_Func(Action delegateFunc)
+    {
+        faderAnimator.Play("Lobby_Glow_GetInRoom", -1, 0);
+        StartCoroutine(LoadNextRoom_Ani_Coroutine(delegateFunc));
+    }
+    IEnumerator LoadNextRoom_Ani_Coroutine(Action delegateFunc)
+    {
+        yield return null;
+    }
+    public void LoadLastRoom_Func(Action delegateFunc)
+    {
+        StartCoroutine(LoadLastRoom_Ani_Coroutine(delegateFunc));
+    }
+    IEnumerator LoadLastRoom_Ani_Coroutine(Action delegateFunc)
+    {
+        yield return null;
+    }
+
 
     public void VisualEffect_fadeEffectCa_L()
     {

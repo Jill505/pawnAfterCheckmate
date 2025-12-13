@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEditor.Rendering.Universal;
 
 public class GameLobbyManager : MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class GameLobbyManager : MonoBehaviour
     static public int nowSelectingTrickIndex;
     public int nowSelectingTrickIndexInspect;
 
+    [Header("Load Level Button")]
+    public Button GoNextLevelButton;
+    public Button GoLastLevelButton;
+
     private void Awake()
     {
 
@@ -64,6 +69,8 @@ public class GameLobbyManager : MonoBehaviour
         //DO level information load;
         DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
         SelectTrick(nowShowTrickArray[nowSelectingTrickIndex]);
+
+        AllowNextAndLastButtonInteractable();
     }
 
     public void Update()
@@ -74,13 +81,63 @@ public class GameLobbyManager : MonoBehaviour
 
     #region UI Related
 
+    public void AllowNextAndLastButtonInteractable()
+    {
+        int levelLength = myGameStages[nowStageIndex].levels.Length;
+        if (nowLevelIndex <= 0)
+        {
+            GoLastLevelButton.interactable = false;
+        }
+        else
+        {
+            GoLastLevelButton.interactable = true;
+        }
+
+        if (nowLevelIndex >= levelLength - 1)
+        {
+            GoNextLevelButton.interactable = false;
+        }
+        else
+        {
+            GoNextLevelButton.interactable = true;
+        }
+    }
+
     public void DoSwitchLobbyLevel(int StageIndex, int LevelIndex)
     {
         gameLobbyUIManager.OnFocus = false;
         cameraController.allowFloatingCamera = true;
+        cameraController.targetOrthographic = cameraController.NormalOrthographic;
         gameLobbyUIManager.Do_LevelNameFadeIn();
         LoadLobbyLevel(myGameStages[StageIndex].levels[LevelIndex]);
+
+        AllowNextAndLastButtonInteractable();
     }
+
+    public void DoSwitchLobbyLevelNext()
+    {
+        nowLevelIndex += 1;
+        if (nowLevelIndex >= myGameStages[nowStageIndex].levels.Length - 1)
+        {
+            nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
+        }
+
+        DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
+    }
+
+    public void DoSwitchLobbyLevelLast()
+    {
+        nowLevelIndex -= 1;
+        if (nowLevelIndex <= 0)
+        {
+            nowLevelIndex = 0;
+        }
+
+        DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
+    }
+
+
+
     public void LoadLobbyLevel(SO_LobbyLevel SO_L)
     {
         if (SO_L.mySO_Level != null)

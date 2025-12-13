@@ -11,10 +11,29 @@ public class LevelLoader : MonoBehaviour
     public SO_Level loadLevel;
     public GameObject levelConstructorGameObject;
     public GameLobbyCameraController GLCC;
+    public GameLobbyUIManager GLUIM;
 
     [Header("Level Canvas")]
     public Text levelShowName;
     public Text levelShowDesc;
+
+    public void NewLoadLevel()
+    {
+        if (loadLevel == null)
+        {
+            Debug.LogError("Ak Error: The Level Scriptable Object didn't ");
+        }
+        else
+        {
+            Debug.Log("¸ü¤JÃö¥dID¡G" + loadLevel.levelID);
+
+            GameObject swap = Instantiate(levelConstructorGameObject);
+            swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
+            DontDestroyOnLoad(swap);
+
+            GLUIM.LoadGame_Func(() => SceneManager.LoadScene("Fight"));
+        }
+    }
 
     public void LoadLevel()
     {
