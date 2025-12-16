@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trickName: "\u8349\u4EBA\u6232\u6CD5"
   myTrickType: 2
-  mySprite: {fileID: -5079505507222848727, guid: 862beafeb98192549a98372f269b40ef, type: 3}
+  mySprite: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
   trickRequireEnergy: 10
   maxTrickAmount: 2
+  trickDesc: "\u9810\u8A2D\u6232\u6CD5\u63CF\u8FF0"

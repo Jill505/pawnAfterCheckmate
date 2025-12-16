@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEditor.PackageManager;
 
 public class RoundManager : MonoBehaviour
 {
@@ -178,7 +179,16 @@ public class RoundManager : MonoBehaviour
                 //新敵人加入戰場
                 for (int i = 0; i < gameManager.levelData.enemySpawnEachRound; i++)
                 {
-                    RandomSpawnEnemy(gameManager.levelData, false);
+                    if (gameManager.levelData.spawnChessData.Count <= 0)
+                    {
+                        Debug.Log("AK ERROR: Round Manager - 該關卡無額外生成敵人資料");
+                        return;
+                    }
+                    int ranSpawnObjSort = Random.Range(0, gameManager.levelData.spawnChessData.Count);
+
+                    SO_Chess SO_C = gameManager.levelData.spawnChessData[ranSpawnObjSort];
+
+                    RandomSpawnEnemy(SO_C, false);
                 }
                 //RandomSpawnEnemy(gameManager.levelData);
 
@@ -189,7 +199,7 @@ public class RoundManager : MonoBehaviour
                         if (!goldenTargetSpawned && roundCount == gameManager.levelData.SurviveRound) 
                         {
                             //Spawn Golden Enemy;
-                            RandomSpawnEnemy(gameManager.levelData, true);
+                            RandomSpawnEnemy(gameManager.levelData.goldenTarget.chessFile, true);
                         }
                         break;
                 }
@@ -424,16 +434,8 @@ public class RoundManager : MonoBehaviour
         roundState = RoundState.EnemyRound;
     }
 
-    public void RandomSpawnEnemy(SO_Level sO_Level, bool isSpawnGoldenTarget)
+    public void RandomSpawnEnemy(SO_Chess SO_C, bool isSpawnGoldenTarget)
     {
-        if (sO_Level.spawnChessData.Count <= 0)
-        {
-            Debug.Log("AK ERROR: Round Manager - 該關卡無額外生成敵人資料");
-            return;
-        }
-
-        int ranSpawnObjSort = Random.Range(0, sO_Level.spawnChessData.Count);
-
         //getRandomSpawnPos
         int L = gameManager.chessBoardObjectRefArr.Length;
         List<int> sort = new List<int>();
@@ -469,11 +471,11 @@ public class RoundManager : MonoBehaviour
         GameBoardInsChess GBIC = new GameBoardInsChess();
         if (isSpawnGoldenTarget)
         {
-            GBIC = sO_Level.goldenTarget;
+            //GBIC = sO_Level.goldenTarget;
         }
         else
         {
-            GBIC.chessFile = sO_Level.spawnChessData[ranSpawnObjSort];
+            GBIC.chessFile = SO_C;
         }
         GBIC.locationX = (int)tarSpawnVector.x;
         GBIC.locationY = (int)tarSpawnVector.y;

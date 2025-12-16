@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 6176511443112562264, guid: b5cc879a53fa8d84cbbdd2e46f051357, type: 3}
   myStageIndex: 0
-  myLevelIndex: 0
+  myLevelIndex: 1
   mySO_Level: {fileID: 11400000, guid: 2daa3c1a36a29744c8a9ee28232dc9b3, type: 2}

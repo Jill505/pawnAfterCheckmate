@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using Unity.Properties;
-using Unity.VisualScripting;
+using System;
 
 public class Troop : MonoBehaviour
 {
@@ -51,6 +50,9 @@ public class Troop : MonoBehaviour
     public bool hasLowerShield = false;
     public bool hasLeftShield = false;  
     public bool hasRightShield = false;
+
+    [Header("Actions")]
+    public Action OnDieAction = () => { };
 
     public void LoadSOData()
     {
@@ -145,6 +147,12 @@ public class Troop : MonoBehaviour
         }
 
         gameManager.Troops.Remove(gameObject);
+
+        if (OnDieAction != null)
+        {
+            OnDieAction();
+        }
+        
         Destroy(gameObject);
     }
 
@@ -539,6 +547,11 @@ public class Troop : MonoBehaviour
 
             case ability.RightShield:
                 hasRightShield = true;
+                break;
+
+            case ability.KarenBorn:
+                var swapTSA = gameObject.AddComponent<TSA_KarenBorn>();
+                swapTSA.myTroop = this;
                 break;
         }
     }

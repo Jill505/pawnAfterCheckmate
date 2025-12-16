@@ -151,12 +151,19 @@ public class GameLobbyUIManager : MonoBehaviour
 
     public void LoadNextRoom_Func(Action delegateFunc)
     {
-        faderAnimator.Play("Lobby_Glow_GetInRoom", -1, 0);
         StartCoroutine(LoadNextRoom_Ani_Coroutine(delegateFunc));
     }
     IEnumerator LoadNextRoom_Ani_Coroutine(Action delegateFunc)
     {
+        faderAnimator.Play("Lobby_Glow_GetInDoor", -1, 0);
+        gameLobbyCameraController.targetOrthographic = 1f;
+        yield return new WaitForSeconds(0.6f);
+        //blackOut;
+        delegateFunc();
         yield return null;
+        gameLobbyCameraController.targetOrthographic = gameLobbyCameraController.NormalOrthographic;
+        gameLobbyCameraController.nowOrthographic = 10f;
+        faderAnimator.Play("Lobby_Glow_GetInRoom", -1, 0);
     }
     public void LoadLastRoom_Func(Action delegateFunc)
     {
@@ -164,7 +171,15 @@ public class GameLobbyUIManager : MonoBehaviour
     }
     IEnumerator LoadLastRoom_Ani_Coroutine(Action delegateFunc)
     {
+        gameLobbyCameraController.targetOrthographic = 10f;
+        faderAnimator.Play("Lobby_Glow_GetOutRoom", -1, 0);
+        yield return new WaitForSeconds(0.5f);
+        delegateFunc();
         yield return null;
+        gameLobbyCameraController.targetOrthographic = gameLobbyCameraController.NormalOrthographic;
+        gameLobbyCameraController.nowOrthographic = 1;
+        yield return new WaitForSeconds(0.2f);
+        faderAnimator.Play("Lobby_Glow_Idle", -1, 0);
     }
 
 

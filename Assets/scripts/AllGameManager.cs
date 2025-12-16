@@ -54,6 +54,13 @@ public enum ability
     LowerShield,
     LeftShield,
     RightShield,
+
+    HitShield_1,
+    HitShield_2,
+    HitShield_3,
+
+    //Karen關卡使用
+    KarenBorn,
 }
 
 public enum SaveFileType
@@ -80,5 +87,6 @@ public enum BucketType
 public enum MissionType
 {
     Survive,
-    KillTarget
+    KillTarget,
+    Special
 }

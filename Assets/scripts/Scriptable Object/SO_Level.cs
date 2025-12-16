@@ -7,6 +7,8 @@ public class SO_Level : ScriptableObject
     public string levelName = "Def name";
     public string levelID = "Def ID";
 
+    public SpecialLevelScriptType SLST;
+
     [TextArea(3, 10)]
     public string levelDesc = "Def Desc";
 
@@ -32,6 +34,9 @@ public class SO_Level : ScriptableObject
     public int enemySpawnEachRound =1 ;
 
     public List<SO_Chess> spawnChessData = new List<SO_Chess>();
+
+    [Header("Special")]
+    public List<SO_Chess> special_SpawnChessData = new List<SO_Chess>();
 
 
 /*#if UNITY_EDITOR

@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
-  m_Name: trick_strawMan_spawnObject
+  m_Name: enemy_KarenSpawn
   m_EditorClassIdentifier: 
-  chessName: "\u7A3B\u8349\u4EBA"
+  chessName: "\u51F1\u502B\u7684\u53EC\u559A\u7269"
   myCamp: 1
-  photoSticker: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
+  photoSticker: {fileID: -1067374779393457045, guid: 8b714c96caae3124ab69d5fbcdf2b6af, type: 3}
   spawnGear: 0
   bucketType: 0
-  chessDesc: "\u4F60\u6295\u5C04\u7684\u7A3B\u8349\u4EBA\uFF0C\u662F\u8AB0\u7684\u9776\u5B50"
+  chessDesc: "\u51F1\u502B\u7684\u53EC\u559A\u7269"
   Level: 1
   Exp: 0
   move: 1
   maxHp: 1
   hp: 1
-  skin: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
-  abilities: 
+  skin: {fileID: -1067374779393457045, guid: 8b714c96caae3124ab69d5fbcdf2b6af, type: 3}
+  abilities: 080000000f000000
   isGoldenTarget: 0
-  horBlockMoveAbility: 2
-  verticalBlockMoveAbility: 2
-  diagonalBlockMoveAbility: 2
+  horBlockMoveAbility: 1
+  verticalBlockMoveAbility: 1
+  diagonalBlockMoveAbility: 0
   knightBlockMoveAbility: 0
   AttackStr: 1

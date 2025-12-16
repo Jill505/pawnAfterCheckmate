@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public SoundManager soundManager;
     public TrickManager trickManager;
 
+    public SpecialLevelScript SLS;
+
     [Header("Scene System")]
     public HintManager hintManager;
 
@@ -149,10 +151,17 @@ public class GameManager : MonoBehaviour
                 //Load Level
                 Debug.Log("Level Loaded");
                 levelData = levelConstructor.levelInfo;
+
                 LoadGame(levelConstructor.levelInfo);
                 GameInitialization(levelConstructor.levelInfo);
 
                 ChessSpawn(levelConstructor.levelInfo);
+
+                if (levelConstructor.SLS != null)
+                {
+                    SLS = levelConstructor.SLS;
+                    SLS.DO_GameInit();
+                }
 
                 //考慮加入倒數
 
@@ -251,6 +260,11 @@ public class GameManager : MonoBehaviour
                     TargetStr = "目標\n殺死癥結！";
                     GameTarget.color = Color.red;
                 }
+                break;
+
+            case (MissionType.Special):
+                //Call SLS
+                TargetStr = SLS.LevelTargetString();
                 break;
         }
 

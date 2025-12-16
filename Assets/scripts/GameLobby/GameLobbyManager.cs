@@ -121,8 +121,8 @@ public class GameLobbyManager : MonoBehaviour
         {
             nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
         }
-
-        DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
+        gameLobbyUIManager.LoadNextRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+        
     }
 
     public void DoSwitchLobbyLevelLast()
@@ -133,7 +133,7 @@ public class GameLobbyManager : MonoBehaviour
             nowLevelIndex = 0;
         }
 
-        DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
+        gameLobbyUIManager.LoadLastRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
     }
 
 
