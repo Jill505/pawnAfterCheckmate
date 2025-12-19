@@ -55,9 +55,16 @@ public enum ability
     LeftShield,
     RightShield,
 
+    //連擊盾
     HitShield_1,
     HitShield_2,
     HitShield_3,
+
+    //炸彈兵
+    SuicideBomb,
+
+    //狂暴兵
+    Rager,
 
     //Karen關卡使用
     KarenBorn,

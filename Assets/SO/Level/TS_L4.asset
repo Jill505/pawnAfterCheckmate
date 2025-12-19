@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: "\u95DC\u53614"
   levelID: Def ID
-  SLST: 1
+  SLST: 0
   levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\u300D"
   allowDeployTroopNumber: 3
   myMissionType: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
     locationX: 8
     locationY: 0
-  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+  - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
     locationX: 8
     locationY: 8
   - chessFile: {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
@@ -533,3 +533,4 @@ MonoBehaviour:
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+  special_SpawnChessData: []

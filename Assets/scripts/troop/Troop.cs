@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using UnityEngine.UIElements;
 
 public class Troop : MonoBehaviour
 {
@@ -166,28 +167,36 @@ public class Troop : MonoBehaviour
         EnemyLogic();
         myNextDes = ClosestVector();
 
-        myNowX = (int)myNextDes.x;
-        myNowY = (int)myNextDes.y;
-
-        if (myNowX < 0)
+        if (myNextDes == new Vector2(-1, -1))
         {
-            Debug.Log("myNowX - " + myNowX);
-            Debug.LogError("Out of Range");
+            //代表無法移動
+            //Debug.Log("無法移動");
         }
-        if (myNowY < 0)
+        else
         {
-            Debug.Log("myNowY - " + myNowY);
-            Debug.LogError("Out of Range");
+
+            myNowX = (int)myNextDes.x;
+            myNowY = (int)myNextDes.y;
+
+            if (myNowX < 0)
+            {
+                Debug.Log("myNowX - " + myNowX);
+                Debug.LogError("Out of Range");
+            }
+            if (myNowY < 0)
+            {
+                Debug.Log("myNowY - " + myNowY);
+                Debug.LogError("Out of Range");
+            }
+
+            //Play sound effect
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+
+            //傷害判定
+            EnemyOnMouseDownEvent(gameManager.chessBoardObjectRefArr[myNowY, myNowX].GetComponent<unit>());
         }
-
-        //Play sound effect
-        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-
-        //傷害判定
-        EnemyOnMouseDownEvent(gameManager.chessBoardObjectRefArr[myNowY, myNowX].GetComponent<unit>());
-
     }
 
     public Vector2 ClosestVector()
@@ -550,8 +559,12 @@ public class Troop : MonoBehaviour
                 break;
 
             case ability.KarenBorn:
-                var swapTSA = gameObject.AddComponent<TSA_KarenBorn>();
-                swapTSA.myTroop = this;
+                var swapTSA_karenBorn = gameObject.AddComponent<TSA_KarenBorn>();
+                swapTSA_karenBorn.myTroop = this;
+                break;
+            case ability.Rager:
+                var swapTSA_rager = gameObject.AddComponent<TSA_Rager>();
+                swapTSA_rager.myTroop = this;
                 break;
         }
     }

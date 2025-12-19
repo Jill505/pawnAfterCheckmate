@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEditor.PackageManager;
+using System;
 
 public class RoundManager : MonoBehaviour
 {
@@ -20,10 +20,10 @@ public class RoundManager : MonoBehaviour
     public RoundState roundState = RoundState.Deploy;
 
     [Header("CONST")]
-    public readonly Vector2 EMPTY_VECTOR = new Vector2 (-1,-1);
+    public readonly Vector2 EMPTY_VECTOR = new Vector2(-1, -1);
 
     [Header("Round Variable")]
-    public int roundCount =0;
+    public int roundCount = 0;
     public bool goldenTargetSpawned = false;
 
     [Header("Functional Variable")]
@@ -72,6 +72,9 @@ public class RoundManager : MonoBehaviour
     [Header("Trick系統相關")]
     public bool isCastingPlacementTrick = false;
     public bool isCastingTrick_StrawMan = false;
+
+    [Header("Actions")]
+    public Action Action_OnRoundEnd = () => { };
 
     void Start()
     {
@@ -173,9 +176,10 @@ public class RoundManager : MonoBehaviour
                 EnemyEvolve();
 
                 roundCount++;
+                Action_OnRoundEnd();
                 gameManager.GameTargetUISet();
                 resetUnitSelectState();
-                Debug.Log("AA");
+                //Debug.Log("AA");
                 //新敵人加入戰場
                 for (int i = 0; i < gameManager.levelData.enemySpawnEachRound; i++)
                 {
@@ -184,7 +188,7 @@ public class RoundManager : MonoBehaviour
                         Debug.Log("AK ERROR: Round Manager - 該關卡無額外生成敵人資料");
                         return;
                     }
-                    int ranSpawnObjSort = Random.Range(0, gameManager.levelData.spawnChessData.Count);
+                    int ranSpawnObjSort = UnityEngine.Random.Range(0, gameManager.levelData.spawnChessData.Count);
 
                     SO_Chess SO_C = gameManager.levelData.spawnChessData[ranSpawnObjSort];
 
@@ -449,7 +453,7 @@ public class RoundManager : MonoBehaviour
         Vector2 tarSpawnVector = EMPTY_VECTOR;
         while (sort.Count > 0)
         {
-            ranSpotSort = Random.Range(0, sort.Count);
+            ranSpotSort = UnityEngine.Random.Range(0, sort.Count);
             if (refObjs[ranSpotSort].gameObject.GetComponent<unit>().TroopsOnMe == null)
             {
                 //Target is ran spot
