@@ -3206,7 +3206,7 @@ MonoBehaviour:
   GameCellUnit: {fileID: 8849811575621646054, guid: f600eddaed47955488030ce8cff36bb9, type: 3}
   gameBGM: {fileID: 0}
   bGM_name: pawn's_(demo)_2
-  bgmOnOffForTest: 1
+  bgmOnOffForTest: 0
 --- !u!114 &1438481427
 MonoBehaviour:
   m_ObjectHideFlags: 0

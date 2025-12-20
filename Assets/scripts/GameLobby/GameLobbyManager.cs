@@ -8,6 +8,7 @@ using System;
 using TMPro;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEditor.Rendering.Universal;
+using Unity.VisualScripting;
 
 public class GameLobbyManager : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class GameLobbyManager : MonoBehaviour
     [Header("Load Level Button")]
     public Button GoNextLevelButton;
     public Button GoLastLevelButton;
+
+    [Header("Level Clickable Object")]
+    public List<GameObject> LevelClickableObjectList;
 
     private void Awake()
     {
@@ -140,6 +144,11 @@ public class GameLobbyManager : MonoBehaviour
 
     public void LoadLobbyLevel(SO_LobbyLevel SO_L)
     {
+        foreach (GameObject obj in LevelClickableObjectList)
+        {
+            Destroy(obj);
+        }
+
         if (SO_L.mySO_Level != null)
         {
             levelLoader.loadLevel = SO_L.mySO_Level;
@@ -154,6 +163,21 @@ public class GameLobbyManager : MonoBehaviour
         backgroundImageSpriteRenderer.sprite = SO_L.backgroundImage;
         LevelName.text = SO_L.mySO_Level.levelName;
         LevelDesc.text = SO_L.mySO_Level.levelDesc;
+
+        //SpawnClickableObject
+        for (int i = 0; i < SO_L.mySO_LCOs.Length; i++)
+        {
+            GameObject CLO = new GameObject("LobbyCLO" + SO_L.mySO_LCOs[i].ObjectName);
+            LevelClickableObjectList.Add(CLO);
+
+            LobbyClickableObject sLCO =  CLO.AddComponent<LobbyClickableObject>();
+            SpriteRenderer sSr =  CLO.AddComponent<SpriteRenderer>();
+
+            sLCO.mySr = sSr;
+
+            sLCO.mySO_LCO = SO_L.mySO_LCOs[i];
+            sLCO.InitMySelf();
+        }
     }
 
     public void LoadNormalLobbyContext()

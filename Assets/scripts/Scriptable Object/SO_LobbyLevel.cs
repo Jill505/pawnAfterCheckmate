@@ -9,6 +9,8 @@ public class SO_LobbyLevel : ScriptableObject
     public int myLevelIndex;
 
     public SO_Level mySO_Level;
+
+    public SO_LobbyClickableObject[] mySO_LCOs;
 }
 
 [Serializable]
