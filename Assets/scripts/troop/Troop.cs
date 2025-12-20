@@ -531,6 +531,61 @@ public class Troop : MonoBehaviour
             }
         }
         #endregion
+
+        #region 連擊盾
+        for (int i = Vec2List.Count - 1; i >= 0; i--)
+        {
+            //檢測該座標是否存在
+            if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+            //檢測該座標對應區塊是否有單位存在
+            Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
+            if (ST == null) continue;
+
+            //檢測該單位是否擁有連擊盾牌 有則將其於可移動地塊中刪除
+            for (int j = 0; j < ST.myAbilities.Length; j++)
+            {
+                switch (ST.myAbilities[j])
+                {
+                    case ability.HitShield_1:
+                        if (roundManager.playerHitCombo >= 1)
+                        {
+                            Debug.Log("連擊盾1 擊破");
+                        }
+                        else
+                        {
+                            Vec2List.Remove(Vec2List[i]);
+                            Debug.Log("連擊盾1 未擊破");
+                        }
+                        break;
+
+                    case ability.HitShield_2:
+                        if (roundManager.playerHitCombo >= 2)
+                        {
+                            Debug.Log("連擊盾2 擊破");
+                        }
+                        else
+                        {
+                            Debug.Log("連擊盾2 未擊破");
+                            Vec2List.Remove(Vec2List[i]);
+                        }
+                        break;
+
+                    case ability.HitShield_3:
+                        if (roundManager.playerHitCombo >= 3)
+                        {
+                            Debug.Log("連擊盾3 擊破");
+                        }
+                        else
+                        {
+                            Vec2List.Remove(Vec2List[i]);
+                            Debug.Log("連擊盾3 未擊破");
+                        }
+                        break;
+                }
+            }
+
+        }
+        #endregion
     }
 
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
@@ -565,6 +620,10 @@ public class Troop : MonoBehaviour
             case ability.Rager:
                 var swapTSA_rager = gameObject.AddComponent<TSA_Rager>();
                 swapTSA_rager.myTroop = this;
+                break;
+            case ability.SuicideBomb:
+                var swapTSA_suicideBomb = gameObject.AddComponent<TSA_SuicideBomb>();
+                swapTSA_suicideBomb.myTroop = this;
                 break;
         }
     }

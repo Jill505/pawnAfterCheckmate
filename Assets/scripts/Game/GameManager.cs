@@ -42,7 +42,32 @@ public class GameManager : MonoBehaviour
     [Header("Ref Objects")]
     public GameObject TroopPrefab;
 
+    /// <summary>
+    /// 由於XY翻轉問題，直接存取chessBoardObjectRefArr已淘汰，請改用GetChessBoardObjectRefArr
+    /// </summary>
     public GameObject[,] chessBoardObjectRefArr;
+
+    //先看看直接修生成可不可以解決，不行就用新的
+    /*
+    public GameObject[,] GetChessBoardObjectRefArr()
+    {
+        //解決翻轉問題的補丁
+        int width = chessBoardObjectRefArr.GetLength(0);
+        int height = chessBoardObjectRefArr.GetLength(1);
+
+        GameObject[,] flipped = new GameObject[height, width];
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                flipped[y, x] = chessBoardObjectRefArr[x, y];
+            }
+        }
+
+        return flipped;
+    }*/
+
     public GameObject GameEReference;
     public GameObject TroopEReference;
 
