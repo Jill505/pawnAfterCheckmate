@@ -1,7 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TroopOutfit : MonoBehaviour
 {
+    [Header("Manager refs")]
+    public RoundManager roundManager;
+
     public Troop myTroop;
 
     public GameObject upperShieldImage;
@@ -12,10 +17,15 @@ public class TroopOutfit : MonoBehaviour
     public GameObject goldenTargetGlow;
     public GameObject goldenTargetRing;
 
+    public Text hitShieldCountDownShowcase;
+    public GameObject hitShieldImage;
+
+    public Action TroopOutfitUpdate = () => { };
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        roundManager = FindAnyObjectByType<RoundManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +38,8 @@ public class TroopOutfit : MonoBehaviour
     {
         ShieldOutfit();
         GoldenTargetOutfit();
-        RageOutfit();
+        hitShieldOutfit();
+        TroopOutfitUpdate();
     }
 
     public void ShieldOutfit()
@@ -44,8 +55,53 @@ public class TroopOutfit : MonoBehaviour
         goldenTargetRing.SetActive(myTroop.myChessData.isGoldenTarget);
     }
 
-    public void RageOutfit()
+    public void hitShieldOutfit()
     {
+        int requireHit = 0;
+        bool check = false;
 
+        foreach (ability abi in myTroop.myAbilities)
+        {
+            if (abi == ability.HitShield_1)
+            {
+                requireHit = 1;
+                check = true;
+                break;
+            }
+            else if (abi == ability.HitShield_2)
+            {
+                requireHit= 2;
+                check = true;
+                break;
+            }
+            else if (abi == ability.HitShield_3)
+            {
+                requireHit = 3;
+                check = true;
+                break;
+            }
+        }
+
+        if (check)
+        {
+            //apply
+            if (roundManager.playerHitCombo - requireHit < 0)
+            {
+                //Show
+                hitShieldImage.SetActive (true);
+                hitShieldCountDownShowcase.gameObject.SetActive (true);
+                hitShieldCountDownShowcase.text = "" +(requireHit - roundManager.playerHitCombo);
+            }
+            else
+            {
+                //Close
+                hitShieldImage.SetActive(false);
+                hitShieldCountDownShowcase.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            //neverShow;
+        }
     }
 }
