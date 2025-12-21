@@ -23,7 +23,6 @@ public class CameraManager : MonoBehaviour
 
     private void Awake()
     {
-        cameraConstPosition.position = new Vector3(0, 0, -11.35f);
     }
 
     void Start()
@@ -35,12 +34,15 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentCameraPosition.position = CameraObject.transform.position;
-        currentCameraPosition.rotation = CameraObject.transform.rotation.eulerAngles;
+        CameraObject.transform.position = currentCameraPosition.position;
+        //CameraObject.transform.rotation = Quaternion.Euler(currentCameraPosition.rotation);
 
-        gameObject.transform.LookAt(targetLookingAt.transform.position);
+        //currentCameraPosition.position = CameraObject.transform.position;
+        //currentCameraPosition.rotation = CameraObject.transform.rotation.eulerAngles;
 
-        CameraObject.transform.position = Vector3.Lerp(CameraObject.transform.position, targetCameraPosition.position, fluent * Time.deltaTime);
+        //gameObject.transform.LookAt(targetLookingAt.transform.position);
+
+        currentCameraPosition.position = Vector3.Lerp(currentCameraPosition.position, targetCameraPosition.position, fluent * Time.deltaTime);
 
     }
 
