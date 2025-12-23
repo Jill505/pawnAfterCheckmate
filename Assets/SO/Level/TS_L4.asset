@@ -23,6 +23,7 @@ MonoBehaviour:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     locationX: 3
     locationY: 3
+  LevelBgmName: pawn's_(demo)_2
   PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:

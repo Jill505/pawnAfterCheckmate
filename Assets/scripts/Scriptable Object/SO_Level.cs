@@ -19,6 +19,8 @@ public class SO_Level : ScriptableObject
     public int SurviveRound = 10;
     public GameBoardInsChess goldenTarget;
 
+    public string LevelBgmName;
+
     [Header("Player Level Setting")]
     public Vector2 PlayerSpawnPos;
 

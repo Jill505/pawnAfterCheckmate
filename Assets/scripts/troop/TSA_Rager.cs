@@ -31,7 +31,7 @@ public class TSA_Rager : MonoBehaviour
             myTroop.knightBlockMoveAbility = 1;
 
             //Skin Switch
-            myTroop.mySr.sprite = Resources.Load<Sprite>("Chess/Tank_1208");
+            myTroop.mySr.sprite = Resources.Load<Sprite>("Chess/Scissors_1");
         }
     }
 

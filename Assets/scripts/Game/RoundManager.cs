@@ -413,7 +413,7 @@ public class RoundManager : MonoBehaviour
         isOnSpecialKill = true;
         float suppT = 0;
         if (hit > 3) suppT = 1f;
-        specialCoroutine = StartCoroutine(SpecialRoundTimer(specialTime + suppT));
+        //specialCoroutine = StartCoroutine(SpecialRoundTimer(specialTime + suppT));
     }
 
     public IEnumerator SpecialRoundTimer(float time)

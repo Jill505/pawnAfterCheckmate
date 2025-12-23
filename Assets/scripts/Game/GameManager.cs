@@ -123,6 +123,8 @@ public class GameManager : MonoBehaviour
     public void GameInitialization(SO_Level config)
     {
         Debug.Log("關卡生成初始化");
+        //載入關卡配置 - 音樂
+        bGM_name = config.LevelBgmName;
 
         spawnReferencePoint = Vector2.zero;
         chessBoardObjectRefArr = new GameObject[config.gridSizeX, config.gridSizeY];
