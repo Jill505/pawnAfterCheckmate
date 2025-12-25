@@ -9,6 +9,7 @@ public class GameLobbyUIManager : MonoBehaviour
 {
     [Header("Ref Component")]
     public GameLobbyCameraController gameLobbyCameraController;
+    public SoundManager soundManager;
 
     public GameObject mouseRefGameObject;
     public Vector2 zeroVector = new Vector2();
@@ -53,6 +54,10 @@ public class GameLobbyUIManager : MonoBehaviour
     [Header("Fader Animator")]
     public Animator faderAnimator;
 
+    void Awake()
+    {
+        soundManager = FindFirstObjectByType<SoundManager>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -155,6 +160,8 @@ public class GameLobbyUIManager : MonoBehaviour
     }
     IEnumerator LoadNextRoom_Ani_Coroutine(Action delegateFunc)
     {
+        soundManager.PlaySFX("temp_wind_(wammm)");
+
         faderAnimator.Play("Lobby_Glow_GetInDoor", -1, 0);
         gameLobbyCameraController.targetOrthographic = 1f;
         yield return new WaitForSeconds(0.6f);
@@ -171,6 +178,7 @@ public class GameLobbyUIManager : MonoBehaviour
     }
     IEnumerator LoadLastRoom_Ani_Coroutine(Action delegateFunc)
     {
+        soundManager.PlaySFX("temp_wind_(hooom)");
         gameLobbyCameraController.targetOrthographic = 10f;
         faderAnimator.Play("Lobby_Glow_GetOutRoom", -1, 0);
         yield return new WaitForSeconds(0.5f);

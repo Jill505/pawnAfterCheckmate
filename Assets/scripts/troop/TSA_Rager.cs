@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TSA_Rager : MonoBehaviour
@@ -9,6 +10,7 @@ public class TSA_Rager : MonoBehaviour
 
     public bool RageClog = false;
 
+
     public void Awake()
     {
         roundManager = FindAnyObjectByType<RoundManager>();
@@ -16,7 +18,7 @@ public class TSA_Rager : MonoBehaviour
 
     public void Start()
     {
-        roundManager.Action_OnRoundEnd += RoundProcess;
+        myTroop.Action_OnRoundEnd += RoundProcess;
     }
     public void RageModeActive()
     {
@@ -47,6 +49,6 @@ public class TSA_Rager : MonoBehaviour
 
     private void OnDestroy()
     {
-        roundManager.Action_OnRoundEnd -= RoundProcess;
+        myTroop.Action_OnRoundEnd -= RoundProcess;
     }
 }

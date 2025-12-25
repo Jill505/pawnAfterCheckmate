@@ -161,6 +161,7 @@ MonoBehaviour:
   hasLowerShield: 0
   hasLeftShield: 0
   hasRightShield: 0
+  TargetThatMurderMe: {fileID: 0}
   OnSelectChessAllowMoveVector: []
   myNextDes: {x: 0, y: 0}
 --- !u!114 &635301961431133842
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c694a1e95c45d940ae8e0e169440b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundManager: {fileID: 0}
   myTroop: {fileID: 5335027806682689085}
   upperShieldImage: {fileID: 88255488699379475}
   lowerShieldImage: {fileID: 3148054789134895109}
@@ -184,6 +186,8 @@ MonoBehaviour:
   goldenTargetRing: {fileID: 7209999505668208289}
   hitShieldCountDownShowcase: {fileID: 8955076922923867033}
   hitShieldImage: {fileID: 6518086885021876739}
+  BombExplodeAnimation: {fileID: 2762677530704511784, guid: f22abd68f5f7c8d43b278f1be83c52a4, type: 3}
+  DeathParticle: {fileID: 3508009127345799395, guid: efaf347fac50d934d9b06033f34755df, type: 3}
 --- !u!1 &1678042349807604969
 GameObject:
   m_ObjectHideFlags: 0

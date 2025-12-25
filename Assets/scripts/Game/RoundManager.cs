@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.VisualScripting;
 
 public class RoundManager : MonoBehaviour
 {
@@ -75,6 +76,10 @@ public class RoundManager : MonoBehaviour
 
     [Header("Actions")]
     public Action Action_OnRoundEnd = () => { };
+
+    [Header("Enemy Animation Coroutine")]
+    public Coroutine EnemyAnimationCoroutine;
+    public bool EnemyAnimationCoroutineEnd;
 
     void Start()
     {
@@ -177,6 +182,7 @@ public class RoundManager : MonoBehaviour
 
                 roundCount++;
                 Action_OnRoundEnd();
+
                 gameManager.GameTargetUISet();
                 resetUnitSelectState();
                 //Debug.Log("AA");
@@ -209,11 +215,13 @@ public class RoundManager : MonoBehaviour
                 }
 
                 roundState = RoundState.MyRound;
+
                 if (gameManager.isBlitzOn)
                 {
                     gameManager.StartBlitzCoroutine(gameManager.blitzTime);
                 }
-                break;
+
+            break;
         }
 
         SyncUI();
@@ -232,7 +240,15 @@ public class RoundManager : MonoBehaviour
 
         for (int i = 0; i < EnemyAITroop.Count; i++)
         {
+            EnemyAnimationCoroutineEnd = true;
+
             EnemyAITroop[i].MoveToNext();
+            EnemyAITroop[i].Action_OnRoundEnd();
+            EnemyAITroop[i].Action_PowerActiveOnce();
+            EnemyAITroop[i].CleanFunction_Action_PowerActiveOnce();
+
+            yield return new WaitUntil(()=> EnemyAnimationCoroutineEnd);
+
             yield return new WaitForSeconds(enemyMoveDur); 
         }
         //Var 2 - 每次移動一個目標

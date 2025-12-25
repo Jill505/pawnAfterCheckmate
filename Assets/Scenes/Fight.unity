@@ -3166,6 +3166,7 @@ MonoBehaviour:
   playerHitCombo: 0
   isCastingPlacementTrick: 0
   isCastingTrick_StrawMan: 0
+  EnemyAnimationCoroutineEnd: 0
   WinCanvas_DeclareForSwap: {fileID: 539234657}
   playerDieCanvasAnimator: {fileID: 1493154380}
 --- !u!114 &1438481426
@@ -3892,7 +3893,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1618226401
 Canvas:
   m_ObjectHideFlags: 0
@@ -3902,7 +3903,7 @@ Canvas:
   m_GameObject: {fileID: 1618226398}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3925,7 +3926,7 @@ RectTransform:
   m_GameObject: {fileID: 1618226398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.019, y: 0.019, z: 0.019}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1946046438}
@@ -3945,9 +3946,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -1.1}
-  m_SizeDelta: {x: 1024, y: 576}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1630384881
 GameObject:
   m_ObjectHideFlags: 0
@@ -4519,6 +4520,10 @@ MonoBehaviour:
   targetOrthographic: 0
   fluent: 7
   targetLookingAt: {fileID: 620100415}
+  shakeObject: {fileID: 1531909603}
+  duration: 0.3
+  magnitude: 0.15
+  frequency: 25
 --- !u!1 &1946046437
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -21,6 +21,17 @@ public class CameraManager : MonoBehaviour
     Vector2 _FC_SaveLastCameraPosition;
     float _FC_SaveLastCameraOrthographic;
 
+    [Header("Shake Target")]
+    public GameObject shakeObject;
+
+    [Header("Shake Settings")]
+    public float duration = 0.3f;     // 震動時間
+    public float magnitude = 0.15f;   // 震動強度
+    public float frequency = 25f;     // 震動頻率（次/秒
+
+    private Vector3 originalPosition;
+
+
     private void Awake()
     {
     }
@@ -34,6 +45,11 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Shake();
+        }
+
         CameraObject.transform.position = currentCameraPosition.position;
         //CameraObject.transform.rotation = Quaternion.Euler(currentCameraPosition.rotation);
 
@@ -70,6 +86,50 @@ public class CameraManager : MonoBehaviour
     public void CloseUp(Vector2 closeUpPos)
     {
         CloseUp(closeUpPos, 2, 0.8f);
+    }
+
+    public void Shake()
+    {
+        StartCoroutine(ShakeCoroutine(duration, magnitude, frequency));
+    }
+
+    public void Shake(float factor)
+    {
+        StartCoroutine(ShakeCoroutine(duration * factor, magnitude * factor, frequency * factor));
+    }
+
+    public void Shake(float d, float m, float f)
+    {
+        StartCoroutine(ShakeCoroutine(d, m, f));
+    }
+    public IEnumerator ShakeCoroutine(float P_duration, float P_magnitude, float P_frequency)
+    {
+        if (shakeObject == null)
+        {
+            Debug.LogWarning("Shake Object is NULL!");
+            yield break;
+        }
+
+        originalPosition = shakeObject.transform.localPosition;
+
+        float elapsed = 0f;
+
+        while (elapsed < P_duration)
+        {
+            elapsed += Time.deltaTime;
+
+            float x = Mathf.PerlinNoise(Time.time * P_frequency, 0f) * 2f - 1f;
+            float y = Mathf.PerlinNoise(0f, Time.time * P_frequency) * 2f - 1f;
+            float z = Mathf.PerlinNoise(Time.time * P_frequency, Time.time * P_frequency) * 2f - 1f;
+
+            Vector3 offset = new Vector3(x, y, z) * P_magnitude;
+
+            shakeObject.transform.localPosition = originalPosition + offset;
+
+            yield return null;
+        }
+
+        shakeObject.transform.localPosition = originalPosition;
     }
 }
 [System.Serializable]

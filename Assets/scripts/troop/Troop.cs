@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using UnityEngine.UIElements;
+using Mono.Cecil.Cil;
 
 public class Troop : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Troop : MonoBehaviour
     public Camp myCamp;
 
     public int surviveRound = 0;
+
+    public Action Action_OnRoundEnd = () => { };
+    public Action Action_PowerActiveOnce = () => { }; 
 
     [Range(0, 9)]
     public int myNowX = 0;
@@ -54,6 +58,9 @@ public class Troop : MonoBehaviour
 
     [Header("Actions")]
     public Action OnDieAction = () => { };
+
+    [Header("殺死我的目標")]
+    public GameObject TargetThatMurderMe;
 
     public void LoadSOData()
     {
@@ -124,6 +131,11 @@ public class Troop : MonoBehaviour
         }
     }
 
+    public void killTroop(GameObject murderer)
+    {
+        TargetThatMurderMe = murderer;
+        killTroop();
+    }
     public void killTroop()
     {
         //TODO: 將自己從註冊表中移除
@@ -153,7 +165,10 @@ public class Troop : MonoBehaviour
         {
             OnDieAction();
         }
-        
+
+        troopOutfit.DieVFX();
+
+
         Destroy(gameObject);
     }
 
@@ -670,6 +685,11 @@ public class Troop : MonoBehaviour
         hasRightShield = otherT.hasRightShield;
         hasLowerShield = otherT.hasLowerShield;
         hasUpperShield = otherT.hasUpperShield;
+    }
+
+    public void CleanFunction_Action_PowerActiveOnce()
+    {
+        Action_PowerActiveOnce = () => { };
     }
 }
 

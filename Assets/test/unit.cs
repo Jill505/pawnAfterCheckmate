@@ -7,9 +7,12 @@ public class unit : MonoBehaviour
     public SpriteRenderer mySr;
     public SoundManager soundManager;
     public TrickManager trickManager;
+    public CameraManager cameraManager;
 
     public Sprite myOriginalSprite;
     public Sprite myHighLightSprite;
+
+    public UnitOutfit myUnitOutfit;
 
     public int myX;
     public int myY;
@@ -38,6 +41,7 @@ public class unit : MonoBehaviour
     {
         soundManager = FindFirstObjectByType<SoundManager>();
         trickManager = FindAnyObjectByType<TrickManager>();
+        cameraManager = FindAnyObjectByType<CameraManager>();
     }
 
     public void ApplyPerform(string ID)
@@ -215,35 +219,49 @@ public class unit : MonoBehaviour
                                     if (TroopsOnMe.myChessData.isGoldenTarget)
                                     {
                                         soundManager.PlaySFX("boss_slash_test_2");
+                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+                                        cameraManager.Shake(1f);
                                     }
                                     else if (roundManager.playerHitCombo >= 4)//連殺
                                     {
                                         Debug.Log("播放擊殺音效5");
                                         soundManager.PlaySFX("kill_5");
+                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+                                        cameraManager.Shake(0.6f);
                                     }
                                     else if (roundManager.playerHitCombo >= 3)
                                     {
                                         Debug.Log("播放擊殺音效4");
                                         soundManager.PlaySFX("kill_4");
+                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+                                        cameraManager.Shake(0.5f);
                                     }
 
                                     else if (roundManager.playerHitCombo >= 2)
                                     {
                                         Debug.Log("播放擊殺音效3");
                                         soundManager.PlaySFX("kill_3");
+                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+                                        cameraManager.Shake(0.4f);
                                     }
 
                                     else if (roundManager.playerHitCombo >= 1)
                                     {
                                         Debug.Log("播放擊殺音效2");
                                         soundManager.PlaySFX("kill_2");
+                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+                                        cameraManager.Shake(0.4f);
                                     }
 
                                     else
                                     {
                                         Debug.Log("播放擊殺音效1");
                                         soundManager.PlaySFX("kill_1");
+                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+                                        cameraManager.Shake(0.4f);
                                     }
+
+
 
                                     //若攻擊未殺死目標，則留在前一格
                                     if (TroopsOnMe.hp <= 0)
@@ -257,7 +275,7 @@ public class unit : MonoBehaviour
                                             //Player Copy Soul
                                             roundManager.SelectObjectTroop.CopySoul(TroopsOnMe);
                                         }
-                                        TroopsOnMe.killTroop();
+                                        TroopsOnMe.killTroop(gameObject);
 
                                         gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
 

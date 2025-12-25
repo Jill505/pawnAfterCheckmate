@@ -46,9 +46,9 @@ public class TrickManager : MonoBehaviour
         TrickEnergyLogic();
         UILogic();
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            GainEnergy(20);
+            UseTrick();
         }
     }
 
@@ -112,6 +112,8 @@ public class TrickManager : MonoBehaviour
 
     public void UseTrick()
     {
+        roundManager.resetUnitSelectState();
+
         if (myNowHoldTrickNum <= 0)
         {
             Debug.Log("無法觸發戲法 - 沒有充能");

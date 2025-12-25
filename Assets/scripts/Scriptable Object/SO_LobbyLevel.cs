@@ -10,7 +10,7 @@ public class SO_LobbyLevel : ScriptableObject
 
     public SO_Level mySO_Level;
 
-    public SO_LobbyClickableObject[] mySO_LCOs;
+    public SO_LobbyClickableObject[] mySO_LCOs = new SO_LobbyClickableObject[0];
 }
 
 [Serializable]

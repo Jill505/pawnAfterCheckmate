@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,11 @@ public class TroopOutfit : MonoBehaviour
     public GameObject hitShieldImage;
 
     public Action TroopOutfitUpdate = () => { };
+
+    [Header("Specialize Animation Object")]
+    public GameObject BombExplodeAnimation;
+
+    public GameObject DeathParticle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -103,5 +109,23 @@ public class TroopOutfit : MonoBehaviour
         {
             //neverShow;
         }
+    }
+    public void Do_BombExplodeAnimation()
+    {
+        Instantiate(BombExplodeAnimation, transform.position, transform.rotation);
+    }
+
+    public void DieVFX()
+    {
+        //perse a rotaion object that object kill it.
+        Quaternion burstRotation = new Quaternion();
+
+        if (myTroop.TargetThatMurderMe != null)
+        {
+            Vector3 dir = transform.position - myTroop.TargetThatMurderMe.transform.position;
+            burstRotation = Quaternion.LookRotation(dir.normalized);
+        }
+
+        Instantiate(DeathParticle, transform.position + new Vector3(0,0,-1), burstRotation);
     }
 }
