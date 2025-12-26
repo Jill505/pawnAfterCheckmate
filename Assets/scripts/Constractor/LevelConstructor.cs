@@ -10,10 +10,13 @@ public class LevelConstructor : MonoBehaviour
     public int playerAllowLoadMaxIndex = 3;
     public int[] playerSelectChessSorts;
 
+    public SpecialLevelScript SLS;
+
     private void Awake()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         //Debug.Log("awake¬O¡G" + currentSceneName);
+        AddSLSOnMe();
     }
     void Start()
     {
@@ -42,6 +45,22 @@ public class LevelConstructor : MonoBehaviour
         }
         else
         {
+        }
+    }
+
+    public void AddSLSOnMe()
+    {
+        switch (levelInfo.SLST)
+        {
+            case SpecialLevelScriptType.noSLS:
+                SLS = null;
+                break;
+            case SpecialLevelScriptType.Karen:
+                var swapSLS =  gameObject.AddComponent<SLS_Karen>();
+                swapSLS.sO_Level = levelInfo;
+
+                SLS = swapSLS;
+                break;  
         }
     }
 }

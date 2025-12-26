@@ -29,10 +29,10 @@ public enum Language
 
 public enum gear
 {
-    noGear,
-    bow,
-    car,
-    horse
+    noGear, //無道具
+    bow, //弓箭
+    car, //戰車
+    horse //馬
 }
 
 public enum ability
@@ -42,6 +42,32 @@ public enum ability
     bowElt,    //弓箭擅長
     carElt,    //車擅長
     canonElt, //炮擅長
+
+    //進化玩法
+    evo_HorMoveAbility,
+    evo_VarMoveAbility,
+
+    evo_XMoveAbility,
+
+    //盾牌
+    UpperShield,
+    LowerShield,
+    LeftShield,
+    RightShield,
+
+    //連擊盾
+    HitShield_1,
+    HitShield_2,
+    HitShield_3,
+
+    //炸彈兵
+    SuicideBomb,
+
+    //狂暴兵
+    Rager,
+
+    //Karen關卡使用
+    KarenBorn,
 }
 
 public enum SaveFileType
@@ -49,4 +75,25 @@ public enum SaveFileType
     SaveFile0,
     SaveFile1,
     SaveFile2,
+}
+
+public enum Camp
+{
+    Player,
+    Enemy,
+    Bucket,
+    Item
+}
+
+public enum BucketType
+{
+    noType,
+    firePowderBucket
+}
+
+public enum MissionType
+{
+    Survive,
+    KillTarget,
+    Special
 }

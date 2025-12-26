@@ -27,6 +27,8 @@ public class LevelWorldButton : MonoBehaviour
         }
 
         gameLobbyManager.StartLevelInspect(this);
+        SoundManager SM = FindFirstObjectByType<SoundManager>();
+        SM.PlaySFX("fire_(hooomm+ssss)");
     }
 
     public void OpenCanvasUI()

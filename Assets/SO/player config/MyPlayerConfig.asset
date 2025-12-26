@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MyPlayerConfig
   m_EditorClassIdentifier: 
   allChess:
-  - {fileID: 11400000, guid: b2420a2752bdba64493a754153868acb, type: 2}
-  - {fileID: 11400000, guid: 5ed4b99d03a68ee4ca1cd98a98d5c4c7, type: 2}
-  - {fileID: 11400000, guid: bb9e01b590dcd8a408dd17b750a33ab9, type: 2}
-  - {fileID: 11400000, guid: 799123bea99f7064681348ebbde56b8f, type: 2}
-  - {fileID: 11400000, guid: 30c67ef23de073841976d072236d1558, type: 2}
-  - {fileID: 11400000, guid: f572d52ae31886b4882e47aa6e25feab, type: 2}
-  - {fileID: 11400000, guid: 3dc01e99bc7c7994b8fb942df25cf555, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   squads: 000000000100000002000000
-  ranStr: "\u65E9\u5B89\u65E9\u5B89123\u6EF48"
+  ranStr: "\u65E9\u5B89"

@@ -3,6 +3,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
+using System;
+using TMPro;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEditor.Rendering.Universal;
+using Unity.VisualScripting;
 
 public class GameLobbyManager : MonoBehaviour
 {
@@ -10,15 +16,250 @@ public class GameLobbyManager : MonoBehaviour
     public ScrollViewGameLobby scrollViewManger;
     public GameLobbyCameraController cameraController;
     public LevelLoader levelLoader;
+    public GameLobbyUIManager gameLobbyUIManager;
 
     [Header("GameObject Refs")]
     public GameObject LevelInspectCanvas;
 
+    [Header("Level SO")]
+    public LobbyGameStage[] myGameStages;
+    public int nowStageIndex = 0;
+    public int nowLevelIndex = 0;
+
+    [Header("ESC Stuff")]
+    public GameObject ECS_Canvas;
+    public bool isESCIng;
+    
+    [Header("UI Stuff")]
+    public Button LoadLevelButton;
+    public SpriteRenderer backgroundImageSpriteRenderer;
+
+    public Text LevelName;
+    public Text LevelDesc;
+
+    public Image playerChoosingTrick;
+    public Text playerTrickName;
+    public Text playerTrickDesc;
+    public SO_Trick trickSOFile;
+
+    public TrickType[] nowShowTrickArray;
+    static public int nowSelectingTrickIndex;
+    public int nowSelectingTrickIndexInspect;
+
+    [Header("Load Level Button")]
+    public Button GoNextLevelButton;
+    public Button GoLastLevelButton;
+
+    [Header("Level Clickable Object")]
+    public List<GameObject> LevelClickableObjectList;
+
+    private void Awake()
+    {
+
+    }
+
     public void Start()
     {
-        scrollViewManger.AllowScroll = true;
-        scrollViewManger.AllowZoom = true;
+        nowStageIndex = SaveSystem.SF.saveStageIndex;
+        nowLevelIndex = SaveSystem.SF.saveLevelIndex;
+        nowSelectingTrickIndex = SaveSystem.SF.nowSelectingTrickIndex;
+
+        if (scrollViewManger != null)
+        {
+            scrollViewManger.AllowScroll = true;
+            scrollViewManger.AllowZoom = true;
+        }
+
+        //DO level information load;
+        DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
+        SelectTrick(nowShowTrickArray[nowSelectingTrickIndex]);
+
+        AllowNextAndLastButtonInteractable();
     }
+
+    public void Update()
+    {
+        nowSelectingTrickIndexInspect = nowSelectingTrickIndex;
+        ESC_CanvasControl();
+    }
+
+    #region UI Related
+
+    public void AllowNextAndLastButtonInteractable()
+    {
+        int levelLength = myGameStages[nowStageIndex].levels.Length;
+        if (nowLevelIndex <= 0)
+        {
+            GoLastLevelButton.interactable = false;
+        }
+        else
+        {
+            GoLastLevelButton.interactable = true;
+        }
+
+        if (nowLevelIndex >= levelLength - 1)
+        {
+            GoNextLevelButton.interactable = false;
+        }
+        else
+        {
+            GoNextLevelButton.interactable = true;
+        }
+    }
+
+    public void DoSwitchLobbyLevel(int StageIndex, int LevelIndex)
+    {
+        gameLobbyUIManager.OnFocus = false;
+        cameraController.allowFloatingCamera = true;
+        cameraController.targetOrthographic = cameraController.NormalOrthographic;
+        gameLobbyUIManager.Do_LevelNameFadeIn();
+        LoadLobbyLevel(myGameStages[StageIndex].levels[LevelIndex]);
+
+        AllowNextAndLastButtonInteractable();
+    }
+
+    public void DoSwitchLobbyLevelNext()
+    {
+        nowLevelIndex += 1;
+        if (nowLevelIndex >= myGameStages[nowStageIndex].levels.Length - 1)
+        {
+            nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
+        }
+        gameLobbyUIManager.LoadNextRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+        
+    }
+
+    public void DoSwitchLobbyLevelLast()
+    {
+        nowLevelIndex -= 1;
+        if (nowLevelIndex <= 0)
+        {
+            nowLevelIndex = 0;
+        }
+
+        gameLobbyUIManager.LoadLastRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+    }
+
+
+
+    public void LoadLobbyLevel(SO_LobbyLevel SO_L)
+    {
+        foreach (GameObject obj in LevelClickableObjectList)
+        {
+            Destroy(obj);
+        }
+
+        if (SO_L.mySO_Level != null)
+        {
+            levelLoader.loadLevel = SO_L.mySO_Level;
+            LoadLevelButton.interactable = true;    
+        }
+        else
+        {
+            //DO Debug calculation.
+            LoadLevelButton.interactable = false;
+        }
+
+        backgroundImageSpriteRenderer.sprite = SO_L.backgroundImage;
+        LevelName.text = SO_L.mySO_Level.levelName;
+        LevelDesc.text = SO_L.mySO_Level.levelDesc;
+
+        //SpawnClickableObject
+        for (int i = 0; i < SO_L.mySO_LCOs.Length; i++)
+        {
+            GameObject CLO = new GameObject("LobbyCLO" + SO_L.mySO_LCOs[i].ObjectName);
+            LevelClickableObjectList.Add(CLO);
+
+            LobbyClickableObject sLCO =  CLO.AddComponent<LobbyClickableObject>();
+            SpriteRenderer sSr =  CLO.AddComponent<SpriteRenderer>();
+
+            sLCO.mySr = sSr;
+
+            sLCO.mySO_LCO = SO_L.mySO_LCOs[i];
+            sLCO.InitMySelf();
+        }
+    }
+
+    public void LoadNormalLobbyContext()
+    {
+        //Load Player Skill Tool Box
+        ShowTrickContext();
+    }
+
+    #endregion
+
+    #region TrickSystem
+    public void DoTrickSwitchIndexAdd()
+    {
+        nowSelectingTrickIndex += 1;
+        if (nowSelectingTrickIndex >= nowShowTrickArray.Length)
+        {
+            //make it zero
+            nowSelectingTrickIndex = 0;
+        }
+        SwitchSkillInspect(nowSelectingTrickIndex);
+    }
+    public void DoTrickSwitchIndexMinus()
+    {
+        nowSelectingTrickIndex -= 1;   
+        if (nowSelectingTrickIndex < 0)
+        {
+            //make it recursive
+            nowSelectingTrickIndex = nowShowTrickArray.Length - 1;
+        }
+        SwitchSkillInspect(nowSelectingTrickIndex);
+    }
+    public void SwitchSkillInspect(int index)
+    {
+        SaveSystem.SF.nowSelectingTrickIndex = index;
+        SelectTrick(nowShowTrickArray[index]);
+    }
+
+    public void SelectTrick(TrickType switchTargetTrickType)
+    {
+        SaveSystem.SF.holdingTrickType = switchTargetTrickType;
+        SaveSystem.SaveSF();
+
+        ShowTrickContext();
+    }
+
+    public void ShowTrickContext()
+    {
+        TrickType myTrickType = SaveSystem.SF.holdingTrickType;
+
+        string trickPath = "TrickSO/";
+        switch (myTrickType)
+        {
+            case TrickType.noTrick:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "NoTrick_SO");
+                nowSelectingTrickIndex = 0;
+                break;
+            case TrickType.testTrick:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "testTrick_SO");
+                nowSelectingTrickIndex = 1;
+                break;
+            case TrickType.StrawMan:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "StrawMan_SO");
+                nowSelectingTrickIndex = 2;
+                break;
+        }
+
+
+        //Apply
+        if (trickSOFile != null)
+        {
+            playerTrickName.text = trickSOFile.trickName;
+            playerChoosingTrick.sprite = trickSOFile.mySprite;
+            playerTrickDesc.text = trickSOFile.trickDesc;
+        }
+        else
+        {
+            Debug.LogError("戲法SO資料不存在");
+        }
+    }
+    
+    #endregion
+
     public void StartLevelInspect(LevelWorldButton levelButt)
     {
         //make inspect UI re-locate to the levelCon's pos
@@ -36,28 +277,28 @@ public class GameLobbyManager : MonoBehaviour
         cameraController.OnAutoCamera = false;
     }
 
-    public void LoadIntoTheGame()
+    public void ESC_CanvasControl()
     {
-        LoadPlayerSaveFile();
-        SceneManager.LoadScene("GameLobby");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isESCIng == false)
+            {
+                ECS_Canvas.SetActive(true);
+                isESCIng = true;
+            }
+            else
+            {
+                CloseESCTab();
+            }
+        }
     }
-    IEnumerator LoadIntoTheGameCoroutine()
+    public void CloseESCTab()
     {
-        //wait until the animation and load complete
-        LoadPlayerSaveFile();
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("GameLobby");
+        ECS_Canvas.SetActive(false);
+        isESCIng = false;
     }
-    
-    
-    public void LoadPlayerSaveFile()
+    public void ESC_backToLobby()
     {
-        //TODO: load player save file eth.
-        Debug.LogWarning("Save/Load Function haven't complete yet.");
-    }
-
-    public void LeaveGame()
-    {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9637cc1ea743ab545a2697af3057526d, type: 3}
+  m_Name: NoTrick_SO
+  m_EditorClassIdentifier: 
+  trickName: "\u9810\u8A2D\u6232\u6CD5\u540D\u7A31"
+  myTrickType: 0
+  mySprite: {fileID: -7053410470639351482, guid: 41129f0a6a2a93847b7bfb18d0e6f005, type: 3}
+  trickRequireEnergy: 50
+  maxTrickAmount: 8

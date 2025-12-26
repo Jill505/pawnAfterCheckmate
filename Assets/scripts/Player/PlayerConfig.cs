@@ -33,7 +33,7 @@ public class PlayerConfig : MonoBehaviour
     }
     private void Awake()
     {
-        LoadData();
+        //LoadData();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,7 +45,7 @@ public class PlayerConfig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SaveData();
+        //SaveData();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

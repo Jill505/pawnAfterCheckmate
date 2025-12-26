@@ -7,44 +7,41 @@ public class SO_Level : ScriptableObject
     public string levelName = "Def name";
     public string levelID = "Def ID";
 
+    public SpecialLevelScriptType SLST;
+
     [TextArea(3, 10)]
     public string levelDesc = "Def Desc";
 
     [Header("Level setting")]
     public int allowDeployTroopNumber = 3;
 
+    public MissionType myMissionType = MissionType.Survive;
+    public int SurviveRound = 10;
+    public GameBoardInsChess goldenTarget;
 
+    public string LevelBgmName;
+
+    [Header("Player Level Setting")]
+    public Vector2 PlayerSpawnPos;
+
+    [Header("Perform Settings")]
     public bool hasPerform;
     public Perform myPerform;
-    public int gridSizeX  =10;
-    public int gridSizeY = 10;
+    public int gridSizeX  =9;
+    public int gridSizeY = 9;
     public List<GameBoardCell> levelContext = new List<GameBoardCell>();
     public List<GameBoardInsChess> chessInsData = new List<GameBoardInsChess>();
 
-#if UNITY_EDITOR
-    private void OnValidate()
-    {/*
-        if (gridSizeX < 1) gridSizeX = 1;
-        if (gridSizeY < 1) gridSizeY = 1;
-        //自動更新
-        
-        //bigger
-        if (levelContext.Count > (gridSizeX * gridSizeY))
-        {
-            for (int i = levelContext.Count; i < gridSizeX * gridSizeY; i++)
-            {
-                levelContext.Add(new GameBoardCell());
-            }
-        }
+    [Header("Enemy spawn information")]
+    public int enemySpawnEachRound =1 ;
 
-        //smaller
-        if (levelContext.Count < (gridSizeX * gridSizeY))
-        {
-            for (int i = levelContext.Count - 1; i > gridSizeX * gridSizeY; i--)
-            {
-                levelContext.RemoveAt(i);
-            }
-        }*/
+    public List<SO_Chess> spawnChessData = new List<SO_Chess>();
+
+    [Header("Special")]
+    public List<SO_Chess> special_SpawnChessData = new List<SO_Chess>();
+
+
+/*#if UNITY_EDITOR
         if (gridSizeX < 1) gridSizeX = 1;
         if (gridSizeY < 1) gridSizeY = 1;
 
@@ -71,7 +68,7 @@ public class SO_Level : ScriptableObject
             }
         }
     }
-#endif
+#endif*/
 }
 
 [System.Serializable]
@@ -92,9 +89,10 @@ public class GameBoardCell
     ///Enemy_Archer => 敵人弓兵
 
 }
+[System.Serializable]
 public class GameBoardInsChess
 {
-    public SO_Chess[] chessFile;
+    public SO_Chess chessFile;
     public int locationX = 0;
     public int locationY = 0;
 }
@@ -112,4 +110,4 @@ public class Perform //場地外觀
 public enum performStyle
 {
 
-}
+}   
