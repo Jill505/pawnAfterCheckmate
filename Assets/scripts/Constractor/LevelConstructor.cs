@@ -16,10 +16,17 @@ public class LevelConstructor : MonoBehaviour
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         //Debug.Log("awake¬O¡G" + currentSceneName);
+    }
+
+    public void AwakeFunction()
+    {
         AddSLSOnMe();
     }
     void Start()
     {
+        AwakeFunction();
+
+
         string currentSceneName = SceneManager.GetActiveScene().name;
         //Debug.Log("start¬O¡G" + currentSceneName);
 
@@ -50,6 +57,10 @@ public class LevelConstructor : MonoBehaviour
 
     public void AddSLSOnMe()
     {
+        if (levelInfo == null)
+        {
+            //return;   
+        }
         switch (levelInfo.SLST)
         {
             case SpecialLevelScriptType.noSLS:

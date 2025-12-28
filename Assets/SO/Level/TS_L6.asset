@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
-  m_Name: TS_L3
+  m_Name: TS_L6
   m_EditorClassIdentifier: 
-  levelName: "\u95DC\u53613 - \u6293\u5230\u70B8\u5F48\u9B54\u4E86"
+  levelName: "\u95DC\u53616 - \u51F1\u502B"
   levelID: Def ID
-  SLST: 0
-  levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u5FEB\u62F3\uFF01\u300D"
+  SLST: 1
+  levelDesc: "\u6700\u5F8C\u7684\u95DC\u5361"
   allowDeployTroopNumber: 3
-  myMissionType: 0
-  SurviveRound: 6
+  myMissionType: 2
+  SurviveRound: 5
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     locationX: 3
@@ -518,47 +518,54 @@ MonoBehaviour:
     passable: 1
     performID: DarkerTerrain
   chessInsData:
-  - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+  - chessFile: {fileID: 11400000, guid: ed09312e227385040ab41f2228ee8b64, type: 2}
     locationX: 4
-    locationY: 8
-  - chessFile: {fileID: 11400000, guid: 82d7728af44f52b43a4b08506fb367b2, type: 2}
-    locationX: 3
-    locationY: 8
-  - chessFile: {fileID: 11400000, guid: beb7fb3796158b247a769a0779864758, type: 2}
-    locationX: 5
-    locationY: 8
-  - chessFile: {fileID: 11400000, guid: 404a214d2691fb043b5bc653df2354ff, type: 2}
-    locationX: 3
-    locationY: 7
-  - chessFile: {fileID: 11400000, guid: 3a10987d64215824d987b810fa8c4ae2, type: 2}
-    locationX: 5
-    locationY: 7
-  - chessFile: {fileID: 11400000, guid: 99e1c32bcb7a0de47a8a261832e8bd44, type: 2}
+    locationY: 6
+  - chessFile: {fileID: 11400000, guid: d165709a0c34bbc42a3793997e29cf62, type: 2}
     locationX: 0
-    locationY: 6
-  - chessFile: {fileID: 11400000, guid: 99e1c32bcb7a0de47a8a261832e8bd44, type: 2}
+    locationY: 8
+  - chessFile: {fileID: 11400000, guid: d165709a0c34bbc42a3793997e29cf62, type: 2}
     locationX: 8
-    locationY: 6
+    locationY: 8
+  - chessFile: {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
+    locationX: 0
+    locationY: 5
+  - chessFile: {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
+    locationX: 8
+    locationY: 5
+  - chessFile: {fileID: 11400000, guid: e8bed65381b2ceb49b48fbc64c64d8bb, type: 2}
+    locationX: 2
+    locationY: 8
+  - chessFile: {fileID: 11400000, guid: 99e1c32bcb7a0de47a8a261832e8bd44, type: 2}
+    locationX: 6
+    locationY: 8
+  - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    locationX: 0
+    locationY: 0
+  - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    locationX: 8
+    locationY: 0
   enemySpawnEachRound: 2
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-  - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
-  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
-  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
-  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
-  - {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
-  - {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
-  - {fileID: 11400000, guid: 6f9c620d0723a194995f0e1ed1f26df5, type: 2}
-  - {fileID: 11400000, guid: fe9e5e8250c098f4bb9d90a46cbb0069, type: 2}
-  - {fileID: 11400000, guid: beb7fb3796158b247a769a0779864758, type: 2}
+  - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 82d7728af44f52b43a4b08506fb367b2, type: 2}
-  - {fileID: 11400000, guid: 385c03534983f28408a0f575a12176af, type: 2}
-  - {fileID: 11400000, guid: c68ae3560a7868f488cb10ec627faf78, type: 2}
+  - {fileID: 11400000, guid: beb7fb3796158b247a769a0779864758, type: 2}
+  - {fileID: 11400000, guid: fe9e5e8250c098f4bb9d90a46cbb0069, type: 2}
+  - {fileID: 11400000, guid: 6f9c620d0723a194995f0e1ed1f26df5, type: 2}
   - {fileID: 11400000, guid: df6c55007da6de54f8c6bc8acecbe294, type: 2}
   - {fileID: 11400000, guid: 2510d9e78ebfaf24ea1dcc75e8380ed1, type: 2}
-  special_SpawnChessData: []
+  - {fileID: 11400000, guid: c68ae3560a7868f488cb10ec627faf78, type: 2}
+  - {fileID: 11400000, guid: 385c03534983f28408a0f575a12176af, type: 2}
+  - {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
+  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+  - {fileID: 11400000, guid: ac89726f819f83e4e9692dc2d1058562, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: d165709a0c34bbc42a3793997e29cf62, type: 2}
+  special_SpawnChessData:
+  - {fileID: 11400000, guid: 1b76b7fe0a0d4714eb530da1e34885d4, type: 2}

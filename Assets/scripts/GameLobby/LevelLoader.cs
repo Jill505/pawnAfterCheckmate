@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
+    static public GameObject loadingLevelObject = null;
+
     [Header("Component Ref")]
     public SO_Level loadLevel;
     public GameObject levelConstructorGameObject;
@@ -25,9 +27,14 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
+            if (loadingLevelObject != null)
+            {
+                Destroy(loadingLevelObject);
+            }
             Debug.Log("¸ü¤JÃö¥dID¡G" + loadLevel.levelID);
 
             GameObject swap = Instantiate(levelConstructorGameObject);
+            loadingLevelObject = swap;    
             swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
             DontDestroyOnLoad(swap);
 

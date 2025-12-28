@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
   m_Name: TS_L1
   m_EditorClassIdentifier: 
-  levelName: "\u95DC\u53611"
+  levelName: "\u95DC\u53611 - \u6B61\u8FCE\u4F86\u5230\u7761\u6B7B\u5F8C\u4E4B\u5175"
   levelID: Def ID
   SLST: 0
   levelDesc: "\u6B61\u8FCE\u4F86\u5230 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\n\u9023\u6BBA\u3001\u9644\u8EAB\u3001\u6536\u5272\u6210\u9577\u7684\u58EB\u5175\u5427\uFF01"
@@ -23,7 +23,7 @@ MonoBehaviour:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     locationX: 2
     locationY: 3
-  LevelBgmName: 
+  LevelBgmName: pawn's_(demo)_2
   PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
