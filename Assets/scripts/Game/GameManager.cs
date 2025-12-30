@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Diagnostics.Tracing;
 
 public class GameManager : MonoBehaviour
 {
@@ -164,6 +165,10 @@ public class GameManager : MonoBehaviour
 
     public void LevelCheckAndLoad()
     {
+        if (SLS == null)
+        {
+            Debug.Log("CALL SLS NULL");
+        }
         // Please place this function at Update() rather then Start(), because of the Level Constructor are load at Start(). 
         if (!alreadyLoaded)
         {
@@ -186,8 +191,14 @@ public class GameManager : MonoBehaviour
 
                 if (levelConstructor.SLS != null)
                 {
+                    Debug.Log("EQU");
                     SLS = levelConstructor.SLS;
                     SLS.DO_GameInit();
+                }
+                else
+                {
+
+                    Debug.Log("N - EQU");
                 }
 
                 //考慮加入倒數
@@ -198,6 +209,11 @@ public class GameManager : MonoBehaviour
                     StartBlitzCoroutine(blitzTime);
                 }
             }
+        }
+
+        if (SLS == null)
+        {
+            Debug.Log("CALL SLS NULL after finish");
         }
     }
 
@@ -291,7 +307,12 @@ public class GameManager : MonoBehaviour
 
             case (MissionType.Special):
                 //Call SLS
+                if (SLS == null)
+                {
+                    Debug.Log("SLS is null");
+                }
                 TargetStr = SLS.LevelTargetString();
+
                 break;
         }
 
