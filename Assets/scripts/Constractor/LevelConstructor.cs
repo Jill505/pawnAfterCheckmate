@@ -16,7 +16,7 @@ public class LevelConstructor : MonoBehaviour
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         //Debug.Log("awake¬O¡G" + currentSceneName);
-        AwakeFunction();
+        //AwakeFunction();
     }
 
     public void AwakeFunction()
@@ -57,6 +57,8 @@ public class LevelConstructor : MonoBehaviour
 
     public void AddSLSOnMe()
     {
+        Debug.Log("ADDSO active");
+
         if (levelInfo == null)
         {
             //return;   
