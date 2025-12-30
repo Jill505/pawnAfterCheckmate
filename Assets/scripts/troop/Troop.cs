@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
-using UnityEngine.UIElements;
-using Mono.Cecil.Cil;
 
 public class Troop : MonoBehaviour
 {
@@ -126,7 +124,7 @@ public class Troop : MonoBehaviour
         {
             if (MySurviveRoundShowCase != null)
             {
-                MySurviveRoundShowCase.text = surviveRound + "";
+                MySurviveRoundShowCase.text = (surviveRound +1) + "";
             }
         }
     }

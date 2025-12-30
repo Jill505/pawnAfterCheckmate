@@ -15,6 +15,6 @@ MonoBehaviour:
   trickName: "\u8349\u4EBA\u6232\u6CD5"
   myTrickType: 2
   mySprite: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
-  trickRequireEnergy: 80
+  trickRequireEnergy: 50
   maxTrickAmount: 3
   trickDesc: "\u5728\u5730\u5716\u4E0A\u53EC\u559A\u4E00\u96BB\u5047\u4EBA\uFF0C\u64CA\u6BBA\u5F8C\u7372\u5F97\u4ED6\u7684\u653B\u64CA\u7BC4\u570D"

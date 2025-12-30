@@ -39,6 +39,7 @@ public class SO_Level : ScriptableObject
 
     [Header("Special")]
     public List<SO_Chess> special_SpawnChessData = new List<SO_Chess>();
+    public List<GameObject> special_GameObjectData=  new List<GameObject>();
 
 
 /*#if UNITY_EDITOR

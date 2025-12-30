@@ -4,12 +4,6 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
-using System;
-using TMPro;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEditor.Rendering.Universal;
-using Unity.VisualScripting;
-
 public class GameLobbyManager : MonoBehaviour
 {
     [Header("Manage Component Refs")]
@@ -126,7 +120,11 @@ public class GameLobbyManager : MonoBehaviour
             nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
         }
         gameLobbyUIManager.LoadNextRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
-        
+
+        SaveSystem.SF.saveStageIndex = nowStageIndex;
+        SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+
+        SaveSystem.SaveSF();
     }
 
     public void DoSwitchLobbyLevelLast()
@@ -138,6 +136,11 @@ public class GameLobbyManager : MonoBehaviour
         }
 
         gameLobbyUIManager.LoadLastRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+
+        SaveSystem.SF.saveStageIndex = nowStageIndex;
+        SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+
+        SaveSystem.SaveSF();
     }
 
 
