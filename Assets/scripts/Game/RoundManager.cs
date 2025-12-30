@@ -489,14 +489,8 @@ public class RoundManager : MonoBehaviour
         }
         //Spawn A chess
         GameBoardInsChess GBIC = new GameBoardInsChess();
-        if (isSpawnGoldenTarget)
-        {
-            //GBIC = sO_Level.goldenTarget;
-        }
-        else
-        {
-            GBIC.chessFile = SO_C;
-        }
+        GBIC.chessFile = SO_C;
+
         GBIC.locationX = (int)tarSpawnVector.x;
         GBIC.locationY = (int)tarSpawnVector.y;
         gameManager.SpawnLevelTroop(GBIC);

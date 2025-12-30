@@ -15,4 +15,5 @@ MonoBehaviour:
   backgroundImage: {fileID: 6176511443112562264, guid: b5cc879a53fa8d84cbbdd2e46f051357, type: 3}
   myStageIndex: 0
   myLevelIndex: 4
-  mySO_Level: {fileID: 11400000, guid: 2daa3c1a36a29744c8a9ee28232dc9b3, type: 2}
+  mySO_Level: {fileID: 11400000, guid: 5ff9b105a9d53c540b427d54b8a5036a, type: 2}
+  mySO_LCOs: []

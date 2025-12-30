@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: dedf08f9affb5a3428fe349fbf78ac51
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sO_Level: {instanceID: 0}
+  - gameManager: {instanceID: 0}
+  - roundManager: {instanceID: 0}
+  - KarenSpawnTroop: {instanceID: 0}
+  - KarenObject: {fileID: 3480437399129146165, guid: d8ff833f1e9a43b478ae0cdef744028b, type: 3}
+  - KarenBlood: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

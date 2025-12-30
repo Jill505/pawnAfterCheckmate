@@ -24,7 +24,7 @@ MonoBehaviour:
   maxHp: 1
   hp: 1
   skin: {fileID: -8510838607816884149, guid: bb29929873e3e9445b9e5fe19b306da2, type: 3}
-  abilities: 
+  abilities: 08000000090000000a0000000b000000
   isGoldenTarget: 1
   horBlockMoveAbility: 1
   verticalBlockMoveAbility: 1

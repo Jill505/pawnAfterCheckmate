@@ -16230,6 +16230,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 80f3e72ba439a9f46a8cd00521822e19, type: 2}
     - {fileID: 11400000, guid: a043dc6c72d09f6429da0d95757c8de7, type: 2}
     - {fileID: 11400000, guid: a74a0912bb15bdd43b9eb6abae96f530, type: 2}
+    - {fileID: 11400000, guid: d7f1729d3b9e05747bc706490db36278, type: 2}
   nowStageIndex: 0
   nowLevelIndex: 0
   ECS_Canvas: {fileID: 97203618}
@@ -16302,6 +16303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameLobbyCameraController: {fileID: 125896549}
+  soundManager: {fileID: 0}
   mouseRefGameObject: {fileID: 1044605923}
   zeroVector: {x: 0, y: 0}
   mousePos: {x: 0, y: 0}

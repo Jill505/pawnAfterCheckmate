@@ -54,6 +54,9 @@ public class GameLobbyUIManager : MonoBehaviour
     [Header("Fader Animator")]
     public Animator faderAnimator;
 
+    [Header("CLOG")]
+    public bool onSwitchingAnimationClog = false;
+
     void Awake()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
@@ -156,10 +159,20 @@ public class GameLobbyUIManager : MonoBehaviour
 
     public void LoadNextRoom_Func(Action delegateFunc)
     {
-        StartCoroutine(LoadNextRoom_Ani_Coroutine(delegateFunc));
+        if (onSwitchingAnimationClog == true)
+        {
+
+        }
+        else
+        {
+            onSwitchingAnimationClog = true;
+            StartCoroutine(LoadNextRoom_Ani_Coroutine(delegateFunc));
+        }
     }
     IEnumerator LoadNextRoom_Ani_Coroutine(Action delegateFunc)
     {
+        onSwitchingAnimationClog = true;
+
         soundManager.PlaySFX("temp_wind_(wammm)");
 
         faderAnimator.Play("Lobby_Glow_GetInDoor", -1, 0);
@@ -171,13 +184,25 @@ public class GameLobbyUIManager : MonoBehaviour
         gameLobbyCameraController.targetOrthographic = gameLobbyCameraController.NormalOrthographic;
         gameLobbyCameraController.nowOrthographic = 10f;
         faderAnimator.Play("Lobby_Glow_GetInRoom", -1, 0);
+
+        onSwitchingAnimationClog = false;   
     }
     public void LoadLastRoom_Func(Action delegateFunc)
     {
-        StartCoroutine(LoadLastRoom_Ani_Coroutine(delegateFunc));
+        if (onSwitchingAnimationClog)
+        {
+
+        }
+        else
+        {
+            onSwitchingAnimationClog = true;
+            StartCoroutine(LoadLastRoom_Ani_Coroutine(delegateFunc));
+        }
     }
     IEnumerator LoadLastRoom_Ani_Coroutine(Action delegateFunc)
     {
+        onSwitchingAnimationClog = true;
+
         soundManager.PlaySFX("temp_wind_(hooom)");
         gameLobbyCameraController.targetOrthographic = 10f;
         faderAnimator.Play("Lobby_Glow_GetOutRoom", -1, 0);
@@ -188,6 +213,8 @@ public class GameLobbyUIManager : MonoBehaviour
         gameLobbyCameraController.nowOrthographic = 1;
         yield return new WaitForSeconds(0.2f);
         faderAnimator.Play("Lobby_Glow_Idle", -1, 0);
+
+        onSwitchingAnimationClog = false;
     }
 
 
