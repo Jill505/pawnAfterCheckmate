@@ -36,8 +36,7 @@ public class TrickManager : MonoBehaviour
     [Header("Rely Refs")]
     public SO_Chess StrawMan_SO;
 
-    public 
-    void Start()
+    public void Start()
     {
         LoadTrick();
     }
