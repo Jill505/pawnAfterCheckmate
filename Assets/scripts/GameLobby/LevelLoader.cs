@@ -36,6 +36,7 @@ public class LevelLoader : MonoBehaviour
             GameObject swap = Instantiate(levelConstructorGameObject);
             loadingLevelObject = swap;    
             swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
+            swap.GetComponent<LevelConstructor>().AwakeFunction();
             DontDestroyOnLoad(swap);
 
             GLUIM.LoadGame_Func(() => SceneManager.LoadScene("Fight"));
