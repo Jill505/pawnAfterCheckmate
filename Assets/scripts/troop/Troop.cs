@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
+using NUnit.Framework.Constraints;
 
 public class Troop : MonoBehaviour
 {
@@ -179,6 +181,15 @@ public class Troop : MonoBehaviour
     {
         EnemyLogic();
         myNextDes = ClosestVector();
+
+        for (int i = 0; i < myAbilities.Length; i++)
+        {
+            if (myAbilities[i] == ability.Retard)
+            {
+                myNextDes = new Vector2(-1, -1);
+                Debug.Log("自動跳過回合");
+            }
+        }
 
         if (myNextDes == new Vector2(-1, -1))
         {

@@ -2583,7 +2583,7 @@ PrefabInstance:
     - target: {fileID: 8577903923214914723, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: levelInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 5c31eef99008eec43a093d559c32a9f6, type: 2}
+      objectReference: {fileID: 11400000, guid: fda0b961a81b6c848b6edd78a4c7096d, type: 2}
     - target: {fileID: 8577903923214914723, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: playerConfig
       value: 
@@ -2598,7 +2598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8582608258599549643, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3097,6 +3097,7 @@ GameObject:
   - component: {fileID: 1438481427}
   - component: {fileID: 1438481428}
   - component: {fileID: 1438481429}
+  - component: {fileID: 1438481430}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3134,6 +3135,7 @@ MonoBehaviour:
   gameManager: {fileID: 1438481426}
   cameraManager: {fileID: 1931046469}
   soundManager: {fileID: 1438481427}
+  vFXManager: {fileID: 1438481430}
   GameGoing: 0
   isPlayerRound: 0
   leftRoundCount: 5
@@ -3285,6 +3287,27 @@ MonoBehaviour:
     storyRead: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     trickLevel: 
     holdingTrickType: 0
+--- !u!114 &1438481430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438481423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3397e94c525e54a8228c61de884271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnArea_HitHint_A_LB: {x: -7, y: -4.24}
+  spawnArea_HitHint_A_RT: {x: 6.38, y: 5.7}
+  spawnArea_HitHint_B_LB: {x: 0, y: 0}
+  spawnArea_HitHint_B_RT: {x: 0, y: 0}
+  HitHintGameObject: {fileID: 7773864347088762387, guid: 71ab6a8fa524fe240ba90bd5377c40bb, type: 3}
+  hitHintGameObjectSprites:
+  - {fileID: 735805723, guid: 37c0e388759e695459bf95fc565dfe0a, type: 3}
+  - {fileID: 6937817954938267909, guid: 200f4e204c8ee0342ab3055f8482f9a8, type: 3}
+  - {fileID: 6711913997770717108, guid: ae0a36d0c308f8749ad9784d6ebd679f, type: 3}
 --- !u!1 &1493154379
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,8 +5113,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 620100416}
   - {fileID: 1013709749}
+  - {fileID: 620100416}
   - {fileID: 1931046468}
   - {fileID: 1438481424}
   - {fileID: 1618226402}

@@ -12,16 +12,22 @@ public class LevelConstructor : MonoBehaviour
 
     public SpecialLevelScript SLS;
 
+    public bool AwakeFunctionClog = false;
+
     private void Awake()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         //Debug.Log("awake¬O¡G" + currentSceneName);
-        //AwakeFunction();
+        AwakeFunction();
     }
 
     public void AwakeFunction()
     {
-        AddSLSOnMe();
+        if (AwakeFunctionClog == false)
+        {
+            AwakeFunctionClog = true;
+            AddSLSOnMe();
+        }
     }
     void Start()
     {

@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class TSA_Rager : MonoBehaviour
@@ -24,6 +26,25 @@ public class TSA_Rager : MonoBehaviour
     {
         if (!RageClog)
         {
+            //²¾°£Retard
+
+            for (int i = 0; i < myTroop.myAbilities.Length; i++)
+            {
+                if (myTroop.myAbilities[i] == ability.Retard)
+                {
+                    int target = i;
+                    ability[] swapAbilityArr = new ability[myTroop.myAbilities.Length - 1];
+                    for (int j = 0, k = 0; j < myTroop.myAbilities.Length; j++)
+                    {
+                        if (j == i) continue;
+                        swapAbilityArr[k++] = myTroop.myAbilities[j];
+                    }
+
+                    myTroop.myAbilities = swapAbilityArr;
+                    break;
+                }
+            }
+
             RageClog = true;
 
             //Do rage

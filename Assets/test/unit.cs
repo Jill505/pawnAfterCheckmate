@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class unit : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class unit : MonoBehaviour
     public SoundManager soundManager;
     public TrickManager trickManager;
     public CameraManager cameraManager;
+    public VFXManager vFXManager;
 
     public Sprite myOriginalSprite;
     public Sprite myHighLightSprite;
@@ -42,6 +44,7 @@ public class unit : MonoBehaviour
         soundManager = FindFirstObjectByType<SoundManager>();
         trickManager = FindAnyObjectByType<TrickManager>();
         cameraManager = FindAnyObjectByType<CameraManager>();
+        vFXManager = FindAnyObjectByType<VFXManager>();
     }
 
     public void ApplyPerform(string ID)
@@ -332,6 +335,7 @@ public class unit : MonoBehaviour
                             //開始特殊回合
                             roundManager.playerHitCombo++;
                             //TOT
+                            vFXManager.SpawnHintGameObject(roundManager.playerHitCombo);
                             trickManager.GainEnergyFromKill(roundManager.playerHitCombo);
                             roundManager.StartSpecialRound(roundManager.playerHitCombo);
                         }

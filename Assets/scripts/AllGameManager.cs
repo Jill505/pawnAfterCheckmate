@@ -66,6 +66,9 @@ public enum ability
     //狂暴兵
     Rager,
 
+    //特性
+    Retard,
+
     //Karen關卡使用
     KarenBorn,
 }
