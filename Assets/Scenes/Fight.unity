@@ -3305,9 +3305,12 @@ MonoBehaviour:
   spawnArea_HitHint_B_RT: {x: 0, y: 0}
   HitHintGameObject: {fileID: 7773864347088762387, guid: 71ab6a8fa524fe240ba90bd5377c40bb, type: 3}
   hitHintGameObjectSprites:
-  - {fileID: 735805723, guid: 37c0e388759e695459bf95fc565dfe0a, type: 3}
-  - {fileID: 6937817954938267909, guid: 200f4e204c8ee0342ab3055f8482f9a8, type: 3}
-  - {fileID: 6711913997770717108, guid: ae0a36d0c308f8749ad9784d6ebd679f, type: 3}
+  - {fileID: 3635896052096531977, guid: b317978e89aa1a54e881f4cc1b58fbf1, type: 3}
+  - {fileID: -6764560381244970214, guid: 52708f35303f469418903a0768fbab54, type: 3}
+  - {fileID: -4217495493287558108, guid: 4b1bf03ed2957454e91518892c2095f6, type: 3}
+  - {fileID: 4716983578401895832, guid: 7812dfacf1dc133459df08af73ca7727, type: 3}
+  - {fileID: 1566570246301157487, guid: 7465b4b04ae54694691f7f5bd588d1c1, type: 3}
+  - {fileID: 7792153380951505386, guid: 72919e67d7813f046a4721502d003827, type: 3}
 --- !u!1 &1493154379
 GameObject:
   m_ObjectHideFlags: 0

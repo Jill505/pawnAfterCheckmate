@@ -170,13 +170,14 @@ public class GameLobbyManager : MonoBehaviour
         //SpawnClickableObject
         for (int i = 0; i < SO_L.mySO_LCOs.Length; i++)
         {
-            GameObject CLO = new GameObject("LobbyCLO" + SO_L.mySO_LCOs[i].ObjectName);
+            GameObject CLO = new GameObject("LobbyCLO" + SO_L.mySO_LCOs[i].name);
             LevelClickableObjectList.Add(CLO);
 
             LobbyClickableObject sLCO =  CLO.AddComponent<LobbyClickableObject>();
             SpriteRenderer sSr =  CLO.AddComponent<SpriteRenderer>();
 
             sLCO.mySr = sSr;
+            sSr.sortingOrder = 100;
 
             sLCO.mySO_LCO = SO_L.mySO_LCOs[i];
             sLCO.InitMySelf();

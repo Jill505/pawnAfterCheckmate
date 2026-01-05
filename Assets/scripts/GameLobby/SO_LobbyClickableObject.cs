@@ -11,4 +11,6 @@ public class SO_LobbyClickableObject : ScriptableObject
     public float myObjectY;
 
     public string[] Narratives;
+
+    public Sprite[] Sprites;
 }
