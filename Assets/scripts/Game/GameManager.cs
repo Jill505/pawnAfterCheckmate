@@ -311,6 +311,10 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("SLS is null");
                 }
+                else 
+                {
+                    Debug.Log("SLS Exist");
+                }
                 TargetStr = SLS.LevelTargetString();
 
                 break;

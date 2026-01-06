@@ -34,31 +34,20 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("更闽ID" + loadLevel.levelID);
 
             GameObject swap = Instantiate(levelConstructorGameObject);
-            loadingLevelObject = swap;    
-            swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
+            loadingLevelObject = swap;
+            LevelConstructor LC = swap.GetComponent<LevelConstructor>();
+
+            Debug.Log("level info 结");
+            //swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
+            LC.levelInfo = loadLevel;
+            Debug.Log("level info 结挡");
+
             swap.GetComponent<LevelConstructor>().AwakeFunction();
-            DontDestroyOnLoad(swap);
+            LC.AwakeFunction();
+            Debug.Log("ㄓ Level infoAwake Function");
 
+            DontDestroyOnLoad(swap);
             GLUIM.LoadGame_Func(() => SceneManager.LoadScene("Fight"));
-        }
-    }
-
-    public void LoadLevel()
-    {
-        if (loadLevel == null)
-        {
-            Debug.LogError("Ak Error: The Level Scriptable Object didn't ");
-        }
-        else
-        {
-            Debug.Log("更闽ID" + loadLevel.levelID);
-
-            GameObject swap = Instantiate(levelConstructorGameObject);
-            swap.GetComponent<LevelConstructor>().levelInfo = loadLevel;
-            DontDestroyOnLoad(swap);
-
-            StartCoroutine(LoadSceneCoroutine());
-            //SceneManager.LoadScene("Fight");
         }
     }
 
