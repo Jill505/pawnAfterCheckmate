@@ -151,6 +151,7 @@ public class GameLobbyManager : MonoBehaviour
         {
             Destroy(obj);
         }
+        LevelClickableObjectList = new List<GameObject>();  
 
         if (SO_L.mySO_Level != null)
         {

@@ -122,13 +122,27 @@ public class GameLobbyConversationSystem : MonoBehaviour
         switch (parts[1])
         {
             case "SpriteCreate":
-                if (parts.Length < 5)
+                if (parts.Length < 3)
                 {
                     Debug.LogError("°Ñ¼Æ¿ù»~");
                     Debug.Break();
                     return;
                 }
-                SpriteCreate(int.Parse(parts[2]), float.Parse(parts[3]), float.Parse(parts[4]));
+
+                if (parts.Length == 3) 
+                {
+                    SpriteCreate(int.Parse(parts[2]));
+                }
+
+                if (parts.Length == 5)
+                {
+                    SpriteCreate(int.Parse(parts[2]), float.Parse(parts[3]), float.Parse(parts[4]));
+                }
+
+                if (parts.Length == 7)
+                {
+                    SpriteCreate(int.Parse(parts[2]), float.Parse(parts[3]), float.Parse(parts[4]), float.Parse(parts[5]), float.Parse(parts[6]));
+                }
                 break;
 
             case "CleanSprite":
@@ -140,13 +154,36 @@ public class GameLobbyConversationSystem : MonoBehaviour
 
         }
     }
+    public void SpriteCreate(int spriteIndex)
+    {
+        GameObject obj = Instantiate(SpawnSpritePrefab, new Vector3(960f, 540f, 0), Quaternion.identity);
+        SpawnSprites.Add(obj);
+        obj.transform.SetParent(ConversationCanvas.transform);
+        //obj.GetComponent<RectTransform>().position = new Vector3(x, y, 0);
+        obj.GetComponent<Image>().sprite = bufferSprites[spriteIndex];
+        RectTransform rt = obj.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(1920f, 1080f);
+    }
 
     public void SpriteCreate(int spriteIndex, float x, float y)
     {
         GameObject obj = Instantiate(SpawnSpritePrefab, new Vector3(x, y, 0), Quaternion.identity);
+        SpawnSprites.Add(obj);
         obj.transform.SetParent(ConversationCanvas.transform);
         //obj.GetComponent<RectTransform>().position = new Vector3(x, y, 0);
         obj.GetComponent<Image>().sprite = bufferSprites[spriteIndex];
+    }
+    public void SpriteCreate(int spriteIndex, float x, float y, float pictureX, float pictureY)
+    {
+        GameObject obj = Instantiate(SpawnSpritePrefab, new Vector3(x, y, 0), Quaternion.identity);
+        SpawnSprites.Add(obj);
+        obj.transform.SetParent(ConversationCanvas.transform);
+        //obj.GetComponent<RectTransform>().position = new Vector3(x, y, 0);
+        obj.GetComponent<Image>().sprite = bufferSprites[spriteIndex];
+        RectTransform rt = obj.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(pictureX, pictureY);
+        //obj.GetComponent<RectTransform>().rect.width = pictureX;
+        //obj.GetComponent<RectTransform>().rect.height = pictureY;
     }
     public void SpriteClean(string argument)
     {

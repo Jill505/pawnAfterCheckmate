@@ -2,17 +2,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class GameLogScreenManager : MonoBehaviour
 {
     [Header("GameObject Refs")]
     public GameObject SettingCanvas;
+    public GameObject CreditsCanvas;
 
     [Header("UI Refs")]
     public Text DiffTextShowcase;
 
     public Text MusicVolumeTextShowcase;
     public Text SFXVolumeTextShowcase;
+
+    [Header("URL")]
+    public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
 
     private void Update()
     {
@@ -116,5 +121,19 @@ public class GameLogScreenManager : MonoBehaviour
         }
 
         SaveSystem.SaveSF();
+    }
+
+    public void LinkToWebsite()
+    {
+        Application.OpenURL(websiteUrl);
+    }
+
+    public void OpenCreditsCanvas()
+    {
+        CreditsCanvas.SetActive(true);
+    }
+    public void CloseCreditCanvas()
+    {
+        CreditsCanvas.SetActive(false);
     }
 }

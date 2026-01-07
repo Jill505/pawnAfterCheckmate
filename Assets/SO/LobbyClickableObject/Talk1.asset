@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98e5a8841e3ea34db1fceec7f9b4797, type: 3}
+  m_Name: Talk1
+  m_EditorClassIdentifier: 
+  ObjectName: "\u7269\u4EF6\u540D\u7A31"
+  myObjectSprite: {fileID: -855298285791758126, guid: 16f4281138741b34c8a0ffb53df5f134, type: 3}
+  myObjectX: 300
+  myObjectY: 300
+  Narratives:
+  - "\u5B89\uFF1A\u6211\u5011\u9032\u5230\u4E0B\u4E00\u5C64\u5922\u5883\u4E86\u2026\u2026\u7B49\u7B49\u5B83\u8EAB\u4E0A\u90A3\u662F\u4EC0\u9EBC\uFF1F"
+  - Command/SpriteCreate/0
+  - "\u7B26\uFF1A\u5F88\u660E\u986F\u5427\uFF0C\u90A3\u662F\u300C\u5766\u514B\u300D\u963B\u64CB\u653B\u64CA\u7684\u300C\u76FE\u724C\u300D\uFF0C\u5B83\u80FD\u5920\u963B\u64CB\u5C0D\u61C9\u65B9\u5411\u7684\u653B\u64CA\u3002"
+  - "\u5B89\uFF1A\u5982\u679C\u4F60\u6BBA\u6B7B\u5E36\u76FE\u6575\u4EBA\u5C31\u80FD\u7528\u4F86\u9632\u79A6\u7684\u5C0D\u5427\uFF1F"
+  - Command/CleanSprite/All
+  - Command/SpriteCreate/1
+  - "\u7B26\uFF1A\u8070\u660E\uFF0C\u4F46\u8981\u6CE8\u610F\u300C\u6211\u6BCF\u500B\u5403\u6389\u7684\u6575\u4EBA\u80FD\u529B\uFF0C\u90FD\u6703\u8986\u84CB\u4E0A\u4E00\u500B\u80FD\u529B\u3002\u300D"
+  - Command/CleanSprite/All
+  - Command/SpriteCreate/2
+  - "\u5B89\uFF1A\u90A3\u5DE6\u4E0B\u89D2\u7684\u69FD\u4F4D\u662F\uFF1F"
+  - "\u7B26\uFF1A\u90A3\u662F\u9053\u5177\u683C\uFF0C\u900F\u904E\u683C\u5B50\u5DE6\u4E0A\u7D2F\u7A4D\u689D\u6EFF\uFF0C\u5373\u53EF\u9EDE\u64CA\u6839\u64DA\u6307\u793A\u4F7F\u7528\uFF0C\u90E8\u5206\u9053\u5177\u9084\u53EF\u7D2F\u7A4D\u591A\u500B\u5B58\u653E\u3002"
+  - "\u7B26\uFF1A\u8070\u660E\uFF0C\u4F46\u8981\u6CE8\u610F\u300C\u6211\u6BCF\u500B\u5403\u6389\u7684\u6575\u4EBA\u80FD\u529B\uFF0C\u90FD\u6703\u8986\u84CB\u4E0A\u4E00\u500B\u80FD\u529B\u3002\u300D"
+  - Command/CleanSprite/All
+  - Command/SpriteCreate/3
+  - "\u7B26\uFF1A\u5728\u9078\u95DC\u5927\u5EF3\u6642\uFF0C\u4F60\u9084\u53EF\u4EE5\u5728\u5DE6\u5074\u9078\u64C7\u8DDF\u78BA\u8A8D\u4F60\u5E36\u7684\u9053\u5177\u3002 "
+  - Command/CleanSprite/All
+  Sprites:
+  - {fileID: 21300000, guid: 1289d28105dcd664f9a61ebaa1793f33, type: 3}
+  - {fileID: 21300000, guid: 0ab09f4b3be8deb40a31a30115fa902a, type: 3}
+  - {fileID: 21300000, guid: ea964f747959bc84cb0779005abc96a2, type: 3}
+  - {fileID: 21300000, guid: 0d64577df6d25dc4fa930bfae984b186, type: 3}
