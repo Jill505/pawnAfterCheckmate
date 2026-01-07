@@ -16435,6 +16435,7 @@ MonoBehaviour:
   cameraController: {fileID: 125896549}
   levelLoader: {fileID: 1724691616}
   gameLobbyUIManager: {fileID: 1724691620}
+  soundManager: {fileID: 1724691618}
   LevelInspectCanvas: {fileID: 1925789811}
   myGameStages:
   - levels:
