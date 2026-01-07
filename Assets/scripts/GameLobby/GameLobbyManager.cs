@@ -11,6 +11,7 @@ public class GameLobbyManager : MonoBehaviour
     public GameLobbyCameraController cameraController;
     public LevelLoader levelLoader;
     public GameLobbyUIManager gameLobbyUIManager;
+    public SoundManager soundManager;
 
     [Header("GameObject Refs")]
     public GameObject LevelInspectCanvas;
@@ -63,6 +64,8 @@ public class GameLobbyManager : MonoBehaviour
             scrollViewManger.AllowScroll = true;
             scrollViewManger.AllowZoom = true;
         }
+
+        //soundManager.PlayBGM("Before_Fighting");
 
         //DO level information load;
         DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);

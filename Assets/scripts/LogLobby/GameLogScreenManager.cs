@@ -27,6 +27,10 @@ public class GameLogScreenManager : MonoBehaviour
     {
         soundManager = FindAnyObjectByType<SoundManager>(); 
     }
+    private void Start()
+    {
+        soundManager.PlayBGM("lobby_demo_1");
+    }
     private void Update()
     {
         LobbyUIContextShowcase();
