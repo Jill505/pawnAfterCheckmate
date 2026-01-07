@@ -16,4 +16,5 @@ MonoBehaviour:
   myStageIndex: 0
   myLevelIndex: 5
   mySO_Level: {fileID: 11400000, guid: 5c31eef99008eec43a093d559c32a9f6, type: 2}
-  mySO_LCOs: []
+  mySO_LCOs:
+  - {fileID: 11400000, guid: f695a142142b37146b6f21c4b8f2acfe, type: 2}

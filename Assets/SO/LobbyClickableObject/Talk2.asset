@@ -28,5 +28,5 @@ MonoBehaviour:
   - "\u7B26\uFF1A\u5229\u7528\u597D\u300C\u70B8\u5F48\u5175\u300D\u7279\u6027\uFF0C\u711A\u6BC0\u773C\u524D\u7684\u4E00\u5207\u5427\uFF01"
   - Command/CleanSprite/All
   Sprites:
-  - {fileID: 5564181887433116514, guid: cd6de83e628209f4d9a6d82fe7f40305, type: 3}
-  - {fileID: -8411083237893136071, guid: b5d7c17b9ed125b4fa9859cc9bff9acb, type: 3}
+  - {fileID: 21300000, guid: cd6de83e628209f4d9a6d82fe7f40305, type: 3}
+  - {fileID: 21300000, guid: b5d7c17b9ed125b4fa9859cc9bff9acb, type: 3}

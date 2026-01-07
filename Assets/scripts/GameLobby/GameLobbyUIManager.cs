@@ -174,6 +174,7 @@ public class GameLobbyUIManager : MonoBehaviour
         onSwitchingAnimationClog = true;
 
         soundManager.PlaySFX("temp_wind_(wammm)");
+        //soundManager.PlaySFX("wind_in_rush");
 
         faderAnimator.Play("Lobby_Glow_GetInDoor", -1, 0);
         gameLobbyCameraController.targetOrthographic = 1f;
@@ -204,6 +205,8 @@ public class GameLobbyUIManager : MonoBehaviour
         onSwitchingAnimationClog = true;
 
         soundManager.PlaySFX("temp_wind_(hooom)");
+        //soundManager.PlaySFX("wind_out_2");
+
         gameLobbyCameraController.targetOrthographic = 10f;
         faderAnimator.Play("Lobby_Glow_GetOutRoom", -1, 0);
         yield return new WaitForSeconds(0.5f);

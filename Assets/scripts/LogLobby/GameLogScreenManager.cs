@@ -3,12 +3,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Rendering;
+using UnityEditor.SearchService;
 
 public class GameLogScreenManager : MonoBehaviour
 {
     [Header("GameObject Refs")]
     public GameObject SettingCanvas;
     public GameObject CreditsCanvas;
+    public SoundManager soundManager;
+
+    public AudioClip testClip;
 
     [Header("UI Refs")]
     public Text DiffTextShowcase;
@@ -19,6 +23,10 @@ public class GameLogScreenManager : MonoBehaviour
     [Header("URL")]
     public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
 
+    public void Awake()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>(); 
+    }
     private void Update()
     {
         LobbyUIContextShowcase();
@@ -58,6 +66,7 @@ public class GameLogScreenManager : MonoBehaviour
         {
             SaveSystem.SF.difficulty = 0;
         }
+
 
         SaveSystem.SaveSF();
     }
@@ -101,6 +110,13 @@ public class GameLogScreenManager : MonoBehaviour
             }
         }
 
+        GameObject obj = new GameObject();
+        AudioSource AS = obj.AddComponent<AudioSource>();
+        AS.clip = testClip;
+        AS.volume = SaveSystem.SF.BgmVolume;
+        AS.Play();
+        Destroy(obj, testClip.length);
+
         SaveSystem.SaveSF();
     }
 
@@ -119,6 +135,13 @@ public class GameLogScreenManager : MonoBehaviour
                 SaveSystem.SF.SFXVolume = 0;
             }
         }
+
+        GameObject obj = new GameObject();
+        AudioSource AS = obj.AddComponent<AudioSource>();
+        AS.clip = testClip;
+        AS.volume = SaveSystem.SF.SFXVolume;
+        AS.Play();
+        Destroy(obj, testClip.length);
 
         SaveSystem.SaveSF();
     }
