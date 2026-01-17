@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
-using NUnit.Framework.Constraints;
 
 public class Troop : MonoBehaviour
 {
@@ -13,6 +11,7 @@ public class Troop : MonoBehaviour
     public RoundManager roundManager;
     public SoundManager soundManager;
     public TrickManager trickManager;
+    public VFXManager vFXManager;
 
     public TroopOutfit troopOutfit;
 
@@ -70,7 +69,6 @@ public class Troop : MonoBehaviour
 
         myCamp = myChessData.myCamp;
         holdingGear = myChessData.spawnGear;
-        bucketType = myChessData.bucketType;
 
         horBlockMoveAbility = myChessData.horBlockMoveAbility;
         verticalBlockMoveAbility = myChessData.verticalBlockMoveAbility;
@@ -80,6 +78,12 @@ public class Troop : MonoBehaviour
         AttackStr = myChessData.AttackStr;
 
         myAbilities = myChessData.abilities;
+
+
+        if (myCamp == Camp.Enemy)
+        {
+            gameObject.AddComponent<EnemyLogic>();
+        }
     }
 
     void Start()
@@ -88,6 +92,7 @@ public class Troop : MonoBehaviour
         roundManager = FindFirstObjectByType<RoundManager>();
         soundManager = FindFirstObjectByType<SoundManager>();
         trickManager = FindFirstObjectByType<TrickManager>();
+        vFXManager = FindAnyObjectByType<VFXManager>();
         LoadSOData();
 
         if (myCamp == Camp.Enemy)
@@ -157,6 +162,9 @@ public class Troop : MonoBehaviour
             RM.EnemyAITroop.Remove(this);
             roundManager.specialClogAutoSelectionClog = true;
             gameManager.FrameSkipping();
+            vFXManager.VFX_SlashInHalf(this);
+
+
         }
 
         gameManager.Troops.Remove(gameObject);
@@ -273,6 +281,12 @@ public class Troop : MonoBehaviour
             // 先把目前要比的目標存起來，避免移除後再用索引取值
             var target = OnSelectChessAllowMoveVector[i];
 
+            if (target.x < 0 || target.y < 0 || target.x >= gameManager.levelData.gridSizeX || target.y >= gameManager.levelData.gridSizeY)
+            {
+                OnSelectChessAllowMoveVector.RemoveAt(i);
+                continue; // 這個 i 處理完，換下一個
+            }
+
             foreach (var obj in gameManager.chessBoardObjectRefArr)
             {
                 if (obj == null) continue;
@@ -295,6 +309,7 @@ public class Troop : MonoBehaviour
                 {
                     OnSelectChessAllowMoveVector.RemoveAt(i);
                     //Debug.Log("Out of range解釋");
+                    //保險起見的邏輯 其實已經不會執行到
                     break;
                 }
             }
@@ -305,6 +320,13 @@ public class Troop : MonoBehaviour
         for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
         {
             var target = OnSelectChessAllowMoveVector[i];
+
+            if (target.x < 0 || target.y < 0 || target.x >= gameManager.levelData.gridSizeX || target.y >= gameManager.levelData.gridSizeY)
+            {
+                OnSelectChessAllowMoveVector.RemoveAt(i);
+                continue; // 這個 i 處理完，換下一個
+            }
+
 
             foreach (var obj in gameManager.chessBoardObjectRefArr)
             {
@@ -374,7 +396,7 @@ public class Troop : MonoBehaviour
                     break;
 
                 case Camp.Bucket: //場地互動道具 如.爆破桶等
-                    tarUnit.TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
+                    tarUnit.TroopsOnMe.hp -= gameManager.PlayerTroop.myChessData.AttackStr;
                     gameManager.hintManager.SpawnHintWordPrefab("MOB擊破桶子 - " + tarUnit.TroopsOnMe.myChessData.chessName);
 
                     //被殺死
@@ -614,7 +636,8 @@ public class Troop : MonoBehaviour
 
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
     {
-        gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        //gameObject.transform.GetChild(1).gameObject.GetComponent<Troop>().mySr.color = Color.red;
+        gameManager.PlayerTroop.mySr.color = Color.red;
     }
 
     public void TroopAbilityApply(ability abi)
@@ -652,7 +675,7 @@ public class Troop : MonoBehaviour
         }
     }
 
-    public void EnemyEvo()
+    public void ChessEvo()
     {
         if (myCamp == Camp.Enemy)
         {

@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class VFXManager : MonoBehaviour
 
     public GameObject HitHintGameObject;
     public Sprite[] hitHintGameObjectSprites;
+
+    public GameObject SlashObject_L;
+    public GameObject SlashObject_R;
     
     public void SpawnHintGameObject(int ComboNum)
     {
@@ -46,7 +50,46 @@ public class VFXManager : MonoBehaviour
         SpawnObj.transform.rotation = Quaternion.Euler(0,0, ramdomRotation);
     }
 
+    public void VFX_SlashInHalf(Troop targetTroop)
+    {
+        //get sprite
+        Sprite targetSprite = targetTroop.mySr.sprite;
 
+        GameObject swapL = Instantiate(SlashObject_L, targetTroop.transform.position, Quaternion.identity);
+        GameObject swapR = Instantiate(SlashObject_R, targetTroop.transform.position, Quaternion.identity);
+
+        swapL.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite=targetSprite;
+        swapR.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite=targetSprite;
+
+        //Set Random Angle;
+        float randomAngle = UnityEngine.Random.Range(0f, 360f);
+        swapL.transform.rotation = Quaternion.Euler(0,0,randomAngle);
+        swapR.transform.rotation = Quaternion.Euler(0,0,randomAngle);
+        swapL.transform.GetChild(0).rotation = Quaternion.Euler(0, 0, -1 * randomAngle);
+        swapR.transform.GetChild(0).rotation = Quaternion.Euler(0, 0, -1 * randomAngle);
+
+        //Get random force
+        Rigidbody2D swapLRb = swapL.GetComponent<Rigidbody2D>();
+        Rigidbody2D swapRRb = swapR.GetComponent<Rigidbody2D>();
+
+        // Add Force
+        swapLRb.AddForce(
+            new Vector2(Random.Range(-10f, 10f), Random.Range(2f, 20f)),
+            ForceMode2D.Impulse
+        );
+
+        swapRRb.AddForce(
+            new Vector2(Random.Range(-10f, 10f), Random.Range(2f, 20f)),
+            ForceMode2D.Impulse
+        );
+
+        //Add random Angular momentum
+        swapLRb.angularVelocity = Random.Range(-720f, 720f);
+        swapRRb.angularVelocity = Random.Range(-720f, 720f);
+
+        Destroy(swapL, 5f);
+        Destroy(swapR, 5f);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

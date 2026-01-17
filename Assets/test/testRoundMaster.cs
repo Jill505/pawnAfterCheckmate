@@ -38,7 +38,7 @@ public class testRoundMaster : MonoBehaviour
 
     public void resetUnitSelectState(GameObject obj)
     {
-        obj.GetComponent<SpriteRenderer>().color = Color.white;
+        obj.GetComponent<Troop>().mySr.color = Color.white;
     }
     public void resetUnitSelectState() //預設清空選擇中物件
     {
@@ -113,7 +113,7 @@ public class testRoundMaster : MonoBehaviour
     {
         if (SelectObject != null)
         {
-            SelectObject.GetComponent<SpriteRenderer>().color = Color.red;
+            SelectObject.GetComponent<Troop>().mySr.color = Color.red;
         }
     }
 }

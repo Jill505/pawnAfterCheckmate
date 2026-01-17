@@ -21,9 +21,10 @@ MonoBehaviour:
   SurviveRound: 6
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
+    isRandomSpawn: 0
     locationX: 3
     locationY: 3
-  LevelBgmName: pawn's_(demo)_2
+  LevelBgmName: Time_to_Throw_Out_(ost_3)
   PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
@@ -519,24 +520,31 @@ MonoBehaviour:
     performID: DarkerTerrain
   chessInsData:
   - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+    isRandomSpawn: 0
     locationX: 4
     locationY: 8
   - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+    isRandomSpawn: 0
     locationX: 1
     locationY: 6
   - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+    isRandomSpawn: 0
     locationX: 7
     locationY: 6
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 5
     locationY: 2
   - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    isRandomSpawn: 0
     locationX: 6
     locationY: 1
   - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    isRandomSpawn: 0
     locationX: 3
     locationY: 2
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    isRandomSpawn: 0
     locationX: 2
     locationY: 1
   enemySpawnEachRound: 2
@@ -565,3 +573,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
   - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
   special_SpawnChessData: []
+  special_GameObjectData: []

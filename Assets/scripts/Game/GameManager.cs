@@ -72,7 +72,8 @@ public class GameManager : MonoBehaviour
     public GameObject GameEReference;
     public GameObject TroopEReference;
 
-    public GameObject MyTroop;
+    public GameObject PlayerTroopGameObject;
+    public Troop PlayerTroop;
     public List<GameObject> Troops;
 
     [Header("World Spawn Variable")]
@@ -246,7 +247,8 @@ public class GameManager : MonoBehaviour
         myT.myCamp = Camp.Player;
 
         Troops.Add(myTObj);
-        MyTroop = myTObj;
+        PlayerTroopGameObject = myTObj;
+        PlayerTroop = myTObj.GetComponent<Troop>();
 
         SpawnLevelTroop(config);
     }
@@ -371,8 +373,47 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator FrameSkippingCoroutine(float lateRate, float lateTime)
     {
-        Time.timeScale = lateRate;
+        //Time.timeScale = lateRate;
         yield return new WaitForSecondsRealtime(lateTime);
         Time.timeScale = 1f;
+    }
+
+    public unit GetUnitAt(int x, int y)
+    {
+        unit swapUnit = chessBoardObjectRefArr[y,x].GetComponent<unit>();
+        return swapUnit;
+    }
+    public List<Vector2> GetEmptyUnitList()
+    {
+        List<Vector2> EmptyUnitVectorList = new List<Vector2>();
+        
+        foreach (GameObject obj in chessBoardObjectRefArr)
+        {
+            unit swapUnit = obj.GetComponent<unit>();
+            if (swapUnit.TroopsOnMe == null)
+            {
+                // it's empty;
+                EmptyUnitVectorList.Add(new Vector2(swapUnit.myX, swapUnit.myY));
+            }
+        }
+        
+        return EmptyUnitVectorList;
+    }
+    public List<Vector2> GetHasTroopUnitList()
+    {
+
+        List<Vector2> EmptyUnitVectorList = new List<Vector2>();
+
+        foreach (GameObject obj in chessBoardObjectRefArr)
+        {
+            unit swapUnit = obj.GetComponent<unit>();
+            if (swapUnit.TroopsOnMe != null)
+            {
+                // it's empty;
+                EmptyUnitVectorList.Add(new Vector2(swapUnit.myX, swapUnit.myY));
+            }
+        }
+
+        return EmptyUnitVectorList;
     }
 }

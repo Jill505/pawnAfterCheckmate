@@ -10,7 +10,6 @@ public class SO_Chess : ScriptableObject
     public Sprite photoSticker; //Require = 1:1 picture.
 
     public gear spawnGear = gear.noGear;
-    public BucketType bucketType = BucketType.noType;
 
     [TextArea(3, 10)]
     public string chessDesc;

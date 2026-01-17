@@ -42,5 +42,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LeftSlash
+    uniqueID: 2402010037
+    locked: 0
+  - name: RightSlash
+    uniqueID: 3641154239
+    locked: 0
   m_RenderingLayers:
   - Default

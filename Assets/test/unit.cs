@@ -1,18 +1,13 @@
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class unit : MonoBehaviour
 {
     public GameManager gameManager;
     public RoundManager roundManager;
-    public SpriteRenderer mySr;
     public SoundManager soundManager;
     public TrickManager trickManager;
     public CameraManager cameraManager;
     public VFXManager vFXManager;
-
-    public Sprite myOriginalSprite;
-    public Sprite myHighLightSprite;
 
     public UnitOutfit myUnitOutfit;
 
@@ -22,6 +17,8 @@ public class unit : MonoBehaviour
     public bool selecting = false;
     public bool passable = true; //可通過地塊
 
+    public bool isAbleBeSelect = false;//可以被選擇中
+
     public bool isDeployed = false; //已被占用部署地塊
     public bool isAbleToDeploy = false; //是起始允許部署地塊
 
@@ -29,12 +26,9 @@ public class unit : MonoBehaviour
 
     public Troop TroopsOnMe;
 
-    [Header("Showcase stuff")]
+    [Header("Outfit Control stuff")]
     public bool isEnemyAttackHighLighting = false;
-    public SpriteRenderer MyEnemyHighLightSR;
-
     public bool isSkillPlacementHighLighting = false;
-    public SpriteRenderer MySkillHighLightSR;
 
     [Header("Placement and trick variables")]
     public bool isPlaceableTarget = false;
@@ -47,22 +41,32 @@ public class unit : MonoBehaviour
         vFXManager = FindAnyObjectByType<VFXManager>();
     }
 
+
+    bool _colorClog;
+    void Update()
+    {
+        CaseSwitcher();
+        UpdateLogic();
+        syncTroopOnMe();
+    }
+
+
     public void ApplyPerform(string ID)
     {
         //make sr sprite eul to the current ID
-        if (ID == "")
+        if (ID == "") //Default Perform
         {
-            mySr.sprite = Resources.Load<Sprite>("TerrainSprite/TS_Default");
-            myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/TS_Default_highLighted");
+            myUnitOutfit.mySr.sprite = Resources.Load<Sprite>("TerrainSprite/TS_Default");
+            myUnitOutfit.myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/TS_Default_highLighted");
         }
         else
         {
-            mySr.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
-            myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
-            myHighLightSprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_HL");
+            myUnitOutfit.mySr.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
+            myUnitOutfit.myOriginalSprite = Resources.Load<Sprite>("TerrainSprite/" + ID);
+            myUnitOutfit.myHighLightSprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_HL");
 
-            MyEnemyHighLightSR.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_ENHL");
-            MySkillHighLightSR.sprite = myHighLightSprite;
+            myUnitOutfit.MyEnemyHighLightSR.sprite = Resources.Load<Sprite>("TerrainSprite/" + ID + "_ENHL");
+            myUnitOutfit.MySkillHighLightSR.sprite = myUnitOutfit.myHighLightSprite;
         }
     }
 
@@ -86,14 +90,14 @@ public class unit : MonoBehaviour
             roundManager.onFloatingVector = new Vector2(myX, myY);
             if (selecting == true)
             {
-                mySr.color = new Color(1, 1, 1, 1f);
-                mySr.sprite = myHighLightSprite;
+                myUnitOutfit.mySr.color = new Color(1, 1, 1, 1f);
+                myUnitOutfit.mySr.sprite = myUnitOutfit.myHighLightSprite;
             }
             else
             {
                 //Debug.Log("OnMouseEnter");
-                mySr.color = new Color(1, 1, 1, 0.2f);
-                mySr.sprite = myOriginalSprite;
+                myUnitOutfit.mySr.color = new Color(1, 1, 1, 0.2f);
+                myUnitOutfit.mySr.sprite = myUnitOutfit.myOriginalSprite;
             }
         }
     }
@@ -101,29 +105,37 @@ public class unit : MonoBehaviour
     {
         if (selecting == true)
         {
-            mySr.color = new Color(1, 1, 1, 1f);
-            mySr.sprite = myHighLightSprite;
+            myUnitOutfit.mySr.color = new Color(1, 1, 1, 1f);
+            myUnitOutfit.mySr.sprite = myUnitOutfit.myHighLightSprite;
         }
         else
         {
             //Debug.Log("OnMouseEnter");
             //Debug.LogWarning("Exit還原");
-            mySr.color = new Color(1, 1, 1, 1f);
-            mySr.sprite = myOriginalSprite;
+            myUnitOutfit.mySr.color = new Color(1, 1, 1, 1f);
+            myUnitOutfit.mySr.sprite = myUnitOutfit.myOriginalSprite;
         }
 
         roundManager.EnemyAttackRangeShowcaseReduce();
     }
     private void OnMouseDown()
     {
+        SelectUnit();
+    }
+    public void PlaySelectSoundEffect()
+    {
+        soundManager.PlaySFX("button_press");
+
+        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+    }
+    public void SelectUnit()
+    {
         if (roundManager.roundState == RoundState.MyRound)
         {
             //Placement Skill Function Works Here.
-            soundManager.PlaySFX("button_press");
-
-            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            PlaySelectSoundEffect();
 
             if (roundManager.isCastingPlacementTrick)
             {
@@ -132,7 +144,7 @@ public class unit : MonoBehaviour
                 {
                     //這個地塊是空的
                     //他是系統認定的可放置目標
-                    
+
                     //如果點下去 觸發在自己身上放置目標，具體目標由方法傳入
                     //感覺參數不多可以直接巢狀下去
                     if (roundManager.isCastingTrick_StrawMan)
@@ -150,6 +162,7 @@ public class unit : MonoBehaviour
                         roundManager.isCastingPlacementTrick = false;
                         roundManager.isCastingTrick_StrawMan = false;
                         trickManager.ResetTargetPlace();
+                        trickManager.myNowHoldTrickNum -= 1;
                     }
                     else
                     {
@@ -167,6 +180,7 @@ public class unit : MonoBehaviour
             PlayerOnMouseDownEvent();
         }
     }
+
     public void PlayerOnMouseDownEvent()//此方法與Troop.cs中的EnemyOnMouseDownEvent相似 修改時請考慮到另外一邊
     {
         bool specialKillClog = false;
@@ -177,204 +191,127 @@ public class unit : MonoBehaviour
                 //if(是我可以移動的範圍)
                 if (roundManager.SelectObjectTroop == null)
                 {
-                    //我要選擇一個目標
-                    roundManager.selectingVector = new Vector2(myX, myY);
-                    roundManager.resetUnitSelectState();
-                    roundManager.SelectObject = roundManager.gameManager.chessBoardObjectRefArr[myY, myX];
-                    //roundManager.SelectObjectTroop = roundManager.SelectObject.GetComponent<Troop>();
-                    //如果地塊上有自己的物件
-                    if (gameManager.MyTroop.GetComponent<Troop>().myNowX == myX && gameManager.MyTroop.GetComponent<Troop>().myNowY == myY)
-                    {
-                        Debug.Log("Triggered");
-                        Debug.Log("玩家行為");
-                        roundManager.SelectObjectTroop = gameManager.MyTroop.GetComponent<Troop>();
-                        roundManager.UpdateOnSelectChessAllowMoveVector();
-                    }
+                    PlayerMoveToEmptyUnit();
                 }
                 else
                 {
-                    if (isPlayerAllowMoveSpace)
-                    {
-                        Debug.Log("呼叫結束");
-                        #region 玩家攻擊相關代碼
-                        //TODO: 如果我身上有Troop 代表對Troop進行攻擊
-                        if (TroopsOnMe == null)
-                        {
-                            //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 將玩家棋子移動到我身上(改變其XY)
-                            roundManager.SelectObjectTroop.myNowX = myX;
-                            roundManager.SelectObjectTroop.myNowY = myY;
-
-                            //無殺死目標
-                            roundManager.SpecialRoundEndFunc();
-                        }
-                        else
-                        {
-                            specialKillClog = true;
-                            switch (TroopsOnMe.myCamp)
-                            {
-                                case Camp.Enemy:
-                                    //若已有對手棋子，對其造成傷害
-                                    TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
-
-                                    Debug.Log("播放擊殺音效");
-
-                                    //播放音樂音效
-                                    if (TroopsOnMe.myChessData.isGoldenTarget)
-                                    {
-                                        soundManager.PlaySFX("boss_slash_test_2");
-                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-                                        cameraManager.Shake(1f);
-                                    }
-                                    else if (roundManager.playerHitCombo >= 4)//連殺
-                                    {
-                                        Debug.Log("播放擊殺音效5");
-                                        soundManager.PlaySFX("kill_5");
-                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-                                        cameraManager.Shake(0.6f);
-                                    }
-                                    else if (roundManager.playerHitCombo >= 3)
-                                    {
-                                        Debug.Log("播放擊殺音效4");
-                                        soundManager.PlaySFX("kill_4");
-                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-                                        cameraManager.Shake(0.5f);
-                                    }
-
-                                    else if (roundManager.playerHitCombo >= 2)
-                                    {
-                                        Debug.Log("播放擊殺音效3");
-                                        soundManager.PlaySFX("kill_3");
-                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-                                        cameraManager.Shake(0.4f);
-                                    }
-
-                                    else if (roundManager.playerHitCombo >= 1)
-                                    {
-                                        Debug.Log("播放擊殺音效2");
-                                        soundManager.PlaySFX("kill_2");
-                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-                                        cameraManager.Shake(0.4f);
-                                    }
-
-                                    else
-                                    {
-                                        Debug.Log("播放擊殺音效1");
-                                        soundManager.PlaySFX("kill_1");
-                                        soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
-                                        cameraManager.Shake(0.4f);
-                                    }
-
-
-
-                                    //若攻擊未殺死目標，則留在前一格
-                                    if (TroopsOnMe.hp <= 0)
-                                    {
-                                        //被殺死
-                                        roundManager.SelectObjectTroop.myNowX = myX;
-                                        roundManager.SelectObjectTroop.myNowY = myY;
-
-                                        if (gameManager.isCopySoulOn)
-                                        {
-                                            //Player Copy Soul
-                                            roundManager.SelectObjectTroop.CopySoul(TroopsOnMe);
-                                        }
-                                        TroopsOnMe.killTroop(gameObject);
-
-                                        gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
-
-                                        //奪取道具？
-                                        if (TroopsOnMe.holdingGear != gear.noGear)
-                                        {
-                                            roundManager.SelectObjectTroop.holdingGear = TroopsOnMe.holdingGear;
-                                            gameManager.hintManager.SpawnHintWordPrefab("搶奪道具 - " + TroopsOnMe.holdingGear);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        //沒被殺死
-                                        //先不管
-                                    }
-                                    break;
-
-                                case Camp.Bucket: //場地互動道具 如.爆破桶等
-                                    TroopsOnMe.hp -= gameManager.MyTroop.GetComponent<Troop>().myChessData.AttackStr;
-                                    gameManager.hintManager.SpawnHintWordPrefab("擊破桶子 - " + TroopsOnMe.myChessData.chessName);
-
-                                    //被殺死
-                                    roundManager.SelectObjectTroop.myNowX = myX;
-                                    roundManager.SelectObjectTroop.myNowY = myY;
-                                    TroopsOnMe.killTroop();
-
-                                    //依照種類觸發效果
-                                    switch (TroopsOnMe.bucketType)
-                                    {
-                                        case BucketType.noType:
-                                            Debug.Log("無事發生 歲月靜好 你選擇了一個Bucket類 但沒有選擇觸發效果");
-                                            break;
-
-                                    }
-                                    break;
-
-                                case Camp.Item: //道具
-
-                                    //被殺死
-                                    roundManager.SelectObjectTroop.myNowX = myX;
-                                    roundManager.SelectObjectTroop.myNowY = myY;
-                                    TroopsOnMe.killTroop();
-
-                                    roundManager.SelectObjectTroop.holdingGear = TroopsOnMe.holdingGear;
-                                    gameManager.hintManager.SpawnHintWordPrefab("得到道具 - " + TroopsOnMe.myChessData.chessName);
-                                    break;
-                            }
-                        }
-                        #endregion
-                        roundManager.RoundSelectClean();
-                        //TODO 並且呼叫RoundMaster回合完成器
-                        if (specialKillClog)
-                        {
-                            //開始特殊回合
-                            roundManager.playerHitCombo++;
-                            //TOT
-                            vFXManager.SpawnHintGameObject(roundManager.playerHitCombo);
-                            trickManager.GainEnergyFromKill(roundManager.playerHitCombo);
-                            roundManager.StartSpecialRound(roundManager.playerHitCombo);
-                        }
-                        else
-                        {
-                            roundManager.MyRoundEnd();
-                        }
-                    }
+                    PlayerMoveToHasTroopUnit(specialKillClog);
                 }
                 //回傳GameMaster
                 break;
+        }
+    }
+    public void PlayerMoveToEmptyUnit()
+    {
+        //移動到空地塊上
+        roundManager.selectingVector = new Vector2(myX, myY);
+        roundManager.resetUnitSelectState();
+        roundManager.SelectUnit = roundManager.gameManager.chessBoardObjectRefArr[myY, myX];
+        //roundManager.SelectObjectTroop = roundManager.SelectObject.GetComponent<Troop>();
+        //如果地塊上有自己的物件
+        if (gameManager.PlayerTroop.myNowX == myX && gameManager.PlayerTroop.myNowY == myY)
+        {
+            Debug.Log("Triggered");
+            Debug.Log("玩家行為");
+            roundManager.SelectObjectTroop = gameManager.PlayerTroop;
+            roundManager.Player_UpdateOnSelectChessAllowMoveVector();
+        }
+    }
+    public void PlayerMoveToHasTroopUnit(bool specialKillClog)
+    {
+        if (isPlayerAllowMoveSpace)
+        {
+            Debug.Log("呼叫結束");
+            #region 玩家攻擊相關代碼
+            //TODO: 如果我身上有Troop 代表對Troop進行攻擊
+            if (TroopsOnMe == null)
+            {
+                //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 將玩家棋子移動到我身上(改變其XY)
+                roundManager.SelectObjectTroop.myNowX = myX;
+                roundManager.SelectObjectTroop.myNowY = myY;
 
-            case RoundState.MySpecialRound:
+                //無殺死目標
+                roundManager.SpecialRoundEndFunc();
+            }
+            else
+            {
+                //開啟連殺
+                specialKillClog = true;
+                switch (TroopsOnMe.myCamp)
+                {
+                    case Camp.Enemy:
+                        //若已有對手棋子，對其造成傷害
+                        TroopsOnMe.hp -= gameManager.PlayerTroop.myChessData.AttackStr;
 
+                        //播放音樂音效
+                        PlayKillSoundEffect();
 
-                break;
+                        //若攻擊未殺死目標，則留在前一格
+                        if (TroopsOnMe.hp <= 0)
+                        {
+                            //被殺死
+                            roundManager.SelectObjectTroop.myNowX = myX;
+                            roundManager.SelectObjectTroop.myNowY = myY;
+
+                            if (gameManager.isCopySoulOn)
+                            {
+                                //Player Copy Soul
+                                roundManager.SelectObjectTroop.CopySoul(TroopsOnMe);
+                            }
+                            TroopsOnMe.killTroop(gameObject);
+
+                            gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
+
+                        }
+                        else
+                        {
+                            //沒被殺死
+                            //先不管
+                        }
+                        break;
+                }
+            }
+            #endregion
+
+            roundManager.RoundSelectClean();
+
+            //TODO 並且呼叫RoundMaster回合完成器
+            if (specialKillClog)
+            {
+                //開始特殊回合
+                roundManager.playerHitCombo++;
+                //TOT
+                vFXManager.SpawnHintGameObject(roundManager.playerHitCombo);
+                trickManager.GainEnergyFromKill(roundManager.playerHitCombo);
+                roundManager.StartSpecialRound(roundManager.playerHitCombo);
+            }
+            else
+            {
+                roundManager.MyRoundEnd();
+            }
         }
     }
 
-    bool _colorClog;
-    void Update()
+    public void UpdateLogic()
     {
-        switch (roundManager.roundState) {
+        switch (roundManager.roundState)
+        {
             case RoundState.MyRound:
                 //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 標記藍色
                 isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX, myY));
                 if (isPlayerAllowMoveSpace)
                 {
-                    mySr.color = new Color(1, 1, 1, 1f);
-                    mySr.sprite = myHighLightSprite;
+                    myUnitOutfit.mySr.color = new Color(1, 1, 1, 1f);
+                    myUnitOutfit.mySr.sprite = myUnitOutfit.myHighLightSprite;
                     _colorClog = true;
                 }
                 else
                 {
                     if (_colorClog)
                     {
-                        _colorClog = false; 
-                        mySr.color = new Color(1, 1, 1, 1);
-                        mySr.sprite = myOriginalSprite;
+                        _colorClog = false;
+                        myUnitOutfit.mySr.color = new Color(1, 1, 1, 1);
+                        myUnitOutfit.mySr.sprite = myUnitOutfit.myOriginalSprite;
                         //Debug.LogWarning("MyRound還原");
                     }
                 }
@@ -383,12 +320,14 @@ public class unit : MonoBehaviour
             case RoundState.EnemyRound:
                 if (_colorClog)
                 {
-                    _colorClog = false; mySr.color = new Color(1, 1, 1, 1);
-                    mySr.sprite = myOriginalSprite;
+                    _colorClog = false; 
+                    myUnitOutfit.mySr.color = new Color(1, 1, 1, 1);
+                    myUnitOutfit.mySr.sprite = myUnitOutfit.myOriginalSprite;
                     //Debug.LogWarning("Enemy還原");
                 }
                 break;
 
+                /*
             case RoundState.MySpecialRound:
                 if (gameManager.MyTroop != null)
                 {
@@ -411,11 +350,22 @@ public class unit : MonoBehaviour
 
                 isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX, myY));
                 //Debug.Log(gameObject.name + "觸發鍊" + isPlayerAllowMoveSpace);
+                break;*/
+        }
+    }
+
+    public void CaseSwitcher()
+    {
+        switch (roundManager.roundState)
+        {
+            case RoundState.MyRound:
+                isAbleBeSelect = true;
+                break;
+            
+            default:
+                isAbleBeSelect = false;
                 break;
         }
-
-        syncTroopOnMe();
-        SkinLogic();
     }
 
     public void syncTroopOnMe()
@@ -432,37 +382,54 @@ public class unit : MonoBehaviour
         TroopsOnMe = null;
     }
 
-    public void SkinLogic()
+    
+
+    public void PlayKillSoundEffect()
     {
-        //敵人攻擊範圍顯示
-        if (isEnemyAttackHighLighting)
+        if (TroopsOnMe.myChessData.isGoldenTarget)
         {
-            MyEnemyHighLightSR.gameObject.SetActive(true);
+            soundManager.PlaySFX("boss_slash_test_2");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            cameraManager.Shake(1f);
         }
+        else if (roundManager.playerHitCombo >= 4)//連殺
+        {
+            Debug.Log("播放擊殺音效5");
+            soundManager.PlaySFX("kill_5");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            cameraManager.Shake(0.6f);
+        }
+        else if (roundManager.playerHitCombo >= 3)
+        {
+            Debug.Log("播放擊殺音效4");
+            soundManager.PlaySFX("kill_4");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            cameraManager.Shake(0.5f);
+        }
+
+        else if (roundManager.playerHitCombo >= 2)
+        {
+            Debug.Log("播放擊殺音效3");
+            soundManager.PlaySFX("kill_3");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            cameraManager.Shake(0.4f);
+        }
+
+        else if (roundManager.playerHitCombo >= 1)
+        {
+            Debug.Log("播放擊殺音效2");
+            soundManager.PlaySFX("kill_2");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            cameraManager.Shake(0.4f);
+        }
+
         else
         {
-            MyEnemyHighLightSR.gameObject.SetActive(false);
+            Debug.Log("播放擊殺音效1");
+            soundManager.PlaySFX("kill_1");
+            soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
+            cameraManager.Shake(0.4f);
         }
 
-
-        //邏輯冗雜 可以優化
-        if (isPlaceableTarget)
-        {
-            isSkillPlacementHighLighting = true;
-        }
-        else
-        {
-            isSkillPlacementHighLighting = false;
-        }
-
-
-        if (isSkillPlacementHighLighting)
-        {
-            MySkillHighLightSR.gameObject.SetActive(true);
-        }
-        else
-        {
-            MySkillHighLightSR.gameObject.SetActive(false);
-        }
     }
 }

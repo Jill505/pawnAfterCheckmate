@@ -35,7 +35,10 @@ public class SLS_Karen: SpecialLevelScript
     public void SpawnKarenTroop()
     {
         Debug.Log("Spawn Karen Troop Call");
-        roundManager.RandomSpawnEnemy(KarenSpawnTroop, false);
+        GameBoardInsChess GBIC = new GameBoardInsChess();
+        GBIC.chessFile = KarenSpawnTroop;
+
+        roundManager.RandomSpawnEnemy(GBIC);
     }
     public void OnKarenTroopDie()
     {

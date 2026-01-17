@@ -94,6 +94,8 @@ public class GameBoardCell
 public class GameBoardInsChess
 {
     public SO_Chess chessFile;
+
+    public bool isRandomSpawn = false;
     public int locationX = 0;
     public int locationY = 0;
 }
