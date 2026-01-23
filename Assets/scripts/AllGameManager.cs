@@ -8,6 +8,8 @@ public class AllGameManager : MonoBehaviour
 
     static public string path = "SaveFile" + "00";
     static public SaveFileType SFT = SaveFileType.SaveFile0;
+
+    static public readonly int SystemLanguageNumber = 4;
     public void SaveBasicSetting()
     {
         
@@ -99,4 +101,12 @@ public enum MissionType
     Survive,
     KillTarget,
     Special
+}
+
+public enum AK_Language
+{
+    zh,
+    cn,
+    en,
+    jp
 }

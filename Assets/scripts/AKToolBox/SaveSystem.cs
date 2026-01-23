@@ -67,6 +67,7 @@ public class SaveFile
 {
     //SaveFile Sets
     public string SaveName;
+    public AK_Language SelectingLanguage = AK_Language.zh;
 
     //Player System Setting
     public float BgmVolume = 1f;

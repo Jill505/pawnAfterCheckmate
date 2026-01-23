@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class GameLogScreenManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameLogScreenManager : MonoBehaviour
     public GameObject SettingCanvas;
     public GameObject CreditsCanvas;
     public SoundManager soundManager;
+    public GameLogScreenLoad gameLogScreenLoad;
 
     public AudioClip testClip;
 
@@ -18,12 +20,15 @@ public class GameLogScreenManager : MonoBehaviour
     public Text MusicVolumeTextShowcase;
     public Text SFXVolumeTextShowcase;
 
+    public TMP_Dropdown languageSelectionDropdown;
+
     [Header("URL")]
     public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
 
     public void Awake()
     {
         soundManager = FindAnyObjectByType<SoundManager>(); 
+
     }
     private void Start()
     {
@@ -33,6 +38,7 @@ public class GameLogScreenManager : MonoBehaviour
     {
         LobbyUIContextShowcase();
     }
+
     
     public void StartGameButton()
     {
@@ -96,6 +102,35 @@ public class GameLogScreenManager : MonoBehaviour
         SFXVolumeTextShowcase.text = (int)(SaveSystem.SF.SFXVolume* 100) + "%";
     }
     
+    public void GameLanguageSettingOnChange()
+    {
+        switch(languageSelectionDropdown.value)
+        {
+            case 0://繁體中文
+                SaveSystem.SF.SelectingLanguage = AK_Language.zh;
+                SaveSystem.SaveSF();
+                break;
+                
+            case 1://簡體中文
+                SaveSystem.SF.SelectingLanguage = AK_Language.cn;
+                SaveSystem.SaveSF();
+                break;
+
+            case 2://英文
+                SaveSystem.SF.SelectingLanguage = AK_Language.en;
+                SaveSystem.SaveSF();
+                break;
+
+            case 3://日文
+                SaveSystem.SF.SelectingLanguage = AK_Language.jp;
+                SaveSystem.SaveSF();
+                break;
+        }
+        Debug.Log("更改");
+        gameLogScreenLoad.LoadLogScreenLan(); ;
+        gameLogScreenLoad.LoadLanLogScreen();
+    }
+
     public void GameMusicVolumeSetting(float rate)
     {
         SaveSystem.SF.BgmVolume += rate;
