@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TS_L1
   m_EditorClassIdentifier: 
   levelName: "\u95DC\u53611 - \u6B61\u8FCE\u4F86\u5230\u7761\u6B7B\u5F8C\u4E4B\u5175"
-  levelID: Def ID
+  levelID: 0
   SLST: 0
   levelDesc: "\u6B61\u8FCE\u4F86\u5230 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\n\u9023\u6BBA\u3001\u9644\u8EAB\u3001\u6536\u5272\u6210\u9577\u7684\u58EB\u5175\u5427\uFF01"
   allowDeployTroopNumber: 3
@@ -21,6 +21,7 @@ MonoBehaviour:
   SurviveRound: 4
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
+    isRandomSpawn: 0
     locationX: 2
     locationY: 3
   LevelBgmName: pawn's_(demo)_2
@@ -519,28 +520,37 @@ MonoBehaviour:
     performID: DarkerTerrain
   chessInsData:
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 4
     locationY: 2
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 4
     locationY: 4
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 4
     locationY: 6
   - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    isRandomSpawn: 0
     locationX: 4
     locationY: 8
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 5
     locationY: 3
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 5
     locationY: 5
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+    isRandomSpawn: 0
     locationX: 5
     locationY: 7
   enemySpawnEachRound: 1
   spawnChessData:
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+  spawnChessProbability: 0100000001000000
   special_SpawnChessData: []
+  special_GameObjectData: []

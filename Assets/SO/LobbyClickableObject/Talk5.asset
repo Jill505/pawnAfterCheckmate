@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98e5a8841e3ea34db1fceec7f9b4797, type: 3}
+  m_Name: Talk5
+  m_EditorClassIdentifier: 
+  ObjectName: "\u7269\u4EF6\u540D\u7A31"
+  myObjectSprite: {fileID: -855298285791758126, guid: 16f4281138741b34c8a0ffb53df5f134, type: 3}
+  myObjectX: 300
+  myObjectY: 300
+  Narratives:
+  - "\u7B26\uFF1A\u6211\u5011\u7D42\u65BC\u4F86\u5230\u4E86\u9019\u88E1\u55CE\uFF1F"
+  - Command/SpriteCreate/0
+  - "\u5B89\uFF1A\u54C8\u2026\u2026\u5C31\u662F\u9019\u500B\u6DF7\u5E33\u4E00\u76F4\u7CFE\u7E8F\u8457\u6211\u55CE\uFF1F"
+  - "\u7B26\uFF1A\u6211\u60F3\u90A3\u5C31\u662F\u9019\u5834\u60E1\u5922\u7684\u6839\u6E90\uFF0C\u5B83\u5C0D\u61C9\u4F60\u5FC3\u4E2D\u6700\u5927\u7684\u7665\u7D50\u5427\u3002"
+  - "\u5B89\uFF1A\u6069\uFF0C\u4F46\u6211\u60F3\u6211\u5DF2\u7D93\u80FD\u9F13\u8D77\u52C7\u6C23\u9762\u5C0D\u4E86\u3002"
+  - Command/CleanSprite/All
+  - Command/SpriteCreate/1
+  - "\u5B89\uFF1A\u6211\u731C\u53EA\u8981\u6253\u7206\u90A3\u4E9B\u9322\u888B\uFF0C\u5C31\u80FD\u50B7\u5230\u672C\u9AD4\u4E86\u5427\u3002"
+  - "\u7B26\uFF1A\u54FC\uFF0C\u4F60\u4E5F\u9032\u6B65\u4E86\u55CE\u3002\u73FE\u5728\uFF0C\u7528\u4E0A\u6211\u5011\u7684\u4E00\u5207\uFF0C\u7D50\u675F\u9019\u5834\u60E1\u5922\u5427\uFF01"
+  - Command/CleanSprite/All
+  Sprites:
+  - {fileID: 21300000, guid: 8ea1a02d1ec869349bd636d2948b2479, type: 3}
+  - {fileID: 21300000, guid: d1e279320c2737d45bf58c32b0da3aaf, type: 3}

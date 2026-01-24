@@ -2,11 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class GameLogScreenManager : MonoBehaviour
 {
     [Header("GameObject Refs")]
     public GameObject SettingCanvas;
+    public GameObject CreditsCanvas;
+    public SoundManager soundManager;
+    public GameLogScreenLoad gameLogScreenLoad;
+
+    public AudioClip testClip;
 
     [Header("UI Refs")]
     public Text DiffTextShowcase;
@@ -14,10 +20,25 @@ public class GameLogScreenManager : MonoBehaviour
     public Text MusicVolumeTextShowcase;
     public Text SFXVolumeTextShowcase;
 
+    public TMP_Dropdown languageSelectionDropdown;
+
+    [Header("URL")]
+    public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
+
+    public void Awake()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>(); 
+
+    }
+    private void Start()
+    {
+        soundManager.PlayBGM("lobby_demo_1");
+    }
     private void Update()
     {
         LobbyUIContextShowcase();
     }
+
     
     public void StartGameButton()
     {
@@ -54,6 +75,7 @@ public class GameLogScreenManager : MonoBehaviour
             SaveSystem.SF.difficulty = 0;
         }
 
+
         SaveSystem.SaveSF();
     }
 
@@ -80,6 +102,35 @@ public class GameLogScreenManager : MonoBehaviour
         SFXVolumeTextShowcase.text = (int)(SaveSystem.SF.SFXVolume* 100) + "%";
     }
     
+    public void GameLanguageSettingOnChange()
+    {
+        switch(languageSelectionDropdown.value)
+        {
+            case 0://繁體中文
+                SaveSystem.SF.SelectingLanguage = AK_Language.zh;
+                SaveSystem.SaveSF();
+                break;
+                
+            case 1://簡體中文
+                SaveSystem.SF.SelectingLanguage = AK_Language.cn;
+                SaveSystem.SaveSF();
+                break;
+
+            case 2://英文
+                SaveSystem.SF.SelectingLanguage = AK_Language.en;
+                SaveSystem.SaveSF();
+                break;
+
+            case 3://日文
+                SaveSystem.SF.SelectingLanguage = AK_Language.jp;
+                SaveSystem.SaveSF();
+                break;
+        }
+        Debug.Log("更改");
+        gameLogScreenLoad.LoadLogScreenLan(); ;
+        gameLogScreenLoad.LoadLanLogScreen();
+    }
+
     public void GameMusicVolumeSetting(float rate)
     {
         SaveSystem.SF.BgmVolume += rate;
@@ -95,6 +146,13 @@ public class GameLogScreenManager : MonoBehaviour
                 SaveSystem.SF.BgmVolume = 0;
             }
         }
+
+        GameObject obj = new GameObject();
+        AudioSource AS = obj.AddComponent<AudioSource>();
+        AS.clip = testClip;
+        AS.volume = SaveSystem.SF.BgmVolume;
+        AS.Play();
+        Destroy(obj, testClip.length);
 
         SaveSystem.SaveSF();
     }
@@ -115,6 +173,27 @@ public class GameLogScreenManager : MonoBehaviour
             }
         }
 
+        GameObject obj = new GameObject();
+        AudioSource AS = obj.AddComponent<AudioSource>();
+        AS.clip = testClip;
+        AS.volume = SaveSystem.SF.SFXVolume;
+        AS.Play();
+        Destroy(obj, testClip.length);
+
         SaveSystem.SaveSF();
+    }
+
+    public void LinkToWebsite()
+    {
+        Application.OpenURL(websiteUrl);
+    }
+
+    public void OpenCreditsCanvas()
+    {
+        CreditsCanvas.SetActive(true);
+    }
+    public void CloseCreditCanvas()
+    {
+        CreditsCanvas.SetActive(false);
     }
 }

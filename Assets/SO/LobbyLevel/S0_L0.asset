@@ -17,4 +17,4 @@ MonoBehaviour:
   myLevelIndex: 0
   mySO_Level: {fileID: 11400000, guid: 5bcc6f35f45b4014594e94f0c4b854dd, type: 2}
   mySO_LCOs:
-  - {fileID: 11400000, guid: f370fcbede34e5746959bb4fe0c79bfc, type: 2}
+  - {fileID: 11400000, guid: 77a9ef1ba95765f44b8e8d896fa1c72f, type: 2}

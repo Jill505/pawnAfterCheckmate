@@ -9,6 +9,7 @@ public class SLS_Karen: SpecialLevelScript
     public GameManager gameManager;
     public RoundManager roundManager;
     public CameraManager cameraManager;
+    public SoundManager soundManager;
 
     public int bossHealth = 3;
     int _bossMaxHealth;
@@ -34,7 +35,10 @@ public class SLS_Karen: SpecialLevelScript
     public void SpawnKarenTroop()
     {
         Debug.Log("Spawn Karen Troop Call");
-        roundManager.RandomSpawnEnemy(KarenSpawnTroop, false);
+        GameBoardInsChess GBIC = new GameBoardInsChess();
+        GBIC.chessFile = KarenSpawnTroop;
+
+        roundManager.SpawnEnemy_RandomSpot(GBIC);
     }
     public void OnKarenTroopDie()
     {
@@ -42,6 +46,12 @@ public class SLS_Karen: SpecialLevelScript
         KarenBlood.fillAmount = (float)((float)bossHealth / (float)_bossMaxHealth);
         KarenBloodText.text = bossHealth + " / " + _bossMaxHealth;
         KarenAnimator.SetTrigger("Injurd");
+
+        soundManager.PlaySFX("Karen_damage_1");
+        soundManager.PlaySFX("Karen_damage_3");
+        soundManager.PlaySFX("Karen_damage_3");
+        soundManager.PlaySFX("Karen_damage_4");
+
         if (bossHealth <= 0)
         {
             //boss die, player win.
@@ -75,6 +85,7 @@ public class SLS_Karen: SpecialLevelScript
         gameManager = FindAnyObjectByType<GameManager>();
         roundManager = FindAnyObjectByType<RoundManager>();
         cameraManager = FindAnyObjectByType<CameraManager>();
+        soundManager = FindAnyObjectByType<SoundManager>();
 
         KarenSpawnTroop = sO_Level.special_SpawnChessData[0];
         KarenObject = sO_Level.special_GameObjectData[0];
@@ -97,6 +108,6 @@ public class SLS_Karen: SpecialLevelScript
     }
     public override string LevelTargetString()
     {
-        return "殺死目標";
+        return "殺死凱倫的召喚物";
     }
 }

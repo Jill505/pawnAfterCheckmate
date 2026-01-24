@@ -67,6 +67,7 @@ public class SaveFile
 {
     //SaveFile Sets
     public string SaveName;
+    public AK_Language SelectingLanguage = AK_Language.zh;
 
     //Player System Setting
     public float BgmVolume = 1f;
@@ -78,19 +79,31 @@ public class SaveFile
 
     public int difficulty = 0; // 0= easy 1= hard. 為了未來可能加入的新難度
 
+    //GameData
+    public int merit = 0 ;
+    public int key = 0 ;
+    public int talentPoint = 0;
+
     //Game Process
     public int gameProcess;
     public int gameProcess_Stage;
     public int gameProcess_Level;
 
+    public int[] talentTreeUnlock;
+
     public bool[] storyRead = new bool[100];
 
-    public int[] trickLevel; // less then 0 means the trick didn't unlocks
+    //Trick unlock, -1 means hasn't unlock 
+    public int strawmanLevel = -1;
 
     //Player GamePlay Setting
     public TrickType holdingTrickType;
-    
-    //Stats
 
+    //Stats - player actions
+    public int moveSteps = 0;
 
+    public int strawmanCastCount = 0;
+
+    //Stats - kill Troop data
+    public int killCount_VertSolider;
 }

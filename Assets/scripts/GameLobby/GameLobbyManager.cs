@@ -11,6 +11,7 @@ public class GameLobbyManager : MonoBehaviour
     public GameLobbyCameraController cameraController;
     public LevelLoader levelLoader;
     public GameLobbyUIManager gameLobbyUIManager;
+    public SoundManager soundManager;
 
     [Header("GameObject Refs")]
     public GameObject LevelInspectCanvas;
@@ -63,6 +64,8 @@ public class GameLobbyManager : MonoBehaviour
             scrollViewManger.AllowScroll = true;
             scrollViewManger.AllowZoom = true;
         }
+
+        //soundManager.PlayBGM("Before_Fighting");
 
         //DO level information load;
         DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
@@ -151,6 +154,7 @@ public class GameLobbyManager : MonoBehaviour
         {
             Destroy(obj);
         }
+        LevelClickableObjectList = new List<GameObject>();  
 
         if (SO_L.mySO_Level != null)
         {
@@ -170,13 +174,14 @@ public class GameLobbyManager : MonoBehaviour
         //SpawnClickableObject
         for (int i = 0; i < SO_L.mySO_LCOs.Length; i++)
         {
-            GameObject CLO = new GameObject("LobbyCLO" + SO_L.mySO_LCOs[i].ObjectName);
+            GameObject CLO = new GameObject("LobbyCLO" + SO_L.mySO_LCOs[i].name);
             LevelClickableObjectList.Add(CLO);
 
             LobbyClickableObject sLCO =  CLO.AddComponent<LobbyClickableObject>();
             SpriteRenderer sSr =  CLO.AddComponent<SpriteRenderer>();
 
             sLCO.mySr = sSr;
+            sSr.sortingOrder = 100;
 
             sLCO.mySO_LCO = SO_L.mySO_LCOs[i];
             sLCO.InitMySelf();

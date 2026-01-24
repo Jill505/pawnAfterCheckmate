@@ -12,16 +12,26 @@ public class LevelConstructor : MonoBehaviour
 
     public SpecialLevelScript SLS;
 
+    public bool AwakeFunctionClog = false;
+
     private void Awake()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         //Debug.Log("awake是：" + currentSceneName);
-        //AwakeFunction();
+        AwakeFunction();
     }
 
     public void AwakeFunction()
     {
-        AddSLSOnMe();
+        if (AwakeFunctionClog == false && levelInfo != null)
+        {
+            AwakeFunctionClog = true;
+            AddSLSOnMe();
+        }
+        else
+        {
+            Debug.Log("禁止兩次初始化CLOG 或 levelInfo為null");
+        }
     }
     void Start()
     {
@@ -61,8 +71,14 @@ public class LevelConstructor : MonoBehaviour
 
         if (levelInfo == null)
         {
-            //return;   
+            //return;
+            Debug.Log("Level Info doesn't exist");
         }
+        else
+        {
+            Debug.Log("Level Info does exist");
+        }
+
         switch (levelInfo.SLST)
         {
             case SpecialLevelScriptType.noSLS:

@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +47,14 @@ public class TrickManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             UseTrick();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (roundManager.isCastingPlacementTrick)
+            {
+                CancelCastingPlacementTrick();
+            }
         }
     }
 
@@ -141,7 +148,7 @@ public class TrickManager : MonoBehaviour
                 break;
         }
 
-        myNowHoldTrickNum -= 1;
+        //myNowHoldTrickNum -= 1;
     }
 
 
@@ -150,12 +157,49 @@ public class TrickManager : MonoBehaviour
         Debug.Log("Do Straw man trick.");
 
         TroopSpawnSwap_SO = StrawMan_SO;
-        
-        //Let the range sync, make unit's variable open;
-        //先寫一個全圖版
-        foreach (GameObject tObj in gameManager.chessBoardObjectRefArr)
+
+        Vector2 refPlayerPos = new Vector2(gameManager.PlayerTroop.myNowX, gameManager.PlayerTroop.myNowY);
+        List<Vector2> relativelyVec = new List<Vector2>();
+
+        /*
+        foreach (Vector2 vec2 in gameManager.GetEmptyUnitList())
         {
-            tObj.GetComponent<unit>().isPlaceableTarget = true;
+            gameManager.GetUnitAt((int)vec2.x, (int)vec2.y).isPlaceableTarget = true;
+        }*/
+
+        if (SaveSystem.SF.strawmanLevel <= 0 || SaveSystem.SF.strawmanLevel >=0)
+        {
+            relativelyVec.Add(new Vector2(1, 0));
+            relativelyVec.Add(new Vector2(-1, 0));
+            relativelyVec.Add(new Vector2(0, 1));
+            relativelyVec.Add(new Vector2(0, -1));
+        }
+
+        if (SaveSystem.SF.strawmanLevel >= 1)
+        {
+            relativelyVec.Add(new Vector2(2, 0));
+            relativelyVec.Add(new Vector2(-2, 0));
+            relativelyVec.Add(new Vector2(0, 2));
+            relativelyVec.Add(new Vector2(0, -2));
+        }
+
+
+        //Register Spawnable unit
+        foreach (Vector2 vec in relativelyVec)
+        {
+            Vector2 spawnVec = refPlayerPos + vec;
+            //座標合法性檢查
+            if (spawnVec.x <0 || spawnVec.y < 0 || spawnVec.x >= gameManager.levelData.gridSizeX || spawnVec.y >= gameManager.levelData.gridSizeY)
+            {
+                continue;
+            }
+            //座標上單位檢查
+            if (gameManager.GetUnitAt((int)spawnVec.x, (int)spawnVec.y).TroopsOnMe != null)
+            {
+                continue;
+            }
+
+            gameManager.GetUnitAt((int)spawnVec.x, (int)spawnVec.y).isPlaceableTarget = true;
         }
 
         //UpdateTargetPlace(); //高配版 之後優化 
@@ -206,6 +250,13 @@ public class TrickManager : MonoBehaviour
         {
             isMaxContain = false;
         }
+    }
+
+    public void CancelCastingPlacementTrick()
+    {
+        roundManager.isCastingPlacementTrick = false;
+        roundManager.isCastingTrick_StrawMan = false;
+        ResetTargetPlace();
     }
 
     public void UpdateTargetPlace(List<Vector2> tarVecList)
