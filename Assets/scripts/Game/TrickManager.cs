@@ -158,9 +158,48 @@ public class TrickManager : MonoBehaviour
 
         TroopSpawnSwap_SO = StrawMan_SO;
 
+        Vector2 refPlayerPos = new Vector2(gameManager.PlayerTroop.myNowX, gameManager.PlayerTroop.myNowY);
+        List<Vector2> relativelyVec = new List<Vector2>();
+
+        /*
         foreach (Vector2 vec2 in gameManager.GetEmptyUnitList())
         {
             gameManager.GetUnitAt((int)vec2.x, (int)vec2.y).isPlaceableTarget = true;
+        }*/
+
+        if (SaveSystem.SF.strawmanLevel <= 0 || SaveSystem.SF.strawmanLevel >=0)
+        {
+            relativelyVec.Add(new Vector2(1, 0));
+            relativelyVec.Add(new Vector2(-1, 0));
+            relativelyVec.Add(new Vector2(0, 1));
+            relativelyVec.Add(new Vector2(0, -1));
+        }
+
+        if (SaveSystem.SF.strawmanLevel >= 1)
+        {
+            relativelyVec.Add(new Vector2(2, 0));
+            relativelyVec.Add(new Vector2(-2, 0));
+            relativelyVec.Add(new Vector2(0, 2));
+            relativelyVec.Add(new Vector2(0, -2));
+        }
+
+
+        //Register Spawnable unit
+        foreach (Vector2 vec in relativelyVec)
+        {
+            Vector2 spawnVec = refPlayerPos + vec;
+            //座標合法性檢查
+            if (spawnVec.x <0 || spawnVec.y < 0 || spawnVec.x >= gameManager.levelData.gridSizeX || spawnVec.y >= gameManager.levelData.gridSizeY)
+            {
+                continue;
+            }
+            //座標上單位檢查
+            if (gameManager.GetUnitAt((int)spawnVec.x, (int)spawnVec.y).TroopsOnMe != null)
+            {
+                continue;
+            }
+
+            gameManager.GetUnitAt((int)spawnVec.x, (int)spawnVec.y).isPlaceableTarget = true;
         }
 
         //UpdateTargetPlace(); //高配版 之後優化 

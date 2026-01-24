@@ -5,7 +5,7 @@ using UnityEngine;
 public class SO_Level : ScriptableObject
 {
     public string levelName = "Def name";
-    public string levelID = "Def ID";
+    public int levelID = 0;
 
     public SpecialLevelScriptType SLST;
 
@@ -36,40 +36,70 @@ public class SO_Level : ScriptableObject
     public int enemySpawnEachRound =1 ;
 
     public List<SO_Chess> spawnChessData = new List<SO_Chess>();
+    public int[] spawnChessProbability;
 
     [Header("Special")]
     public List<SO_Chess> special_SpawnChessData = new List<SO_Chess>();
     public List<GameObject> special_GameObjectData=  new List<GameObject>();
 
 
-/*#if UNITY_EDITOR
-        if (gridSizeX < 1) gridSizeX = 1;
-        if (gridSizeY < 1) gridSizeY = 1;
+    /*#if UNITY_EDITOR
+            if (gridSizeX < 1) gridSizeX = 1;
+            if (gridSizeY < 1) gridSizeY = 1;
 
-        int targetCount = gridSizeX * gridSizeY;
+            int targetCount = gridSizeX * gridSizeY;
 
-        // 如果目前比目標少 → 補齊
-        if (levelContext.Count < targetCount)
-        {
-            for (int i = levelContext.Count; i < targetCount; i++)
+            // 如果目前比目標少 → 補齊
+            if (levelContext.Count < targetCount)
             {
-                GameBoardCell cell = new GameBoardCell();
-                cell.locationX = i / gridSizeX;
-                cell.locationY = i % gridSizeX;
-                levelContext.Add(cell);
+                for (int i = levelContext.Count; i < targetCount; i++)
+                {
+                    GameBoardCell cell = new GameBoardCell();
+                    cell.locationX = i / gridSizeX;
+                    cell.locationY = i % gridSizeX;
+                    levelContext.Add(cell);
+                }
+            }
+
+            // 如果目前比目標多 → 刪掉多餘
+            if (levelContext.Count > targetCount)
+            {
+                for (int i = levelContext.Count - 1; i >= targetCount; i--)
+                {
+                    levelContext.RemoveAt(i);
+                }
             }
         }
+    #endif*/
 
-        // 如果目前比目標多 → 刪掉多餘
-        if (levelContext.Count > targetCount)
+#if UNITY_EDITOR
+    public void OnValidate()
+    {
+        int targetLength = spawnChessData != null ? spawnChessData.Count : 0;
+
+        if (spawnChessProbability == null || spawnChessProbability.Length != targetLength)
         {
-            for (int i = levelContext.Count - 1; i >= targetCount; i--)
+            int[] newArray = new int[targetLength];
+
+            // 預設值全部設為 1
+            for (int i = 0; i < targetLength; i++)
             {
-                levelContext.RemoveAt(i);
+                newArray[i] = 1;
             }
+
+            // 保留原有資料
+            if (spawnChessProbability != null)
+            {
+                int copyLength = Mathf.Min(spawnChessProbability.Length, targetLength);
+                for (int i = 0; i < copyLength; i++)
+                {
+                    newArray[i] = spawnChessProbability[i];
+                }
+            }
+            spawnChessProbability = newArray;
         }
     }
-#endif*/
+#endif
 }
 
 [System.Serializable]

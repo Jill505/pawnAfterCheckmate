@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TS_L4
   m_EditorClassIdentifier: 
   levelName: "\u95DC\u53614 - \u72C2\u66B4\u4F10\u4F10\u4F10\u6728\u5DE5"
-  levelID: Def ID
+  levelID: 0
   SLST: 0
   levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\u300D"
   allowDeployTroopNumber: 3
@@ -572,5 +572,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
   - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
   - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  spawnChessProbability: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   special_SpawnChessData: []
   special_GameObjectData: []

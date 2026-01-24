@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Diagnostics.Tracing;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -415,5 +416,17 @@ public class GameManager : MonoBehaviour
         }
 
         return EmptyUnitVectorList;
+    }
+
+    public bool isVectorLegal(Vector2 vec)
+    {
+        if (vec.x < 0 || vec.y < 0 || vec.x >= levelData.gridSizeX || vec.y >= levelData.gridSizeY)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

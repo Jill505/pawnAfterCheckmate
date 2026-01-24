@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TS_L3
   m_EditorClassIdentifier: 
   levelName: "\u95DC\u53613 - \u6293\u5230\u70B8\u5F48\u9B54\u4E86"
-  levelID: Def ID
+  levelID: 0
   SLST: 0
   levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u5FEB\u62F3\uFF01\u300D"
   allowDeployTroopNumber: 3
@@ -21,6 +21,7 @@ MonoBehaviour:
   SurviveRound: 6
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
+    isRandomSpawn: 0
     locationX: 3
     locationY: 3
   LevelBgmName: pawn's_(demo)_2
@@ -519,24 +520,31 @@ MonoBehaviour:
     performID: DarkerTerrain
   chessInsData:
   - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    isRandomSpawn: 0
     locationX: 4
     locationY: 8
   - chessFile: {fileID: 11400000, guid: 82d7728af44f52b43a4b08506fb367b2, type: 2}
+    isRandomSpawn: 0
     locationX: 3
     locationY: 8
   - chessFile: {fileID: 11400000, guid: beb7fb3796158b247a769a0779864758, type: 2}
+    isRandomSpawn: 0
     locationX: 5
     locationY: 8
   - chessFile: {fileID: 11400000, guid: 404a214d2691fb043b5bc653df2354ff, type: 2}
+    isRandomSpawn: 0
     locationX: 3
     locationY: 7
   - chessFile: {fileID: 11400000, guid: 3a10987d64215824d987b810fa8c4ae2, type: 2}
+    isRandomSpawn: 0
     locationX: 5
     locationY: 7
   - chessFile: {fileID: 11400000, guid: 99e1c32bcb7a0de47a8a261832e8bd44, type: 2}
+    isRandomSpawn: 0
     locationX: 0
     locationY: 6
   - chessFile: {fileID: 11400000, guid: 99e1c32bcb7a0de47a8a261832e8bd44, type: 2}
+    isRandomSpawn: 0
     locationX: 8
     locationY: 6
   enemySpawnEachRound: 2
@@ -561,4 +569,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c68ae3560a7868f488cb10ec627faf78, type: 2}
   - {fileID: 11400000, guid: df6c55007da6de54f8c6bc8acecbe294, type: 2}
   - {fileID: 11400000, guid: 2510d9e78ebfaf24ea1dcc75e8380ed1, type: 2}
+  spawnChessProbability: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   special_SpawnChessData: []
+  special_GameObjectData: []

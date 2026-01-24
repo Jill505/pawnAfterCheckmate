@@ -38,7 +38,7 @@ public class SLS_Karen: SpecialLevelScript
         GameBoardInsChess GBIC = new GameBoardInsChess();
         GBIC.chessFile = KarenSpawnTroop;
 
-        roundManager.RandomSpawnEnemy(GBIC);
+        roundManager.SpawnEnemy_RandomSpot(GBIC);
     }
     public void OnKarenTroopDie()
     {

@@ -24,6 +24,7 @@ public class SO_Chess : ScriptableObject
     public Sprite skin;
 
     public ability[] abilities;
+    public string[] abilitiesParameter;
 
     public bool isGoldenTarget;
 
@@ -44,4 +45,27 @@ public class SO_Chess : ScriptableObject
     {
         JsonUtility.FromJsonOverwrite(jsonStr, this);
     }
+#if UNITY_EDITOR
+    public void OnValidate()
+    {
+        int targetLength = abilities != null ? abilities.Length : 0;
+
+        if (abilitiesParameter == null || abilitiesParameter.Length != targetLength)
+        {
+            string[] newArray = new string[targetLength];
+
+            // 保留原有資料
+            if (abilitiesParameter != null)
+            {
+                int copyLength = Mathf.Min(abilitiesParameter.Length, targetLength);
+                for (int i = 0; i < copyLength; i++)
+                {
+                    newArray[i] = abilitiesParameter[i];
+                }
+            }
+
+            abilitiesParameter = newArray;
+        }
+    }
+#endif
 }

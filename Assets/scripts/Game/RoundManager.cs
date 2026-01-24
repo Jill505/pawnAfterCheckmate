@@ -190,22 +190,11 @@ public class RoundManager : MonoBehaviour
                 resetUnitSelectState();
                 //Debug.Log("AA");
                 //新敵人加入戰場
+
                 for (int i = 0; i < gameManager.levelData.enemySpawnEachRound; i++)
                 {
-                    if (gameManager.levelData.spawnChessData.Count <= 0)
-                    {
-                        Debug.Log("AK ERROR: Round Manager - 該關卡無額外生成敵人資料");
-                        return;
-                    }
-                    int ranSpawnObjSort = UnityEngine.Random.Range(0, gameManager.levelData.spawnChessData.Count);
-
-                    SO_Chess SO_C = gameManager.levelData.spawnChessData[ranSpawnObjSort];
-                    GameBoardInsChess GBIC = new GameBoardInsChess();
-                    GBIC.chessFile = SO_C;
-
-                    RandomSpawnEnemy(GBIC);
+                    SpawnEnemyInPool();
                 }
-                //RandomSpawnEnemy(gameManager.levelData);
 
                 //勝利狀態判定與生成黃金敵人
                 switch (gameManager.levelData.myMissionType)
@@ -217,7 +206,7 @@ public class RoundManager : MonoBehaviour
                             GameBoardInsChess GBIC = new GameBoardInsChess();
                             GBIC.chessFile = gameManager.levelData.goldenTarget.chessFile;
 
-                            RandomSpawnEnemy(GBIC);
+                            SpawnEnemy_RandomSpot(GBIC);
                         }
                         break;
                 }
@@ -463,7 +452,7 @@ public class RoundManager : MonoBehaviour
         roundState = RoundState.EnemyRound;
     }
 
-    public void RandomSpawnEnemy(GameBoardInsChess p_GBIC)
+    public void SpawnEnemy_RandomSpot(GameBoardInsChess p_GBIC)
     {
         List<Vector2> emptyList = gameManager.GetEmptyUnitList();
 
@@ -514,6 +503,46 @@ public class RoundManager : MonoBehaviour
             unit tarUnit = tarUnitObject.GetComponent<unit>();
             tarUnit.isEnemyAttackHighLighting = false;
         }
+    }
+
+    public void SpawnEnemyInPool()
+    {
+        //新敵人加入戰場
+        if (gameManager.levelData.spawnChessData.Count <= 0)
+        {
+            Debug.Log("AK ERROR: Round Manager - 該關卡無額外生成敵人資料");
+            return;
+        }
+
+        int allRan = 0;
+
+        for (int i = 0; i < gameManager.levelData.spawnChessData.Count; i++)
+        {
+            allRan += gameManager.levelData.spawnChessProbability[i];
+        }
+
+        int randomNum = UnityEngine.Random.Range(0, allRan);
+        int ranSpawnObjSort = 0;
+
+        int currentSum = 0;
+
+        for (int j = 0; j < gameManager.levelData.spawnChessData.Count; j++)
+        {
+            currentSum += gameManager.levelData.spawnChessProbability[j];
+
+            if (randomNum < currentSum)
+            {
+                ranSpawnObjSort = j;
+                break;
+            }
+        }
+
+        SO_Chess SO_C = gameManager.levelData.spawnChessData[ranSpawnObjSort];
+        GameBoardInsChess GBIC = new GameBoardInsChess();
+        GBIC.chessFile = SO_C;
+
+        SpawnEnemy_RandomSpot(GBIC);
+        
     }
 }
 public enum RoundState
