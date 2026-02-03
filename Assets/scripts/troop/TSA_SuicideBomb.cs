@@ -13,6 +13,10 @@ public class TSA_SuicideBomb : MonoBehaviour
 
     public Troop myTroop;
 
+    public GameObject ExplodeHintGameObject;
+    public Vector3 ExplodeHintGameObjectOffset;
+    public bool hintExist = false;
+
     [Header("Ãz¬µ°Êµe")]
     public float ExplodeInterval = 0.05f;
 
@@ -22,6 +26,8 @@ public class TSA_SuicideBomb : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         soundManager = FindAnyObjectByType<SoundManager>();
+
+        ExplodeHintGameObject = Resources.Load<GameObject>("VFX/Misc/BombHintVFX");
     }
 
     public void Start()
@@ -106,9 +112,26 @@ public class TSA_SuicideBomb : MonoBehaviour
         }
     }
 
+    public void SpawnExplodeHintVFXObject()
+    {
+        if (hintExist == false)
+        {
+            GameObject myVFXObject = Instantiate(ExplodeHintGameObject);
+            myVFXObject.transform.SetParent(transform, false);
+            myVFXObject.transform.localPosition = ExplodeHintGameObjectOffset;
+
+            hintExist = true;   
+        }
+    }
+
     public void RoundProcess()
     {
         CountDown--;
+        
+        if (CountDown <= 1)
+        {
+            SpawnExplodeHintVFXObject();
+        }
 
         if (CountDown <= 0)
         {

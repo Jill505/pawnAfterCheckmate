@@ -1004,7 +1004,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -41
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -16492,18 +16492,26 @@ MonoBehaviour:
   SFSync: 0
   SFShowCase:
     SaveName: 
+    SelectingLanguage: 0
     BgmVolume: 1
     SFXVolume: 1
     saveStageIndex: 0
     saveLevelIndex: 0
     nowSelectingTrickIndex: 0
     difficulty: 0
+    merit: 0
+    key: 0
+    talentPoint: 0
     gameProcess: 0
     gameProcess_Stage: 0
     gameProcess_Level: 0
+    talentTreeUnlock: 
     storyRead: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    trickLevel: 
+    strawmanLevel: -1
     holdingTrickType: 0
+    moveSteps: 0
+    strawmanCastCount: 0
+    killCount_VertSolider: 0
 --- !u!114 &1724691620
 MonoBehaviour:
   m_ObjectHideFlags: 0

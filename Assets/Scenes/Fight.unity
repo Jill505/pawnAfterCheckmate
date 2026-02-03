@@ -3216,18 +3216,26 @@ MonoBehaviour:
   SFSync: 1
   SFShowCase:
     SaveName: 
+    SelectingLanguage: 0
     BgmVolume: 1
     SFXVolume: 1
     saveStageIndex: 0
     saveLevelIndex: 0
     nowSelectingTrickIndex: 0
     difficulty: 0
+    merit: 0
+    key: 0
+    talentPoint: 0
     gameProcess: 0
     gameProcess_Stage: 0
     gameProcess_Level: 0
+    talentTreeUnlock: 
     storyRead: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    trickLevel: 
+    strawmanLevel: -1
     holdingTrickType: 0
+    moveSteps: 0
+    strawmanCastCount: 0
+    killCount_VertSolider: 0
 --- !u!114 &1438481430
 MonoBehaviour:
   m_ObjectHideFlags: 0
