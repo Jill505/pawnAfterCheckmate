@@ -18,7 +18,7 @@ namespace AKTool
             return data;
         }
 
-        static public string[] GetCertainColumn(string[] data, int dataRowNum, int certainColNum, bool isExcludeHeader)
+        static public string[] GetCertainColumn(string[] data, int dataRowNum, int certainColNum, bool isExcludeHeader = true)
         {
             if (data == null || dataRowNum <= 0 || certainColNum < 0 || certainColNum >= dataRowNum)
             {

@@ -16,7 +16,6 @@ MonoBehaviour:
   myCamp: 1
   photoSticker: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
   spawnGear: 0
-  bucketType: 0
   chessDesc: "\u4F60\u6295\u5C04\u7684\u7A3B\u8349\u4EBA\uFF0C\u662F\u8AB0\u7684\u9776\u5B50"
   Level: 1
   Exp: 0
@@ -24,7 +23,9 @@ MonoBehaviour:
   maxHp: 1
   hp: 1
   skin: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
-  abilities: 
+  abilities: 11000000
+  abilitiesParameter:
+  - 
   isGoldenTarget: 0
   horBlockMoveAbility: 2
   verticalBlockMoveAbility: 2

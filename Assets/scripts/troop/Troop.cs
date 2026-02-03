@@ -2,9 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using DG.Tweening;
 
 public class Troop : MonoBehaviour
 {
+    [Header("System Setting")]
+    public float chessMoveDuration = 0.2f;
+
+    [Header("Ref Components")]
     public GameManager gameManager;
     public SO_Chess myChessData;
     public bool isPlayer = false;
@@ -84,6 +89,8 @@ public class Troop : MonoBehaviour
         {
             gameObject.AddComponent<EnemyLogic>();
         }
+
+        chessMoveDuration = AllGameManager.chessMoveDuration;
     }
 
     void Start()
@@ -118,6 +125,8 @@ public class Troop : MonoBehaviour
         {
             Vector2 vec = gameManager.chessBoardObjectRefArr[myNowY, myNowX].transform.position;
             transform.position = vec;
+            transform.DOMoveX(vec.x, chessMoveDuration);
+            transform.DOMoveY(vec.y, chessMoveDuration);
         }
     }
 

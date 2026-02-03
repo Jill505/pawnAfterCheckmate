@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EnemyLogic : MonoBehaviour
 {
     public Troop myTroop;

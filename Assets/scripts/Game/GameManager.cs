@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     [Header("Ref Objects")]
     public GameObject TroopPrefab;
 
+
     /// <summary>
     /// 由於XY翻轉問題，直接存取chessBoardObjectRefArr已淘汰，請改用GetChessBoardObjectRefArr
     /// </summary>

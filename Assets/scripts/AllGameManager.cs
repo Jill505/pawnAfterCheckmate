@@ -10,6 +10,9 @@ public class AllGameManager : MonoBehaviour
     static public SaveFileType SFT = SaveFileType.SaveFile0;
 
     static public readonly int SystemLanguageNumber = 4;
+
+    [Header("Game Setting Variables")]
+    static public float chessMoveDuration = 0.2f;
     public void SaveBasicSetting()
     {
         

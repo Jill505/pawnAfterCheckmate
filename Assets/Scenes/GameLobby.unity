@@ -16969,6 +16969,7 @@ GameObject:
   - component: {fileID: 1724691619}
   - component: {fileID: 1724691620}
   - component: {fileID: 1724691621}
+  - component: {fileID: 1724691622}
   m_Layer: 0
   m_Name: GameLobbyManager
   m_TagString: Untagged
@@ -17189,6 +17190,20 @@ MonoBehaviour:
   SpawnSprites: []
   SpawnSpritePrefab: {fileID: 7824865106320642197, guid: 2c2ed83537932c14980a5c71722bb513, type: 3}
   bufferSprites: []
+--- !u!114 &1724691622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724691613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbb52a249ef66d4682bd4e5934f571a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLobbyMutiLangData: {fileID: 4900000, guid: 3b2ed7fd344542b41b92fdbc454518d1, type: 3}
+  langData: []
 --- !u!1 &1724843361
 GameObject:
   m_ObjectHideFlags: 0

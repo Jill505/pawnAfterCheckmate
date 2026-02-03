@@ -28,6 +28,7 @@ public class RoundManager : MonoBehaviour
     [Header("Round Variable")]
     public int roundCount = 0;
     public bool goldenTargetSpawned = false;
+    public bool finishRoundClog= false;    
 
     [Header("Functional Variable")]
     public Vector2 selectingVector = new Vector2(-1, -1);
@@ -180,42 +181,10 @@ public class RoundManager : MonoBehaviour
                 break;
 
             case RoundState.Finished:
-
-                EnemyEvolve();
-
-                roundCount++;
-                Action_OnRoundEnd();
-
-                gameManager.GameTargetUISet();
-                resetUnitSelectState();
-                //Debug.Log("AA");
-                //新敵人加入戰場
-
-                for (int i = 0; i < gameManager.levelData.enemySpawnEachRound; i++)
+                if (finishRoundClog == false)
                 {
-                    SpawnEnemyInPool();
-                }
-
-                //勝利狀態判定與生成黃金敵人
-                switch (gameManager.levelData.myMissionType)
-                {
-                    case MissionType.Survive:
-                        if (!goldenTargetSpawned && roundCount == gameManager.levelData.SurviveRound) 
-                        {
-                            //Spawn Golden Enemy;
-                            GameBoardInsChess GBIC = new GameBoardInsChess();
-                            GBIC.chessFile = gameManager.levelData.goldenTarget.chessFile;
-
-                            SpawnEnemy_RandomSpot(GBIC);
-                        }
-                        break;
-                }
-
-                roundState = RoundState.MyRound;
-
-                if (gameManager.isBlitzOn)
-                {
-                    gameManager.StartBlitzCoroutine(gameManager.blitzTime);
+                    finishRoundClog = true;
+                    StartCoroutine(RoundFinishCoroutine());
                 }
 
             break;
@@ -252,6 +221,47 @@ public class RoundManager : MonoBehaviour
 
         roundState = RoundState.Finished;
         EnemyAIProcessing = null;
+    }
+    public IEnumerator RoundFinishCoroutine()
+    {
+        EnemyEvolve();
+
+        roundCount++;
+        Action_OnRoundEnd();
+
+        gameManager.GameTargetUISet();
+        resetUnitSelectState();
+        //Debug.Log("AA");
+        //新敵人加入戰場
+
+        for (int i = 0; i < gameManager.levelData.enemySpawnEachRound; i++)
+        {
+            SpawnEnemyInPool();
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        //勝利狀態判定與生成黃金敵人
+        switch (gameManager.levelData.myMissionType)
+        {
+            case MissionType.Survive:
+                if (!goldenTargetSpawned && roundCount == gameManager.levelData.SurviveRound)
+                {
+                    //Spawn Golden Enemy;
+                    GameBoardInsChess GBIC = new GameBoardInsChess();
+                    GBIC.chessFile = gameManager.levelData.goldenTarget.chessFile;
+
+                    SpawnEnemy_RandomSpot(GBIC);
+                }
+                break;
+        }
+
+        roundState = RoundState.MyRound;
+        finishRoundClog = false;
+
+        if (gameManager.isBlitzOn)
+        {
+            gameManager.StartBlitzCoroutine(gameManager.blitzTime);
+        }
     }
 
     public void MakePlayerDie()
