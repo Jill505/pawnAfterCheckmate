@@ -1,7 +1,5 @@
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
+using UnityEngine;
 public class GameLobbyCameraController : MonoBehaviour
 {
     [Header("Manager Refs")]
@@ -31,7 +29,8 @@ public class GameLobbyCameraController : MonoBehaviour
 
     public float floatingCamera_StrengthFactor = 0.02f;
     public float floatingCamera_SmoothFactor;
-    public Vector2 RefStartPt;
+    public Vector2 RefStartPt; //參照點
+    public Vector2 TargetRefStartPt; //Lerp參照點
     public Vector2 T_floatingCameraOffsetVector;
     public Vector2 floatingCameraOffsetVector;
     public GameObject MainCameraCarrier;
@@ -45,12 +44,56 @@ public class GameLobbyCameraController : MonoBehaviour
 
     public float CameraSmooth = 0.2f;
 
+    [Header("Ref CameraPoints")]
+    public GameObject RefObject_Library;
+    public GameObject RefObject_Shop;
+    public GameObject RefObject_Lobby;
+    public GameObject RefObject_Mission;
+    public GameObject RefObject_Talent;
+
+    LobbyCameraPos _realCameraPos;
+    public LobbyCameraPos MyCameraPos
+    {
+        get { return _realCameraPos; }
+        set { 
+            _realCameraPos = value;
+            switch (value)
+            {
+                case LobbyCameraPos.Library:
+                    TargetRefStartPt = RefObject_Library.transform.position;
+                    break;
+                case LobbyCameraPos.Shop:
+                    TargetRefStartPt = RefObject_Shop.transform.position;
+                    break;
+                case LobbyCameraPos.Lobby:
+                    TargetRefStartPt = RefObject_Lobby.transform.position;
+                    break;
+                case LobbyCameraPos.Mission:
+                    TargetRefStartPt = RefObject_Mission.transform.position;
+                    break;
+                case LobbyCameraPos.Talent:
+                    TargetRefStartPt = RefObject_Talent.transform.position;
+                    break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// -2 = Library
+    /// -1 = Shop
+    ///  0 = Lobby
+    ///  1 = Mission 
+    ///  2 = Talent
+    /// </summary>
+    public int NowLobbyCameraPosIndex = 0;
+    
     private void Start()
     {
         nowOrthographic = NormalOrthographic;
         targetOrthographic = NormalOrthographic;
 
-        RefStartPt = MainCameraCarrier.transform.position;
+        //RefStartPt = MainCameraCarrier.transform.position;
+        RefStartPt = RefObject_Lobby.transform.position;
 
         //OnAutoCamera = true;
         if (gameLobbyManager == null)
@@ -76,11 +119,13 @@ public class GameLobbyCameraController : MonoBehaviour
 
         nowOrthographic = Mathf.Lerp(nowOrthographic, targetOrthographic, CameraSmooth * Time.deltaTime);
         mainCamera.orthographicSize = nowOrthographic;
+
     }
     private void FixedUpdate()
     {
         T_floatingCameraOffsetVector = Vector2.Lerp(T_floatingCameraOffsetVector, floatingCameraOffsetVector, floatingCamera_SmoothFactor);
         MainCameraCarrier.transform.position = RefStartPt + T_floatingCameraOffsetVector;
+        RefStartPt = Vector2.Lerp(RefStartPt, TargetRefStartPt, floatingCamera_SmoothFactor);
     }
 
     public void FloatingCameraEffect()
@@ -149,4 +194,55 @@ public class GameLobbyCameraController : MonoBehaviour
             }
         }
     }
+
+    public void MoveToLeftRoom()
+    {
+        NowLobbyCameraPosIndex -= 1;
+        if (NowLobbyCameraPosIndex < -2)
+        {
+            NowLobbyCameraPosIndex = -2;
+        }
+        SetLobbyCameraPos(NowLobbyCameraPosIndex);
+    }
+    public void MoveToRightRoom()
+    {
+        NowLobbyCameraPosIndex += 1;
+        if (NowLobbyCameraPosIndex > 2)
+        {
+            NowLobbyCameraPosIndex = 2;
+        }
+        SetLobbyCameraPos(NowLobbyCameraPosIndex);
+    }
+ 
+ 
+    public void SetLobbyCameraPos(int index)
+    {
+        switch (index)
+        {
+            case -2:
+                TargetRefStartPt = RefObject_Library.transform.position;
+                break;
+            case -1:
+                TargetRefStartPt = RefObject_Shop.transform.position;
+                break;
+            case 0:
+                TargetRefStartPt = RefObject_Lobby.transform.position;
+                break;
+            case 1:
+                TargetRefStartPt = RefObject_Mission.transform.position;
+                break;
+            case 2:
+                TargetRefStartPt = RefObject_Talent.transform.position;
+                break;
+        }
+    }
+}
+
+public enum LobbyCameraPos
+{
+    Library,
+    Shop,
+    Lobby,
+    Mission,
+    Talent
 }

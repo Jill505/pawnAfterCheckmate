@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using AKTool; 
 
 public class GameLogScreenLoad : MonoBehaviour
 {
