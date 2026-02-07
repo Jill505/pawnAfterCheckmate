@@ -5,6 +5,10 @@ using UnityEngine.UIElements.Experimental;
 [CreateAssetMenu(fileName = "SO_Chess", menuName = "Scriptable Objects/SO_Chess")]
 public class SO_Chess : ScriptableObject
 {
+    [Header("MutiLang")]
+    public TextAsset myMutiLangData;
+
+    [Header("Chess Data")]
     public string chessName;
     public Camp myCamp;
     public Sprite photoSticker; //Require = 1:1 picture.

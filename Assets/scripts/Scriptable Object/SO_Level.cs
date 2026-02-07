@@ -4,6 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_Level", menuName = "Scriptable Objects/SO_Level")]
 public class SO_Level : ScriptableObject
 {
+    [Header("MutiLang")]
+    public TextAsset myMutiLangData;
+
+    [Header("Level Data")]
     public string levelName = "Def name";
     public int levelID = 0;
 

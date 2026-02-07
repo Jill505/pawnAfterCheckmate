@@ -3082,6 +3082,7 @@ MonoBehaviour:
   roundState: 0
   roundCount: 0
   goldenTargetSpawned: 0
+  finishRoundClog: 0
   selectingVector: {x: -1, y: -1}
   SelectUnit: {fileID: 0}
   SelectObjectTroop: {fileID: 0}

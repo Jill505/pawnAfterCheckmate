@@ -4,6 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_LobbyLevel", menuName = "Scriptable Objects/SO_LobbyLevel")]
 public class SO_LobbyLevel : ScriptableObject
 {
+    [Header("MutiLang")]
+    public TextAsset myMutiLangData;
+
+    [Header("Lobby Level Data")]
     public int lobbyLevelID = 0;
 
     public Sprite backgroundImage;
