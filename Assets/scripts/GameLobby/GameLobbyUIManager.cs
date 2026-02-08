@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
@@ -57,6 +58,11 @@ public class GameLobbyUIManager : MonoBehaviour
     [Header("CLOG")]
     public bool onSwitchingAnimationClog = false;
 
+    [Header("Player Resources Sync")]
+    public TextMeshProUGUI meritNumberTMP;
+    public TextMeshProUGUI keyNumberTMP;
+    public TextMeshProUGUI skillPointTMP;
+
     void Awake()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
@@ -89,6 +95,8 @@ public class GameLobbyUIManager : MonoBehaviour
             VisualEffect_fadeEffectCa_T();
             VisualEffect_fadeEffectCa_B();
         }
+
+        SyncPlayerResourcesInformationTMP();
     }
 
     public void MousePosSync()
@@ -256,6 +264,12 @@ public class GameLobbyUIManager : MonoBehaviour
 
     }
 
+    public void SyncPlayerResourcesInformationTMP()
+    {
+        meritNumberTMP.text = SaveSystem.SF.merit + "";
+        keyNumberTMP.text = SaveSystem.SF.key + "";
+        skillPointTMP.text = SaveSystem.SF.skillPoint + "";
+    }
 
     public void Do_LevelNameFadeIn()
     {

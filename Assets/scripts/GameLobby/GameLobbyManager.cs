@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
+using AKTool;
+using UnityEditor.U2D.Aseprite;
+using TMPro;
+
 public class GameLobbyManager : MonoBehaviour
 {
     [Header("Manage Component Refs")]
@@ -30,7 +34,9 @@ public class GameLobbyManager : MonoBehaviour
     public SpriteRenderer backgroundImageSpriteRenderer;
 
     public Text LevelName;
+    public TextMeshProUGUI LevelNameTMP;
     public Text LevelDesc;
+    public TextMeshProUGUI LevelDescTMP;
 
     public Image playerChoosingTrick;
     public Text playerTrickName;
@@ -59,11 +65,12 @@ public class GameLobbyManager : MonoBehaviour
         nowLevelIndex = SaveSystem.SF.saveLevelIndex;
         nowSelectingTrickIndex = SaveSystem.SF.nowSelectingTrickIndex;
 
+        /*
         if (scrollViewManger != null)
         {
             scrollViewManger.AllowScroll = true;
             scrollViewManger.AllowZoom = true;
-        }
+        }*/
 
         //soundManager.PlayBGM("Before_Fighting");
 
@@ -150,6 +157,10 @@ public class GameLobbyManager : MonoBehaviour
 
     public void LoadLobbyLevel(SO_LobbyLevel SO_L)
     {
+        //Apply
+        string[] langData = new string[] { };
+        AK_ToolBox.LoadLangData(SO_L.mySO_Level.myMutiLangData, ref langData);
+
         foreach (GameObject obj in LevelClickableObjectList)
         {
             Destroy(obj);
@@ -168,8 +179,12 @@ public class GameLobbyManager : MonoBehaviour
         }
 
         backgroundImageSpriteRenderer.sprite = SO_L.backgroundImage;
-        LevelName.text = SO_L.mySO_Level.levelName;
-        LevelDesc.text = SO_L.mySO_Level.levelDesc;
+        //LevelName.text = SO_L.mySO_Level.levelName;
+        LevelNameTMP.text = langData[0];
+        Debug.Log(langData[0]);
+        //LevelDesc.text = SO_L.mySO_Level.levelDesc;
+        LevelDescTMP.text = langData[1];
+        Debug.Log(langData[1]);
 
         //SpawnClickableObject
         for (int i = 0; i < SO_L.mySO_LCOs.Length; i++)
@@ -280,8 +295,8 @@ public class GameLobbyManager : MonoBehaviour
     public void QuitLevelInspect()
     {
         LevelInspectCanvas.SetActive(false);
-        scrollViewManger.AllowScroll = true;
-        scrollViewManger.AllowZoom = true;
+        //scrollViewManger.AllowScroll = true;
+        //scrollViewManger.AllowZoom = true;
         cameraController.OnAutoCamera = false;
     }
 
@@ -291,14 +306,18 @@ public class GameLobbyManager : MonoBehaviour
         {
             if (isESCIng == false)
             {
-                ECS_Canvas.SetActive(true);
-                isESCIng = true;
+                OpenESCTab();
             }
             else
             {
                 CloseESCTab();
             }
         }
+    }
+    public void OpenESCTab()
+    {
+        ECS_Canvas.SetActive(true);
+        isESCIng = true;
     }
     public void CloseESCTab()
     {
@@ -309,4 +328,5 @@ public class GameLobbyManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }

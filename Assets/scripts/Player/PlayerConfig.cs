@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerConfig : MonoBehaviour
 {
     public SO_PlayerConfig mySoPlayerConfig;
-
+    // 請注意 此系統已廢除
 
     public void ResetData()
     {

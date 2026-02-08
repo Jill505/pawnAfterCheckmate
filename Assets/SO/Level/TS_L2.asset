@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
   m_Name: TS_L2
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 1e75638d1c46ccd46a1d22136255bea2, type: 3}
   levelName: "\u95DC\u53612- \u5766\u514B"
   levelID: 0
   SLST: 0

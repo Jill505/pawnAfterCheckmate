@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using AKTool;
 
 public class Troop : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class Troop : MonoBehaviour
 
     [Header("棋子UI顯示")]
     public Text MySurviveRoundShowCase;
+    public string myName;
+    public string myDesc;
 
     [Header("能力")]
     public ability[] myAbilities;
@@ -89,6 +92,12 @@ public class Troop : MonoBehaviour
         {
             gameObject.AddComponent<EnemyLogic>();
         }
+
+        string[] langData = new string[] { };
+        AK_ToolBox.LoadLangData(myChessData.myMutiLangData, ref langData);
+
+        myName = langData[0];
+        myDesc = langData[1];
 
         chessMoveDuration = AllGameManager.chessMoveDuration;
     }

@@ -68,6 +68,12 @@ namespace AKTool
             return result.ToArray();
         }
 
+        static public void LoadLangData(TextAsset textAsset, ref string[] langData)
+        {
+            string[] str = GetReadCSV(textAsset);
+            int langIndex = ((int)SaveSystem.SF.SelectingLanguage);
+            langData = GetCertainColumn(str, AllGameManager.SystemLanguageNumber, langIndex);
+        }
     }
 
 }

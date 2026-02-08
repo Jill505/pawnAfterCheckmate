@@ -12,16 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
   m_Name: SO_Level
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 5d186aff5ca40244390bab98bb786d1f, type: 3}
   levelName: Def name
-  levelID: Def ID
+  levelID: 0
+  SLST: 0
   levelDesc: Def Desc
   allowDeployTroopNumber: 3
   myMissionType: 0
   SurviveRound: 10
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
+    isRandomSpawn: 0
     locationX: 0
     locationY: 0
+  LevelBgmName: 
+  PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
     myPerform: 0
@@ -515,4 +520,8 @@ MonoBehaviour:
     passable: 1
     performID: 
   chessInsData: []
+  enemySpawnEachRound: 1
   spawnChessData: []
+  spawnChessProbability: 
+  special_SpawnChessData: []
+  special_GameObjectData: []

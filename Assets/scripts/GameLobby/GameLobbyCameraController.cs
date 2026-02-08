@@ -149,8 +149,8 @@ public class GameLobbyCameraController : MonoBehaviour
         OnAutoCamera = true;
 
 
-        gameLobbyManager.scrollViewManger.AllowScroll = false;
-        gameLobbyManager.scrollViewManger.AllowZoom = false;
+        //gameLobbyManager.scrollViewManger.AllowScroll = false;
+        //gameLobbyManager.scrollViewManger.AllowZoom = false;
 
         OnAutoOrthographicSize = 1.8f;
 
