@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
   m_Name: enemy_Rager_C2
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 9f99c9b88136a7945b57c9eec15c9aac, type: 3}
   chessName: "\u72C2\u66B4\u5175"
   myCamp: 1
   photoSticker: {fileID: 1482477462050948769, guid: 6f7eff2b68d3d424c84a5c70e762e810, type: 3}
@@ -24,6 +25,10 @@ MonoBehaviour:
   hp: 1
   skin: {fileID: 1482477462050948769, guid: 6f7eff2b68d3d424c84a5c70e762e810, type: 3}
   abilities: 100000000d00000011000000
+  abilitiesParameter:
+  - 
+  - 
+  - 
   isGoldenTarget: 0
   horBlockMoveAbility: 2
   verticalBlockMoveAbility: 2

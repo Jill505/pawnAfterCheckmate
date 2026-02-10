@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
   m_Name: enemy_tank
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 2961791963ce7b6448656eef73edacb9, type: 3}
   chessName: "\u5766\u514B"
   myCamp: 1
   photoSticker: {fileID: -1067374779393457045, guid: 8b714c96caae3124ab69d5fbcdf2b6af, type: 3}
   spawnGear: 0
-  bucketType: 0
   chessDesc: "\u5766\u514B\n\u7121\u6CD5\u5F9E\u6B63\u9762\u653B\u64CA"
   Level: 1
   Exp: 0
@@ -25,6 +25,11 @@ MonoBehaviour:
   hp: 1
   skin: {fileID: -1067374779393457045, guid: 8b714c96caae3124ab69d5fbcdf2b6af, type: 3}
   abilities: 08000000090000000a0000000b000000
+  abilitiesParameter:
+  - 
+  - 
+  - 
+  - 
   isGoldenTarget: 0
   horBlockMoveAbility: 1
   verticalBlockMoveAbility: 1

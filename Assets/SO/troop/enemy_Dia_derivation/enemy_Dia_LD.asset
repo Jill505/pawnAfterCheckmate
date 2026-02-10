@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
   m_Name: enemy_Dia_LD
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 8191ca448501f08469327122121349fd, type: 3}
   chessName: "\u659C\u8D70\u5175"
   myCamp: 1
   photoSticker: {fileID: -5227671358315060886, guid: 97addf4ffcdf1eb4a864bc5aa1865f41, type: 3}
   spawnGear: 0
-  bucketType: 0
   chessDesc: "\u659C\u89D2\u79FB\u52D5\n\u521D\u59CB\u6700\u5927\u8DDD\u96E21\u683C\n\u6BCF\u5B58\u6D3B1\u56DE\u5408\u589E\u52A01\u683C\u79FB\u52D5\u8DDD\u96E2\n\n\u65E5\u5E38\u4EA4\u932F\u7684\u7169\u60F1"
   Level: 1
   Exp: 0
@@ -25,6 +25,10 @@ MonoBehaviour:
   hp: 1
   skin: {fileID: -5227671358315060886, guid: 97addf4ffcdf1eb4a864bc5aa1865f41, type: 3}
   abilities: 070000000a00000009000000
+  abilitiesParameter:
+  - 
+  - 
+  - 
   isGoldenTarget: 0
   horBlockMoveAbility: 0
   verticalBlockMoveAbility: 0

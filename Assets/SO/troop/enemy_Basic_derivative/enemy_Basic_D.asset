@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
   m_Name: enemy_Basic_D
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 29541e9f78f6d9e4fa0864c50a3aa786, type: 3}
   chessName: "\u5341\u5B57\u5175"
   myCamp: 1
   photoSticker: {fileID: 8346611326709212497, guid: 6a317d6d4f2feb54e844e1a663286798, type: 3}

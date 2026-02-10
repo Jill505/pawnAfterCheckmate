@@ -1,0 +1,1768 @@
+fileFormatVersion: 2
+guid: cb6df58ded24691459b664ad7764a378
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6568221271719718557
+    second: shadowEffect_env2_0
+  - first:
+      213: -5282556113684831207
+    second: shadowEffect_env2_1
+  - first:
+      213: -6436759710386111096
+    second: shadowEffect_env2_2
+  - first:
+      213: -3516063335209456232
+    second: shadowEffect_env2_3
+  - first:
+      213: 4193089520965235385
+    second: shadowEffect_env2_4
+  - first:
+      213: -3395056983516732477
+    second: shadowEffect_env2_5
+  - first:
+      213: 9037092896827237815
+    second: shadowEffect_env2_6
+  - first:
+      213: 7237632994604961997
+    second: shadowEffect_env2_7
+  - first:
+      213: -3511802474767702996
+    second: shadowEffect_env2_8
+  - first:
+      213: -6243977862883246090
+    second: shadowEffect_env2_9
+  - first:
+      213: 574518531961665163
+    second: shadowEffect_env2_10
+  - first:
+      213: 829999264733280911
+    second: shadowEffect_env2_11
+  - first:
+      213: -5655441261932496317
+    second: shadowEffect_env2_12
+  - first:
+      213: 1568987696341115843
+    second: shadowEffect_env2_13
+  - first:
+      213: -8175485226645097616
+    second: shadowEffect_env2_14
+  - first:
+      213: -3876724138257350936
+    second: shadowEffect_env2_15
+  - first:
+      213: -6100284565246005149
+    second: shadowEffect_env2_16
+  - first:
+      213: -849404375137003717
+    second: shadowEffect_env2_17
+  - first:
+      213: -7327219900994993316
+    second: shadowEffect_env2_18
+  - first:
+      213: -451614088461309877
+    second: shadowEffect_env2_19
+  - first:
+      213: 4798498476652938518
+    second: shadowEffect_env2_20
+  - first:
+      213: -5750631889631494451
+    second: shadowEffect_env2_21
+  - first:
+      213: 3364414499239002064
+    second: shadowEffect_env2_22
+  - first:
+      213: 91553629489399085
+    second: shadowEffect_env2_23
+  - first:
+      213: 3827138138067609192
+    second: shadowEffect_env2_24
+  - first:
+      213: -5693171497062683820
+    second: shadowEffect_env2_25
+  - first:
+      213: 6161327153650534126
+    second: shadowEffect_env2_26
+  - first:
+      213: 7327647705726177674
+    second: shadowEffect_env2_27
+  - first:
+      213: 7703708578851867088
+    second: shadowEffect_env2_28
+  - first:
+      213: 4032671551015855472
+    second: shadowEffect_env2_29
+  - first:
+      213: 2149472611229538494
+    second: shadowEffect_env2_30
+  - first:
+      213: 4337717470750188177
+    second: shadowEffect_env2_31
+  - first:
+      213: -1677575438628492275
+    second: shadowEffect_env2_32
+  - first:
+      213: 3426618779501924689
+    second: shadowEffect_env2_33
+  - first:
+      213: 3194838183303123396
+    second: shadowEffect_env2_34
+  - first:
+      213: -4754160840807242624
+    second: shadowEffect_env2_35
+  - first:
+      213: -6930254749472185461
+    second: shadowEffect_env2_36
+  - first:
+      213: 4661086282066283830
+    second: shadowEffect_env2_37
+  - first:
+      213: 1352208315115036545
+    second: shadowEffect_env2_38
+  - first:
+      213: -5633300434978527958
+    second: shadowEffect_env2_39
+  - first:
+      213: -3695530930199870201
+    second: shadowEffect_env2_40
+  - first:
+      213: -8191292743158799474
+    second: shadowEffect_env2_41
+  - first:
+      213: 8218630138703266243
+    second: shadowEffect_env2_42
+  - first:
+      213: -8056754304289471587
+    second: shadowEffect_env2_43
+  - first:
+      213: -7728511855089308169
+    second: shadowEffect_env2_44
+  - first:
+      213: -5403586387155519438
+    second: shadowEffect_env2_45
+  - first:
+      213: -8040299244320618544
+    second: shadowEffect_env2_46
+  - first:
+      213: -6138145083217598794
+    second: shadowEffect_env2_47
+  - first:
+      213: -4135479165172380110
+    second: shadowEffect_env2_48
+  - first:
+      213: -4013488986245721434
+    second: shadowEffect_env2_49
+  - first:
+      213: -6074764614602504412
+    second: shadowEffect_env2_50
+  - first:
+      213: 7892864769531470848
+    second: shadowEffect_env2_51
+  - first:
+      213: -7879633591211305684
+    second: shadowEffect_env2_52
+  - first:
+      213: 1201904419238295798
+    second: shadowEffect_env2_53
+  - first:
+      213: -3038574630679847948
+    second: shadowEffect_env2_54
+  - first:
+      213: 7535648649652457496
+    second: shadowEffect_env2_55
+  - first:
+      213: -490008138987260354
+    second: shadowEffect_env2_56
+  - first:
+      213: 1138770213272349621
+    second: shadowEffect_env2_57
+  - first:
+      213: 6589230943543600175
+    second: shadowEffect_env2_58
+  - first:
+      213: 5937765397630462851
+    second: shadowEffect_env2_59
+  - first:
+      213: -3599273460195868335
+    second: shadowEffect_env2_60
+  - first:
+      213: 8771286831418387104
+    second: shadowEffect_env2_61
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shadowEffect_env2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 838
+        height: 2126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3615bf4ad8df8d4a0800000000000000
+      internalID: -6568221271719718557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_1
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 2104
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9146fb9e33790b6b0800000000000000
+      internalID: -5282556113684831207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_2
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 2082
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88db3e595290ca6a0800000000000000
+      internalID: -6436759710386111096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_3
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 2061
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89da019860f643fc0800000000000000
+      internalID: -3516063335209456232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_4
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 2040
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2bb8014b8d03a30800000000000000
+      internalID: 4193089520965235385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_5
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 2019
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3a64949a552e0d0800000000000000
+      internalID: -3395056983516732477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_6
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1998
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5e79deb143a6d70800000000000000
+      internalID: 9037092896827237815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_7
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1976
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc0531aacdc317460800000000000000
+      internalID: 7237632994604961997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_8
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 1801
+        width: 28
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c24222a6142934fc0800000000000000
+      internalID: -3511802474767702996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_9
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 2106
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fff079373fe859a0800000000000000
+      internalID: -6243977862883246090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_10
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 2084
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8634769f8919f700800000000000000
+      internalID: 574518531961665163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_11
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 2063
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a334a0fefb48b00800000000000000
+      internalID: 829999264733280911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_12
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 2042
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34a3d66d226d381b0800000000000000
+      internalID: -5655441261932496317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 2020
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3ee593ff926c510800000000000000
+      internalID: 1568987696341115843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_14
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1999
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0737d5f7087da8e80800000000000000
+      internalID: -8175485226645097616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_15
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1977
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eefcfe9feb133ac0800000000000000
+      internalID: -3876724138257350936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_16
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1734
+        width: 2011
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360b6b3328f675ba0800000000000000
+      internalID: -6100284565246005149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_17
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 2108
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37db4d983f4634f0800000000000000
+      internalID: -849404375137003717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_18
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 2086
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c534502425c705a90800000000000000
+      internalID: -7327219900994993316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_19
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 2064
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b48a3b9116b8bb9f0800000000000000
+      internalID: -451614088461309877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_20
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 2043
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615c624e0f0b79240800000000000000
+      internalID: 4798498476652938518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_21
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 2021
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce3b78b3c6a130b0800000000000000
+      internalID: -5750631889631494451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_22
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1956
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df7050692dc0be20800000000000000
+      internalID: 3364414499239002064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_23
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 0
+        width: 2923
+        height: 2126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d250d9b7a83454100800000000000000
+      internalID: 91553629489399085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_24
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 1868
+        width: 71
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 866aed90cd9bc1530800000000000000
+      internalID: 3827138138067609192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_25
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 2109
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b2338efaacdf0b0800000000000000
+      internalID: -5693171497062683820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_26
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 2088
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee60f42f66e618550800000000000000
+      internalID: 6161327153650534126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_27
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 2066
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a81d30bc3c801b560800000000000000
+      internalID: 7327647705726177674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_28
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 2044
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d9489fe22219ea60800000000000000
+      internalID: 7703708578851867088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_29
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 2022
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075af1ed86de6f730800000000000000
+      internalID: 4032671551015855472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_30
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2111
+        width: 28
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb894c693f574dd10800000000000000
+      internalID: 2149472611229538494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_31
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 1956
+        width: 70
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1922214be0ba23c30800000000000000
+      internalID: 4337717470750188177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_32
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 1868
+        width: 116
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ce0a8d60e08b8e0800000000000000
+      internalID: -1677575438628492275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_33
+      rect:
+        serializedVersion: 2
+        x: 2861
+        y: 2110
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15115ecff9bcd8f20800000000000000
+      internalID: 3426618779501924689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_34
+      rect:
+        serializedVersion: 2
+        x: 2862
+        y: 2088
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c113a69668565c20800000000000000
+      internalID: 3194838183303123396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_35
+      rect:
+        serializedVersion: 2
+        x: 2862
+        y: 2066
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084ac9667e3d50eb0800000000000000
+      internalID: -4754160840807242624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_36
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 2109
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b832fbef50ac2df90800000000000000
+      internalID: -6930254749472185461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_37
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 2087
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63dc10e27418fa040800000000000000
+      internalID: 4661086282066283830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_38
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 2065
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fd2cc5c4204c210800000000000000
+      internalID: 1352208315115036545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_39
+      rect:
+        serializedVersion: 2
+        x: 2885
+        y: 2022
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a252d04d91f72d1b0800000000000000
+      internalID: -5633300434978527958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_40
+      rect:
+        serializedVersion: 2
+        x: 2903
+        y: 2107
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705c7f0e236d6bcc0800000000000000
+      internalID: -3695530930199870201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_41
+      rect:
+        serializedVersion: 2
+        x: 2903
+        y: 2085
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83e8c046aea25e80800000000000000
+      internalID: -8191292743158799474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_42
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 2064
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c14ab521907e0270800000000000000
+      internalID: 8218630138703266243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_43
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 2043
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d930a3295a8a03090800000000000000
+      internalID: -8056754304289471587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_44
+      rect:
+        serializedVersion: 2
+        x: 2906
+        y: 2021
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fda10b4a6fceb490800000000000000
+      internalID: -7728511855089308169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_45
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 2000
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23875707fca9205b0800000000000000
+      internalID: -5403586387155519438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_46
+      rect:
+        serializedVersion: 2
+        x: 2908
+        y: 1977
+        width: 28
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d78d66cf6e1b6090800000000000000
+      internalID: -8040299244320618544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_47
+      rect:
+        serializedVersion: 2
+        x: 2923
+        y: 2105
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b6210f619de0daa0800000000000000
+      internalID: -6138145083217598794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_48
+      rect:
+        serializedVersion: 2
+        x: 2924
+        y: 2084
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e0fd72c93db96c0800000000000000
+      internalID: -4135479165172380110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_49
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 2062
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a291e808093d48c0800000000000000
+      internalID: -4013488986245721434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_50
+      rect:
+        serializedVersion: 2
+        x: 2926
+        y: 2041
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427418cb4c912bba0800000000000000
+      internalID: -6074764614602504412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_51
+      rect:
+        serializedVersion: 2
+        x: 2927
+        y: 2020
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0046e1090b6198d60800000000000000
+      internalID: 7892864769531470848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_52
+      rect:
+        serializedVersion: 2
+        x: 2928
+        y: 1999
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c255d933ffae5a290800000000000000
+      internalID: -7879633591211305684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_53
+      rect:
+        serializedVersion: 2
+        x: 2930
+        y: 1955
+        width: 28
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8bbaa83b50ea010800000000000000
+      internalID: 1201904419238295798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_54
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 2103
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb50d2f870d4d5d0800000000000000
+      internalID: -3038574630679847948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_55
+      rect:
+        serializedVersion: 2
+        x: 2945
+        y: 2082
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810dfa27580049860800000000000000
+      internalID: 7535648649652457496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_56
+      rect:
+        serializedVersion: 2
+        x: 2946
+        y: 2061
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e363d9a91342339f0800000000000000
+      internalID: -490008138987260354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_57
+      rect:
+        serializedVersion: 2
+        x: 2947
+        y: 2040
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbe4eab979bdcf00800000000000000
+      internalID: 1138770213272349621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_58
+      rect:
+        serializedVersion: 2
+        x: 2948
+        y: 2019
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f24ade4c1a6a17b50800000000000000
+      internalID: 6589230943543600175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_59
+      rect:
+        serializedVersion: 2
+        x: 2949
+        y: 1997
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38bae556b2e276250800000000000000
+      internalID: 5937765397630462851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_60
+      rect:
+        serializedVersion: 2
+        x: 2950
+        y: 1976
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151c8839bdfcc0ec0800000000000000
+      internalID: -3599273460195868335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowEffect_env2_61
+      rect:
+        serializedVersion: 2
+        x: 3726
+        y: 0
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa21c1a6eed9b970800000000000000
+      internalID: 8771286831418387104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shadowEffect_env2_0: -6568221271719718557
+      shadowEffect_env2_1: -5282556113684831207
+      shadowEffect_env2_10: 574518531961665163
+      shadowEffect_env2_11: 829999264733280911
+      shadowEffect_env2_12: -5655441261932496317
+      shadowEffect_env2_13: 1568987696341115843
+      shadowEffect_env2_14: -8175485226645097616
+      shadowEffect_env2_15: -3876724138257350936
+      shadowEffect_env2_16: -6100284565246005149
+      shadowEffect_env2_17: -849404375137003717
+      shadowEffect_env2_18: -7327219900994993316
+      shadowEffect_env2_19: -451614088461309877
+      shadowEffect_env2_2: -6436759710386111096
+      shadowEffect_env2_20: 4798498476652938518
+      shadowEffect_env2_21: -5750631889631494451
+      shadowEffect_env2_22: 3364414499239002064
+      shadowEffect_env2_23: 91553629489399085
+      shadowEffect_env2_24: 3827138138067609192
+      shadowEffect_env2_25: -5693171497062683820
+      shadowEffect_env2_26: 6161327153650534126
+      shadowEffect_env2_27: 7327647705726177674
+      shadowEffect_env2_28: 7703708578851867088
+      shadowEffect_env2_29: 4032671551015855472
+      shadowEffect_env2_3: -3516063335209456232
+      shadowEffect_env2_30: 2149472611229538494
+      shadowEffect_env2_31: 4337717470750188177
+      shadowEffect_env2_32: -1677575438628492275
+      shadowEffect_env2_33: 3426618779501924689
+      shadowEffect_env2_34: 3194838183303123396
+      shadowEffect_env2_35: -4754160840807242624
+      shadowEffect_env2_36: -6930254749472185461
+      shadowEffect_env2_37: 4661086282066283830
+      shadowEffect_env2_38: 1352208315115036545
+      shadowEffect_env2_39: -5633300434978527958
+      shadowEffect_env2_4: 4193089520965235385
+      shadowEffect_env2_40: -3695530930199870201
+      shadowEffect_env2_41: -8191292743158799474
+      shadowEffect_env2_42: 8218630138703266243
+      shadowEffect_env2_43: -8056754304289471587
+      shadowEffect_env2_44: -7728511855089308169
+      shadowEffect_env2_45: -5403586387155519438
+      shadowEffect_env2_46: -8040299244320618544
+      shadowEffect_env2_47: -6138145083217598794
+      shadowEffect_env2_48: -4135479165172380110
+      shadowEffect_env2_49: -4013488986245721434
+      shadowEffect_env2_5: -3395056983516732477
+      shadowEffect_env2_50: -6074764614602504412
+      shadowEffect_env2_51: 7892864769531470848
+      shadowEffect_env2_52: -7879633591211305684
+      shadowEffect_env2_53: 1201904419238295798
+      shadowEffect_env2_54: -3038574630679847948
+      shadowEffect_env2_55: 7535648649652457496
+      shadowEffect_env2_56: -490008138987260354
+      shadowEffect_env2_57: 1138770213272349621
+      shadowEffect_env2_58: 6589230943543600175
+      shadowEffect_env2_59: 5937765397630462851
+      shadowEffect_env2_6: 9037092896827237815
+      shadowEffect_env2_60: -3599273460195868335
+      shadowEffect_env2_61: 8771286831418387104
+      shadowEffect_env2_7: 7237632994604961997
+      shadowEffect_env2_8: -3511802474767702996
+      shadowEffect_env2_9: -6243977862883246090
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0ed4000665fee4994fa640f9ef76f8, type: 3}
   m_Name: trick_strawMan_spawnObject
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 5825185e1154f6a4eb6a04ec897d5034, type: 3}
   chessName: "\u7A3B\u8349\u4EBA"
   myCamp: 1
   photoSticker: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
