@@ -304,14 +304,18 @@ public class GameLobbyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isESCIng == false)
-            {
-                OpenESCTab();
-            }
-            else
-            {
-                CloseESCTab();
-            }
+            SwitchESCTab();
+        }
+    }
+    public void SwitchESCTab()
+    {
+        if (isESCIng == false)
+        {
+            OpenESCTab();
+        }
+        else
+        {
+            CloseESCTab();
         }
     }
     public void OpenESCTab()

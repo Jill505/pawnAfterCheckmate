@@ -17,9 +17,13 @@ public class GameESCManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            openState = !openState;
-            ESCCanvas.SetActive(openState);
+            SwitchESC();
         }
+    }
+    public void SwitchESC()
+    {
+        openState = !openState;
+        ESCCanvas.SetActive(openState);
     }
     public void QuitInspectESCCanvas()
     {
