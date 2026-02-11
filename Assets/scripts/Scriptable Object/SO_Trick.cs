@@ -3,6 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_Trick", menuName = "Scriptable Objects/SO_Trick")]
 public class SO_Trick : ScriptableObject
 {
+    [Header("LangData")]
+    public TextAsset myMutiLangData;
+
+    [Header("Trick Data")]
     public string trickName = "預設戲法名稱";
 
     public TrickType myTrickType;

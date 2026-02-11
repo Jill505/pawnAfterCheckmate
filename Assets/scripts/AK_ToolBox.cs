@@ -70,9 +70,37 @@ namespace AKTool
 
         static public void LoadLangData(TextAsset textAsset, ref string[] langData)
         {
+            if (textAsset == null) { Debug.Log("textAsset沒有資料"); }
+
             string[] str = GetReadCSV(textAsset);
             int langIndex = ((int)SaveSystem.SF.SelectingLanguage);
             langData = GetCertainColumn(str, AllGameManager.SystemLanguageNumber, langIndex);
+
+            for (int i = 0; i < langData.Length; i++)
+            {
+                langData[i] = SpecialStringProcess(langData[i]);
+            }
+        }
+
+        static public string SpecialStringProcess(string str)
+        {
+            string l = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == '$')
+                {
+                    l += "\n";
+                }
+                else if (str[i] == '^')
+                {
+                    l += ",";
+                }
+                else
+                {
+                    l += str[i];
+                }
+            }
+            return l;
         }
     }
 

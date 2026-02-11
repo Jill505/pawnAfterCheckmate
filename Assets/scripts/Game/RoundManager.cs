@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 using Unity.VisualScripting;
 using UnityEngine.LowLevel;
+using TMPro;
 
 public class RoundManager : MonoBehaviour
 {
@@ -46,12 +47,17 @@ public class RoundManager : MonoBehaviour
     public string deployStateStr = "部屬";
     public string myRoundStateStr = "我的回合";
     public string enemyRoundStateStr = "敵人回合";
-    public Text RoundCountShowcase;
+    //public Text RoundCountShowcase;
+    public TextMeshProUGUI RoundCountShowCase_TMP;
 
+    public bool isInspectingATroop = false;
+    public Animator troopInspectPenalAnimator;
     public Image TroopSkinShowcase;
-    public Text TroopNameShowcase;
+    //public Text TroopNameShowcase;
+    public TextMeshProUGUI TroopNameTMP;
     public Text TroopSurviveShowcase;
-    public Text TroopDescShowcase;
+    //public Text TroopDescShowcase;
+    public TextMeshProUGUI TroopDescTMP;
 
     [Header("選擇系統")]
     public List<Vector2> OnSelectChessAllowMoveVector;
@@ -101,7 +107,7 @@ public class RoundManager : MonoBehaviour
                 //wait deploy end.
                 if (isStillDeploying)
                 {
-                    RoundStateShowCase.text = "回合狀態：" + deployStateStr;
+                    //RoundStateShowCase.text = "回合狀態：" + deployStateStr;
                 }
                 else
                 {
@@ -127,7 +133,7 @@ public class RoundManager : MonoBehaviour
 
                 if (!isOnSpecialKill)
                 {
-                    RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
+                    //RoundStateShowCase.text = "回合狀態：" + myRoundStateStr;
                 }
                 else
                 {
@@ -147,7 +153,7 @@ public class RoundManager : MonoBehaviour
 
                         specialClogAutoSelectionClog = true;
                     }
-                    RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
+                    //RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
                 }
                 break;
                 
@@ -170,7 +176,7 @@ public class RoundManager : MonoBehaviour
 
             case RoundState.EnemyRound:
                 playerHitCombo = 0;
-                RoundStateShowCase.text = "回合狀態：" + enemyRoundStateStr;
+                //RoundStateShowCase.text = "回合狀態：" + enemyRoundStateStr;
                 if (EnemyAIProcessing != null)
                 {
                 }
@@ -391,7 +397,7 @@ public class RoundManager : MonoBehaviour
     #region UI 功能
     public void SyncUI()
     {
-        RoundCountShowcase.text = "回合數："+roundCount;
+        RoundCountShowCase_TMP.text = "回合數："+roundCount;
         TroopInformationUISync();
     }
     public void TroopInformationUISync()
@@ -400,15 +406,23 @@ public class RoundManager : MonoBehaviour
         {
             if (onFloatingObject.GetComponent<unit>().TroopsOnMe != null)
             {
+                isInspectingATroop = true;
+                troopInspectPenalAnimator.SetBool("isPenalOn", isInspectingATroop);
+
                 Troop ST = onFloatingObject.GetComponent<unit>().TroopsOnMe;
                 TroopSkinShowcase.sprite = ST.myChessData.skin;
 
-                TroopNameShowcase.text = ST.myChessData.chessName;
-                TroopSurviveShowcase.text = "存活回合：" + ST.surviveRound;
-                TroopDescShowcase.text = ST.myChessData.chessDesc;
+                TroopNameTMP.text = ST.myChessData.chessName;
+                //TroopSurviveShowcase.text = "存活回合：" + ST.surviveRound;
+                TroopDescTMP.text = ST.myChessData.chessDesc;
 
                 EnemyAttackRangeShowcase(ST);
-                Debug.Log("AK通知 敵人攻擊範圍 UI Sync");
+                //Debug.Log("AK通知 敵人攻擊範圍 UI Sync");
+            }
+            else
+            {
+                isInspectingATroop = false;
+                troopInspectPenalAnimator.SetBool("isPenalOn", isInspectingATroop);
             }
         }
     }

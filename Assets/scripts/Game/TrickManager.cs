@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,14 +20,16 @@ public class TrickManager : MonoBehaviour
     public float[] energyGetWhenKill;
 
     [Header("UI system")]
-    public Text trickNameShowCase;
+    //public Text trickNameShowCase;
+    public TextMeshProUGUI trickNameShowcase_TMP;
     public Button trickButton;
     public Image trickButtonImage;
 
     public Image processImage;
     public float targetAmount_forShow;
-    public Text trickHoldTrickNumTextShowcase;
-    public Text trickHoldTrickNumTextShowcase_Bg;
+    //public Text trickHoldTrickNumTextShowcase;
+    public TextMeshProUGUI trickHoldNumTMP;
+    //public Text trickHoldTrickNumTextShowcase_Bg;
 
     [Header("Spawn Troop Variables")]
     public SO_Chess TroopSpawnSwap_SO;
@@ -79,7 +82,8 @@ public class TrickManager : MonoBehaviour
         //Apply
         if (trickSOFile != null)
         {
-            trickNameShowCase.text = trickSOFile.trickName;
+            //trickNameShowCase.text = trickSOFile.trickName;
+            trickNameShowcase_TMP.text = trickSOFile.name;
             trickButtonImage.sprite = trickSOFile.mySprite;
         }
         else
@@ -227,15 +231,17 @@ public class TrickManager : MonoBehaviour
         if (isMaxContain)
         {
             processImage.fillAmount = 1;
-            trickHoldTrickNumTextShowcase.text = myNowHoldTrickNum + "";
-            trickHoldTrickNumTextShowcase_Bg.text = myNowHoldTrickNum + "";
+            //trickHoldTrickNumTextShowcase.text = myNowHoldTrickNum + "";
+            trickHoldNumTMP.text = myNowHoldTrickNum + "";
+            //trickHoldTrickNumTextShowcase_Bg.text = myNowHoldTrickNum + "";
         }
         else
         {
             targetAmount_forShow = myNowEnergy / trickSOFile.trickRequireEnergy;
             processImage.fillAmount = Mathf.Lerp(processImage.fillAmount, targetAmount_forShow, 0.2f);
-            trickHoldTrickNumTextShowcase.text = myNowHoldTrickNum + "";
-            trickHoldTrickNumTextShowcase_Bg.text = myNowHoldTrickNum + "";
+            //trickHoldTrickNumTextShowcase.text = myNowHoldTrickNum + "";
+            //trickHoldTrickNumTextShowcase_Bg.text = myNowHoldTrickNum + "";
+            trickHoldNumTMP.text = myNowHoldTrickNum + "";
 
         }
     }

@@ -3,8 +3,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using System.Diagnostics.Tracing;
-using UnityEngine.Rendering;
+using AKTool;
+using TMPro;
+using UnityEditor.MemoryProfiler;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,8 +35,8 @@ public class GameManager : MonoBehaviour
     public bool alreadyLoaded = false;
 
     [Header("UI context")]
-    public Text levelName;
-    public Text GameTarget;
+    public TextMeshProUGUI levelName_TMP;
+    public TextMeshProUGUI GameTarget_TMP;
     public Animator gameTargetAnimator;
 
     [Header("Calculate Variable")]
@@ -121,7 +122,12 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame(SO_Level config)
     {
-        levelName.text = "Level Name: " + config.levelName;
+        string[] langData = new string[] { };
+        AK_ToolBox.LoadLangData(config.myMutiLangData, ref langData);
+
+        //levelName.text = "Level Name: " + langData[0];
+        levelName_TMP.text = langData[0];
+        
     }
 
     public void GameInitialization(SO_Level config)
@@ -184,8 +190,23 @@ public class GameManager : MonoBehaviour
             {
                 alreadyLoaded = true;
                 //Load Level
-                Debug.Log("Level Loaded");
+                Debug.Log("Level Loaded"); 
                 levelData = levelConstructor.levelInfo;
+
+                if (levelConstructor == null)
+                {
+                    Debug.Log("Level Constructor is null");
+                }
+
+                if (levelConstructor.levelInfo == null)
+                {
+                    Debug.Log("Level Info is null");
+                }
+
+                if (levelConstructor.levelInfo.myMutiLangData == null)
+                {
+                    Debug.Log("Level mutiLang data is null");
+                }
 
                 LoadGame(levelConstructor.levelInfo);
                 GameInitialization(levelConstructor.levelInfo);
@@ -292,7 +313,7 @@ public class GameManager : MonoBehaviour
     {
         string TargetStr = "";
 
-        gameTargetAnimator.SetTrigger("DoJump");
+        //gameTargetAnimator.SetTrigger("DoJump");
 
         switch (levelData.myMissionType)
         {
@@ -300,12 +321,12 @@ public class GameManager : MonoBehaviour
                 if (levelData.SurviveRound - roundManager.roundCount > 0)
                 {
                     TargetStr = "目標\n存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
-                    GameTarget.color = Color.white;
+                    GameTarget_TMP.color = Color.white;
                 }
                 else
                 {
                     TargetStr = "目標\n殺死癥結！";
-                    GameTarget.color = Color.red;
+                    GameTarget_TMP.color = Color.red;
                 }
                 break;
 
@@ -324,7 +345,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        GameTarget.text = TargetStr;
+        GameTarget_TMP.text = TargetStr;
     }
 
     public void PlayBgm()
