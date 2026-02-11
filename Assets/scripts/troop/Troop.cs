@@ -94,6 +94,7 @@ public class Troop : MonoBehaviour
         }
 
         string[] langData = new string[] { };
+        Debug.LogError("來自物件"+ gameObject.name +"myChessData.myMutiLangData缺失");
         AK_ToolBox.LoadLangData(myChessData.myMutiLangData, ref langData);
 
         myName = langData[0];
