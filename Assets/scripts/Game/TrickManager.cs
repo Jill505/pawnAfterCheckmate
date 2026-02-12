@@ -8,6 +8,7 @@ public class TrickManager : MonoBehaviour
     [Header("Manager Refs")]
     public GameManager gameManager;
     public RoundManager roundManager;
+    public HintManager hintManager;
 
     public TrickType myTrickType;
     public SO_Trick trickSOFile;
@@ -40,6 +41,7 @@ public class TrickManager : MonoBehaviour
 
     public void Start()
     {
+        hintManager = FindFirstObjectByType<HintManager>();
         LoadTrick();
     }
     void Update()
@@ -105,6 +107,8 @@ public class TrickManager : MonoBehaviour
         {
             return; 
         }
+
+        hintManager.SpawnHintWordPrefab("Gain Energy- " + energyGet);
 
         myNowEnergy += energyGet;
 

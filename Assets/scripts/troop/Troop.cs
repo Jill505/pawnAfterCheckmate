@@ -25,9 +25,6 @@ public class Troop : MonoBehaviour
 
     public int surviveRound = 0;
 
-    public Action Action_OnRoundEnd = () => { };
-    public Action Action_PowerActiveOnce = () => { }; 
-
     [Range(0, 9)]
     public int myNowX = 0;
     [Range(0, 9)]
@@ -64,6 +61,8 @@ public class Troop : MonoBehaviour
     public bool hasRightShield = false;
 
     [Header("Actions")]
+    public Action Action_OnRoundEnd = () => { };
+    public Action Action_PowerActiveOnce = () => { };
     public Action OnDieAction = () => { };
 
     [Header("殺死我的目標")]
@@ -693,6 +692,10 @@ public class Troop : MonoBehaviour
             case ability.SuicideBomb:
                 var swapTSA_suicideBomb = gameObject.AddComponent<TSA_SuicideBomb>();
                 swapTSA_suicideBomb.myTroop = this;
+                break;
+            case ability.player:
+                var swapTSA_player = gameObject.AddComponent<TSA_Player>();
+                swapTSA_player.myTroop = this;
                 break;
         }
     }
