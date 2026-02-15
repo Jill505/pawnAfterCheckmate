@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
-using Unity.VisualScripting;
-using UnityEngine.LowLevel;
 using TMPro;
 
 public class RoundManager : MonoBehaviour
@@ -29,7 +27,9 @@ public class RoundManager : MonoBehaviour
     [Header("Round Variable")]
     public int roundCount = 0;
     public bool goldenTargetSpawned = false;
-    public bool finishRoundClog= false;    
+    public bool finishRoundClog= false;
+
+    public bool playerReviving = false;
 
     [Header("Functional Variable")]
     public Vector2 selectingVector = new Vector2(-1, -1);
@@ -156,7 +156,18 @@ public class RoundManager : MonoBehaviour
                     //RoundStateShowCase.text = "回合狀態：連殺中" + specialTimeCal;
                 }
                 break;
-                
+
+            case RoundState.Revive:
+                resetUnitSelectState();
+                SelectUnit = gameManager.chessBoardObjectRefArr[gameManager.PlayerTroop.myNowY, gameManager.PlayerTroop.myNowX];
+                selectingVector = new Vector2(gameManager.PlayerTroop.myNowX, gameManager.PlayerTroop.myNowY);
+
+                Debug.Log("Triggered");
+                SelectObjectTroop = gameManager.PlayerTroop;
+                Player_UpdateOnSelectChessAllowMoveVector();
+
+                break;
+
                 /*
             case RoundState.MySpecialRound: //注意 Special Round 系統已經被CLOG與旗標完全取代
                 //自動選擇玩家物件並觸發地塊選擇
@@ -224,8 +235,9 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForSeconds(enemyMoveDur); 
         }
         //Var 2 - 每次移動一個目標
-
+        
         roundState = RoundState.Finished;
+
         EnemyAIProcessing = null;
     }
     public IEnumerator RoundFinishCoroutine()
@@ -261,7 +273,15 @@ public class RoundManager : MonoBehaviour
                 break;
         }
 
-        roundState = RoundState.MyRound;
+        if (playerReviving)
+        {
+            roundState = RoundState.Revive;
+        }
+        else
+        {
+            roundState = RoundState.MyRound;
+        }
+
         finishRoundClog = false;
 
         if (gameManager.isBlitzOn)
@@ -273,7 +293,24 @@ public class RoundManager : MonoBehaviour
     public void MakePlayerDie()
     {
         gameManager.PlayerTroop.PlayerDieReaction();
-        Lose();
+        //開啟特殊管道
+        gameManager.PlayerTroop.leftLife -= 1;
+        if (gameManager.PlayerTroop.leftLife > 0)
+        {
+            //Execute revive;
+            //TSA_Player TSAP =  gameManager.PlayerTroop.gameManager.GetComponent<TSA_Player>();
+            TSA_Player TSAP = FindFirstObjectByType<TSA_Player>();
+            if (TSAP == null)
+            {
+                Debug.Log("Ed Sheeran - Perfect");
+            }
+            TSAP.SpawnBlackMist();
+            playerReviving = true;
+        }
+        else
+        {
+            Lose();
+        }
     }
 
     public void WinLoseJudge()
@@ -577,4 +614,6 @@ public enum RoundState
     EnemyRound, //敵人回合
     AnimatePlay, //動畫進行
     Finished, //完成階段
+
+    Revive,
 }

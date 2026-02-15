@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class unit : MonoBehaviour
 {
@@ -179,6 +180,27 @@ public class unit : MonoBehaviour
 
             PlayerOnMouseDownEvent();
         }
+        else if (roundManager.roundState == RoundState.Revive)
+        {
+            if (isPlayerAllowMoveSpace)
+            {
+                if (TroopsOnMe != null)
+                {
+                    TroopsOnMe.killTroop();
+                }
+
+                //player spawn here
+                gameManager.PlayerTroop.myNowX = myX;
+                gameManager.PlayerTroop.myNowY = myY;
+
+                gameManager.PlayerTroop.troopOutfit.myAnimator.Play("EnemySpawnSpinShow_Idle");
+
+                //Call Stop
+                roundManager.playerReviving = false;
+                roundManager.roundState = RoundState.EnemyRound;
+                FindFirstObjectByType<TSA_Player>().KillBlackMist();
+            }
+        }
     }
 
     public void PlayerOnMouseDownEvent()//此方法與Troop.cs中的EnemyOnMouseDownEvent相似 修改時請考慮到另外一邊
@@ -316,6 +338,26 @@ public class unit : MonoBehaviour
                     }
                 }
                 break;
+
+            case RoundState.Revive:
+                isPlayerAllowMoveSpace = roundManager.IsMeSelectableUnit(new Vector2(myX, myY));
+                if (isPlayerAllowMoveSpace)
+                {
+                    myUnitOutfit.mySr.color = new Color(1, 1, 1, 1f);
+                    myUnitOutfit.mySr.sprite = myUnitOutfit.myHighLightSprite;
+                    _colorClog = true;
+                }
+                else
+                {
+                    if (_colorClog)
+                    {
+                        _colorClog = false;
+                        myUnitOutfit.mySr.color = new Color(1, 1, 1, 1);
+                        myUnitOutfit.mySr.sprite = myUnitOutfit.myOriginalSprite;
+                        //Debug.LogWarning("MyRound還原");
+                    }
+                }
+                break;  
 
             case RoundState.EnemyRound:
                 if (_colorClog)

@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chessMoveDuration: 0.2
+  leftLife: 1
+  energyHigh: 0
   gameManager: {fileID: 0}
   myChessData: {fileID: 11400000, guid: 556dc37fe1d156840a60f449467ab8ff, type: 2}
   isPlayer: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   goldenTargetRing: {fileID: 7209999505668208289}
   hitShieldCountDownShowcase: {fileID: 8955076922923867033}
   hitShieldImage: {fileID: 6518086885021876739}
+  myAnimator: {fileID: 3361174555656666041}
   BombExplodeAnimation: {fileID: 2762677530704511784, guid: f22abd68f5f7c8d43b278f1be83c52a4, type: 3}
   DeathParticle: {fileID: 3508009127345799395, guid: efaf347fac50d934d9b06033f34755df, type: 3}
 --- !u!1 &1678042349807604969

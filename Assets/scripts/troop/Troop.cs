@@ -183,6 +183,7 @@ public class Troop : MonoBehaviour
         if (myCamp == Camp.Player)
         {
             gameManager.FrameSkipping(0.1f, 2f);
+            //這邊是基本上沒有用的
         }
 
         if (myCamp == Camp.Enemy)
@@ -666,7 +667,10 @@ public class Troop : MonoBehaviour
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
     {
         //gameObject.transform.GetChild(1).gameObject.GetComponent<Troop>().mySr.color = Color.red;
-        gameManager.PlayerTroop.mySr.color = Color.red;
+        //gameManager.PlayerTroop.mySr.color = Color.red;
+        gameManager.PlayerTroop.mySr.color = new Color(1, 1, 1, 0); //it can't be see;
+        troopOutfit.myAnimator.Play("AlphaState");
+        vFXManager.VFX_SlashInHalf(this);
     }
 
     public void TroopAbilityApply(ability abi)

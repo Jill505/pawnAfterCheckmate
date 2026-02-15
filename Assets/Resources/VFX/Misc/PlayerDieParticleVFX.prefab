@@ -171,8 +171,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.3
+      scalar: 2
+      minScalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2745,11 +2745,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 1.44
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2906,7 +2906,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 10
+    frequency: 12.17
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -4921,7 +4921,7 @@ MonoBehaviour:
   p: {fileID: 2504023432453364200}
   Target: {fileID: 0}
   acceleration: 10
-  accelerationTargetStrength: 0
+  accelerationTargetStrength: 40
   maxSpeed: 20
   killDistance: 0.5
   magicalNumber: 10

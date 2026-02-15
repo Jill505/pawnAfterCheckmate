@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using AKTool;
 using TMPro;
-using UnityEditor.MemoryProfiler;
 
 public class GameManager : MonoBehaviour
 {

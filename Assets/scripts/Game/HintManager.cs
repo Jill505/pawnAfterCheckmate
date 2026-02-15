@@ -19,7 +19,7 @@ public class HintManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            SpawnHintWordPrefab("測試訊息");
+            //SpawnHintWordPrefab("測試訊息");
         }
     }
 

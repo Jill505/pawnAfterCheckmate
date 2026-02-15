@@ -22,6 +22,8 @@ public class TroopOutfit : MonoBehaviour
 
     public Action TroopOutfitUpdate = () => { };
 
+    public Animator myAnimator;
+
     [Header("Specialize Animation Object")]
     public GameObject BombExplodeAnimation;
 
@@ -114,7 +116,7 @@ public class TroopOutfit : MonoBehaviour
         Instantiate(BombExplodeAnimation, transform.position, transform.rotation);
     }
 
-    public void DieVFX()
+    public void DieVFX(bool gainEnergy = true)
     {
         //perse a rotaion object that object kill it.
         Quaternion burstRotation = new Quaternion();
@@ -125,11 +127,9 @@ public class TroopOutfit : MonoBehaviour
             burstRotation = Quaternion.LookRotation(dir.normalized);
         }
 
-        Instantiate(DeathParticle, transform.position + new Vector3(0,0,-1), burstRotation);
-    }
-
-    public void SpinSpawnAnimate()
-    {
-        
+        if (gainEnergy == true)
+        {
+            Instantiate(DeathParticle, transform.position + new Vector3(0, 0, -1), burstRotation);
+        }
     }
 }

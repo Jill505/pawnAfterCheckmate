@@ -24,7 +24,7 @@ MonoBehaviour:
   maxHp: 1
   hp: 1
   skin: {fileID: -7319966370450596002, guid: e96c39aa30938d34488a6c40ba0c7740, type: 3}
-  abilities: 05000000
+  abilities: 13000000
   abilitiesParameter:
   - 
   isGoldenTarget: 0
