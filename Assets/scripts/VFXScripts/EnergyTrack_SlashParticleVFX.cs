@@ -37,7 +37,6 @@ public class EnergyTrack_SlashParticleVFX : MonoBehaviour
 
     void Update()
     {
-
         //particleMove();
         //whatEverLah();
         //copyVar();
@@ -91,7 +90,7 @@ public class EnergyTrack_SlashParticleVFX : MonoBehaviour
 
         p.GetParticles(particles);
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < p.particleCount; i++)
         {
             Vector2 toTarget = Target.position - particles[i].position;
             float distance = toTarget.magnitude;

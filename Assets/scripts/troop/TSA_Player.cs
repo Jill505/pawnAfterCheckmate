@@ -16,4 +16,10 @@ public class TSA_Player : MonoBehaviour
     {
         
     }
+
+    public void LoadTalent()
+    {
+        //如果有第二條命 = ture
+        myTroop.leftLife += 1;
+    }
 }

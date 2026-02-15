@@ -79,7 +79,6 @@ public enum ability
 
     //¥Î©ó±¾¸üplayer TSA
     player,
-
 }
 
 public enum SaveFileType

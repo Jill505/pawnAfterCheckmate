@@ -10,6 +10,9 @@ public class Troop : MonoBehaviour
     [Header("System Setting")]
     public float chessMoveDuration = 0.2f;
 
+    public int leftLife = 1;
+    public bool energyHigh = false;
+
     [Header("Ref Components")]
     public GameManager gameManager;
     public SO_Chess myChessData;
