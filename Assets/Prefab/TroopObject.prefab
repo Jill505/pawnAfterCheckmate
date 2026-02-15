@@ -134,12 +134,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0255bb11030a848a4ad25a336cbc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chessMoveDuration: 0.2
   gameManager: {fileID: 0}
   myChessData: {fileID: 11400000, guid: 556dc37fe1d156840a60f449467ab8ff, type: 2}
   isPlayer: 0
   roundManager: {fileID: 0}
   soundManager: {fileID: 0}
   trickManager: {fileID: 0}
+  vFXManager: {fileID: 0}
   troopOutfit: {fileID: 635301961431133842}
   myCamp: 0
   surviveRound: 0
@@ -151,6 +153,8 @@ MonoBehaviour:
   isPassable: 0
   bucketType: 0
   MySurviveRoundShowCase: {fileID: 4566632804348659393}
+  myName: 
+  myDesc: 
   myAbilities: 
   horBlockMoveAbility: 0
   verticalBlockMoveAbility: 0
@@ -670,6 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6358785070286076584}
   - component: {fileID: 5263069960135033095}
+  - component: {fileID: 3361174555656666041}
   m_Layer: 0
   m_Name: TroopSpriteRenderer
   m_TagString: Untagged
@@ -749,6 +754,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3361174555656666041
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073956252787907748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9d38933ba13c5047b3904cb08ca962f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6518086885021876739
 GameObject:
   m_ObjectHideFlags: 0

@@ -128,15 +128,20 @@ public class Troop : MonoBehaviour
 
     void Update()
     {
-        myPosSync();
         myUISync();
+        myPosSync();
+    }
+    private void FixedUpdate()
+    {
+
     }
     public void myPosSync()
     {
         if (gameManager.chessBoardObjectRefArr.GetLength(0) > myNowX && gameManager.chessBoardObjectRefArr.GetLength(1) > myNowY && myNowX >= 0 && myNowY >= 0)
         {
             Vector2 vec = gameManager.chessBoardObjectRefArr[myNowY, myNowX].transform.position;
-            transform.position = vec;
+
+            //transform.position = vec;
             transform.DOMoveX(vec.x, chessMoveDuration);
             transform.DOMoveY(vec.y, chessMoveDuration);
         }

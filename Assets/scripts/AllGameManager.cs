@@ -48,9 +48,6 @@ public enum ability
     carElt,    //ó菊
     canonElt, //菊
 
-    //ノ本更player TSA
-    player,
-
     //秈て猭
     evo_HorMoveAbility,
     evo_VarMoveAbility,
@@ -79,6 +76,10 @@ public enum ability
 
     //Karen闽ㄏノ
     KarenBorn,
+
+    //ノ本更player TSA
+    player,
+
 }
 
 public enum SaveFileType

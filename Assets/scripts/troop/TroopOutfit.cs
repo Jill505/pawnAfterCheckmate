@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -127,5 +126,10 @@ public class TroopOutfit : MonoBehaviour
         }
 
         Instantiate(DeathParticle, transform.position + new Vector3(0,0,-1), burstRotation);
+    }
+
+    public void SpinSpawnAnimate()
+    {
+        
     }
 }
