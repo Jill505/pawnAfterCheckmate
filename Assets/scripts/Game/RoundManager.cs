@@ -275,6 +275,7 @@ public class RoundManager : MonoBehaviour
 
         if (playerReviving)
         {
+            gameManager.PlayerTroop.energyHigh = true;
             roundState = RoundState.Revive;
         }
         else

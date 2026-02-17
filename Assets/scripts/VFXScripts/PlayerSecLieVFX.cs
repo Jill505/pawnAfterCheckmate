@@ -106,7 +106,10 @@ public class PlayerSecLieVFX : MonoBehaviour
         //StartCoroutine(KillAllParticlesCoroutine());
         //p = GetComponent<ParticleSystem>();
         //p.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        Destroy(gameObject, 3f);
+        if (gameObject != null)
+        {
+            Destroy(gameObject, 3f);
+        }
     }
     /*
     public IEnumerator KillAllParticlesCoroutine()

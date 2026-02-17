@@ -521,6 +521,15 @@ public class Troop : MonoBehaviour
     {
         //Debug.Log("學士路東觸發");
         //shield reduce - 上盾牌 抵擋來自上方的攻擊 即檢測玩家正下方地塊目標
+
+        #region 能量高漲
+        if (T.energyHigh)
+        {
+            return;
+        }
+        #endregion
+
+
         #region 上盾牌
         for (int i = Vec2List.Count - 1; i >= 0; i--)
         {

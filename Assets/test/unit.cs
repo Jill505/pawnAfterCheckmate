@@ -164,6 +164,7 @@ public class unit : MonoBehaviour
                         roundManager.isCastingTrick_StrawMan = false;
                         trickManager.ResetTargetPlace();
                         trickManager.myNowHoldTrickNum -= 1;
+                        soundManager.PlaySFX("skill_straw");
                     }
                     else
                     {
@@ -197,6 +198,7 @@ public class unit : MonoBehaviour
 
                 //Call Stop
                 roundManager.playerReviving = false;
+                gameManager.PlayerTroop.energyHigh = false;
                 roundManager.roundState = RoundState.EnemyRound;
                 FindFirstObjectByType<TSA_Player>().KillBlackMist();
             }

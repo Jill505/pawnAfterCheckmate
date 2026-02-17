@@ -9,6 +9,7 @@ public class TrickManager : MonoBehaviour
     public GameManager gameManager;
     public RoundManager roundManager;
     public HintManager hintManager;
+    public SoundManager soundManager;
 
     public TrickType myTrickType;
     public SO_Trick trickSOFile;
@@ -42,6 +43,7 @@ public class TrickManager : MonoBehaviour
     public void Start()
     {
         hintManager = FindFirstObjectByType<HintManager>();
+        soundManager = FindFirstObjectByType<SoundManager>();
         LoadTrick();
     }
     void Update()
@@ -119,7 +121,7 @@ public class TrickManager : MonoBehaviour
             if (myNowHoldTrickNum < trickSOFile.maxTrickAmount)
             {
                 myNowHoldTrickNum += 1;
-                
+                soundManager.PlaySFX("skill_fullfill(no_tss)");
             }
         }
     }
@@ -211,6 +213,7 @@ public class TrickManager : MonoBehaviour
         }
 
         //UpdateTargetPlace(); //高配版 之後優化 
+        
 
         roundManager.isCastingPlacementTrick = true;
         roundManager.isCastingTrick_StrawMan = true;
