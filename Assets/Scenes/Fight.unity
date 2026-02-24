@@ -3620,6 +3620,7 @@ MonoBehaviour:
   gameTargetAnimator: {fileID: 0}
   spawnReferencePoint: {x: 0, y: 0}
   TroopPrefab: {fileID: 696692380885238862, guid: aafb1b4a9fb45124e8e48a9277d266ef, type: 3}
+  StructurePrefab: {fileID: 2075977764515141749, guid: 9197c7ad7ce834e4b925abc954d59adb, type: 3}
   GameEReference: {fileID: 765258061}
   TroopEReference: {fileID: 56182654}
   PlayerTroopGameObject: {fileID: 0}

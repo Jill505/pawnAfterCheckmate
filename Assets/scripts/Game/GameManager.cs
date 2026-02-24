@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Ref Objects")]
     public GameObject TroopPrefab;
-
+    public GameObject StructurePrefab;
 
     /// <summary>
     /// 由於XY翻轉問題，直接存取chessBoardObjectRefArr已淘汰，請改用GetChessBoardObjectRefArr
@@ -211,6 +211,7 @@ public class GameManager : MonoBehaviour
                 GameInitialization(levelConstructor.levelInfo);
 
                 ChessSpawn(levelConstructor.levelInfo);
+                Init_SpawnStructure(levelConstructor.levelInfo);
 
                 if (levelConstructor.SLS != null)
                 {
@@ -272,23 +273,13 @@ public class GameManager : MonoBehaviour
         PlayerTroopGameObject = myTObj;
         PlayerTroop = myTObj.GetComponent<Troop>();
 
-        SpawnLevelTroop(config);
+        Init_SpawnLevelTroop(config);
     }
-    public void SpawnLevelTroop(SO_Level config)
+    public void Init_SpawnLevelTroop(SO_Level config)
     {
         for (int i = 0; i < config.chessInsData.Count; i++)
         {
             SpawnLevelTroop(config.chessInsData[i]);
-            /*
-            GameObject myTObj = Instantiate(TroopPrefab);
-            Troop myT = myTObj.GetComponent<Troop>();
-            myT.myChessData = config.chessInsData[i].chessFile;
-            myT.LoadSOData();
-
-            myT.myNowX = config.chessInsData[i].locationX;
-            myT.myNowY = config.chessInsData[i].locationY;
-
-            Troops.Add(myTObj);*/
         }
     }
     public void SpawnLevelTroop(GameBoardInsChess GBIC)
@@ -303,6 +294,29 @@ public class GameManager : MonoBehaviour
 
         Troops.Add(myTObj);
     }
+
+    public void Init_SpawnStructure(SO_Level config)
+    {
+        for (int i = 0; i < config.structureInsData.Count; i++)
+        {
+            SpawnStructure(config.structureInsData[i]);
+        }
+    }
+    public void SpawnStructure(GameBoardInsStructure GBIS)
+    {
+        GameObject mySOBJ = Instantiate(StructurePrefab);
+        Structure ST = mySOBJ.GetComponent<Structure>();
+
+        ST.mySO_S = GBIS.structureFile;
+
+        ST.myUnit = GetUnitAt(GBIS.locationX, GBIS.locationY);
+
+        ST.LoadSO_Structure();
+
+        ST.SyncMyPositionToUnit();
+    }
+
+
 
     public void SwapFunction_BackToLobby()
     {

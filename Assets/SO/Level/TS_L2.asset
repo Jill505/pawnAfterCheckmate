@@ -540,6 +540,10 @@ MonoBehaviour:
     isRandomSpawn: 0
     locationX: 8
     locationY: 8
+  structureInsData:
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+    locationX: 6
+    locationY: 3
   enemySpawnEachRound: 1
   spawnChessData:
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}

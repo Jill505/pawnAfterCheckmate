@@ -26,6 +26,7 @@ public class unit : MonoBehaviour
     public bool isPlayerAllowMoveSpace; //是玩家可以站在地地方
 
     public Troop TroopsOnMe;
+    public Structure StructureOnMe;
 
     [Header("Outfit Control stuff")]
     public bool isEnemyAttackHighLighting = false;

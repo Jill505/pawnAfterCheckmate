@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ public class SO_Level : ScriptableObject
     public int gridSizeY = 9;
     public List<GameBoardCell> levelContext = new List<GameBoardCell>();
     public List<GameBoardInsChess> chessInsData = new List<GameBoardInsChess>();
+    public List<GameBoardInsStructure> structureInsData = new List<GameBoardInsStructure>();
 
     [Header("Enemy spawn information")]
     public int enemySpawnEachRound =1 ;
@@ -131,6 +133,15 @@ public class GameBoardInsChess
 
     public bool isRandomSpawn = false;
     public int locationX = 0;
+    public int locationY = 0;
+}
+
+[System.Serializable]
+public class GameBoardInsStructure
+{
+    public SO_Structure structureFile;
+
+    public int locationX = 0; 
     public int locationY = 0;
 }
 
