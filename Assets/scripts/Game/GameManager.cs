@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerTroopGameObject;
     public Troop PlayerTroop;
     public List<GameObject> Troops;
+    public List<Troop> InGameTroopList;
+    public List<Structure> InGameStructureList;
 
     [Header("World Spawn Variable")]
     public float spawnInterval = 1f;
@@ -310,10 +312,12 @@ public class GameManager : MonoBehaviour
         ST.mySO_S = GBIS.structureFile;
 
         ST.myUnit = GetUnitAt(GBIS.locationX, GBIS.locationY);
-
+        GetUnitAt(GBIS.locationX, GBIS.locationY).SetStructureOnMe(ST);
         ST.LoadSO_Structure();
 
         ST.SyncMyPositionToUnit();
+
+        InGameStructureList.Add(ST);
     }
 
 

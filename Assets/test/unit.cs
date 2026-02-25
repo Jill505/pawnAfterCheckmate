@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class unit : MonoBehaviour
 {
@@ -34,6 +34,9 @@ public class unit : MonoBehaviour
 
     [Header("Placement and trick variables")]
     public bool isPlaceableTarget = false;
+
+    [Header("Actions")]
+    public Action NewTroopOnMeAction = () => { };
 
     private void Awake()
     {
@@ -78,7 +81,7 @@ public class unit : MonoBehaviour
 
         if (roundManager.roundState == RoundState.MyRound)
         {
-            int ran = Random.Range(0, 5);
+            int ran = UnityEngine.Random.Range(0, 5);
             switch (ran)
             {
                 case 0: soundManager.PlaySFX("Wooden_Floor_Walking_Sound_1"); break;
@@ -213,20 +216,20 @@ public class unit : MonoBehaviour
         {
             case RoundState.MyRound:
 
-                //if(是我可以移動的範圍)
                 if (roundManager.SelectObjectTroop == null)
                 {
-                    PlayerMoveToEmptyUnit();
+                    //在未選擇移動目標的前提下 點擊玩家以顯示可移動範圍
+                    UpdatePlayerMoveVector();
                 }
                 else
                 {
-                    PlayerMoveToHasTroopUnit(specialKillClog);
+                    PlayerMoveToUnit(specialKillClog);
                 }
                 //回傳GameMaster
                 break;
         }
     }
-    public void PlayerMoveToEmptyUnit()
+    public void UpdatePlayerMoveVector()
     {
         //移動到空地塊上
         roundManager.selectingVector = new Vector2(myX, myY);
@@ -236,27 +239,23 @@ public class unit : MonoBehaviour
         //如果地塊上有自己的物件
         if (gameManager.PlayerTroop.myNowX == myX && gameManager.PlayerTroop.myNowY == myY)
         {
-            Debug.Log("Triggered");
-            Debug.Log("玩家行為");
+            Debug.Log("三小");
             roundManager.SelectObjectTroop = gameManager.PlayerTroop;
             roundManager.Player_UpdateOnSelectChessAllowMoveVector();
         }
     }
-    public void PlayerMoveToHasTroopUnit(bool specialKillClog)
+    public void PlayerMoveToUnit(bool specialKillClog)
     {
+        bool specialRoundKeepGoingClog = false;
         if (isPlayerAllowMoveSpace)
         {
             Debug.Log("呼叫結束");
-            #region 玩家攻擊相關代碼
+            #region 玩家攻擊Troop相關代碼
             //TODO: 如果我身上有Troop 代表對Troop進行攻擊
             if (TroopsOnMe == null)
             {
-                //TODO 如果選中目標是玩家棋子 如果我是可移動地塊 將玩家棋子移動到我身上(改變其XY)
-                roundManager.SelectObjectTroop.myNowX = myX;
-                roundManager.SelectObjectTroop.myNowY = myY;
-
                 //無殺死目標
-                roundManager.SpecialRoundEndFunc();
+                specialRoundKeepGoingClog = false;
             }
             else
             {
@@ -274,10 +273,6 @@ public class unit : MonoBehaviour
                         //若攻擊未殺死目標，則留在前一格
                         if (TroopsOnMe.hp <= 0)
                         {
-                            //被殺死
-                            roundManager.SelectObjectTroop.myNowX = myX;
-                            roundManager.SelectObjectTroop.myNowY = myY;
-
                             if (gameManager.isCopySoulOn)
                             {
                                 //Player Copy Soul
@@ -286,7 +281,9 @@ public class unit : MonoBehaviour
                             TroopsOnMe.killTroop(gameObject);
 
                             gameManager.hintManager.SpawnHintWordPrefab("擊破 - " + TroopsOnMe.myChessData.chessName);
+                            specialRoundKeepGoingClog = true;
 
+                            roundManager.SelectObjectTroop.energyHigh = false;
                         }
                         else
                         {
@@ -297,6 +294,42 @@ public class unit : MonoBehaviour
                 }
             }
             #endregion
+
+            #region 玩家與Structure互動相關代碼
+            if (StructureOnMe == null)
+            {
+                //無事判斷
+            }
+            else
+            {
+                //對Structure On Me進行操作
+                //可能性1. 他可以站上去 代表structure on me的isAllowStanding屬性為true
+                //可能性2. isAllowStanding屬性為false, 代表地塊屬於佔位格 既然可以到達，代表structre應該被摧毀
+                //移動到地塊上時 觸發應該由移動屬性觸發 因此Action應該在Troop的移動相關代碼中實現
+
+                if (StructureOnMe.isAllowStanding)
+                {
+                    //Allow Standing, means it's everything's alright
+                }
+                else
+                {
+                    //if it is not standable, means it can be destroy, then destroy the structure;
+                    StructureOnMe.DestroyStructure();
+                }
+
+                roundManager.SelectObjectTroop.energyHigh = false;
+            }
+            #endregion
+
+
+            //移動到目標位置
+            roundManager.SelectObjectTroop.myNowX = myX;
+            roundManager.SelectObjectTroop.myNowY = myY;
+
+            if (specialRoundKeepGoingClog == false)
+            {
+                roundManager.SpecialRoundEndFunc();
+            }
 
             roundManager.RoundSelectClean();
 
@@ -314,6 +347,10 @@ public class unit : MonoBehaviour
             {
                 roundManager.MyRoundEnd();
             }
+        }
+        else
+        {
+            //Play not allow move sound effect
         }
     }
 
@@ -427,7 +464,15 @@ public class unit : MonoBehaviour
         TroopsOnMe = null;
     }
 
-    
+    public void SetTroopOnMe(Troop troop)
+    {
+        //實作 要記得處理null問題
+    }
+
+    public void SetStructureOnMe(Structure structure)
+    {
+        StructureOnMe = structure;
+    }
 
     public void PlayKillSoundEffect()
     {

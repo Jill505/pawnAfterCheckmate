@@ -6,7 +6,9 @@ public class Structure : MonoBehaviour
     public SO_Structure mySO_S;
 
     public StructureOutFit myOutFit;
-    public SoundManager SoundManager;
+    public SoundManager soundManager;
+    public GameManager gameManager;
+    public RoundManager roundManager;
 
     public unit myUnit;
 
@@ -16,8 +18,14 @@ public class Structure : MonoBehaviour
     public bool isAllowBeingDestroyByEnergyHighState;
 
     public Action ActionOnRoundEnd = () => { };
-    public Action OnRoundEnd = () => { };   
+    public Action OnRoundEnd = () => { };
 
+    private void Start()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+        roundManager = FindFirstObjectByType<RoundManager>();
+    
+    }
     public void SyncMyPositionToUnit()
     {
         transform.position = myUnit.transform.position;
@@ -55,6 +63,20 @@ public class Structure : MonoBehaviour
         switch (SA)
         {
 
+        }
+    }
+
+    public void DestroyStructure()
+    {
+        //Maybe consider to add VFX here?
+        Destroy(gameObject);
+    }
+
+    public void OnDestroy()
+    {
+        if (gameManager.InGameStructureList.Contains(this))
+        {
+            gameManager.InGameStructureList.Remove(this);
         }
     }
 }
