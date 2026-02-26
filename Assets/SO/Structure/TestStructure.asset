@@ -15,5 +15,5 @@ MonoBehaviour:
   myAbilities: 00000000
   myStructureSprite: {fileID: -855298285791758126, guid: 16f4281138741b34c8a0ffb53df5f134, type: 3}
   isAllowStanding: 0
-  isAttackableTarget: 0
-  isAllowBeingDestroyByEnergyHighState: 0
+  isAttackableTarget: 1
+  isRequireEnergyHigh: 0

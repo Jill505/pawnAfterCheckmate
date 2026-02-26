@@ -9,5 +9,5 @@ public class SO_Structure : ScriptableObject
 
     public bool isAllowStanding = false;
     public bool isAttackableTarget = false;
-    public bool isAllowBeingDestroyByEnergyHighState;
+    public bool isRequireEnergyHigh = false;
 }

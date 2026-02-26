@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 using AKTool;
+using Unity.VisualScripting;
 
 public class Troop : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class Troop : MonoBehaviour
     [Header("盾牌")]
     public bool hasUpperShield = false;
     public bool hasLowerShield = false;
-    public bool hasLeftShield = false;  
+    public bool hasLeftShield = false;
     public bool hasRightShield = false;
 
     [Header("Actions")]
@@ -160,7 +161,7 @@ public class Troop : MonoBehaviour
         {
             if (MySurviveRoundShowCase != null)
             {
-                MySurviveRoundShowCase.text = (surviveRound +1) + "";
+                MySurviveRoundShowCase.text = (surviveRound + 1) + "";
             }
         }
     }
@@ -303,7 +304,7 @@ public class Troop : MonoBehaviour
         UpdateOnSelectChessAllowMoveVector(OnSelectChessAllowMoveVector, this);
         ReduceOnSelectChessAllowMoveVector_ForLogicCalculationSpecialFunc_RememberToMakeItOverride();
     }
-    
+
     public void ReduceOnSelectChessAllowMoveVector()
     {
         for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
@@ -529,6 +530,47 @@ public class Troop : MonoBehaviour
         }
         #endregion
 
+        #region 地形檢測 - 該格可站立
+        for (int i = Vec2List.Count - 1; i >= 0; i--)
+        {
+            if (!gameManager.isVectorLegal(Vec2List[i])) continue;
+
+            Structure ST = gameManager.GetUnitAt((int)Vec2List[i].x, (int)Vec2List[i].y).StructureOnMe;
+            if (ST == null) continue;
+
+            if (ST.isAllowStanding)
+            {
+                //可以站上去
+                continue;
+            }
+
+            if (ST.isAttackableTarget)
+            {
+                //進入判斷
+                if (ST.isRequireEnergyHigh)
+                {
+                    if (energyHigh)
+                    {
+                        //可以破壞
+                        continue;
+                    }
+                    else
+                    {
+                        Vec2List.Remove(Vec2List[i]);
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                //無敵
+                Vec2List.Remove(Vec2List[i]);
+            }
+        }
+        #endregion
 
         #region 上盾牌
         for (int i = Vec2List.Count - 1; i >= 0; i--)
@@ -537,7 +579,7 @@ public class Troop : MonoBehaviour
             if (Vec2List[i].x == T.myNowX && Vec2List[i].y < T.myNowY)
             {
                 //檢測該座標是否存在
-                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                if (!gameManager.isVectorLegal(Vec2List[i])) continue;
                 //檢測該座標對應區塊是否有單位存在
                 Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
                 if (ST == null) continue;
@@ -546,7 +588,6 @@ public class Troop : MonoBehaviour
                 if (ST.hasUpperShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    Debug.Log("學士路東觸發 - 上");
                 }
             }
         }
@@ -560,7 +601,7 @@ public class Troop : MonoBehaviour
             if (Vec2List[i].x == T.myNowX && Vec2List[i].y > T.myNowY)
             {
                 //檢測該座標是否存在
-                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                if (!gameManager.isVectorLegal(Vec2List[i])) continue;
                 //檢測該座標對應區塊是否有單位存在
                 Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
                 if (ST == null) continue;
@@ -569,7 +610,6 @@ public class Troop : MonoBehaviour
                 if (ST.hasLowerShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    Debug.Log("學士路東觸發 - 下");
                 }
             }
         }
@@ -582,7 +622,7 @@ public class Troop : MonoBehaviour
             if (Vec2List[i].x > T.myNowX && Vec2List[i].y == T.myNowY)
             {
                 //檢測該座標是否存在
-                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                if (!gameManager.isVectorLegal(Vec2List[i])) continue;
                 //檢測該座標對應區塊是否有單位存在
                 Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
                 if (ST == null) continue;
@@ -591,7 +631,6 @@ public class Troop : MonoBehaviour
                 if (ST.hasLeftShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    Debug.Log("學士路東觸發 - 左");
                 }
             }
         }
@@ -602,7 +641,7 @@ public class Troop : MonoBehaviour
             if (Vec2List[i].x < T.myNowX && Vec2List[i].y == T.myNowY)
             {
                 //檢測該座標是否存在
-                if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+                if (!gameManager.isVectorLegal(Vec2List[i])) continue;
                 //檢測該座標對應區塊是否有單位存在
                 Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
                 if (ST == null) continue;
@@ -611,7 +650,6 @@ public class Troop : MonoBehaviour
                 if (ST.hasRightShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    Debug.Log("學士路東觸發 - 右");
                 }
             }
         }
@@ -621,7 +659,7 @@ public class Troop : MonoBehaviour
         for (int i = Vec2List.Count - 1; i >= 0; i--)
         {
             //檢測該座標是否存在
-            if (Vec2List[i].x < 0 || Vec2List[i].y < 0 || Vec2List[i].x >= gameManager.levelData.gridSizeX || Vec2List[i].y >= gameManager.levelData.gridSizeY) continue;
+            if (!gameManager.isVectorLegal(Vec2List[i])) continue;
             //檢測該座標對應區塊是否有單位存在
             Troop ST = gameManager.chessBoardObjectRefArr[(int)Vec2List[i].y, (int)Vec2List[i].x].GetComponent<unit>().TroopsOnMe;
             if (ST == null) continue;
@@ -671,6 +709,8 @@ public class Troop : MonoBehaviour
 
         }
         #endregion
+
+        RemoveBlockedCellsFromList(Vec2List, myNowX, myNowY);
     }
 
     public void PlayerDieReaction() //千萬別從這個腳本直接呼叫！！
@@ -769,6 +809,72 @@ public class Troop : MonoBehaviour
     {
         Action_PowerActiveOnce = () => { };
     }
+
+    //GROK提供
+    public void RemoveBlockedCellsFromList(List<Vector2> vec2List, int myX, int myY)
+    {
+        // 為了避免在迭代過程中修改List導致錯誤
+        // 先複製一份出來處理，或使用倒序遍歷
+        List<Vector2> toRemove = new List<Vector2>();
+
+        // 對每個候選格子，檢查從玩家到該格子的直線是否被UnPassable擋住
+        for (int i = vec2List.Count - 1; i >= 0; i--)
+        {
+            Vector2 target = vec2List[i];
+            int tx = (int)target.x;
+            int ty = (int)target.y;
+
+            // 自己位置不用檢查
+            if (tx == myX && ty == myY) continue;
+
+            // 取得方向向量
+            int dx = tx - myX;
+            int dy = ty - myY;
+
+            // 取得步進的最大距離（曼哈頓或切比雪夫都可，這裡用較精確的Bresenham思路）
+            int steps = Math.Max(Math.Abs(dx), Math.Abs(dy));
+
+            if (steps == 0) continue;
+
+            // 單位向量（浮點）
+            float stepX = dx / (float)steps;
+            float stepY = dy / (float)steps;
+
+            bool blocked = false;
+
+            // 從玩家旁邊第一格開始檢查，直到目標前一格
+            for (int step = 1; step < steps; step++) // 注意不包含目標格自己
+            {
+                float cx = myX + stepX * step;
+                float cy = myY + stepY * step;
+
+                int checkX = Mathf.RoundToInt(cx);
+                int checkY = Mathf.RoundToInt(cy);
+
+                // 取得該格的結構
+                if (!gameManager.isVectorLegal(new Vector2(checkX, checkY))) continue;
+                var unit = gameManager.GetUnitAt(checkX, checkY);
+                if (unit == null) continue;
+
+                Structure ST = unit.StructureOnMe;
+                if (ST != null && ST.isContainAbility(StructureAbility.UnPassable))
+                {
+                    blocked = true;
+                    break;
+                }
+            }
+
+            // 如果中間有UnPassable阻擋 → 這個目標格也要移除
+            if (blocked)
+            {
+                toRemove.Add(target);
+            }
+        }
+
+        // 最後統一移除
+        foreach (var v in toRemove)
+        {
+            vec2List.Remove(v);
+        }
+    }
 }
-
-

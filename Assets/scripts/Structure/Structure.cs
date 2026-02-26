@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 public class Structure : MonoBehaviour
@@ -15,7 +16,7 @@ public class Structure : MonoBehaviour
     public StructureAbility[] myAbilities;
     public bool isAllowStanding = false;
     public bool isAttackableTarget = false;
-    public bool isAllowBeingDestroyByEnergyHighState;
+    public bool isRequireEnergyHigh = false;
 
     public Action ActionOnRoundEnd = () => { };
     public Action OnRoundEnd = () => { };
@@ -43,7 +44,7 @@ public class Structure : MonoBehaviour
 
         isAllowStanding = mySO_S.isAllowStanding;
         isAttackableTarget = mySO_S.isAttackableTarget;
-        isAllowBeingDestroyByEnergyHighState = mySO_S.isAllowBeingDestroyByEnergyHighState;
+        isRequireEnergyHigh = mySO_S.isRequireEnergyHigh;
 
         LoadStructureAbility();
 
@@ -64,6 +65,21 @@ public class Structure : MonoBehaviour
         {
 
         }
+    }
+
+    public bool isContainAbility(StructureAbility SA)
+    {
+        Debug.Log("觸發檢測");
+        for (int i = 0; i < myAbilities.Length; i++)
+        {
+            if (myAbilities[i] == SA)
+            {
+                Debug.Log("返回檢測結果 _ 有");
+                return true;
+            }
+        }
+        Debug.Log("返回檢測結果 _ 無");
+        return false;
     }
 
     public void DestroyStructure()

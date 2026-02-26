@@ -420,6 +420,13 @@ public class GameManager : MonoBehaviour
 
     public unit GetUnitAt(int x, int y)
     {
+        if (!isVectorLegal(new Vector2(x, y)))
+        {
+            //不合法座標
+            Debug.Log("不合法座標 無法取得Unit");
+            return null;
+        }
+
         unit swapUnit = chessBoardObjectRefArr[y,x].GetComponent<unit>();
         return swapUnit;
     }
