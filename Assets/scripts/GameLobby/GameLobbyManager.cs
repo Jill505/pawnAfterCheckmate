@@ -2,10 +2,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine.UI;
 using AKTool;
-using UnityEditor.U2D.Aseprite;
 using TMPro;
 
 public class GameLobbyManager : MonoBehaviour
@@ -255,14 +253,17 @@ public class GameLobbyManager : MonoBehaviour
         {
             case TrickType.noTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "NoTrick_SO");
+                trickSOFile.LoadLangData();
                 nowSelectingTrickIndex = 0;
                 break;
             case TrickType.testTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "testTrick_SO");
+                trickSOFile.LoadLangData();
                 nowSelectingTrickIndex = 1;
                 break;
             case TrickType.StrawMan:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "StrawMan_SO");
+                trickSOFile.LoadLangData();
                 nowSelectingTrickIndex = 2;
                 break;
         }

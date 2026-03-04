@@ -1,6 +1,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Structure : MonoBehaviour
 {
@@ -63,7 +64,11 @@ public class Structure : MonoBehaviour
     {
         switch (SA)
         {
-
+            case StructureAbility.EnergyHighStructure:
+                EnergyHighSpot EHS =  gameObject.AddComponent<EnergyHighSpot>();
+                myOutFit.mySR.sortingOrder = 6;
+                EHS.myStructure = this;
+                break;
         }
     }
 

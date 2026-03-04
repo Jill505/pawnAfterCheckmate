@@ -1,4 +1,5 @@
 using UnityEngine;
+using AKTool;
 
 [CreateAssetMenu(fileName = "SO_Trick", menuName = "Scriptable Objects/SO_Trick")]
 public class SO_Trick : ScriptableObject
@@ -18,6 +19,15 @@ public class SO_Trick : ScriptableObject
 
     [TextArea]
     public string trickDesc = "¹w³]À¸ªk´y­z";
+
+    public void LoadLangData()
+    {
+        string[] strs = new string[0];
+        AK_ToolBox.LoadLangData(myMutiLangData, ref strs);
+            
+        trickName = strs[0];
+        trickDesc = strs[1];
+    }
 }
 public enum TrickType
 {

@@ -24,6 +24,8 @@ public class TroopOutfit : MonoBehaviour
 
     public Animator myAnimator;
 
+    public GameObject UntouchableHint;
+
     [Header("Specialize Animation Object")]
     public GameObject BombExplodeAnimation;
 
@@ -131,5 +133,15 @@ public class TroopOutfit : MonoBehaviour
         {
             Instantiate(DeathParticle, transform.position + new Vector3(0, 0, -1), burstRotation);
         }
+    }
+
+    public void TriggerUntouchableHint()
+    {
+        UntouchableHint.SetActive (true);
+    }
+
+    public void CleanUntouchableHint()
+    {
+        UntouchableHint.SetActive(false);
     }
 }

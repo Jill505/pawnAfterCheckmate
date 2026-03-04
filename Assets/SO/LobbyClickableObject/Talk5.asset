@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98e5a8841e3ea34db1fceec7f9b4797, type: 3}
   m_Name: Talk5
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: 687b74fe7b9a1f34e8f74cc5e332b2b2, type: 3}
   ObjectName: "\u7269\u4EF6\u540D\u7A31"
   myObjectSprite: {fileID: -855298285791758126, guid: 16f4281138741b34c8a0ffb53df5f134, type: 3}
   myObjectX: 300

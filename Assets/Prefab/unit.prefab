@@ -294,6 +294,7 @@ MonoBehaviour:
   isAbleToDeploy: 0
   isPlayerAllowMoveSpace: 0
   TroopsOnMe: {fileID: 0}
+  StructureOnMe: {fileID: 0}
   isEnemyAttackHighLighting: 0
   isSkillPlacementHighLighting: 0
   isPlaceableTarget: 0

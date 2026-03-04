@@ -48,12 +48,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySO_S: {fileID: 0}
   myOutFit: {fileID: 6308230451936310876}
-  SoundManager: {fileID: 0}
+  soundManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  roundManager: {fileID: 0}
   myUnit: {fileID: 0}
   myAbilities: 
   isAllowStanding: 0
   isAttackableTarget: 0
-  isAllowBeingDestroyByEnergyHighState: 0
+  isRequireEnergyHigh: 0
 --- !u!114 &6308230451936310876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 300
   m_Sprite: {fileID: 6711913997770717108, guid: ae0a36d0c308f8749ad9784d6ebd679f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

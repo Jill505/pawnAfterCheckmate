@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestStructure
   m_EditorClassIdentifier: 
   myAbilities: 00000000
-  myStructureSprite: {fileID: -855298285791758126, guid: 16f4281138741b34c8a0ffb53df5f134, type: 3}
+  myStructureSprite: {fileID: -5093590084558335947, guid: e6759c56df9bbbf4097d2894f9655be4, type: 3}
   isAllowStanding: 0
-  isAttackableTarget: 1
+  isAttackableTarget: 0
   isRequireEnergyHigh: 0

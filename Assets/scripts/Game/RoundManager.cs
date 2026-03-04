@@ -371,6 +371,11 @@ public class RoundManager : MonoBehaviour
             SelectObjectTroop = null;
             selectingVector = EMPTY_VECTOR;
             OnSelectChessAllowMoveVector.Clear();
+
+            foreach (GameObject tObj in gameManager.Troops)
+            {
+                tObj.GetComponent<Troop>().troopOutfit.CleanUntouchableHint();
+            }
         }
     }
     private void resetUnitSelectState(GameObject obj) //將物件選擇效果狀態清空

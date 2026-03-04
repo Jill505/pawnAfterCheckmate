@@ -74,12 +74,15 @@ public class TrickManager : MonoBehaviour
         {
             case TrickType.noTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "NoTrick_SO");
+                trickSOFile.LoadLangData();
                 break;
             case TrickType.testTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "testTrick_SO");
+                trickSOFile.LoadLangData();
                 break;
             case TrickType.StrawMan:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "StrawMan_SO");
+                trickSOFile.LoadLangData();
                 break;
         }
 
@@ -87,7 +90,7 @@ public class TrickManager : MonoBehaviour
         if (trickSOFile != null)
         {
             //trickNameShowCase.text = trickSOFile.trickName;
-            trickNameShowcase_TMP.text = trickSOFile.name;
+            trickNameShowcase_TMP.text = trickSOFile.trickName;
             trickButtonImage.sprite = trickSOFile.mySprite;
         }
         else
