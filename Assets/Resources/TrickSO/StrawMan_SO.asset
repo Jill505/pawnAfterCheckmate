@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: StrawMan_SO
   m_EditorClassIdentifier: 
   myMutiLangData: {fileID: 4900000, guid: be2a4d17e22d5a64f9051cdc53ea14fe, type: 3}
-  trickName: 
+  trickName: "\u8349\u4EBA\u6232\u6CD5"
   myTrickType: 2
-  mySprite: {fileID: 9097189163847732070, guid: 7ca48802aaef95e40b3bc393f98bbd4c, type: 3}
+  mySprite: {fileID: -5328419903125881725, guid: e8895d390170d6048a2a57023c5ad6da, type: 3}
   trickRequireEnergy: 50
   maxTrickAmount: 3
-  trickDesc: 
+  trickDesc: "\"\u5728\u653B\u64CA\u7BC4\u570D\u5167\u53EC\u559A\u4E00\u96BB\u8349\u4EBA\n\u4F5C\u70BA\u653B\u64CA\u7684\u8DF3\u677F\n\u80FD\u91CF\u9700\u6C42:
+    200"

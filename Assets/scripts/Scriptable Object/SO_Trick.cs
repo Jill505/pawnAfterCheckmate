@@ -34,4 +34,5 @@ public enum TrickType
     noTrick,
     testTrick,
     StrawMan,
+    SelfEnergyHigh
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9637cc1ea743ab545a2697af3057526d, type: 3}
+  m_Name: SelfEnergyHigh_SO
+  m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: aa19561ac4096864f81c32e0f27b1974, type: 3}
+  trickName: "\u9810\u8A2D\u6232\u6CD5\u540D\u7A31"
+  myTrickType: 3
+  mySprite: {fileID: 6711913997770717108, guid: ae0a36d0c308f8749ad9784d6ebd679f, type: 3}
+  trickRequireEnergy: 100
+  maxTrickAmount: 1
+  trickDesc: "\u80FD\u91CF\u9AD8\u6F32\u5594\u5594\u5594"

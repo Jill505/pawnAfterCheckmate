@@ -74,6 +74,10 @@ public class GameLobbyManager : MonoBehaviour
 
         //DO level information load;
         DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex);
+        if (nowSelectingTrickIndex >= nowShowTrickArray.Length)
+        {
+            nowSelectingTrickIndex = 0;
+        }
         SelectTrick(nowShowTrickArray[nowSelectingTrickIndex]);
 
         AllowNextAndLastButtonInteractable();
@@ -254,17 +258,22 @@ public class GameLobbyManager : MonoBehaviour
             case TrickType.noTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "NoTrick_SO");
                 trickSOFile.LoadLangData();
-                nowSelectingTrickIndex = 0;
+                //nowSelectingTrickIndex = 0;
                 break;
             case TrickType.testTrick:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "testTrick_SO");
                 trickSOFile.LoadLangData();
-                nowSelectingTrickIndex = 1;
+                //nowSelectingTrickIndex = 1;
                 break;
             case TrickType.StrawMan:
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "StrawMan_SO");
                 trickSOFile.LoadLangData();
-                nowSelectingTrickIndex = 2;
+                nowSelectingTrickIndex = 0;
+                break;
+            case TrickType.SelfEnergyHigh:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "SelfEnergyHigh_SO");
+                trickSOFile.LoadLangData();
+                nowSelectingTrickIndex = 1;
                 break;
         }
 

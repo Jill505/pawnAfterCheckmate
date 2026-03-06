@@ -84,6 +84,10 @@ public class TrickManager : MonoBehaviour
                 trickSOFile = Resources.Load<SO_Trick>(trickPath + "StrawMan_SO");
                 trickSOFile.LoadLangData();
                 break;
+            case TrickType.SelfEnergyHigh:
+                trickSOFile = Resources.Load<SO_Trick>(trickPath + "SelfEnergyHigh_SO");
+                trickSOFile.LoadLangData();
+                break;  
         }
 
         //Apply
