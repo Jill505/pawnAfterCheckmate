@@ -31,6 +31,7 @@ public class GameLobbyManager : MonoBehaviour
     public Button LoadLevelButton;
     public SpriteRenderer backgroundImageSpriteRenderer;
 
+    public TextMeshProUGUI LeveIDTMP;
     public Text LevelName;
     public TextMeshProUGUI LevelNameTMP;
     public Text LevelDesc;
@@ -181,12 +182,11 @@ public class GameLobbyManager : MonoBehaviour
         }
 
         backgroundImageSpriteRenderer.sprite = SO_L.backgroundImage;
+        LeveIDTMP.text = langData[0];
         //LevelName.text = SO_L.mySO_Level.levelName;
-        LevelNameTMP.text = langData[0];
-        Debug.Log(langData[0]);
+        LevelNameTMP.text = langData[1];
         //LevelDesc.text = SO_L.mySO_Level.levelDesc;
-        LevelDescTMP.text = langData[1];
-        Debug.Log(langData[1]);
+        LevelDescTMP.text = langData[2];
 
         //SpawnClickableObject
         for (int i = 0; i < SO_L.mySO_LCOs.Length; i++)

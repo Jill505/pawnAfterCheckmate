@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public bool alreadyLoaded = false;
 
     [Header("UI context")]
+    public TextMeshProUGUI levelID_TMP;
     public TextMeshProUGUI levelName_TMP;
     public TextMeshProUGUI GameTarget_TMP;
     public Animator gameTargetAnimator;
@@ -127,8 +128,8 @@ public class GameManager : MonoBehaviour
         AK_ToolBox.LoadLangData(config.myMutiLangData, ref langData);
 
         //levelName.text = "Level Name: " + langData[0];
-        levelName_TMP.text = langData[0];
-        
+        levelID_TMP.text = langData[0];
+        levelName_TMP.text = langData[1];
     }
 
     public void GameInitialization(SO_Level config)

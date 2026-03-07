@@ -89,8 +89,7 @@ public class SaveFile
     public int gameProcess_Stage;
     public int gameProcess_Level;
 
-    public int[] talentTreeUnlock;
-
+    public bool[] talentTreeUnlock = new bool[200];
     public bool[] storyRead = new bool[100];
 
     //Trick unlock, -1 means hasn't unlock 

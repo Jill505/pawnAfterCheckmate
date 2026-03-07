@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 97052b01487a6a146ba599942fb8d019
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8974867920759224344
+    second: Talent points _2_AllowUnlock_0
+  - first:
+      213: -6106653778697159555
+    second: Talent points _2_AllowUnlock_1
+  - first:
+      213: -3995264253393693426
+    second: Talent points _2_AllowUnlock_2
+  - first:
+      213: -1523154751840957253
+    second: Talent points _2_AllowUnlock_3
+  - first:
+      213: 964682579788246877
+    second: Talent points _2_AllowUnlock_4
+  - first:
+      213: -8101208029393098852
+    second: Talent points _2_AllowUnlock_5
+  - first:
+      213: -9187749271914686016
+    second: Talent points _2_AllowUnlock_6
+  - first:
+      213: -5962200931914475073
+    second: Talent points _2_AllowUnlock_7
+  - first:
+      213: -2510285104158185724
+    second: Talent points _2_AllowUnlock_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_0
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 238
+        width: 826
+        height: 826
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7091d4d2dd27380800000000000000
+      internalID: -8974867920759224344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1010
+        width: 223
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c75722ebec04ba0800000000000000
+      internalID: -6106653778697159555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_2
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1013
+        width: 218
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0517a05458fd88c0800000000000000
+      internalID: -3995264253393693426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 715
+        width: 119
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbc429eb2daacdae0800000000000000
+      internalID: -1523154751840957253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_4
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 714
+        width: 121
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5f2949f1bd336d00800000000000000
+      internalID: 964682579788246877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 362
+        width: 125
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c976b74283ab29f80800000000000000
+      internalID: -8101208029393098852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_6
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 358
+        width: 127
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c9db2a47be8e7080800000000000000
+      internalID: -9187749271914686016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_7
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 160
+        width: 212
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb91cbd67d1024da0800000000000000
+      internalID: -5962200931914475073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talent points _2_AllowUnlock_8
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 160
+        width: 210
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40762b17ffca92dd0800000000000000
+      internalID: -2510285104158185724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Talent points _2_AllowUnlock_0: -8974867920759224344
+      Talent points _2_AllowUnlock_1: -6106653778697159555
+      Talent points _2_AllowUnlock_2: -3995264253393693426
+      Talent points _2_AllowUnlock_3: -1523154751840957253
+      Talent points _2_AllowUnlock_4: 964682579788246877
+      Talent points _2_AllowUnlock_5: -8101208029393098852
+      Talent points _2_AllowUnlock_6: -9187749271914686016
+      Talent points _2_AllowUnlock_7: -5962200931914475073
+      Talent points _2_AllowUnlock_8: -2510285104158185724
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

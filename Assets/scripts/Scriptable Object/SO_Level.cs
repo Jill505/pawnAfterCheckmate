@@ -9,8 +9,8 @@ public class SO_Level : ScriptableObject
     public TextAsset myMutiLangData;
 
     [Header("Level Data")]
+    public string levelID = "Level ID";
     public string levelName = "Def name";
-    public int levelID = 0;
 
     public SpecialLevelScriptType SLST;
 
