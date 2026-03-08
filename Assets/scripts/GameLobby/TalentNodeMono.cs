@@ -41,13 +41,11 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("滑鼠移到 Button 上了");
         HoverEnter();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("滑鼠離開 Button");
         HoverExit();
     }
 
@@ -149,6 +147,27 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             //talentFrameImage.color = new Color(0.1f, 0.1f, 0.1f, 0.4f);
 
             //Debug.Log("System call me lock!");
+        }
+    }
+    public void DrawLinkLine()
+    {
+        Debug.Log("我被執行了B");
+
+        for (int i = 0; i < talentNode.allowUnlockConditionNodeID.Length; i++)
+        {
+            int drawTargetIndex = talentNode.allowUnlockConditionNodeID[i];
+            Color drawColor = Color.white;
+
+            if (SaveSystem.SF.talentTreeUnlock[talentNode.allowUnlockConditionNodeID[i]])
+            {
+                drawColor = new Color(0.3f, 0.89f, 0.17f, 0.9f);
+            }
+            else
+            {
+                drawColor = new Color(1,1,1,0.3f);
+            }
+
+            talentGameLobbySystem.DrawLine(transform.position, talentGameLobbySystem.talentNodeMonoList[drawTargetIndex].gameObject.transform.position, drawColor);
         }
     }
 }
