@@ -22,7 +22,7 @@ public class TSA_Player : MonoBehaviour
             myTroop.horBlockMoveAbility += 1;
             myTroop.verticalBlockMoveAbility += 1;
         }
-        if (SaveSystem.SF.talentTreeUnlock[4])
+        if (SaveSystem.SF.talentTreeUnlock[9])
         {
             myTroop.leftLife += 1;
         }

@@ -160,7 +160,7 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             if (SaveSystem.SF.talentTreeUnlock[talentNode.allowUnlockConditionNodeID[i]])
             {
-                drawColor = new Color(0.3f, 0.89f, 0.17f, 0.9f);
+                drawColor = new Color(1f, 0.88f, 0.11f, 0.9f);
             }
             else
             {
