@@ -66,15 +66,15 @@ public class GameLogScreenManager : MonoBehaviour
 
     public void DoDiffSwitch()
     {
-        if (SaveSystem.SF.difficulty == 0)
+        int diff = SaveSystem.SF.difficulty;
+
+        diff += 1;
+        if (diff > 2)
         {
-            SaveSystem.SF.difficulty = 1;
-        }
-        else
-        {
-            SaveSystem.SF.difficulty = 0;
+            diff = 0;
         }
 
+        SaveSystem.SF.difficulty = diff;
 
         SaveSystem.SaveSF();
     }
@@ -87,6 +87,10 @@ public class GameLogScreenManager : MonoBehaviour
     public void DiffButtonInformationSync()
     {
         if (SaveSystem.SF.difficulty == 0)
+        {
+            DiffTextShowcase.text = "簡單模式";
+        }
+        else if (SaveSystem.SF.difficulty == 1)
         {
             DiffTextShowcase.text = "普通模式";
         }

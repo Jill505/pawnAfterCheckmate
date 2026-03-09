@@ -12,11 +12,20 @@ public class TSA_Player : MonoBehaviour
     void Start()
     {
         DieParticleVFX = Resources.Load<GameObject>("VFX/Misc/PlayerDieParticleVFX");
+        LoadPlayerSkill();
     }
 
     public void LoadPlayerSkill()
     {
-
+        if (SaveSystem.SF.talentTreeUnlock[0])
+        {
+            myTroop.horBlockMoveAbility += 1;
+            myTroop.verticalBlockMoveAbility += 1;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[4])
+        {
+            myTroop.leftLife += 1;
+        }
     }
 
     public void SpawnBlackMist()

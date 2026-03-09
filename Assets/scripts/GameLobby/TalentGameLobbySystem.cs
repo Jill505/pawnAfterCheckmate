@@ -10,6 +10,10 @@ public class TalentGameLobbySystem : MonoBehaviour
     public TextMeshProUGUI nodeDesc;
     public int talentPoint = 0;
 
+    public bool isHovering = false;
+    public float informationHoverDownTime = 1f;
+    public float informationHoverDownCT = 0f;
+
     public void Start()
     {
         LoadTalentNodeUnlock();
@@ -18,14 +22,25 @@ public class TalentGameLobbySystem : MonoBehaviour
     private void Update()
     {
         //LoadTalentNodeUnlock();
+        if (isHovering == false)
+        {
+            informationHoverDownCT -= Time.deltaTime;
+        }
+
+        if (informationHoverDownCT < 0)
+        {
+            nodeInfoAnimator.SetBool("showNodeInfo", false);
+        }
     }
     public void ShowNodeInfo()
     {
         nodeInfoAnimator.SetBool("showNodeInfo", true);
+        isHovering = true;
     }
     public void HideNodeInfo()
     {
-        nodeInfoAnimator.SetBool("showNodeInfo", false);
+        informationHoverDownCT = informationHoverDownTime;
+        isHovering = false;
     }
 
     public void ResetTalent()
