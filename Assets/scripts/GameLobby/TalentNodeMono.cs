@@ -167,7 +167,7 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 drawColor = new Color(1,1,1,0.3f);
             }
 
-            talentGameLobbySystem.DrawLine(transform.position, talentGameLobbySystem.talentNodeMonoList[drawTargetIndex].gameObject.transform.position, drawColor);
+            talentGameLobbySystem.DrawLine(transform.position, talentGameLobbySystem.talentNodeMonoList[drawTargetIndex].gameObject.transform.position, drawColor, 0.05f);
         }
     }
 }
