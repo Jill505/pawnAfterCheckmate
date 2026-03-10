@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -108,7 +109,23 @@ public class TrickManager : MonoBehaviour
         {
             killCT = energyGetWhenKill.Length -1;
         }
-        GainEnergy(energyGetWhenKill[killCT]);
+
+        int additionalKillEnergy = 0;
+        if (SaveSystem.SF.talentTreeUnlock[1])
+        {
+            additionalKillEnergy += 10;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[8])
+        {
+            additionalKillEnergy += 5;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[11])
+        {
+            additionalKillEnergy += 5;
+        }
+
+
+        GainEnergy(energyGetWhenKill[killCT] + additionalKillEnergy);
     }
     public void GainEnergy(float energyGet)
     {
@@ -184,22 +201,48 @@ public class TrickManager : MonoBehaviour
             gameManager.GetUnitAt((int)vec2.x, (int)vec2.y).isPlaceableTarget = true;
         }*/
 
-        if (SaveSystem.SF.strawmanLevel <= 0 || SaveSystem.SF.strawmanLevel >=0)
+        int HorLen = 0;
+        int VerLen = 0;
+        int diaLen = 0;
+
+        if (SaveSystem.SF.strawmanLevel >= 0)
         {
-            relativelyVec.Add(new Vector2(1, 0));
-            relativelyVec.Add(new Vector2(-1, 0));
-            relativelyVec.Add(new Vector2(0, 1));
-            relativelyVec.Add(new Vector2(0, -1));
+            HorLen += 1;
+            VerLen += 1;
         }
 
-        if (SaveSystem.SF.strawmanLevel >= 1)
+        if (SaveSystem.SF.talentTreeUnlock[3])
         {
-            relativelyVec.Add(new Vector2(2, 0));
-            relativelyVec.Add(new Vector2(-2, 0));
-            relativelyVec.Add(new Vector2(0, 2));
-            relativelyVec.Add(new Vector2(0, -2));
+            HorLen += 1;
+            VerLen += 1;
         }
 
+        if (SaveSystem.SF.talentTreeUnlock[19])
+        {
+            diaLen += 1;
+            HorLen += 1;
+            VerLen += 1;
+        }
+
+        for (int i = 0; i < HorLen; i++)
+        {
+            relativelyVec.Add(new Vector2(i, 0));
+            relativelyVec.Add(new Vector2(-i, 0));
+        }
+
+        for (int i = 0; i < VerLen; i++)
+        {
+            relativelyVec.Add(new Vector2(0, i));
+            relativelyVec.Add(new Vector2(0, -i));
+        }
+
+        for (int i = 0; i < diaLen; i++)
+        {
+            relativelyVec.Add(new Vector2(i, i));
+            relativelyVec.Add(new Vector2(i, -i));
+            relativelyVec.Add(new Vector2(-i, i));
+            relativelyVec.Add(new Vector2(-i, -i));
+        }
 
         //Register Spawnable unit
         foreach (Vector2 vec in relativelyVec)

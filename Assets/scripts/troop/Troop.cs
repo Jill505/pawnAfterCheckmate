@@ -810,6 +810,18 @@ public class Troop : MonoBehaviour
         hasRightShield = otherT.hasRightShield;
         hasLowerShield = otherT.hasLowerShield;
         hasUpperShield = otherT.hasUpperShield;
+
+        //Additional Soul
+        if (SaveSystem.SF.talentTreeUnlock[4])
+        {
+            horBlockMoveAbility += 1;
+            verticalBlockMoveAbility += 1;
+        }
+
+        if (SaveSystem.SF.talentTreeUnlock[12])
+        {
+
+        }
     }
 
     public void CleanFunction_Action_PowerActiveOnce()
