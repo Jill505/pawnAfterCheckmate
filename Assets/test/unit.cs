@@ -8,6 +8,7 @@ public class unit : MonoBehaviour
     public SoundManager soundManager;
     public TrickManager trickManager;
     public CameraManager cameraManager;
+    public TimerManager timerManager;
     public VFXManager vFXManager;
 
     public UnitOutfit myUnitOutfit;
@@ -44,6 +45,7 @@ public class unit : MonoBehaviour
         trickManager = FindAnyObjectByType<TrickManager>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         vFXManager = FindAnyObjectByType<VFXManager>();
+        timerManager = FindFirstObjectByType<TimerManager>();
     }
 
 
@@ -341,6 +343,7 @@ public class unit : MonoBehaviour
                 //TOT
                 vFXManager.SpawnHintGameObject(roundManager.playerHitCombo);
                 trickManager.GainEnergyFromKill(roundManager.playerHitCombo);
+                timerManager.KillReward();
                 roundManager.StartSpecialRound(roundManager.playerHitCombo);
             }
             else
@@ -484,14 +487,14 @@ public class unit : MonoBehaviour
         }
         else if (roundManager.playerHitCombo >= 4)//連殺
         {
-            Debug.Log("播放擊殺音效5");
+            //Debug.Log("播放擊殺音效5");
             soundManager.PlaySFX("kill_5");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             cameraManager.Shake(0.6f);
         }
         else if (roundManager.playerHitCombo >= 3)
         {
-            Debug.Log("播放擊殺音效4");
+            //Debug.Log("播放擊殺音效4");
             soundManager.PlaySFX("kill_4");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             cameraManager.Shake(0.5f);
@@ -499,7 +502,7 @@ public class unit : MonoBehaviour
 
         else if (roundManager.playerHitCombo >= 2)
         {
-            Debug.Log("播放擊殺音效3");
+            //Debug.Log("播放擊殺音效3");
             soundManager.PlaySFX("kill_3");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             cameraManager.Shake(0.4f);
@@ -507,7 +510,7 @@ public class unit : MonoBehaviour
 
         else if (roundManager.playerHitCombo >= 1)
         {
-            Debug.Log("播放擊殺音效2");
+            //Debug.Log("播放擊殺音效2");
             soundManager.PlaySFX("kill_2");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             cameraManager.Shake(0.4f);
@@ -515,7 +518,7 @@ public class unit : MonoBehaviour
 
         else
         {
-            Debug.Log("播放擊殺音效1");
+            //Debug.Log("播放擊殺音效1");
             soundManager.PlaySFX("kill_1");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");
             cameraManager.Shake(0.4f);

@@ -74,16 +74,16 @@ public class Structure : MonoBehaviour
 
     public bool isContainAbility(StructureAbility SA)
     {
-        Debug.Log("觸發檢測");
+        //Debug.Log("觸發檢測");
         for (int i = 0; i < myAbilities.Length; i++)
         {
             if (myAbilities[i] == SA)
             {
-                Debug.Log("返回檢測結果 _ 有");
+                //Debug.Log("返回檢測結果 _ 有");
                 return true;
             }
         }
-        Debug.Log("返回檢測結果 _ 無");
+        //Debug.Log("返回檢測結果 _ 無");
         return false;
     }
 

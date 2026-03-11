@@ -14,5 +14,10 @@ public class TestCore : MonoBehaviour
         {
             FindFirstObjectByType<TSA_Player>().gameObject.GetComponent<Troop>().leftLife++;
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            FindFirstObjectByType<TrickManager>().GainEnergy(50f);
+        }
     }
 }

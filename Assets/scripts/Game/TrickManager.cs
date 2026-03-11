@@ -195,15 +195,12 @@ public class TrickManager : MonoBehaviour
         Vector2 refPlayerPos = new Vector2(gameManager.PlayerTroop.myNowX, gameManager.PlayerTroop.myNowY);
         List<Vector2> relativelyVec = new List<Vector2>();
 
-        /*
-        foreach (Vector2 vec2 in gameManager.GetEmptyUnitList())
-        {
-            gameManager.GetUnitAt((int)vec2.x, (int)vec2.y).isPlaceableTarget = true;
-        }*/
-
         int HorLen = 0;
         int VerLen = 0;
         int diaLen = 0;
+
+        HorLen += 1;
+        VerLen += 1;
 
         if (SaveSystem.SF.strawmanLevel >= 0)
         {
@@ -217,6 +214,13 @@ public class TrickManager : MonoBehaviour
             VerLen += 1;
         }
 
+        if (SaveSystem.SF.talentTreeUnlock[7])
+        {
+            diaLen += 1;
+            HorLen += 1;
+            VerLen += 1;
+        }
+
         if (SaveSystem.SF.talentTreeUnlock[19])
         {
             diaLen += 1;
@@ -224,19 +228,19 @@ public class TrickManager : MonoBehaviour
             VerLen += 1;
         }
 
-        for (int i = 0; i < HorLen; i++)
+        for (int i = 1; i < HorLen + 1; i++)
         {
             relativelyVec.Add(new Vector2(i, 0));
             relativelyVec.Add(new Vector2(-i, 0));
         }
 
-        for (int i = 0; i < VerLen; i++)
+        for (int i = 1; i < VerLen +1; i++)
         {
             relativelyVec.Add(new Vector2(0, i));
             relativelyVec.Add(new Vector2(0, -i));
         }
 
-        for (int i = 0; i < diaLen; i++)
+        for (int i = 1; i < diaLen +1; i++)
         {
             relativelyVec.Add(new Vector2(i, i));
             relativelyVec.Add(new Vector2(i, -i));

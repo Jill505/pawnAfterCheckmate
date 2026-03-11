@@ -151,8 +151,6 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     public void DrawLinkLine()
     {
-        Debug.Log("我被執行了B");
-
         for (int i = 0; i < talentNode.allowUnlockConditionNodeID.Length; i++)
         {
             int drawTargetIndex = talentNode.allowUnlockConditionNodeID[i];

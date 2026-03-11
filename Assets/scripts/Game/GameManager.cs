@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public SO_Level levelData;
     public SoundManager soundManager;
     public TrickManager trickManager;
+    public TimerManager timerManager;
 
     public SpecialLevelScript SLS;
 
@@ -172,7 +173,10 @@ public class GameManager : MonoBehaviour
             tarUnit.isDeployed = config.levelContext[i].isDeployed;
         }
     }
-
+    public void EnvironmentInit()
+    {
+        timerManager.InitTimer();
+    }
 
     public void LevelCheckAndLoad()
     {
@@ -216,6 +220,8 @@ public class GameManager : MonoBehaviour
                 ChessSpawn(levelConstructor.levelInfo);
                 Init_SpawnStructure(levelConstructor.levelInfo);
 
+                EnvironmentInit();
+
                 if (levelConstructor.SLS != null)
                 {
                     Debug.Log("EQU");
@@ -228,13 +234,15 @@ public class GameManager : MonoBehaviour
                     Debug.Log("N - EQU");
                 }
 
-                //考慮加入倒數
+                //呼叫回合開始協程
 
-                roundManager.roundState = RoundState.MyRound;
-                if (isBlitzOn)
-                {
-                    StartBlitzCoroutine(blitzTime);
-                }
+                //roundManager.roundState = RoundState.MyRound;
+
+                roundManager.StartRoundStartCoroutine();
+                //if (isBlitzOn)
+                //{
+                //    StartBlitzCoroutine(blitzTime);
+                //}
             }
         }
 
@@ -321,8 +329,6 @@ public class GameManager : MonoBehaviour
         InGameStructureList.Add(ST);
     }
 
-
-
     public void SwapFunction_BackToLobby()
     {
         SceneManager.LoadScene(1);
@@ -404,7 +410,7 @@ public class GameManager : MonoBehaviour
 
     public void FrameSkipping()
     {
-        Debug.Log("Frame Skip ");
+       // Debug.Log("Frame Skip ");
         //StartCoroutine(FrameSkippingCoroutine(0.3f, 0.4f));
     }
     public void FrameSkipping(float lateRate, float lateTime)

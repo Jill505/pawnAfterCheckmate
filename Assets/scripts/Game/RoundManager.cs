@@ -13,6 +13,7 @@ public class RoundManager : MonoBehaviour
     public CameraManager cameraManager;
     public SoundManager soundManager;
     public VFXManager vFXManager;
+    public TimerManager timerManager;
 
     [Header("Game Information")]
     public bool GameGoing = false;
@@ -89,6 +90,9 @@ public class RoundManager : MonoBehaviour
     [Header("Enemy Animation Coroutine")]
     public Coroutine EnemyAnimationCoroutine;
     public bool EnemyAnimationCoroutineEnd;
+
+    [Header("Game Start Animation")]
+    public Animator gameStartAnimator;
 
     void Start()
     {
@@ -281,6 +285,7 @@ public class RoundManager : MonoBehaviour
         else
         {
             roundState = RoundState.MyRound;
+            timerManager.PlayerRoundCall();
         }
 
         finishRoundClog = false;
@@ -303,7 +308,7 @@ public class RoundManager : MonoBehaviour
             TSA_Player TSAP = FindFirstObjectByType<TSA_Player>();
             if (TSAP == null)
             {
-                Debug.Log("Ed Sheeran - Perfect");
+                Debug.Log("TSA_Player is null, is player in the scene?");
             }
             TSAP.SpawnBlackMist();
             playerReviving = true;
@@ -430,6 +435,7 @@ public class RoundManager : MonoBehaviour
     {
         RoundSelectClean();
         gameManager.StopBlitzCoroutine();
+        timerManager.PlayerRoundFinishCall();
         roundState = RoundState.EnemyRound;
     }
 
@@ -486,7 +492,7 @@ public class RoundManager : MonoBehaviour
         SelectUnit = gameManager.chessBoardObjectRefArr[gameManager.PlayerTroop.myNowY, gameManager.PlayerTroop.myNowX];
         selectingVector = new Vector2(gameManager.PlayerTroop.myNowX, gameManager.PlayerTroop.myNowY);
 
-        Debug.Log("Triggered");
+        //Debug.Log("Triggered");
         SelectObjectTroop = gameManager.PlayerTroop;
         Player_UpdateOnSelectChessAllowMoveVector();
 
@@ -610,6 +616,21 @@ public class RoundManager : MonoBehaviour
 
         SpawnEnemy_RandomSpot(GBIC);
         
+    }
+
+    Coroutine roundStartC;
+    public void StartRoundStartCoroutine()
+    {
+        roundStartC =  StartCoroutine(RoundStartCoroutine());
+    }
+    public IEnumerator RoundStartCoroutine()
+    {
+        yield return null;
+        gameStartAnimator.SetTrigger("Play");
+
+        yield return new WaitForSeconds(2f);
+        roundState = RoundState.MyRound;
+        timerManager.PlayerRoundCall();
     }
 }
 public enum RoundState

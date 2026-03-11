@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 using AKTool;
-using Unity.VisualScripting;
 
 public class Troop : MonoBehaviour
 {
@@ -820,7 +819,7 @@ public class Troop : MonoBehaviour
 
         if (SaveSystem.SF.talentTreeUnlock[12])
         {
-
+            diagonalBlockMoveAbility += 1;
         }
     }
 
