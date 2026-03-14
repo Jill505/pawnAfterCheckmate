@@ -344,12 +344,12 @@ public class GameManager : MonoBehaviour
             case (MissionType.Survive):
                 if (levelData.SurviveRound - roundManager.roundCount > 0)
                 {
-                    TargetStr = "目標\n存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
+                    TargetStr = "存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
                     GameTarget_TMP.color = Color.white;
                 }
                 else
                 {
-                    TargetStr = "目標\n殺死癥結！";
+                    TargetStr = "殺死癥結！";
                     GameTarget_TMP.color = Color.red;
                 }
                 break;

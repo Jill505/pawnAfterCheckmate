@@ -55,10 +55,11 @@ public class TimerManager : MonoBehaviour
             roundStartBufferTime = 1.2f;
             roundTimeEndBufferTime = 1f;
             leftTimeDeadBufferTime = 2f;
+
         }
         else if (SaveSystem.SF.difficulty == 1)
         {
-            Debug.Log("timer更 螟家Α");
+            Debug.Log("timer更 炊硄家Α");
             myIndependentTimeScale = 1;
             leftTime = 61f;
             roundTime = 5f;
@@ -77,6 +78,25 @@ public class TimerManager : MonoBehaviour
             roundStartBufferTime = 0.9f;
             roundTimeEndBufferTime = 0.5f;
             leftTimeDeadBufferTime = 2f;
+        }
+
+
+        if (SaveSystem.SF.talentTreeUnlock[2])
+        {
+            roundTime += 1;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[13])
+        {
+            roundTime += 1;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[14])
+        {
+            leftTime += leftTime * 0.2f;
+        }
+
+        if (SaveSystem.SF.talentTreeUnlock[18])
+        {
+            roundTime += 1;
         }
 
         leftTimeCT = leftTime;
@@ -181,6 +201,22 @@ public class TimerManager : MonoBehaviour
         leftTimeDeadBufferCT = leftTimeDeadBufferTime;
 
         roundTimeCT = roundTime;
+        if (SaveSystem.SF.talentTreeUnlock[5])
+        {
+            roundTimeCT += 2f;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[8])
+        {
+            roundTimeCT += 1f;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[13])
+        {
+            roundTimeCT += 1f;
+        }
+        if (SaveSystem.SF.talentTreeUnlock[16])
+        {
+            roundTimeCT += 2f;
+        }
     }
 
 
@@ -203,6 +239,19 @@ public class TimerManager : MonoBehaviour
         {
             leftTimeCT += roundTimeCT;
             trickManager.GainEnergy(roundTimeCT * 10f);
+
+            if (SaveSystem.SF.talentTreeUnlock[2])
+            {
+                trickManager.GainEnergy(10f);
+            }
+            if (SaveSystem.SF.talentTreeUnlock[13])
+            {
+                trickManager.GainEnergy(5f);
+            }
+            if (SaveSystem.SF.talentTreeUnlock[18])
+            {
+                trickManager.GainEnergy(10f);
+            }
         }
     }
 

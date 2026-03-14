@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TS_L5
   m_EditorClassIdentifier: 
   myMutiLangData: {fileID: 4900000, guid: bd137e3b5f54f844eb71e1242fa75ba6, type: 3}
-  levelName: "\u95DC\u53615 - \u9023\u64CA\u6280\u5DE7"
   levelID: 0
+  levelName: "\u95DC\u53615 - \u9023\u64CA\u6280\u5DE7"
   SLST: 0
   levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\u300D"
   allowDeployTroopNumber: 3
@@ -576,6 +576,16 @@ MonoBehaviour:
     isRandomSpawn: 0
     locationX: 8
     locationY: 3
+  structureInsData:
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+    locationX: 6
+    locationY: 4
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+    locationX: 2
+    locationY: 4
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+    locationX: 4
+    locationY: 6
   enemySpawnEachRound: 2
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
