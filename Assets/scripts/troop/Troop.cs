@@ -764,6 +764,10 @@ public class Troop : MonoBehaviour
                 var swapTSA_player = gameObject.AddComponent<TSA_Player>();
                 swapTSA_player.myTroop = this;
                 break;
+            case ability.killProcess:
+                Debug.Log("Kill process working");
+                OnDieAction += () => { roundManager.leftRoundCount -= 1; Debug.Log("Kill Process works"); };
+                break;
         }
     }
 

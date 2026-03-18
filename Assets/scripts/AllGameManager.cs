@@ -79,6 +79,9 @@ public enum ability
 
     //用於掛載player TSA
     player,
+
+    //用於加快進程玩法
+    killProcess,
 }
 
 public enum SaveFileType

@@ -122,6 +122,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    private void FixedUpdate()
+    {
+        GameTargetUISet();
+    }
 
     public void LoadGame(SO_Level config)
     {
@@ -138,6 +142,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("關卡生成初始化");
         //載入關卡配置 - 音樂
         bGM_name = config.LevelBgmName;
+
+        //載入關卡配置 - 長度
+        if (config.myMissionType == MissionType.Survive)
+        {
+            roundManager.leftRoundCount = config.SurviveRound;
+        }
 
         spawnReferencePoint = Vector2.zero;
         chessBoardObjectRefArr = new GameObject[config.gridSizeX, config.gridSizeY];
@@ -342,9 +352,9 @@ public class GameManager : MonoBehaviour
         switch (levelData.myMissionType)
         {
             case (MissionType.Survive):
-                if (levelData.SurviveRound - roundManager.roundCount > 0)
+                if (roundManager.leftRoundCount - roundManager.roundCount > 0)
                 {
-                    TargetStr = "存活 " + (levelData.SurviveRound - roundManager.roundCount) + " 回合";
+                    TargetStr = "存活 " + (roundManager.leftRoundCount - roundManager.roundCount) + " 回合";
                     GameTarget_TMP.color = Color.white;
                 }
                 else
