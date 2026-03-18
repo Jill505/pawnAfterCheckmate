@@ -444,7 +444,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject obj in chessBoardObjectRefArr)
         {
             unit swapUnit = obj.GetComponent<unit>();
-            if (swapUnit.TroopsOnMe == null)
+            if (swapUnit.TroopsOnMe == null && swapUnit.StructureOnMe == null)
             {
                 // it's empty;
                 EmptyUnitVectorList.Add(new Vector2(swapUnit.myX, swapUnit.myY));
