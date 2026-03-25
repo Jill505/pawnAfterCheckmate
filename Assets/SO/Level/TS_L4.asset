@@ -19,7 +19,7 @@ MonoBehaviour:
   levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\u300D"
   allowDeployTroopNumber: 3
   myMissionType: 0
-  SurviveRound: 6
+  SurviveRound: 12
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     isRandomSpawn: 0

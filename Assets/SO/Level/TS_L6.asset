@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: TS_L6
   m_EditorClassIdentifier: 
   myMutiLangData: {fileID: 4900000, guid: 2a2cba94567445d48a9f8f6b6b0038f9, type: 3}
-  levelName: "\u95DC\u53616 - \u51F1\u502B"
   levelID: 0
+  levelName: "\u95DC\u53616 - \u51F1\u502B"
   SLST: 1
   levelDesc: "\u6700\u5F8C\u7684\u95DC\u5361"
   allowDeployTroopNumber: 3
   myMissionType: 2
-  SurviveRound: 5
+  SurviveRound: 15
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     isRandomSpawn: 0
@@ -556,6 +556,7 @@ MonoBehaviour:
     isRandomSpawn: 0
     locationX: 8
     locationY: 0
+  structureInsData: []
   enemySpawnEachRound: 2
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}

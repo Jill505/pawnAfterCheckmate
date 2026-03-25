@@ -127,6 +127,8 @@ public class Troop : MonoBehaviour
         {
             TroopAbilityApply(myAbilities[i]);
         }
+
+        OnDieAction += () => { roundManager.leftRoundCount -= 1; Debug.Log("Kill Process works"); };
     }
 
     void Update()
@@ -763,10 +765,6 @@ public class Troop : MonoBehaviour
             case ability.player:
                 var swapTSA_player = gameObject.AddComponent<TSA_Player>();
                 swapTSA_player.myTroop = this;
-                break;
-            case ability.killProcess:
-                Debug.Log("Kill process working");
-                OnDieAction += () => { roundManager.leftRoundCount -= 1; Debug.Log("Kill Process works"); };
                 break;
         }
     }
