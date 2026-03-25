@@ -9,6 +9,10 @@ public class LevelLoader : MonoBehaviour
 {
     static public GameObject loadingLevelObject = null;
 
+    [Header("Retry Center")]
+    static public SO_Level retryStatic_SO_Level;
+    static public bool retryGameBool = false;
+
     [Header("Component Ref")]
     public SO_Level loadLevel;
     public GameObject levelConstructorGameObject;
@@ -18,6 +22,23 @@ public class LevelLoader : MonoBehaviour
     [Header("Level Canvas")]
     public Text levelShowName;
     public Text levelShowDesc;
+
+    public void Start()
+    {
+        if (retryGameBool)
+        {
+            retryGameBool = false;
+            if (retryStatic_SO_Level != null)
+            {
+                loadLevel = retryStatic_SO_Level;
+                NewLoadLevel();
+            }
+            else
+            {
+                Debug.Log("資料遺失 無法 retry");
+            }
+        }
+    }
 
     public void NewLoadLevel()
     {

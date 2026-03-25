@@ -32,6 +32,19 @@ public class GameESCManager : MonoBehaviour
     }
     public void backToLobby()
     {
+        RoundManager rm = FindFirstObjectByType<RoundManager>();
+        rm.gameManager.PlayerTroop.leftLife = 0;
+        rm.MakePlayerDie();
+    }
+
+    public void Retry()
+    {
+        //Call Lobby to load this env
+        LevelLoader.retryStatic_SO_Level = FindFirstObjectByType<GameManager>().levelData;
+        LevelLoader.retryGameBool = true;   
+
+        RoundManager rm = FindFirstObjectByType<RoundManager>();
+        rm.gameManager.PlayerTroop.leftLife = 0;
         rm.MakePlayerDie();
     }
 }

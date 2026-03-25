@@ -44,6 +44,8 @@ public class VFXManager : MonoBehaviour
             currentSpawnSpot = new Vector2(UnityEngine.Random.Range(spawnArea_HitHint_B_LB.x, spawnArea_HitHint_B_RT.x), UnityEngine.Random.Range(spawnArea_HitHint_B_LB.y, spawnArea_HitHint_B_RT.y));
         }
 
+        currentSpawnSpot = new Vector2(8.09f, -1.94f);
+
         GameObject SpawnObj =Instantiate(HitHintGameObject, currentSpawnSpot, Quaternion.identity);
         float ramdomRotation = Random.Range(-27f, 27f);
         SpawnObj.GetComponent<SpriteRenderer>().sprite = hitHintGameObjectSprites[currentIndex];

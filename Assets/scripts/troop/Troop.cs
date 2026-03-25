@@ -589,7 +589,10 @@ public class Troop : MonoBehaviour
                 if (ST.hasUpperShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    ST.troopOutfit.TriggerUntouchableHint();
+                    if (T.isPlayer)
+                    {
+                        ST.troopOutfit.TriggerUntouchableHint();
+                    }
                 }
             }
         }
@@ -612,7 +615,10 @@ public class Troop : MonoBehaviour
                 if (ST.hasLowerShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    ST.troopOutfit.TriggerUntouchableHint();
+                    if (T.isPlayer)
+                    {
+                        ST.troopOutfit.TriggerUntouchableHint();
+                    }
                 }
             }
         }
@@ -634,7 +640,10 @@ public class Troop : MonoBehaviour
                 if (ST.hasLeftShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    ST.troopOutfit.TriggerUntouchableHint();
+                    if (T.isPlayer)
+                    {
+                        ST.troopOutfit.TriggerUntouchableHint();
+                    }
                 }
             }
         }
@@ -654,7 +663,10 @@ public class Troop : MonoBehaviour
                 if (ST.hasRightShield)
                 {
                     Vec2List.Remove(Vec2List[i]);
-                    ST.troopOutfit.TriggerUntouchableHint();
+                    if (T.isPlayer)
+                    {
+                        ST.troopOutfit.TriggerUntouchableHint();
+                    }
                 }
             }
         }
@@ -682,7 +694,10 @@ public class Troop : MonoBehaviour
                         else
                         {
                             Vec2List.Remove(Vec2List[i]);
-                            ST.troopOutfit.TriggerUntouchableHint();
+                            if (T.isPlayer)
+                            {
+                                ST.troopOutfit.TriggerUntouchableHint();
+                            }
                             Debug.Log("≥s¿ª¨ﬁ1 •º¿ªØ}");
                         }
                         break;
@@ -696,7 +711,10 @@ public class Troop : MonoBehaviour
                         {
                             Debug.Log("≥s¿ª¨ﬁ2 •º¿ªØ}");
                             Vec2List.Remove(Vec2List[i]);
-                            ST.troopOutfit.TriggerUntouchableHint();
+                            if (T.isPlayer)
+                            {
+                                ST.troopOutfit.TriggerUntouchableHint();
+                            }
                         }
                         break;
 
@@ -708,7 +726,10 @@ public class Troop : MonoBehaviour
                         else
                         {
                             Vec2List.Remove(Vec2List[i]);
-                            ST.troopOutfit.TriggerUntouchableHint();
+                            if (T.isPlayer)
+                            {
+                                ST.troopOutfit.TriggerUntouchableHint();
+                            }
                             Debug.Log("≥s¿ª¨ﬁ3 •º¿ªØ}");
                         }
                         break;

@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Control Variable")]
     public bool alreadyLoaded = false;
+    public bool isPressingTab = false;
 
     [Header("UI context")]
     public TextMeshProUGUI levelID_TMP;
@@ -120,6 +121,29 @@ public class GameManager : MonoBehaviour
                 gameBGM.FadeOut(0.4f);
 
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            isPressingTab = true;    
+
+            for (int i = 0; i < Troops.Count; i++)
+            {
+                Troop T = Troops[i].GetComponent<Troop>();
+                if (T.isPlayer) continue;
+
+                T.EnemyCalculateAttackRange();
+                for (int j = 0; j < T.OnSelectChessAllowMoveVector.Count; j++)
+                {
+                    GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).isEnemyAttackHighLighting = true ;
+                }
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            //roundManager.resetUnitSelectState();
+            roundManager.EnemyAttackRangeShowcaseReduce();
+            isPressingTab = false;
         }
     }
     private void FixedUpdate()

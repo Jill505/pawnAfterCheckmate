@@ -266,8 +266,9 @@ public class RoundManager : MonoBehaviour
         switch (gameManager.levelData.myMissionType)
         {
             case MissionType.Survive:
-                if (!goldenTargetSpawned && roundCount == leftRoundCount)
+                if (!goldenTargetSpawned && roundCount >= leftRoundCount)
                 {
+                    goldenTargetSpawned = true;
                     //Spawn Golden Enemy;
                     GameBoardInsChess GBIC = new GameBoardInsChess();
                     GBIC.chessFile = gameManager.levelData.goldenTarget.chessFile;

@@ -262,6 +262,10 @@ public class TrickManager : MonoBehaviour
             {
                 continue;
             }
+            if (gameManager.GetUnitAt((int)spawnVec.x, (int)spawnVec.y).StructureOnMe != null)
+            {
+                continue;
+            }
 
             gameManager.GetUnitAt((int)spawnVec.x, (int)spawnVec.y).isPlaceableTarget = true;
         }

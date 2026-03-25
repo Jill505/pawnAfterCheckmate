@@ -123,7 +123,14 @@ public class unit : MonoBehaviour
             myUnitOutfit.mySr.sprite = myUnitOutfit.myOriginalSprite;
         }
 
-        roundManager.EnemyAttackRangeShowcaseReduce();
+        if (gameManager.isPressingTab)
+        {
+
+        }
+        else
+        {
+            roundManager.EnemyAttackRangeShowcaseReduce();
+        }
     }
     private void OnMouseDown()
     {
