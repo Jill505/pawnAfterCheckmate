@@ -201,6 +201,7 @@ public class TrickManager : MonoBehaviour
 
         HorLen += 1;
         VerLen += 1;
+        diaLen += 1;
 
         if (SaveSystem.SF.strawmanLevel >= 0)
         {

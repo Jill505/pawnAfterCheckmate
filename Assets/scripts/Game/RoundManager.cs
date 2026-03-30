@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 using TMPro;
+using UnityEditor;
 
 public class RoundManager : MonoBehaviour
 {
@@ -528,7 +529,28 @@ public class RoundManager : MonoBehaviour
 
     public void SpawnEnemy_RandomSpot(GameBoardInsChess p_GBIC)
     {
-        List<Vector2> emptyList = gameManager.GetEmptyUnitList();
+        List<Vector2> emptyList = new List<Vector2>();
+
+        
+        //emptyList = gameManager.GetEmptyUnitList();
+        
+        for (int i = 0; i < gameManager.Troops.Count; i++)
+        {
+            Troop T = gameManager.Troops[i].GetComponent<Troop>();
+            if (T.isPlayer) continue;
+
+            T.EnemyCalculateAttackRange();
+            for (int j = 0; j < T.OnSelectChessAllowMoveVector.Count; j++)
+            {
+                //gameManager.GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).isEnemyAttackHighLighting = true;
+                emptyList.Add (new Vector2((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y));
+            }
+        }
+
+        if (emptyList.Count == 0)
+        {
+            emptyList = gameManager.GetEmptyUnitList();
+        }
 
         if (emptyList.Count == 0)
         {
