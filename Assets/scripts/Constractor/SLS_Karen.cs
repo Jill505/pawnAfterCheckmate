@@ -46,6 +46,7 @@ public class SLS_Karen: SpecialLevelScript
         KarenBlood.fillAmount = (float)((float)bossHealth / (float)_bossMaxHealth);
         KarenBloodText.text = bossHealth + " / " + _bossMaxHealth;
         KarenAnimator.SetTrigger("Injurd");
+        roundManager.playerHitCombo = 0;
 
         soundManager.PlaySFX("Karen_damage_1");
         soundManager.PlaySFX("Karen_damage_3");
