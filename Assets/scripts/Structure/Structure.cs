@@ -26,7 +26,7 @@ public class Structure : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>();
         roundManager = FindFirstObjectByType<RoundManager>();
-    
+        soundManager = FindFirstObjectByType<SoundManager>();
     }
     public void SyncMyPositionToUnit()
     {
@@ -90,6 +90,7 @@ public class Structure : MonoBehaviour
     public void DestroyStructure()
     {
         //Maybe consider to add VFX here?
+        soundManager.PlaySFX("stone_explode");
         Destroy(gameObject);
     }
 

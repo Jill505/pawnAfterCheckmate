@@ -82,6 +82,9 @@ public enum ability
 
     //用於加快進程玩法
     killProcess,
+
+    //癥結敵人
+    goldenTarget,
 }
 
 public enum SaveFileType

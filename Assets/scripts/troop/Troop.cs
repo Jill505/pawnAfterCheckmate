@@ -162,7 +162,15 @@ public class Troop : MonoBehaviour
         {
             if (MySurviveRoundShowCase != null)
             {
-                MySurviveRoundShowCase.text = (surviveRound + 1) + "";
+                //MySurviveRoundShowCase.text = (surviveRound + 1) + "";
+                int largest = 0;
+                largest = Mathf.Max(largest, verticalBlockMoveAbility);
+                largest = Mathf.Max(largest, horBlockMoveAbility);
+                largest = Mathf.Max(largest, diagonalBlockMoveAbility);
+                largest = Mathf.Max(largest, knightBlockMoveAbility);
+
+                MySurviveRoundShowCase.text = (largest) + "";
+
             }
         }
     }
@@ -787,6 +795,11 @@ public class Troop : MonoBehaviour
                 var swapTSA_player = gameObject.AddComponent<TSA_Player>();
                 swapTSA_player.myTroop = this;
                 break;
+
+            case ability.goldenTarget:
+                var spawnTSA_goldenTarget = gameObject.AddComponent<TSA_GoldenTarget>();
+                spawnTSA_goldenTarget.myTroop = this;
+                break;  
         }
     }
 
