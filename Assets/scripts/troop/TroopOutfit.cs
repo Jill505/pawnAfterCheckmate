@@ -17,6 +17,10 @@ public class TroopOutfit : MonoBehaviour
     public GameObject goldenTargetGlow;
     public GameObject goldenTargetRing;
 
+    public GameObject EnergyHighVFXObject;
+    public Animator EnergyHighVFXAnimator;
+    public bool energyHighStarterVFXCLog = false;
+
     public Text hitShieldCountDownShowcase;
     public GameObject hitShieldImage;
 
@@ -48,6 +52,8 @@ public class TroopOutfit : MonoBehaviour
         ShieldOutfit();
         GoldenTargetOutfit();
         hitShieldOutfit();
+        ApplyEnergyHighVFX();
+
         TroopOutfitUpdate();
     }
 
@@ -143,5 +149,24 @@ public class TroopOutfit : MonoBehaviour
     public void CleanUntouchableHint()
     {
         UntouchableHint.SetActive(false);
+    }
+
+    public void ApplyEnergyHighVFX()
+    {
+        if (myTroop.energyHigh)
+        {
+            EnergyHighVFXObject.SetActive(true);
+            
+            if (!energyHighStarterVFXCLog)
+            {
+                energyHighStarterVFXCLog = true;
+                EnergyHighVFXAnimator.Play("EnergyHighVFX_Active");
+            }
+        }
+        else
+        {
+            EnergyHighVFXObject.SetActive(false);
+            energyHighStarterVFXCLog = false;
+        }
     }
 }

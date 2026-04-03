@@ -19,5 +19,10 @@ public class TestCore : MonoBehaviour
         {
             FindFirstObjectByType<TrickManager>().GainEnergy(50f);
         }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            FindFirstObjectByType<TSA_Player>().myTroop.energyHigh = true;
+        }
     }
 }
