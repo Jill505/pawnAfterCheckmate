@@ -225,15 +225,58 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
         }*/
 
-        for (int i = 0; i < EnemyAITroop.Count; i++)
+        //Golden Target絕對優先行動
+        for (int i = EnemyAITroop.Count-1; i >=0; i--)
         {
-            EnemyAnimationCoroutineEnd = true;
+            //EnemyAnimationCoroutineEnd = true;
+            if (EnemyAITroop[i].isGoldenTarget == false) continue;
 
-            EnemyAITroop[i].MoveToNext();
-            EnemyAITroop[i].Action_OnRoundEnd();
             EnemyAITroop[i].Action_PowerActiveOnce();
             EnemyAITroop[i].CleanFunction_Action_PowerActiveOnce();
 
+            if (EnemyAITroop[i].isGoldenTarget == false)
+            {
+                EnemyAnimationCoroutineEnd = true;
+                EnemyAITroop[i].EnemyAutoMoveToNext();
+            }
+            else
+            {
+                if (EnemyAITroop[i].TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
+                {
+                    t.CalculateAttackPlayerPath();
+                    t.CycleKillCall();
+                }
+            }
+
+            EnemyAITroop[i].Action_OnRoundEnd();
+            yield return new WaitUntil(() => EnemyAnimationCoroutineEnd);
+
+            yield return new WaitForSeconds(enemyMoveDur);
+        }
+
+        for (int i = EnemyAITroop.Count - 1; i >= 0; i--)
+        {
+            //EnemyAnimationCoroutineEnd = true;
+            if (EnemyAITroop[i].isGoldenTarget == true) continue;
+
+            EnemyAITroop[i].Action_PowerActiveOnce();
+            EnemyAITroop[i].CleanFunction_Action_PowerActiveOnce();
+
+            if (EnemyAITroop[i].isGoldenTarget == false)
+            {
+                EnemyAnimationCoroutineEnd = true;
+                EnemyAITroop[i].EnemyAutoMoveToNext();
+            }
+            else
+            {
+                if (EnemyAITroop[i].TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
+                {
+                    t.CalculateAttackPlayerPath();
+                    t.CycleKillCall();
+                }
+            }
+
+            EnemyAITroop[i].Action_OnRoundEnd();
             yield return new WaitUntil(()=> EnemyAnimationCoroutineEnd);
 
             yield return new WaitForSeconds(enemyMoveDur); 

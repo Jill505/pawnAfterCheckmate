@@ -226,7 +226,7 @@ public class Troop : MonoBehaviour
 
     public Vector2 myNextDes;
     #region 敵人邏輯
-    public void MoveToNext()
+    public void EnemyAutoMoveToNext()
     {
         EnemyLogic();
         myNextDes = ClosestVector();
@@ -436,6 +436,13 @@ public class Troop : MonoBehaviour
                         //沒被殺死
                         //先不管
                     }*/
+
+                    if (isGoldenTarget) 
+                    {
+                        if (tarUnit.TroopsOnMe!=null) { tarUnit.TroopsOnMe.killTroop(); }
+                        myNowX = tarUnit.myX;
+                        myNowY = tarUnit.myY;
+                    }
                     break;
 
                 case Camp.Bucket: //場地互動道具 如.爆破桶等
@@ -467,6 +474,9 @@ public class Troop : MonoBehaviour
 
                 case Camp.Player:
                     //Kill Player
+
+                    myNowX = tarUnit.myX;
+                    myNowY = tarUnit.myY;
                     roundManager.MakePlayerDie();
                     break;
             }
