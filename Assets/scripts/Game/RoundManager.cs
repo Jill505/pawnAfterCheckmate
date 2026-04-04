@@ -229,6 +229,7 @@ public class RoundManager : MonoBehaviour
         for (int i = EnemyAITroop.Count-1; i >=0; i--)
         {
             //EnemyAnimationCoroutineEnd = true;
+            Troop ET = EnemyAITroop[i];
             if (EnemyAITroop[i].isGoldenTarget == false) continue;
 
             EnemyAITroop[i].Action_PowerActiveOnce();
