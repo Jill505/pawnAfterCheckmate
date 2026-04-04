@@ -5,7 +5,6 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 using TMPro;
-using UnityEditor;
 
 public class RoundManager : MonoBehaviour
 {

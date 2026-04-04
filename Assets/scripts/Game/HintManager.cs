@@ -17,10 +17,6 @@ public class HintManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            //SpawnHintWordPrefab("´ú¸Õ°T®§");
-        }
     }
 
     public void SpawnHintWordPrefab(string message)

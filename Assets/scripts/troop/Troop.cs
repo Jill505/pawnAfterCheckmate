@@ -17,6 +17,7 @@ public class Troop : MonoBehaviour
     public GameManager gameManager;
     public SO_Chess myChessData;
     public bool isPlayer = false;
+    public bool isGoldenTarget = false;
     public RoundManager roundManager;
     public SoundManager soundManager;
     public TrickManager trickManager;
@@ -183,7 +184,7 @@ public class Troop : MonoBehaviour
     public void killTroop()
     {
         //TODO: 將自己從註冊表中移除
-        if (myChessData.isGoldenTarget)
+        if (isGoldenTarget)
         {
             //Let Player Win.
             gameManager.FrameSkipping(0.1f, 1.2f);
@@ -314,7 +315,7 @@ public class Troop : MonoBehaviour
         ReduceOnSelectChessAllowMoveVector_ForLogicCalculationSpecialFunc_RememberToMakeItOverride();
     }
 
-    public void ReduceOnSelectChessAllowMoveVector()
+    public void ReduceOnSelectChessAllowMoveVector(bool Enemy_goldenTargetIsAttackFriend = false)
     {
         for (int i = OnSelectChessAllowMoveVector.Count - 1; i >= 0; i--)
         {
@@ -399,6 +400,8 @@ public class Troop : MonoBehaviour
     public void EnemyOnMouseDownEvent(unit tarUnit) //此方法與unit.cs中的PlayerOnMouseDownEvent相似 修改時請考慮到另外一邊
     {
         //Debug.Log("tarUnit xy - " + tarUnit.myX + "/" + tarUnit.myY);
+        tarUnit.TroopStepOnUnit(this);
+
         if (tarUnit.TroopsOnMe == null)
         {
             //不攻擊純移動

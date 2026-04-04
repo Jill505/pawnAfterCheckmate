@@ -319,6 +319,7 @@ public class unit : MonoBehaviour
                 if (StructureOnMe.isAllowStanding)
                 {
                     //Allow Standing, means it's everything's alright
+                    TroopStepOnUnit(gameManager.PlayerTroop);
                 }
                 else
                 {
@@ -326,7 +327,10 @@ public class unit : MonoBehaviour
                     StructureOnMe.DestroyStructure();
                 }
 
-                roundManager.SelectObjectTroop.energyHigh = false;
+                if (StructureOnMe.isRequireEnergyHigh)
+                {
+                    roundManager.SelectObjectTroop.energyHigh = false;
+                }
             }
             #endregion
 
@@ -479,6 +483,14 @@ public class unit : MonoBehaviour
         //實作 要記得處理null問題
     }
 
+    public void TroopStepOnUnit(Troop T)
+    {
+        if (StructureOnMe != null)
+        {
+            StructureOnMe.OnTroopStepOnMe(T);
+        }
+    }
+
     public void SetStructureOnMe(Structure structure)
     {
         StructureOnMe = structure;
@@ -486,7 +498,7 @@ public class unit : MonoBehaviour
 
     public void PlayKillSoundEffect()
     {
-        if (TroopsOnMe.myChessData.isGoldenTarget)
+        if (TroopsOnMe.isGoldenTarget)
         {
             soundManager.PlaySFX("boss_slash_test_2");
             soundManager.PlaySFX("Wooden_Floor_Walking_Sound_3");

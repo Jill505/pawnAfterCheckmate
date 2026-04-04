@@ -7,6 +7,7 @@ public class TSA_GoldenTarget : MonoBehaviour
     [Header("Ref Components")]
     public GameManager gameManager;
     public RoundManager roundManager;
+    public Troop myTroop;
 
     [Header("Calculate Variables")]
     public Vector2 StartPt = new Vector2();
@@ -14,19 +15,19 @@ public class TSA_GoldenTarget : MonoBehaviour
     public List<Vector2> LinkKillList = new List<Vector2>();
     public List<Vector2> AttackRange = new List<Vector2>();
     
-    public Troop myTroop;
 
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         roundManager = FindFirstObjectByType<RoundManager>();
+        myTroop.isGoldenTarget = true;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            CalculateAttackPlayerPath();
+            //CalculateAttackPlayerPath();
         }
     }
 

@@ -45,11 +45,6 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Shake();
-        }
-
         CameraObject.transform.position = currentCameraPosition.position;
         //CameraObject.transform.rotation = Quaternion.Euler(currentCameraPosition.rotation);
 

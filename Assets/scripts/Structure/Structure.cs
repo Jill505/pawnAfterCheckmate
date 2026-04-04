@@ -19,8 +19,9 @@ public class Structure : MonoBehaviour
     public bool isAttackableTarget = false;
     public bool isRequireEnergyHigh = false;
 
-    public Action ActionOnRoundEnd = () => { };
     public Action OnRoundEnd = () => { };
+
+    public Action<Troop> OnTroopStepOnMe = (T) => { }; 
 
     private void Start()
     {

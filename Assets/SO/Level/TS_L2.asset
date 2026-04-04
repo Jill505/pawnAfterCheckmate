@@ -544,7 +544,7 @@ MonoBehaviour:
   - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
     locationX: 6
     locationY: 3
-  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+  - structureFile: {fileID: 11400000, guid: 13137f743a2b30943a7ea37530721e45, type: 2}
     locationX: 2
     locationY: 3
   enemySpawnEachRound: 1

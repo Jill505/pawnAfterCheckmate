@@ -85,6 +85,12 @@ public enum ability
 
     //癥結敵人
     goldenTarget,
+
+    //直走兵
+    VarMoveEnemy,
+
+    //斜走兵
+    DiaMoveEnemy,
 }
 
 public enum SaveFileType
