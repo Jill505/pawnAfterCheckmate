@@ -230,26 +230,26 @@ public class RoundManager : MonoBehaviour
         {
             //EnemyAnimationCoroutineEnd = true;
             Troop ET = EnemyAITroop[i];
-            if (EnemyAITroop[i].isGoldenTarget == false) continue;
+            if (ET.isGoldenTarget == false) continue;
 
-            EnemyAITroop[i].Action_PowerActiveOnce();
-            EnemyAITroop[i].CleanFunction_Action_PowerActiveOnce();
+            ET.Action_PowerActiveOnce();
+            ET.CleanFunction_Action_PowerActiveOnce();
 
-            if (EnemyAITroop[i].isGoldenTarget == false)
+            if (ET.isGoldenTarget == false)
             {
                 EnemyAnimationCoroutineEnd = true;
-                EnemyAITroop[i].EnemyAutoMoveToNext();
+                ET.EnemyAutoMoveToNext();
             }
             else
             {
-                if (EnemyAITroop[i].TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
+                if (ET.TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
                 {
                     t.CalculateAttackPlayerPath();
                     t.CycleKillCall();
                 }
             }
 
-            EnemyAITroop[i].Action_OnRoundEnd();
+            ET.Action_OnRoundEnd();
             yield return new WaitUntil(() => EnemyAnimationCoroutineEnd);
 
             yield return new WaitForSeconds(enemyMoveDur);

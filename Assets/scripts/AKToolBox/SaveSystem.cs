@@ -1,4 +1,5 @@
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
@@ -90,7 +91,7 @@ public class SaveFile
     public int gameProcess_Level;
 
     public bool[] talentTreeUnlock = new bool[200];
-    public bool[] storyRead = new bool[100];
+    public bool[] storyRead = new bool[1024];
 
     //Trick unlock, -1 means hasn't unlock 
     public int strawmanLevel = -1;
@@ -104,5 +105,10 @@ public class SaveFile
     public int strawmanCastCount = 0;
 
     //Stats - kill Troop data
-    public int killCount_VertSolider;
+    public int DieCount = 0;
+    public int FinCount = 0;
+    public int[] EnemyHistoryKillData = new int[1024];
+    public int[] ItemKnowledgeLevelData = new int[1024];
+    public int[] CharacterKnowledgeLevelData = new int[1024];
+    public int[] StoryKnowledgeLevelData =  new int[1024];
 }
