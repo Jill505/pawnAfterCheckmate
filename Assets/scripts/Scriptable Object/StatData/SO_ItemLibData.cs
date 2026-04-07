@@ -1,7 +1,8 @@
 using AKTool;
 using UnityEngine;
 
-public class SO_ItemLibData : MonoBehaviour
+[CreateAssetMenu(fileName = "SO_ItemLibData", menuName = "Scriptable Objects/SO_ItemLibData")]
+public class SO_ItemLibData : ScriptableObject
 {
     public TextAsset LangData;
     public Sprite[] SpriteData;
@@ -19,11 +20,21 @@ public class SO_ItemLibData : MonoBehaviour
         AK_ToolBox.LoadLangData(LangData, ref strs_landData);
     }
 
+    public string GetName()
+    {
+        LoadLangData();
+        if (strs_landData[0] == null)
+        {
+            return "ERROR";
+        }
+        return strs_landData[0];
+    }
+
     public string GetMaxKnowledgeStrs()
     {
         LoadLangData();
 
-        int kLevel = -1;
+        int kLevel = 0;
         int kn = SaveSystem.SF.ItemKnowledgeLevelData[ItemUID];
         for (int i = 0; i < KnowledgeLevel.Length; i++)
         {
@@ -37,6 +48,10 @@ public class SO_ItemLibData : MonoBehaviour
             }
         }
 
+        kLevel += 1;
+
+        kLevel = Mathf.Min(strs_landData.Length, kLevel);
+
         if (kLevel >= 0)
         {
             return strs_landData[kLevel];
@@ -48,7 +63,7 @@ public class SO_ItemLibData : MonoBehaviour
     }
     public Sprite GetMaxKnowledgeSprite()
     {
-        int kLevel = -1;
+        int kLevel = 0;
         int kn = SaveSystem.SF.ItemKnowledgeLevelData[ItemUID];
 
         for (int i = 0; i < KnowledgeLevel.Length; i++)
@@ -75,6 +90,7 @@ public class SO_ItemLibData : MonoBehaviour
         }
     }
 }
+
 
 public enum ItemSort
 {

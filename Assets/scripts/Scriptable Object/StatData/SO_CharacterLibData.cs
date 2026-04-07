@@ -17,11 +17,17 @@ public class SO_CharacterLibData : ScriptableObject
         AK_ToolBox.LoadLangData(LangData, ref strs_landData);
     }
 
+    public string GetName()
+    {
+        LoadLangData();
+        return strs_landData[0];
+    }
+
     public string GetMaxKnowledgeStrs()
     {
         LoadLangData();
 
-        int kLevel = -1;
+        int kLevel = 0;
         int kn = SaveSystem.SF.CharacterKnowledgeLevelData[CharacterUID];
         for (int i = 0; i < KnowledgeLevel.Length; i++)
         {
@@ -34,6 +40,8 @@ public class SO_CharacterLibData : ScriptableObject
                 break;
             }
         }
+
+        kLevel += 1;
 
         kLevel = Mathf.Min(strs_landData.Length, kLevel);
 
@@ -49,7 +57,7 @@ public class SO_CharacterLibData : ScriptableObject
 
     public Sprite GetMaxKnowledgeSprite()
     {
-        int kLevel = -1;
+        int kLevel = 0;
         int kn = SaveSystem.SF.CharacterKnowledgeLevelData[CharacterUID];
 
         for (int i = 0; i < KnowledgeLevel.Length; i++)
