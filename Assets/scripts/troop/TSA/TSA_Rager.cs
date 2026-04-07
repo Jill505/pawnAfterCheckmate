@@ -3,12 +3,14 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public class TSA_Rager : MonoBehaviour
+public class TSA_Rager : TroopSpecialAbility
 {
+    public int myEnemyUID = 5;
+
     public RoundManager roundManager;
 
     public int CountDown = 2;
-    public Troop myTroop;
+    //public Troop myTroop;
 
     public bool RageClog = false;
 
@@ -20,7 +22,9 @@ public class TSA_Rager : MonoBehaviour
 
     public void Start()
     {
+        TSAInit();
         myTroop.Action_OnRoundEnd += RoundProcess;
+        myTroop.OnDieAction += DieStatInject;
     }
     public void RageModeActive()
     {
@@ -72,4 +76,10 @@ public class TSA_Rager : MonoBehaviour
     {
         myTroop.Action_OnRoundEnd -= RoundProcess;
     }
+
+    public void DieStatInject()
+    {
+        EnemyDieStatAdd(myEnemyUID);
+    }
+
 }

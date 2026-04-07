@@ -27,6 +27,7 @@ public class SO_Chess : ScriptableObject
 
     public Sprite skin;
 
+    public TSAType myTSAType;
     public ability[] abilities;
     public string[] abilitiesParameter;
 

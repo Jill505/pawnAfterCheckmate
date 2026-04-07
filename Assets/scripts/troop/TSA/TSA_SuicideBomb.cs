@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class TSA_SuicideBomb : MonoBehaviour
+public class TSA_SuicideBomb : TroopSpecialAbility
 {
+    public int myEnemyUID = 4;
+
     public int CountDown = 2;
 
     public RoundManager roundManager;
@@ -11,7 +13,7 @@ public class TSA_SuicideBomb : MonoBehaviour
     public CameraManager cameraManager;
     public SoundManager soundManager;
 
-    public Troop myTroop;
+    //public Troop myTroop;
 
     public GameObject ExplodeHintGameObject;
     public Vector3 ExplodeHintGameObjectOffset;
@@ -32,7 +34,9 @@ public class TSA_SuicideBomb : MonoBehaviour
 
     public void Start()
     {
+        TSAInit();
         myTroop.Action_OnRoundEnd += RoundProcess;
+        myTroop.OnDieAction += DieStatInject;
     }
 
 
@@ -143,4 +147,10 @@ public class TSA_SuicideBomb : MonoBehaviour
     {
         myTroop.Action_OnRoundEnd -= RoundProcess;
     }
+
+    public void DieStatInject()
+    {
+        EnemyDieStatAdd(myEnemyUID);
+    }
+
 }

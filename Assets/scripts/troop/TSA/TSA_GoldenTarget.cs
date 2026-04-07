@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class TSA_GoldenTarget : MonoBehaviour
+public class TSA_GoldenTarget : TroopSpecialAbility
 {
+
+    public int myEnemyUID = 2;
+
     [Header("Ref Components")]
     public GameManager gameManager;
     public RoundManager roundManager;
-    public Troop myTroop;
+    //public Troop myTroop;
 
     [Header("Calculate Variables")]
     public Vector2 StartPt = new Vector2();
@@ -18,9 +21,11 @@ public class TSA_GoldenTarget : MonoBehaviour
 
     void Start()
     {
+        TSAInit();
         gameManager = FindFirstObjectByType<GameManager>();
         roundManager = FindFirstObjectByType<RoundManager>();
         myTroop.isGoldenTarget = true;
+        myTroop.OnDieAction += DieStatInject;
     }
 
     void Update()
@@ -177,5 +182,9 @@ public class TSA_GoldenTarget : MonoBehaviour
         }
         roundManager.EnemyAnimationCoroutineEnd = true;
         yield return null;
+    }
+    public void DieStatInject()
+    {
+        EnemyDieStatAdd(myEnemyUID);
     }
 }

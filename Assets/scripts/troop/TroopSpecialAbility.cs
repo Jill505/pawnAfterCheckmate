@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TroopSpecialAbility : MonoBehaviour
 {
+    public Troop myTroop;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +14,27 @@ public class TroopSpecialAbility : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TSAInit()
+    {
+        if (myTroop == null)
+        {
+            //try get
+            if (gameObject.TryGetComponent<Troop>(out Troop T))
+            {
+                myTroop = T;
+            }
+            else
+            {
+                Debug.LogError("TSA don't have troop");
+            }
+        }
+    }
+
+    public void EnemyDieStatAdd(int ID)
+    {
+        SaveSystem.SF.EnemyHistoryKillData[ID] += 1;
+        SaveSystem.SaveSF();
     }
 }

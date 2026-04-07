@@ -48,6 +48,7 @@ public class Troop : MonoBehaviour
     public string myDesc;
 
     [Header("прдO")]
+    public TSAType myTSAType;
     public ability[] myAbilities;
 
 
@@ -89,6 +90,7 @@ public class Troop : MonoBehaviour
         AttackStr = myChessData.AttackStr;
 
         myAbilities = myChessData.abilities;
+        myTSAType = myChessData.myTSAType;
 
 
         if (myCamp == Camp.Enemy)
@@ -123,6 +125,8 @@ public class Troop : MonoBehaviour
             RoundManager RM = FindAnyObjectByType<RoundManager>();
             RM.EnemyAITroop.Add(this);
         }
+
+        TSAApply(myTSAType);
 
         for (int i = 0; i < myAbilities.Length; i++)
         {
@@ -791,28 +795,52 @@ public class Troop : MonoBehaviour
             case ability.RightShield:
                 hasRightShield = true;
                 break;
+        }
+    }
+    public void TSAApply(TSAType TSAT)
+    {
+        TroopSpecialAbility TSAObject;
+        switch (TSAT)
+        {
+            case TSAType.player:
+                TSAObject = gameObject.AddComponent<TSA_Player>();
+                TSAObject.myTroop = this;
+                break;
+            
+            case TSAType.basicPawn:
+                TSAObject = gameObject.AddComponent<TSA_BasicPawn>();
+                TSAObject.myTroop = this;
+                break;
 
-            case ability.KarenBorn:
-                var swapTSA_karenBorn = gameObject.AddComponent<TSA_KarenBorn>();
-                swapTSA_karenBorn.myTroop = this;
+            case TSAType.basicDiaPawn:
+                TSAObject = gameObject.AddComponent<TSA_BasicDiaPawn>();
+                TSAObject.myTroop = this;
                 break;
-            case ability.Rager:
-                var swapTSA_rager = gameObject.AddComponent<TSA_Rager>();
-                swapTSA_rager.myTroop = this;
-                break;
-            case ability.SuicideBomb:
-                var swapTSA_suicideBomb = gameObject.AddComponent<TSA_SuicideBomb>();
-                swapTSA_suicideBomb.myTroop = this;
-                break;
-            case ability.player:
-                var swapTSA_player = gameObject.AddComponent<TSA_Player>();
-                swapTSA_player.myTroop = this;
+            
+            case TSAType.GoldenTarget:
+                TSAObject = gameObject.AddComponent<TSA_GoldenTarget>();
+                TSAObject.myTroop = this;
                 break;
 
-            case ability.goldenTarget:
-                var spawnTSA_goldenTarget = gameObject.AddComponent<TSA_GoldenTarget>();
-                spawnTSA_goldenTarget.myTroop = this;
-                break;  
+            case TSAType.tank:
+                TSAObject = gameObject.AddComponent<TSA_Tank>();
+                TSAObject.myTroop = this;
+                break;
+            
+            case TSAType.suicideBomb:
+                TSAObject = gameObject.AddComponent<TSA_SuicideBomb>();
+                TSAObject.myTroop = this;
+                break;
+
+            case TSAType.Rager:
+                TSAObject = gameObject.AddComponent<TSA_Rager>();
+                TSAObject.myTroop = this;
+                break;
+
+            case TSAType.KarenBorn:
+                TSAObject = gameObject.AddComponent<TSA_KarenBorn>();
+                TSAObject.myTroop = this;
+                break;
         }
     }
 
@@ -944,4 +972,17 @@ public class Troop : MonoBehaviour
             vec2List.Remove(v);
         }
     }
+}
+
+public enum TSAType
+{
+    noTSA,
+    player,
+    basicPawn,
+    basicDiaPawn,
+    GoldenTarget,
+    tank,
+    suicideBomb,
+    Rager,
+    KarenBorn
 }

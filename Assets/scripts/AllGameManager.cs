@@ -65,32 +65,8 @@ public enum ability
     HitShield_2,
     HitShield_3,
 
-    //炸彈兵
-    SuicideBomb,
-
-    //狂暴兵
-    Rager,
-
     //特性
     Retard,
-
-    //Karen關卡使用
-    KarenBorn,
-
-    //用於掛載player TSA
-    player,
-
-    //用於加快進程玩法
-    killProcess,
-
-    //癥結敵人
-    goldenTarget,
-
-    //直走兵
-    VarMoveEnemy,
-
-    //斜走兵
-    DiaMoveEnemy,
 }
 
 public enum SaveFileType
