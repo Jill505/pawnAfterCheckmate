@@ -24,6 +24,7 @@ MonoBehaviour:
   maxHp: 1
   hp: 1
   skin: {fileID: 8346611326709212497, guid: 6a317d6d4f2feb54e844e1a663286798, type: 3}
+  myTSAType: 2
   abilities: 05000000060000000b000000
   abilitiesParameter:
   - 

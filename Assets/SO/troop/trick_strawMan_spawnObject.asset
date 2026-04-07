@@ -24,7 +24,8 @@ MonoBehaviour:
   maxHp: 1
   hp: 1
   skin: {fileID: -5328419903125881725, guid: e8895d390170d6048a2a57023c5ad6da, type: 3}
-  abilities: 11000000
+  myTSAType: 0
+  abilities: 0f000000
   abilitiesParameter:
   - 
   isGoldenTarget: 0
