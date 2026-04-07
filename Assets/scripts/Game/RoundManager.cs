@@ -586,6 +586,9 @@ public class RoundManager : MonoBehaviour
             for (int j = 0; j < T.OnSelectChessAllowMoveVector.Count; j++)
             {
                 //gameManager.GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).isEnemyAttackHighLighting = true;
+                if (gameManager.GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).TroopsOnMe != null) continue;
+                if (gameManager.GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).StructureOnMe != null) continue;
+
                 emptyList.Add (new Vector2((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y));
             }
         }
