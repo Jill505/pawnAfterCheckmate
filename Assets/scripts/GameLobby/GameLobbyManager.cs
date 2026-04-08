@@ -53,6 +53,9 @@ public class GameLobbyManager : MonoBehaviour
     [Header("Level Clickable Object")]
     public List<GameObject> LevelClickableObjectList;
 
+    [Header("Stage select")]
+    public GameObject SelectStageCanvasObject;
+
     private void Awake()
     {
 
@@ -125,9 +128,31 @@ public class GameLobbyManager : MonoBehaviour
         AllowNextAndLastButtonInteractable();
     }
 
+    public void DoSwitchLobbyStage(int StageIndex)
+    {
+        CloseSelectStageCanvasObject();
+        DoSwitchLobbyLevelNext_Specific(StageIndex, 0);
+    }
+
     public void DoSwitchLobbyLevelNext()
     {
         nowLevelIndex += 1;
+        if (nowLevelIndex >= myGameStages[nowStageIndex].levels.Length - 1)
+        {
+            nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
+        }
+        gameLobbyUIManager.LoadNextRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+
+        SaveSystem.SF.saveStageIndex = nowStageIndex;
+        SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+
+        SaveSystem.SaveSF();
+    }
+
+    public void DoSwitchLobbyLevelNext_Specific(int p_stageIndex, int p_levelIndex)
+    {
+        nowStageIndex = p_stageIndex;
+        nowLevelIndex = p_levelIndex;
         if (nowLevelIndex >= myGameStages[nowStageIndex].levels.Length - 1)
         {
             nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
@@ -155,7 +180,22 @@ public class GameLobbyManager : MonoBehaviour
 
         SaveSystem.SaveSF();
     }
+    public void DoSwitchLobbyLevelLast_Specific(int p_stageIndex, int p_levelIndex)
+    {
+        nowStageIndex = p_stageIndex;
+        nowLevelIndex = p_levelIndex;
+        if (nowLevelIndex <= 0)
+        {
+            nowLevelIndex = 0;
+        }
 
+        gameLobbyUIManager.LoadLastRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+
+        SaveSystem.SF.saveStageIndex = nowStageIndex;
+        SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+
+        SaveSystem.SaveSF();
+    }
 
 
     public void LoadLobbyLevel(SO_LobbyLevel SO_L)
@@ -343,4 +383,13 @@ public class GameLobbyManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void OpenSelectStageCanvasObject()
+    {
+        SelectStageCanvasObject.SetActive(true);
+    }
+
+    public void CloseSelectStageCanvasObject()
+    {
+        SelectStageCanvasObject.SetActive(false);
+    }
 }
