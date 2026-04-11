@@ -12,10 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
   m_Name: t_S0L0
   m_EditorClassIdentifier: 
-  levelName: "\u9810\u8A2D\u95DC\u5361"
+  myMutiLangData: {fileID: 4900000, guid: e077c94b5e7963546bc665bf3c0e4be4, type: 3}
   levelID: 001
+  levelName: "\u9810\u8A2D\u95DC\u5361"
+  SLST: 0
   levelDesc: "\u9810\u8A2D\u95DC\u5361\u6558\u8FF0 - \u6E2C\u8A66\u4E2D"
   allowDeployTroopNumber: 3
+  myMissionType: 0
+  SurviveRound: 10
+  goldenTarget:
+    chessFile: {fileID: 0}
+    isRandomSpawn: 0
+    locationX: 0
+    locationY: 0
+  LevelBgmName: 
+  PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
     myPerform: 0
@@ -406,3 +417,10 @@ MonoBehaviour:
     isAbleToDeploy: 0
     passable: 1
     performID: 
+  chessInsData: []
+  structureInsData: []
+  enemySpawnEachRound: 1
+  spawnChessData: []
+  spawnChessProbability: 
+  special_SpawnChessData: []
+  special_GameObjectData: []
