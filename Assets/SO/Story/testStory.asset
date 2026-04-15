@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa89671df1ea8ff4ea3f976541df3df0, type: 3}
+  m_Name: testStory
+  m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 4900000, guid: dc84cc908aeb4684c9955fdc9f7d301c, type: 3}
+  strs:
+  - "\u95DC\u5361\u540D\u7A31"
+  - "\u95DC\u5361\u540D\u7A31dgdgdthdrsefafrg"
+  - "\u95DC\u5361\u540D\u7A31aasasa"
+  - "\u95DC\u5361\u540D\u7A31;olkijuhygtr"
+  - "\u95DC\u5361\u540D\u7A31thn"
+  - "\u95DC\u5361\u540D\u7A31mrdase"
+  - "\u95DC\u5361\u540D\u7A31rtgh"
+  - "\u95DC\u5361\u540D\u7A31tehsye"
+  - "\u95DC\u5361\u540D\u7A31wgethsgd"
+  - "\u95DC\u5361\u540D\u7A31ewegr"
+  - "\u95DC\u5361\u540D\u7A31hfthetrhy"
+  - "\u95DC\u5361\u540D\u7A31vcbfhm"

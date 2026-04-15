@@ -176,7 +176,7 @@ public class StorySceneManager : MonoBehaviour
             {
                 if (onReadingClog == true)
                 {
-                    Debug.Log("격격격" + i);
+                    //Debug.Log("격격격" + i);
                     conversationShowingText += conversationText[i];
                     conversationShowcase.text = conversationShowingText;
                     yield return new WaitForSeconds(wordGenDur);

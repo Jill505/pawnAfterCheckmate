@@ -74,6 +74,8 @@ namespace AKTool
         {
             if (textAsset == null) { Debug.Log("textAsset沒有資料"); }
 
+            SaveSystem.LoadSF();
+
             string[] str = GetReadCSV(textAsset);
             int langIndex = ((int)SaveSystem.SF.SelectingLanguage);
             langData = GetCertainColumn(str, AllGameManager.SystemLanguageNumber, langIndex);

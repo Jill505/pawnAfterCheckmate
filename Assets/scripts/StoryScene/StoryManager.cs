@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class StoryManager : MonoBehaviour
     public string speakingContext;
 
 
+    [Header("TestStory")]
+    public SO_Story tStory;
 
     public void Update()
     {
@@ -47,6 +50,13 @@ public class StoryManager : MonoBehaviour
         }
 
         SyncUi();
+
+        /*
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("Start Test Story");
+            LoadStory(tStory);
+        }*/
     }
 
     public void SyncUi()
@@ -62,7 +72,14 @@ public class StoryManager : MonoBehaviour
             Debug.LogError("There's no story to load");
         }
 
-        myStoryCoroutine = StartCoroutine(StoryCoroutine());
+        if (myStoryCoroutine == null)
+        {
+            myStoryCoroutine = StartCoroutine(StoryCoroutine());
+        }
+        else
+        {
+            Debug.Log("The Story is loading!");
+        }
     }
 
     public void LoadStory(SO_Story SO_S)
@@ -110,8 +127,9 @@ public class StoryManager : MonoBehaviour
             CheckFlag = false;
         }
 
-            yield return null;
+        myStoryCoroutine = null;
         isOnStoryProcessing = false;
+        yield return null;
     }
 
     public void InteractWithStory()
@@ -154,6 +172,16 @@ public class StoryManager : MonoBehaviour
 
             case "SetSpeaker":
                 SetSpeaker(commStr[2]);
+                break;
+
+            case "FightStopTimer":
+                if (SceneManager.sceneCount == 0) 
+                { 
+                    
+                }
+                break;
+
+            case "FightStartTimer":
                 break;
         }
     }
