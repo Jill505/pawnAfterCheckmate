@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TSA_GoldenTarget : TroopSpecialAbility
 {
-
     public int myEnemyUID = 2;
 
     [Header("Ref Components")]

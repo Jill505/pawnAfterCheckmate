@@ -219,19 +219,20 @@ public class GameLobbyCameraController : MonoBehaviour
     {
         switch (index)
         {
-            case -2:
-                TargetRefStartPt = RefObject_Library.transform.position;
-                break;
+            //case -2:
+            //    TargetRefStartPt = RefObject_Library.transform.position;
+            //    break;
             case -1:
-                TargetRefStartPt = RefObject_Shop.transform.position;
+                //TargetRefStartPt = RefObject_Shop.transform.position;
+                TargetRefStartPt = RefObject_Library.transform.position;
                 break;
             case 0:
                 TargetRefStartPt = RefObject_Lobby.transform.position;
                 break;
+            //case 1:
+            //    TargetRefStartPt = RefObject_Mission.transform.position;
+            //    break;
             case 1:
-                TargetRefStartPt = RefObject_Mission.transform.position;
-                break;
-            case 2:
                 TargetRefStartPt = RefObject_Talent.transform.position;
                 break;
         }

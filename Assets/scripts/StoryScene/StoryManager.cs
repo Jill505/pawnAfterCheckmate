@@ -38,9 +38,11 @@ public class StoryManager : MonoBehaviour
     public string speakingName;
     public string speakingContext;
 
-
     [Header("TestStory")]
     public SO_Story tStory;
+
+    [Header("ImagePos")]
+    public Image[] ImagePosArr;
 
     public void Update()
     {
@@ -187,6 +189,9 @@ public class StoryManager : MonoBehaviour
                     FindFirstObjectByType<TimerManager>().isPause = false;
                 }
                 break;
+            case "SetImage":
+                SetImageAt(int.Parse(commStr[2]), commStr[3]);
+                break;
         }
     }
 
@@ -203,5 +208,10 @@ public class StoryManager : MonoBehaviour
     public void SetSpeaker(string name)
     {
         speakingName = name;    
+    }
+
+    public void SetImageAt(int index, string name)
+    {
+        ImagePosArr[index].sprite = Resources.Load<Sprite>("StorySprite/" + name);
     }
 }

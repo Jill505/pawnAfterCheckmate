@@ -14,6 +14,7 @@ public class RoundManager : MonoBehaviour
     public SoundManager soundManager;
     public VFXManager vFXManager;
     public TimerManager timerManager;
+    public RoundProcessManager roundProcessManager;
 
     [Header("Game Information")]
     public bool GameGoing = false;

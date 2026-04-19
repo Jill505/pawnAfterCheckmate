@@ -5158,6 +5158,7 @@ GameObject:
   - component: {fileID: 1438481431}
   - component: {fileID: 1438481432}
   - component: {fileID: 1438481433}
+  - component: {fileID: 1438481434}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5197,6 +5198,7 @@ MonoBehaviour:
   soundManager: {fileID: 1438481427}
   vFXManager: {fileID: 1438481430}
   timerManager: {fileID: 1438481433}
+  roundProcessManager: {fileID: 1438481434}
   GameGoing: 0
   isPlayerRound: 0
   leftRoundCount: 5
@@ -5467,6 +5469,26 @@ MonoBehaviour:
   leftTimeDeadBufferTime: 2
   leftTimeDeadBufferCT: 0
   playerDieClog: 0
+--- !u!114 &1438481434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438481423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb89fa9fe96e89468882f2fb7c1d861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIndex: 0
+  nowMissionType: 0
+  TargetSurviveRound: 0
+  NowSurviveRound: 0
+  Target_TSA_UID: 2
+  TargetKillAmount: 1
+  NowKillAmount: 0
+  myMissionNodes: []
 --- !u!1 &1440760354
 GameObject:
   m_ObjectHideFlags: 0
