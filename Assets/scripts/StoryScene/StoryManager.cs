@@ -175,13 +175,17 @@ public class StoryManager : MonoBehaviour
                 break;
 
             case "FightStopTimer":
-                if (SceneManager.sceneCount == 0) 
-                { 
-                    
+                if (SceneManager.sceneCount == 2) 
+                {
+                    FindFirstObjectByType<TimerManager>().isPause = true;
                 }
                 break;
 
             case "FightStartTimer":
+                if (SceneManager.sceneCount == 2)
+                {
+                    FindFirstObjectByType<TimerManager>().isPause = false;
+                }
                 break;
         }
     }
