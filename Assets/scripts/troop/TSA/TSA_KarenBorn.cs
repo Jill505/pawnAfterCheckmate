@@ -22,6 +22,7 @@ public class TSA_KarenBorn : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 
     // Update is called once per frame

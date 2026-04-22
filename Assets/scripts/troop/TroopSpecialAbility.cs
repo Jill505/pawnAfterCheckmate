@@ -37,4 +37,9 @@ public class TroopSpecialAbility : MonoBehaviour
         SaveSystem.SF.EnemyHistoryKillData[ID] += 1;
         SaveSystem.SaveSF();
     }
+
+    public void DieReport(int ID)
+    {
+        FindFirstObjectByType<RoundProcessManager>().CheckKillReport(ID);
+    }
 }

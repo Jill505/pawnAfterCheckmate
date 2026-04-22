@@ -134,6 +134,7 @@ public class Troop : MonoBehaviour
         }
 
         OnDieAction += () => { roundManager.leftRoundCount -= 1; Debug.Log("Kill Process works"); };
+        OnDieAction += () => { FindFirstObjectByType<RoundProcessManager>().TargetSurviveRound -= 1; };
     }
 
     void Update()
@@ -188,12 +189,13 @@ public class Troop : MonoBehaviour
     public void killTroop()
     {
         //TODO: 將自己從註冊表中移除
-        if (isGoldenTarget)
+
+        /*if (isGoldenTarget)
         {
             //Let Player Win.
             gameManager.FrameSkipping(0.1f, 1.2f);
             roundManager.Win();
-        }
+        }*/
 
         if (myCamp == Camp.Player)
         {

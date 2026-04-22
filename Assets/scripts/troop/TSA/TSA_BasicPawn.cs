@@ -14,6 +14,7 @@ public class TSA_BasicPawn : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 
     // Update is called once per frame

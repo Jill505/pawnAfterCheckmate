@@ -13,5 +13,6 @@ public class TSA_Tank : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 }

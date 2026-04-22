@@ -151,6 +151,7 @@ public class TSA_SuicideBomb : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 
 }

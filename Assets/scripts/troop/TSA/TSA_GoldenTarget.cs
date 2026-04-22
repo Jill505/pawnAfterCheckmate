@@ -185,5 +185,6 @@ public class TSA_GoldenTarget : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 }

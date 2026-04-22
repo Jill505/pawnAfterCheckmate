@@ -14,5 +14,6 @@ public class TSA_BasicDiaPawn : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 }

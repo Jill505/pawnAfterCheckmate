@@ -294,6 +294,7 @@ public class RoundManager : MonoBehaviour
         EnemyEvolve();
 
         roundCount++;
+        roundProcessManager.NowSurviveRound ++;
         Action_OnRoundEnd();
 
         gameManager.GameTargetUISet();
@@ -308,10 +309,13 @@ public class RoundManager : MonoBehaviour
         }
 
         //勝利狀態判定與生成黃金敵人
+        roundProcessManager.NodeProcessCheck();
+
+
         switch (gameManager.levelData.myMissionType)
         {
             case MissionType.Survive:
-                if (!goldenTargetSpawned && roundCount >= leftRoundCount)
+                /*if (!goldenTargetSpawned && roundCount >= leftRoundCount)
                 {
                     goldenTargetSpawned = true;
                     //Spawn Golden Enemy;
@@ -319,7 +323,9 @@ public class RoundManager : MonoBehaviour
                     GBIC.chessFile = gameManager.levelData.goldenTarget.chessFile;
 
                     SpawnEnemy_RandomSpot(GBIC);
-                }
+                }*/
+
+                SpawnGoldenTarget_Random();
                 break;
         }
 
@@ -333,6 +339,7 @@ public class RoundManager : MonoBehaviour
             roundState = RoundState.MyRound;
             timerManager.PlayerRoundCall();
         }
+
 
         finishRoundClog = false;
 
@@ -701,6 +708,19 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         roundState = RoundState.MyRound;
         timerManager.PlayerRoundCall();
+    }
+
+    public void SpawnGoldenTarget_Random()
+    {
+        if (!goldenTargetSpawned && roundCount >= leftRoundCount)
+        {
+            goldenTargetSpawned = true;
+            //Spawn Golden Enemy;
+            GameBoardInsChess GBIC = new GameBoardInsChess();
+            GBIC.chessFile = gameManager.levelData.goldenTarget.chessFile;
+
+            SpawnEnemy_RandomSpot(GBIC);
+        }
     }
 }
 public enum RoundState

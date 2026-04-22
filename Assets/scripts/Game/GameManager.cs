@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public SoundManager soundManager;
     public TrickManager trickManager;
     public TimerManager timerManager;
+    public RoundProcessManager roundProcessManager;
 
     public SpecialLevelScript SLS;
 
@@ -185,6 +186,9 @@ public class GameManager : MonoBehaviour
             tarUnit.isAbleToDeploy = config.levelContext[i].isAbleToDeploy;
             tarUnit.isDeployed = config.levelContext[i].isDeployed;
         }
+
+        Debug.Log("¶}©l¸ü¤JMission Nodes");
+        roundProcessManager.InitRoundProcess(config.missionNodes);
     }
     public void EnvironmentInit()
     {

@@ -80,6 +80,7 @@ public class TSA_Rager : TroopSpecialAbility
     public void DieStatInject()
     {
         EnemyDieStatAdd(myEnemyUID);
+        DieReport(myEnemyUID);
     }
 
 }

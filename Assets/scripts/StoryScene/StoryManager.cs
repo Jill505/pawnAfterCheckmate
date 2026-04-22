@@ -192,6 +192,12 @@ public class StoryManager : MonoBehaviour
             case "SetImage":
                 SetImageAt(int.Parse(commStr[2]), commStr[3]);
                 break;
+
+            case "GoNextNode":
+                if (SceneManager.sceneCount == 2) {
+                    FindFirstObjectByType<RoundProcessManager>().GoNextNode();
+                }
+                break;
         }
     }
 
@@ -210,8 +216,8 @@ public class StoryManager : MonoBehaviour
         speakingName = name;    
     }
 
-    public void SetImageAt(int index, string name)
+    public void SetImageAt(int posIndex, string name)
     {
-        ImagePosArr[index].sprite = Resources.Load<Sprite>("StorySprite/" + name);
+        ImagePosArr[posIndex].sprite = Resources.Load<Sprite>("StorySprite/" + name);
     }
 }

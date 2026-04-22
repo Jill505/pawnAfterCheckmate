@@ -1,7 +1,7 @@
 using System;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class RoundProcessManager : MonoBehaviour
 {
@@ -17,7 +17,8 @@ public class RoundProcessManager : MonoBehaviour
     public int NowKillAmount = 0;
 
     public MissionNode[] myMissionNodes;
-    
+
+    public bool isNodeReachClog = false;
 
     public void InitRoundProcess(MissionNode[] missionNodes)
     {
@@ -33,6 +34,8 @@ public class RoundProcessManager : MonoBehaviour
 
     public void LoadMissionNode(int index)
     {
+        isNodeReachClog = false;
+
         if (index >= myMissionNodes.Length)
         {
             Debug.LogError("你正在嘗試載入超出範圍的節點");
@@ -55,38 +58,58 @@ public class RoundProcessManager : MonoBehaviour
         }
     }
 
-    public void ProcessCheck()
-    {
-        switch (myMissionNodes[currentIndex].missionType)
-        {
-            case MissionType.Survive:
-                
-                break;
-        }
-    }
-
     public bool isMissionTypeSurviveFunc()
     {
         if (myMissionNodes[currentIndex].missionType != MissionType.Survive)
         {
             return false;
         }
-
-
         return true;    
     }
 
-    public void CheckIsKillTarget(int UID)
+    public void CheckKillReport(int UID)
     {
         if (UID == Target_TSA_UID)
         {
             NowKillAmount++;
         }
+        NodeProcessCheck();
     }
 
     public void NodeProcessCheck()
     {
+        bool checkFlag = false;
+        switch (myMissionNodes[currentIndex].missionType)
+        {
+            case MissionType.KillTarget:
+                if (NowKillAmount >= TargetKillAmount) 
+                {
+                    checkFlag = true;
+                }
+                break;
 
+            case MissionType.Survive:
+                if (NowSurviveRound >= TargetSurviveRound) 
+                {
+                    checkFlag = true;
+                    Debug.Log("Check Flag Form");
+                }
+                break;
+
+            case MissionType.Special:
+                break;
+        }
+
+        if (checkFlag)
+        {
+            Debug.Log("Check Flag_可以怪checkFlag");
+            //the node is finish
+            //if (isNodeReachClog == true) return;
+
+            Debug.Log("Check Flag Use");
+            myMissionNodes[currentIndex].ActionOnNodeReach.Invoke();
+            isNodeReachClog = true;
+        }
     }
 
     public void GoNextNode()

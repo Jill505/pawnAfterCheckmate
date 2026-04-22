@@ -25,6 +25,57 @@ MonoBehaviour:
     isRandomSpawn: 0
     locationX: 2
     locationY: 3
+  missionNodes:
+  - missionType: 0
+    RequireSurviveRound: 8
+    KillTargetUID: 0
+    KillTargetAmount: 0
+    ActionOnNodeReach:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: SpawnGoldenTarget
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: GoNextNode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - missionType: 1
+    RequireSurviveRound: 0
+    KillTargetUID: 2
+    KillTargetAmount: 1
+    ActionOnNodeReach:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: PlayerWin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   LevelBgmName: pawn's_(demo)_2
   PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0

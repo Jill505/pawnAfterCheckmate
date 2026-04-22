@@ -24,6 +24,8 @@ public class SO_Level : ScriptableObject
     public int SurviveRound = 10;
     public GameBoardInsChess goldenTarget;
 
+    public MissionNode[] missionNodes;
+
     public string LevelBgmName;
 
     [Header("Player Level Setting")]
