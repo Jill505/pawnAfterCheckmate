@@ -15,7 +15,7 @@ MonoBehaviour:
   myMutiLangData: {fileID: 4900000, guid: c8e1645fd1c8b6c40878d4d6a637e4ce, type: 3}
   chessName: "\u7B26"
   myCamp: 0
-  photoSticker: {fileID: -7319966370450596002, guid: e96c39aa30938d34488a6c40ba0c7740, type: 3}
+  photoSticker: {fileID: 4345679706368398392, guid: f3c7745132586f744bd63a75a0753191, type: 3}
   spawnGear: 0
   chessDesc: "\u7F6A\u60E1\u7684\u9748\u9B42"
   Level: 1
@@ -23,10 +23,10 @@ MonoBehaviour:
   move: 1
   maxHp: 1
   hp: 1
-  skin: {fileID: -7319966370450596002, guid: e96c39aa30938d34488a6c40ba0c7740, type: 3}
-  abilities: 13000000
-  abilitiesParameter:
-  - 
+  skin: {fileID: 4345679706368398392, guid: f3c7745132586f744bd63a75a0753191, type: 3}
+  myTSAType: 1
+  abilities: 
+  abilitiesParameter: []
   isGoldenTarget: 0
   horBlockMoveAbility: 2
   verticalBlockMoveAbility: 2

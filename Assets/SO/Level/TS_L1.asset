@@ -27,6 +27,25 @@ MonoBehaviour:
     locationY: 3
   missionNodes:
   - missionType: 0
+    RequireSurviveRound: 0
+    KillTargetUID: 0
+    KillTargetAmount: 1
+    ActionOnNodeReach:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: LoadStory
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 652f9f9587517f04ea29f79d2ad49a16, type: 2}
+            m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - missionType: 0
     RequireSurviveRound: 8
     KillTargetUID: 0
     KillTargetAmount: 0
