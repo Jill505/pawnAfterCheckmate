@@ -175,7 +175,10 @@ public class TrickManager : MonoBehaviour
 
             case TrickType.StrawMan:
                 DoTrick_StrawMan();
-                break;  
+                break;
+            case TrickType.SelfEnergyHigh:
+                DoTrick_SelfEnergyHigh();
+                break;
 
             default:
                 DoTrick_TestTrick();        
@@ -281,6 +284,11 @@ public class TrickManager : MonoBehaviour
     public void DoTrick_TestTrick()
     {
         Debug.Log("use test trick from test system.");
+    }
+
+    public void DoTrick_SelfEnergyHigh()
+    {
+        gameManager.PlayerTroop.energyHigh = true;  
     }
 
     public void UILogic()
