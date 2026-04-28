@@ -1,7 +1,7 @@
 ﻿繁體中文,簡體中文,English,日本語
-關卡名稱,關卡名稱,level name,ステージ名
-關卡名稱dgdgdthdrsefafrg,关卡叙述,level Desc,ステージ説明
-關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
+Comm/CanvasOn,關卡名稱,level name,ステージ名
+Comm/FightStopTimer,关卡叙述,level Desc,ステージ説明
+關卡名稱;olkijuhygtr,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
 關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr
 關卡名稱thn,關卡名稱thn,關卡名稱thn,關卡名稱thn
 關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase
@@ -9,5 +9,6 @@
 關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye
 關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd
 關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr
-關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
-關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
+Comm/FightStartTimer,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
+Comm/CanvasOff,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
+Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode

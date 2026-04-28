@@ -121,6 +121,7 @@ public class RoundManager : MonoBehaviour
                 break;
 
             case RoundState.MyRound:
+
                 if (SelectUnit != null) // Has Selecting Object
                 {
                     //SelectObject.GetComponent<SpriteRenderer>().color = Color.red;
@@ -706,6 +707,7 @@ public class RoundManager : MonoBehaviour
         gameStartAnimator.SetTrigger("Play");
 
         yield return new WaitForSeconds(2f);
+        roundProcessManager.NodeProcessCheck();
         roundState = RoundState.MyRound;
         timerManager.PlayerRoundCall();
     }

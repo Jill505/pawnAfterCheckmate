@@ -76,6 +76,8 @@ public class StoryManager : MonoBehaviour
 
         if (myStoryCoroutine == null)
         {
+            StoryToLoad.LoadLangData();
+            Debug.Log("The story coroutine is loaded succ");
             myStoryCoroutine = StartCoroutine(StoryCoroutine());
         }
         else
@@ -94,16 +96,22 @@ public class StoryManager : MonoBehaviour
     {
         isOnStoryProcessing = true;
         StoryToLoad.LoadLangData();
+
+        Debug.Log("StoryToLoad.strs.Length: " + StoryToLoad.conversationContext.Length);
+
         //解析指令
-        for (int i = 0; i < StoryToLoad.strs.Length; i++)
+        for (int i = 0; i < StoryToLoad.conversationContext.Length; i++)
         {
-            string strRead = StoryToLoad.strs[i];
+            string strRead = StoryToLoad.conversationContext[i];
 
             //檢測屬性
             //假如是指令
             if (strRead.StartsWith("Comm/"))
             {
                 string[] parts = strRead.Split('/');
+
+                Debug.Log("Readline Command, the context is " + parts);
+
                 CommandRead(parts);
                 continue;
             }
@@ -162,6 +170,7 @@ public class StoryManager : MonoBehaviour
 
     public void CommandRead(string[] commStr)
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         switch (commStr[1])
         {
             case "CanvasOn":
@@ -177,16 +186,21 @@ public class StoryManager : MonoBehaviour
                 break;
 
             case "FightStopTimer":
-                if (SceneManager.sceneCount == 2) 
+                if (currentScene.buildIndex == 2)
                 {
                     FindFirstObjectByType<TimerManager>().isPause = true;
                 }
+                else {
+                    Debug.LogError("You are not in fight");
+                }
+
                 break;
 
             case "FightStartTimer":
-                if (SceneManager.sceneCount == 2)
+                if (currentScene.buildIndex == 2)
                 {
                     FindFirstObjectByType<TimerManager>().isPause = false;
+                    //FindFirstObjectByType<RoundManager>().
                 }
                 break;
             case "SetImage":
@@ -194,7 +208,7 @@ public class StoryManager : MonoBehaviour
                 break;
 
             case "GoNextNode":
-                if (SceneManager.sceneCount == 2) {
+                if (currentScene.buildIndex == 2) {
                     FindFirstObjectByType<RoundProcessManager>().GoNextNode();
                 }
                 break;

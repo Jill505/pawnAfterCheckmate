@@ -7,13 +7,14 @@ public class SO_Story : ScriptableObject
     [Header("MutiLang")]
     public TextAsset myMutiLangData;
 
-    public string[] strs = new string[0];
+    public string[] conversationContext = new string[0];
 
     public void LoadLangData()
     {
         //string[] sStrs = new string[0];
-        AK_ToolBox.LoadLangData(myMutiLangData, ref strs);
+        string[] str = new string[0];
+        AK_ToolBox.LoadLangData(myMutiLangData, ref conversationContext);
 
-        //strs = sStrs;
+        //strs = str;
     }
 }

@@ -52,6 +52,8 @@ public class unit : MonoBehaviour
     bool _colorClog;
     void Update()
     {
+        if(timerManager.isPause) return;
+
         CaseSwitcher();
         UpdateLogic();
         syncTroopOnMe();
@@ -79,6 +81,7 @@ public class unit : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (timerManager.isPause) return;
         //soundManager.PlaySFX("button_float");
 
         if (roundManager.roundState == RoundState.MyRound)
@@ -110,6 +113,7 @@ public class unit : MonoBehaviour
     }
     private void OnMouseExit()
     {
+        if (timerManager.isPause) return;
         if (selecting == true)
         {
             myUnitOutfit.mySr.color = new Color(1, 1, 1, 1f);
@@ -134,6 +138,7 @@ public class unit : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (timerManager.isPause) return;
         SelectUnit();
     }
     public void PlaySelectSoundEffect()

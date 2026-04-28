@@ -72,7 +72,8 @@ namespace AKTool
 
         static public void LoadLangData(TextAsset textAsset, ref string[] langData)
         {
-            if (textAsset == null) { Debug.Log("textAsset沒有資料"); }
+            if (textAsset == null) 
+            { Debug.Log("textAsset沒有資料"); }
 
             SaveSystem.LoadSF();
 

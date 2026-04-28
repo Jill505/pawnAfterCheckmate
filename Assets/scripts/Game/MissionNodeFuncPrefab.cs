@@ -29,6 +29,7 @@ public class MissionNodeFuncPrefab : MonoBehaviour
 
     public void LoadStory(SO_Story SOS)
     {
+        Debug.Log("Trigger Story activation");
         SM().LoadStory(SOS);
     }
 
