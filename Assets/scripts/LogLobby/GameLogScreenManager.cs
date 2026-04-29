@@ -12,6 +12,8 @@ public class GameLogScreenManager : MonoBehaviour
     public SoundManager soundManager;
     public GameLogScreenLoad gameLogScreenLoad;
 
+    public Animator logScreenAnimator;
+
     public AudioClip testClip;
 
     [Header("UI Refs")]
@@ -44,10 +46,28 @@ public class GameLogScreenManager : MonoBehaviour
     {
         StartCoroutine(StartGameButtonCoroutine());
     }
+
     public IEnumerator StartGameButtonCoroutine()
     {
-        yield return null;
-        SceneManager.LoadScene(1);
+        soundManager.PlaySFX("bell_lose");
+        logScreenAnimator.SetTrigger("LoadGame");
+
+        yield return new WaitForSeconds(1.62f);
+
+        SaveSystem.LoadSF();
+
+        if (SaveSystem.SF.storyRead[0] == false)
+        {
+            SaveSystem.SF.storyRead[0] = true;
+            SaveSystem.SaveSF();
+
+            SceneManager.LoadScene(2);
+
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void LeaveGame()

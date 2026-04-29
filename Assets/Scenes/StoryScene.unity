@@ -273,6 +273,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526399228}
   m_CullTransparentMesh: 1
+--- !u!114 &671143893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3061899336181526222, guid: ea1b344684d0a50448d58fbd36f39ee1, type: 3}
+  m_PrefabInstance: {fileID: 1381349133929659035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a449ca5545aad248b1c26a1a0eeaf72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &689187428
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1752130177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,27 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ecc03e309077d449af0a816900483b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onLoadAKSO_Story: {fileID: 1434358317}
-  hasStoryLoad: 0
-  readingPage: 0
-  maxPage: 0
-  loadSceneSort: 1
-  onReadingClog: 0
-  wordGenDur: 0.12
-  conversationShowcase: {fileID: 79533358}
-  conversationShowingText: 
-  conversationText: 
-  storyText: []
-  myAnimator: {fileID: 0}
-  allowSkipSwitch: 1
-  RegisterAKSO_Story:
-  - {fileID: 1468937630}
-  - {fileID: 1434358317}
-  ASKO_Ref_StoryAnimatorObject:
-  - {fileID: 1122696684}
-  - {fileID: 689187428}
-  isTesting: 1
-  testScene: 1
+  storyManager: {fileID: 671143893}
 --- !u!4 &1752130178
 Transform:
   m_ObjectHideFlags: 0

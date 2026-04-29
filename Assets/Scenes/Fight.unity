@@ -411,7 +411,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32000
   m_TargetDisplay: 0
 --- !u!224 &115301621
 RectTransform:
@@ -8471,6 +8471,10 @@ PrefabInstance:
     - target: {fileID: 3797469143235477503, guid: ea1b344684d0a50448d58fbd36f39ee1, type: 3}
       propertyPath: m_Name
       value: StoryManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571796410848932917, guid: ea1b344684d0a50448d58fbd36f39ee1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

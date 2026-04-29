@@ -4,9 +4,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_Story", menuName = "Scriptable Objects/SO_Story")]
 public class SO_Story : ScriptableObject
 {
-    [Header("MutiLang")]
+    [TextArea(2,13)]
+    public string comment;
+
+    [Header("MutiLang update here")]
     public TextAsset myMutiLangData;
 
+    [Header("DONT UPDATE HERE!!!!!!")]
     public string[] conversationContext = new string[0];
 
     public void LoadLangData()

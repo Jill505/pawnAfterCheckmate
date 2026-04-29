@@ -13,16 +13,20 @@ MonoBehaviour:
   m_Name: testStory
   m_EditorClassIdentifier: 
   myMutiLangData: {fileID: 4900000, guid: dc84cc908aeb4684c9955fdc9f7d301c, type: 3}
-  strs:
-  - "\u95DC\u5361\u540D\u7A31"
-  - "\u95DC\u5361\u540D\u7A31dgdgdthdrsefafrg"
-  - "\u95DC\u5361\u540D\u7A31aasasa"
-  - "\u95DC\u5361\u540D\u7A31;olkijuhygtr"
-  - "\u95DC\u5361\u540D\u7A31thn"
-  - "\u95DC\u5361\u540D\u7A31mrdase"
-  - "\u95DC\u5361\u540D\u7A31rtgh"
-  - "\u95DC\u5361\u540D\u7A31tehsye"
-  - "\u95DC\u5361\u540D\u7A31wgethsgd"
-  - "\u95DC\u5361\u540D\u7A31ewegr"
-  - "\u95DC\u5361\u540D\u7A31hfthetrhy"
-  - "\u95DC\u5361\u540D\u7A31vcbfhm"
+  conversationContext:
+  - Comm/CanvasOn
+  - Comm/FightStopTimer
+  - Comm/SetImage/1/Ail_photostick
+  - "Comm/SetSpeaker/\u827E\u723E"
+  - "\u9019\u88E1\u662F\u54EA\u88E1? \u9019\u662F\u6559\u5B78\u6587\u5B57\u55CE\uFF1F"
+  - "\u6211\u8981\u600E\u9EBC\u79FB\u52D5\uFF1F"
+  - Comm/SetImage/0/xls
+  - "Comm/SetSpeaker/\u8B1D\u627F\u52F3"
+  - "\u6B61\u8FCE\u4F86\u5230\u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01"
+  - "\u6C92\u932F \u9019\u662F\u7528\u4F86\u6F14\u793A\u7684\u6587\u5B57"
+  - "\u5E25\u5427"
+  - Comm/SetImage/0/alpha
+  - Comm/SetImage/1/alpha
+  - Comm/FightStartTimer
+  - Comm/CanvasOff
+  - Comm/GoNextNode

@@ -4,14 +4,18 @@ using TMPro;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class StoryManager : MonoBehaviour
 {
     [Header("Ref")]
     public GameObject fatherCanvas;
+    public SoundManager soundManager;
 
     public TextMeshProUGUI SpeakerName;
     public TextMeshProUGUI SpeakContext;
+
+    public Image BackGroundImage;
 
     [Header("Story Load Info")]
     public SO_Story StoryToLoad;
@@ -38,11 +42,14 @@ public class StoryManager : MonoBehaviour
     public string speakingName;
     public string speakingContext;
 
-    [Header("TestStory")]
-    public SO_Story tStory;
-
-    [Header("ImagePos")]
+    [Header("System Assist Refs")]
     public Image[] ImagePosArr;
+    public Animator BlackScreenAnimator;
+
+    public void Start()
+    {
+        soundManager = FindFirstObjectByType<SoundManager>();
+    }
 
     public void Update()
     {
@@ -212,6 +219,37 @@ public class StoryManager : MonoBehaviour
                     FindFirstObjectByType<RoundProcessManager>().GoNextNode();
                 }
                 break;
+
+            case "LoadScene":
+                BlackScreenAnimator.SetBool("BlackScreenControl", true);
+                int sceneSort = int.Parse(commStr[2]);
+                Delay(1.7f, () => { SceneManager.LoadScene(sceneSort); });
+                break;
+
+            case "BlackIn":
+                BlackScreenAnimator.SetBool("BlackScreenControl", true);
+                break;
+            case "BlackOut":
+                BlackScreenAnimator.SetBool("BlackScreenControl", false);
+                break;
+
+            case "Wait":
+                break;
+
+            case "SwitchBackgroundImage":
+                StartCoroutine(SwitchBackgroundImageCoroutine(Resources.Load<Sprite>("StorySprite/" + commStr[2])));
+                break;
+
+            case "SetBlackScreenOff":
+                BlackScreenAnimator.gameObject.SetActive(false);
+                break;
+            case "SetBlackScreenON":
+                BlackScreenAnimator.gameObject.SetActive(true);
+                break;
+
+            case "PlaySFX":
+                soundManager.PlaySFX(commStr[2]);
+                break;
         }
     }
 
@@ -229,9 +267,36 @@ public class StoryManager : MonoBehaviour
     {
         speakingName = name;    
     }
-
     public void SetImageAt(int posIndex, string name)
     {
-        ImagePosArr[posIndex].sprite = Resources.Load<Sprite>("StorySprite/" + name);
+        if (Resources.Load<Sprite>("StorySprite/" + name) == null)
+        {
+            ImagePosArr[posIndex].sprite = Resources.Load<Sprite>("MISC/alphaPicutre");
+        }
+        else
+        {
+            ImagePosArr[posIndex].sprite = Resources.Load<Sprite>("StorySprite/" + name);
+        }
+    }
+
+    public IEnumerator SwitchBackgroundImageCoroutine(Sprite Sprite)
+    {
+        BlackScreenAnimator.speed = 2;
+        BlackScreenAnimator.SetBool("BlackScreenControl", true);
+        yield return new WaitForSeconds(1.2f);
+        BackGroundImage.sprite = Sprite;
+        
+        BlackScreenAnimator.SetBool("BlackScreenControl", false);
+        yield return new WaitForSeconds(1.2f);
+        BlackScreenAnimator.speed = 1;
+    }
+    public Coroutine Delay(float sec, Action func)
+    {
+        return StartCoroutine(LateFuncCoroutine(sec, func));
+    }
+    public IEnumerator LateFuncCoroutine(float sec, Action func)
+    {
+        yield return new WaitForSeconds(sec);
+        func();
     }
 }
