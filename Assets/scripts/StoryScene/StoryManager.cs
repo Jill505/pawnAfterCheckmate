@@ -4,7 +4,6 @@ using TMPro;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine.Experimental.GlobalIllumination;
 
 public class StoryManager : MonoBehaviour
 {
@@ -33,6 +32,7 @@ public class StoryManager : MonoBehaviour
 
     [Header("Loading Calculate Variables")]
     public bool isOnStoryProcessing;
+    public bool isAllowGoNextLine;
     public bool isTextFinishLoad;
     public bool CheckFlag;
 
@@ -46,7 +46,7 @@ public class StoryManager : MonoBehaviour
     public Image[] ImagePosArr;
     public Animator BlackScreenAnimator;
 
-    public void Start()
+    private void Start()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
     }
@@ -119,16 +119,25 @@ public class StoryManager : MonoBehaviour
 
                 Debug.Log("Readline Command, the context is " + parts);
 
+                isAllowGoNextLine = false;
+
                 CommandRead(parts);
+
+                if (parts[1] == "Wait")
+                {
+                    yield return new WaitForSeconds(float.Parse(parts[2]));
+                }
+
                 continue;
             }
 
             //假如是單純文字
             speakingContext = "";
 
-            isTextFinishLoad = false;
+            isTextFinishLoad = true;
             for (int j = 0; j < strRead.Length; j++)
             {
+
                 if (_finFlag)
                 {
                     _finFlag= false;
@@ -139,9 +148,11 @@ public class StoryManager : MonoBehaviour
                 speakingContext += strRead[j];
                 yield return new WaitForSeconds(speakInterval_Cn);
             }
+            isAllowGoNextLine = true;
             isTextFinishLoad = true;
             yield return new WaitUntil(() => CheckFlag);
             CheckFlag = false;
+            isAllowGoNextLine = false;
         }
 
         myStoryCoroutine = null;
@@ -153,7 +164,7 @@ public class StoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (isTextFinishLoad)
+            if (isTextFinishLoad && isAllowGoNextLine)
             {
                 //Next line
                 CheckFlag = true;
@@ -234,9 +245,10 @@ public class StoryManager : MonoBehaviour
                 break;
 
             case "Wait":
+                //由於類型緣故 wait在另行邏輯處裡
                 break;
 
-            case "SwitchBackgroundImage":
+            case "SetBackgroundImage":
                 StartCoroutine(SwitchBackgroundImageCoroutine(Resources.Load<Sprite>("StorySprite/" + commStr[2])));
                 break;
 
@@ -249,6 +261,10 @@ public class StoryManager : MonoBehaviour
 
             case "PlaySFX":
                 soundManager.PlaySFX(commStr[2]);
+                break;
+            case "Clear":
+                speakingName = "";
+                speakingContext = "";
                 break;
         }
     }
@@ -281,7 +297,7 @@ public class StoryManager : MonoBehaviour
 
     public IEnumerator SwitchBackgroundImageCoroutine(Sprite Sprite)
     {
-        BlackScreenAnimator.speed = 2;
+        BlackScreenAnimator.speed = 1.5f;
         BlackScreenAnimator.SetBool("BlackScreenControl", true);
         yield return new WaitForSeconds(1.2f);
         BackGroundImage.sprite = Sprite;

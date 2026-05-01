@@ -12,10 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa89671df1ea8ff4ea3f976541df3df0, type: 3}
   m_Name: Story_0
   m_EditorClassIdentifier: 
-  myMutiLangData: {fileID: 4900000, guid: dc84cc908aeb4684c9955fdc9f7d301c, type: 3}
+  comment: 
+  myMutiLangData: {fileID: 4900000, guid: 9360b27618f2a614691feae8e8c47e88, type: 3}
   conversationContext:
   - Comm/CanvasOn
-  - Comm/FightStopTimer
+  - Comm/Wait/2f
+  - Comm/PlaySFX/bell_lose
+  - Comm/SetBackgroundImage/Story_Start_0
+  - Comm/Wait/0.8f
+  - "\u83E9\u63D0\u672C\u7121\u6A39\uFF0C"
+  - Comm/PlaySFX/bell_lose
+  - Comm/SetBackgroundImage/Story_Start_0
+  - Comm/Wait/0.8f
+  - "\u660E\u93E1\u4EA6\u975E\u81FA\u3002"
+  - Comm/SetBackgroundImage/Story_Start_1
+  - Comm/Wait/0.8f
+  - "\u672C\u4F86\u7121\u4E00\u7269\uFF0C"
+  - Comm/SetBackgroundImage/Story_Start_2
+  - Comm/Wait/0.8f
+  - "\u4F55\u8655\u60F9\u5875\u57C3\u3002"
+  - 
+  - 
   - Comm/SetImage/1/Ail_photostick
   - "Comm/SetSpeaker/\u827E\u723E"
   - "\u9019\u88E1\u662F\u54EA\u88E1? \u9019\u662F\u6559\u5B78\u6587\u5B57\u55CE\uFF1F"

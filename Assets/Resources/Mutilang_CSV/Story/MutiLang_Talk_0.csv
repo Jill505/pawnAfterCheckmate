@@ -1,18 +1,50 @@
 ﻿繁體中文,簡體中文,English,日本語
 Comm/CanvasOn,關卡名稱,level name,ステージ名
-Comm/FightStopTimer,关卡叙述,level Desc,ステージ説明
-Comm/SetBlackScreenOff,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
-Comm/SetImage/1/Ail_photostick,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr
-Comm/SetSpeaker/艾爾,關卡名稱thn,關卡名稱thn,關卡名稱thn
-這裡是哪裡? 這是教學文字嗎？,關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase
-我要怎麼移動？,關卡名稱rtgh,關卡名稱rtgh,關卡名稱rtgh
-Comm/SetImage/0/xls,關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye
-Comm/SetSpeaker/謝承勳,關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd
-歡迎來到睡死後之兵！,關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr
-沒錯 這是用來演示的文字,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
-帥吧,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
-Comm/SetImage/0/alpha,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
-Comm/SetImage/1/alpha,,,
-Comm/FightStartTimer,,,
-Comm/CanvasOff,,,
-Comm/GoNextNode,,,
+Comm/SetBackgroundImage/Story_Start_0,关卡叙述,level Desc,ステージ説明
+Comm/Wait/2,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
+Comm/PlaySFX/bell_lose,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr
+Comm/SetBackgroundImage/Story_Start_0,關卡名稱thn,關卡名稱thn,關卡名稱thn
+Comm/Wait/2,關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase
+菩提本無樹,關卡名稱rtgh,關卡名稱rtgh,關卡名稱rtgh
+Comm/Clear,關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye
+Comm/PlaySFX/bell_lose,關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd
+Comm/SetBackgroundImage/Story_Start_1,關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr
+Comm/Wait/2,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
+明鏡亦非臺。,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
+Comm/Clear,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+Comm/PlaySFX/bell_lose,Comm/SetImage/1/alpha,Comm/SetImage/1/alpha,Comm/SetImage/1/alpha
+Comm/SetBackgroundImage/Story_Start_1,Comm/FightStartTimer,Comm/FightStartTimer,Comm/FightStartTimer
+Comm/Wait/2,Comm/CanvasOff,Comm/CanvasOff,Comm/CanvasOff
+本來無一物，,Comm/CanvasOff,Comm/GoNextNode,Comm/GoNextNode
+Comm/Clear,Comm/SetSpeaker/艾爾,Comm/SetSpeaker/艾爾,Comm/SetSpeaker/艾爾
+Comm/PlaySFX/bell_lose,這裡是哪裡? 這是教學文字嗎？,這裡是哪裡? 這是教學文字嗎？,這裡是哪裡? 這是教學文字嗎？
+Comm/SetBackgroundImage/Story_Start_3,我要怎麼移動？,我要怎麼移動？,我要怎麼移動？
+Comm/Wait/2,Comm/SetImage/0/xls,Comm/SetImage/0/xls,Comm/SetImage/0/xls
+何處惹塵埃。,Comm/SetSpeaker/謝承勳,Comm/SetSpeaker/謝承勳,Comm/SetSpeaker/謝承勳
+Comm/Clear,歡迎來到睡死後之兵！,歡迎來到睡死後之兵！,歡迎來到睡死後之兵！
+Comm/SetBackgroundImage/Story_Start_0,沒錯 這是用來演示的文字,沒錯 這是用來演示的文字,沒錯 這是用來演示的文字
+Comm/Wait/2,帥吧,帥吧,帥吧
+Comm/PlaySFX/people_Talking,Comm/SetImage/0/alpha,Comm/SetImage/0/alpha,Comm/SetImage/0/alpha
+Comm/SetBackgroundImage/Story_Start_4,Comm/SetImage/1/alpha,Comm/SetImage/1/alpha,Comm/SetImage/1/alpha
+Comm/Wait/3,Comm/FightStartTimer,Comm/FightStartTimer,Comm/FightStartTimer
+Comm/SetBackgroundImage/Story_Start_5,Comm/CanvasOff,Comm/CanvasOff,Comm/CanvasOff
+Comm/Wait/3,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+Comm/SetBackgroundImage/Story_Start_6,,,
+Comm/Wait/4,,,
+Comm/SetSpeaker/???,,,
+嗯... 睡不好阿... 這樣啊... 這樣的話您的狀況算輕症,,,
+那麼，請您到裡面的那個房間稍待片刻，貧道稍後過去,,,
+Comm/SetSpeaker/?,,,
+(我…在哪…?),,,
+Comm/SetSpeaker/???,,,
+好，那麼，是時候輪到這邊了,,,
+別讓我失望了,,,
+Comm/Clear,,,
+Comm/SetBackgroundImage/Story_Start_0,,,
+Comm/Wait/1,,,
+Comm/SetImage/0/player_illustration _noraml,,,
+Comm/SetImage/0/tao_illustration _noraml,,,
+Comm/SetSpeaker/???,,,
+好，那麼，是時候輪到這邊了,,,
+Comm/SetSpeaker/?,,,
+厄... 我... 我是誰？ 你是誰？我在哪？,,,

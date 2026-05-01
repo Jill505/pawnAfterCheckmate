@@ -58,10 +58,12 @@ public class GameLogScreenManager : MonoBehaviour
 
         if (SaveSystem.SF.storyRead[0] == false)
         {
+            StorySceneManager.StaticSO_Story = Resources.Load<SO_Story>("SO/Story/Story_0");
+
             SaveSystem.SF.storyRead[0] = true;
             SaveSystem.SaveSF();
 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
 
         }
         else

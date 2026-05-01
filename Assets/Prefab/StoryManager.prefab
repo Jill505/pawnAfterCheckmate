@@ -440,8 +440,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fatherCanvas: {fileID: 3390675474740267057}
+  soundManager: {fileID: 0}
   SpeakerName: {fileID: 7976270074059713933}
   SpeakContext: {fileID: 5567147949339837903}
+  BackGroundImage: {fileID: 1627613763850356502}
   StoryToLoad: {fileID: 0}
   AllowSkip: 0
   AllowSkipOneLine: 1
