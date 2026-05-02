@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -14,6 +14,8 @@ public class GameLogScreenManager : MonoBehaviour
 
     public Animator logScreenAnimator;
 
+    public Animator LanguageSelectCanvasAnimator;
+
     public AudioClip testClip;
 
     [Header("UI Refs")]
@@ -23,6 +25,14 @@ public class GameLogScreenManager : MonoBehaviour
     public Text SFXVolumeTextShowcase;
 
     public TMP_Dropdown languageSelectionDropdown;
+
+    public TextMeshProUGUI SelectLangTMP;
+    public TextMeshProUGUI ConfirmSelectLangTMP;
+
+    public float CamFluence = 0.8f;
+    public Transform[] CamPos = new Transform[3];
+    public Transform myCamPos;
+    public Transform nowTargetCamPos;
 
     [Header("URL")]
     public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
@@ -39,9 +49,14 @@ public class GameLogScreenManager : MonoBehaviour
     private void Update()
     {
         LobbyUIContextShowcase();
+        SyncCamPos();
     }
 
-    
+    private void FixedUpdate()
+    {
+
+    }
+
     public void StartGameButton()
     {
         StartCoroutine(StartGameButtonCoroutine());
@@ -110,15 +125,15 @@ public class GameLogScreenManager : MonoBehaviour
     {
         if (SaveSystem.SF.difficulty == 0)
         {
-            DiffTextShowcase.text = "²��Ҧ�";
+            DiffTextShowcase.text = "簡單模式";
         }
         else if (SaveSystem.SF.difficulty == 1)
         {
-            DiffTextShowcase.text = "���q�Ҧ�";
+            DiffTextShowcase.text = "普通模式";
         }
         else
         {
-            DiffTextShowcase.text = "���L�Ҧ�";
+            DiffTextShowcase.text = "夢魘模式";
         }
     }
 
@@ -132,29 +147,75 @@ public class GameLogScreenManager : MonoBehaviour
     {
         switch(languageSelectionDropdown.value)
         {
-            case 0://�c�餤��
+            case 0://繁體中文
                 SaveSystem.SF.SelectingLanguage = AK_Language.zh;
                 SaveSystem.SaveSF();
                 break;
                 
-            case 1://²�餤��
+            case 1://簡體中文
                 SaveSystem.SF.SelectingLanguage = AK_Language.cn;
                 SaveSystem.SaveSF();
                 break;
 
-            case 2://�^��
+            case 2://英文
                 SaveSystem.SF.SelectingLanguage = AK_Language.en;
                 SaveSystem.SaveSF();
                 break;
 
-            case 3://���
+            case 3://日文
                 SaveSystem.SF.SelectingLanguage = AK_Language.jp;
                 SaveSystem.SaveSF();
                 break;
         }
-        Debug.Log("���");
+        Debug.Log("更改");
         gameLogScreenLoad.LoadLogScreenLan(); ;
         gameLogScreenLoad.LoadLanLogScreen();
+    }
+
+    public void langSelect()
+    {
+        int num = (int)SaveSystem.SF.SelectingLanguage;
+
+        num = num + 1 <= 3 ? num + 1 : 0;
+        if (num == 1) num = 2;
+
+        switch (num)
+        {
+            case 0://繁體中文
+                SaveSystem.SF.SelectingLanguage = AK_Language.zh;
+                SelectLangTMP.text = "繁體中文";
+                ConfirmSelectLangTMP.text = "確認";
+                SaveSystem.SaveSF();
+                break;
+
+            case 1://簡體中文
+                SaveSystem.SF.SelectingLanguage = AK_Language.cn;
+                SelectLangTMP.text = "简体中文";
+                ConfirmSelectLangTMP.text = "确认";
+                SaveSystem.SaveSF();
+                break;
+
+            case 2://英文
+                SaveSystem.SF.SelectingLanguage = AK_Language.en;
+                SelectLangTMP.text = "English";
+                ConfirmSelectLangTMP.text = "Confirm";
+                SaveSystem.SaveSF();
+                break;
+
+            case 3://日文
+                SaveSystem.SF.SelectingLanguage = AK_Language.jp;
+                SelectLangTMP.text = "日本語";
+                ConfirmSelectLangTMP.text = "確認";
+                SaveSystem.SaveSF();
+                break;
+        }
+        gameLogScreenLoad.LoadLogScreenLan(); ;
+        gameLogScreenLoad.LoadLanLogScreen();
+    }
+
+    public void ConfirmLangSelect()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void GameMusicVolumeSetting(float rate)
@@ -221,5 +282,49 @@ public class GameLogScreenManager : MonoBehaviour
     public void CloseCreditCanvas()
     {
         CreditsCanvas.SetActive(false);
+    }
+
+    public void SyncCamPos()
+    {
+        myCamPos.position = Vector3.Lerp(myCamPos.position, nowTargetCamPos.position, CamFluence * Time.deltaTime);
+    }
+
+    public void SwitchTrackingPos(Transform t_transform)
+    {
+        nowTargetCamPos = t_transform;
+    }
+
+    public void LanguageSettingButton()
+    {
+        LanguageSelectCanvasAnimator.SetBool("Active", true);
+
+        int num = (int)SaveSystem.SF.SelectingLanguage;
+        switch (num)
+        {
+            case 0://繁體中文
+                SelectLangTMP.text = "繁體中文";
+                ConfirmSelectLangTMP.text = "確認";
+                break;
+
+            case 1://簡體中
+                SelectLangTMP.text = "简体中文";
+                ConfirmSelectLangTMP.text = "确认";
+                break;
+
+            case 2://英文
+                SelectLangTMP.text = "English";
+                ConfirmSelectLangTMP.text = "Confirm";
+                break;
+
+            case 3://日文
+                SelectLangTMP.text = "日本語";
+                ConfirmSelectLangTMP.text = "確認";
+                break;
+        }
+    }
+    public void CloseLanguageSetting()
+    {
+        //Reload the scene 0?
+        SceneManager.LoadScene(0);
     }
 }
