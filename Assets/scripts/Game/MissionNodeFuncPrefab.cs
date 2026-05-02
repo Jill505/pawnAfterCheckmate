@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 
 public class MissionNodeFuncPrefab : MonoBehaviour
@@ -46,5 +47,21 @@ public class MissionNodeFuncPrefab : MonoBehaviour
     public void SpawnGoldenTarget()
     {
         RM().SpawnGoldenTarget_Random();
+    }
+
+    public void SpawnRandomTroop(int number)
+    {
+        for (int i = 0; i < number; i++)
+        {
+            RM().SpawnEnemyInPool();
+        }
+    }
+
+    public void SpawnTargetTroop(SO_Chess sO_Chess)
+    {
+        GameBoardInsChess GBIC = new GameBoardInsChess();
+        GBIC.chessFile = sO_Chess;
+
+        RM().SpawnEnemy_RandomSpot(GBIC);
     }
 }

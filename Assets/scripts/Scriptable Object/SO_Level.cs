@@ -18,10 +18,6 @@ public class SO_Level : ScriptableObject
     public string levelDesc = "Def Desc";
 
     [Header("Level setting")]
-    public int allowDeployTroopNumber = 3;
-
-    public MissionType myMissionType = MissionType.Survive;
-    public int SurviveRound = 10;
     public GameBoardInsChess goldenTarget;
 
     public MissionNode[] missionNodes;

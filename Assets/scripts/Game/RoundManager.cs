@@ -313,7 +313,8 @@ public class RoundManager : MonoBehaviour
         roundProcessManager.NodeProcessCheck();
 
 
-        switch (gameManager.levelData.myMissionType)
+        //switch (gameManager.levelData.myMissionType)
+        switch (roundProcessManager.nowMissionType)
         {
             case MissionType.Survive:
                 /*if (!goldenTargetSpawned && roundCount >= leftRoundCount)
@@ -326,7 +327,7 @@ public class RoundManager : MonoBehaviour
                     SpawnEnemy_RandomSpot(GBIC);
                 }*/
 
-                SpawnGoldenTarget_Random();
+                //SpawnGoldenTarget_Random();
                 break;
         }
 

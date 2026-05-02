@@ -148,10 +148,11 @@ public class GameManager : MonoBehaviour
         bGM_name = config.LevelBgmName;
 
         //載入關卡配置 - 長度
+        /*
         if (config.myMissionType == MissionType.Survive)
         {
             roundManager.leftRoundCount = config.SurviveRound;
-        }
+        }*/
 
         spawnReferencePoint = Vector2.zero;
         chessBoardObjectRefArr = new GameObject[config.gridSizeX, config.gridSizeY];
@@ -356,10 +357,10 @@ public class GameManager : MonoBehaviour
 
         //gameTargetAnimator.SetTrigger("DoJump");
 
-        switch (levelData.myMissionType)
+        switch (roundProcessManager.nowMissionType)
         {
             case (MissionType.Survive):
-                if (roundManager.leftRoundCount - roundManager.roundCount > 0)
+                /*if (roundManager.leftRoundCount - roundManager.roundCount > 0)
                 {
                     TargetStr = "存活 " + (roundManager.leftRoundCount - roundManager.roundCount) + " 回合";
                     GameTarget_TMP.color = Color.white;
@@ -368,7 +369,14 @@ public class GameManager : MonoBehaviour
                 {
                     TargetStr = "殺死癥結！";
                     GameTarget_TMP.color = Color.red;
-                }
+                }*/
+
+                TargetStr = "存活" + roundProcessManager.CurrentNeedRound + "回合\n擊殺敵方棋子可加快一回合";
+                break;
+
+            case MissionType.KillTarget:
+                TargetStr = "殺死\n" + "受到標記的目標！\n" + "共" + (roundProcessManager.TargetKillAmount - roundProcessManager.NowKillAmount) + "隻";
+                GameTarget_TMP.color = Color.red;
                 break;
 
             case (MissionType.Special):

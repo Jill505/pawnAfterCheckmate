@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -11,6 +12,7 @@ public class RoundProcessManager : MonoBehaviour
 
     public int TargetSurviveRound = 0;
     public int NowSurviveRound = 0;
+    public int CurrentNeedRound = 0;
 
     public int Target_TSA_UID = 2;
     public int TargetKillAmount = 0;
@@ -19,6 +21,11 @@ public class RoundProcessManager : MonoBehaviour
     public MissionNode[] myMissionNodes;
 
     public bool isNodeReachClog = false;
+
+    private void Update()
+    {
+        CurrenNeedRoundCalculate();
+    }
 
     public void InitRoundProcess(MissionNode[] missionNodes)
     {
@@ -108,6 +115,10 @@ public class RoundProcessManager : MonoBehaviour
 
             Debug.Log("Check Flag Use");
             myMissionNodes[currentIndex].ActionOnNodeReach.Invoke();
+            if (myMissionNodes[currentIndex].AutoGoNextNode)
+            {
+                GoNextNode();
+            }
             isNodeReachClog = true;
         }
     }
@@ -116,6 +127,12 @@ public class RoundProcessManager : MonoBehaviour
     {
         currentIndex++;
         LoadMissionNode(currentIndex);
+    }
+
+    public void CurrenNeedRoundCalculate()
+    {
+        int res = TargetSurviveRound - NowSurviveRound;
+        CurrentNeedRound =  res > 0 ? res : 0;
     }
 }
 
@@ -128,6 +145,8 @@ public class MissionNode
 
     public int KillTargetUID;
     public int KillTargetAmount;
+
+    public bool AutoGoNextNode = true;
 
     public UnityEvent ActionOnNodeReach;
 }

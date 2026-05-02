@@ -17,14 +17,64 @@ MonoBehaviour:
   levelName: "\u95DC\u53613 - \u6293\u5230\u70B8\u5F48\u9B54\u4E86"
   SLST: 0
   levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u5FEB\u62F3\uFF01\u300D"
-  allowDeployTroopNumber: 3
-  myMissionType: 0
-  SurviveRound: 8
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     isRandomSpawn: 0
     locationX: 3
     locationY: 3
+  missionNodes:
+  - missionType: 0
+    RequireSurviveRound: 12
+    KillTargetUID: 0
+    KillTargetAmount: 0
+    AutoGoNextNode: 0
+    ActionOnNodeReach:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: GoNextNode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: SpawnGoldenTarget
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - missionType: 1
+    RequireSurviveRound: 0
+    KillTargetUID: 2
+    KillTargetAmount: 1
+    AutoGoNextNode: 0
+    ActionOnNodeReach:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: PlayerWin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   LevelBgmName: pawn's_(demo)_2
   PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0

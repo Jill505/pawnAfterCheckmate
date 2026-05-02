@@ -110,14 +110,17 @@ public class Troop : MonoBehaviour
 
         chessMoveDuration = AllGameManager.chessMoveDuration;
     }
-
-    void Start()
+    private void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         roundManager = FindFirstObjectByType<RoundManager>();
         soundManager = FindFirstObjectByType<SoundManager>();
         trickManager = FindFirstObjectByType<TrickManager>();
         vFXManager = FindAnyObjectByType<VFXManager>();
+
+    }
+    void Start()
+    {
         LoadSOData();
 
         if (myCamp == Camp.Enemy)

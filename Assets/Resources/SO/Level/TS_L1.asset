@@ -17,9 +17,6 @@ MonoBehaviour:
   levelName: "\u95DC\u53611 - \u6B61\u8FCE\u4F86\u5230\u7761\u6B7B\u5F8C\u4E4B\u5175"
   SLST: 0
   levelDesc: "\u6B61\u8FCE\u4F86\u5230 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\n\u9023\u6BBA\u3001\u9644\u8EAB\u3001\u6536\u5272\u6210\u9577\u7684\u58EB\u5175\u5427\uFF01"
-  allowDeployTroopNumber: 3
-  myMissionType: 0
-  SurviveRound: 8
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     isRandomSpawn: 0
@@ -30,6 +27,7 @@ MonoBehaviour:
     RequireSurviveRound: 0
     KillTargetUID: 0
     KillTargetAmount: 1
+    AutoGoNextNode: 0
     ActionOnNodeReach:
       m_PersistentCalls:
         m_Calls:
@@ -49,6 +47,7 @@ MonoBehaviour:
     RequireSurviveRound: 8
     KillTargetUID: 0
     KillTargetAmount: 0
+    AutoGoNextNode: 0
     ActionOnNodeReach:
       m_PersistentCalls:
         m_Calls:
@@ -80,6 +79,7 @@ MonoBehaviour:
     RequireSurviveRound: 0
     KillTargetUID: 2
     KillTargetAmount: 1
+    AutoGoNextNode: 0
     ActionOnNodeReach:
       m_PersistentCalls:
         m_Calls:
