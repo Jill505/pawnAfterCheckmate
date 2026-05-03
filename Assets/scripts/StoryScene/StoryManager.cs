@@ -16,6 +16,9 @@ public class StoryManager : MonoBehaviour
 
     public Image BackGroundImage;
 
+    public Button[] ChoiceButtons = new Button[4];
+    public TextMeshProUGUI[] ChoiceTexts = new TextMeshProUGUI[4];
+
     [Header("Story Load Info")]
     public SO_Story StoryToLoad;
 
@@ -91,6 +94,12 @@ public class StoryManager : MonoBehaviour
         {
             Debug.Log("The Story is loading!");
         }
+    }
+
+    static public void GlobalLoadStory(SO_Story SOC)
+    {
+        StoryManager SM=  FindFirstObjectByType<StoryManager>();
+        SM.LoadStory(SOC);
     }
 
     public void LoadStory(SO_Story SO_S)
@@ -266,6 +275,13 @@ public class StoryManager : MonoBehaviour
                 speakingName = "";
                 speakingContext = "";
                 break;
+            case "ChoiceQuestion":
+                ChoiceQuestion(commStr);
+                break;
+
+            case "TriggerRegisterEvent":
+                StoryToLoad.registerEvents[int.Parse(commStr[2])].Invoke();
+                break;
         }
     }
 
@@ -314,5 +330,100 @@ public class StoryManager : MonoBehaviour
     {
         yield return new WaitForSeconds(sec);
         func();
+    }
+
+    public void ChoiceQuestion(string[] commStr)
+    {
+        //DO init
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].onClick.RemoveAllListeners();
+        }
+
+        int q_num = int.Parse(commStr[2]);
+        int index = q_num;
+
+        Debug.Log("q_num:" + q_num);
+        Debug.Log("index:" + index);
+
+        for (int i = 0; i < commStr.Length; i++)
+        {
+            Debug.Log("commstr " + i + ": " + commStr[i]);
+        }
+
+        for (int i = 0; i < q_num; i++)
+        {
+            index++;
+            ChoiceTexts[i].text = commStr[index];
+            index++;
+            ChoiceButtons[i].onClick.AddListener(StoryToLoad.registerEvents[(int.Parse(commStr[index]))].Invoke);
+        }
+
+        switch (q_num)
+        {
+            case 0:Debug.LogError("怎麼會有0個選項的問題 要不要檢討一下自己？"); break;
+            case 1: SetChoiceLayout_1(); break;
+            case 2: SetChoiceLayout_2(); break;
+            case 3: SetChoiceLayout_3(); break;
+            case 4: SetChoiceLayout_4(); break;
+            default: Debug.LogError("系統不支援五個以上的問題 你問題太多了吧"); break;
+        }
+    }
+
+    public void Close_ChoicePanel()
+    {
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void SetChoiceLayout_1()
+    {
+
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < 1; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void SetChoiceLayout_2()
+    {
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(true);
+        }
+    }
+    public void SetChoiceLayout_3()
+    {
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(true);
+        }
+
+    }
+    public void SetChoiceLayout_4()
+    {
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(true);
+        }
+
     }
 }

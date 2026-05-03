@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa89671df1ea8ff4ea3f976541df3df0, type: 3}
+  m_Name: Story_0_var0
+  m_EditorClassIdentifier: 
+  comment: 
+  myMutiLangData: {fileID: 4900000, guid: 3158ca961322f33408fa8f8e3fc28063, type: 3}
+  conversationContext: []
+  registerEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3061899336181526222, guid: ea1b344684d0a50448d58fbd36f39ee1, type: 3}
+        m_TargetAssemblyTypeName: StoryManager, Assembly-CSharp
+        m_MethodName: GlobalLoadStory
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000}
+          m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3061899336181526222, guid: ea1b344684d0a50448d58fbd36f39ee1, type: 3}
+        m_TargetAssemblyTypeName: StoryManager, Assembly-CSharp
+        m_MethodName: GlobalLoadStory
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 8f385677e99ee5444b1cee289db00d94, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

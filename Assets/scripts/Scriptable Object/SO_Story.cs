@@ -1,5 +1,6 @@
 using AKTool;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "SO_Story", menuName = "Scriptable Objects/SO_Story")]
 public class SO_Story : ScriptableObject
@@ -21,4 +22,6 @@ public class SO_Story : ScriptableObject
 
         //strs = str;
     }
+
+    public UnityEvent[] registerEvents;
 }
