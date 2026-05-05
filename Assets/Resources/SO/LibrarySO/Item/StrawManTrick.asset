@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LangData: {fileID: 4900000, guid: 2c2397b2739e39945a633a0de5cd9b5a, type: 3}
   SpriteData:
-  - {fileID: 5921478985600086988, guid: 6db5865249d25124fbb99736e96b5ef3, type: 3}
+  - {fileID: -5328419903125881725, guid: e8895d390170d6048a2a57023c5ad6da, type: 3}
   strs_landData:
   - "\u8349\u4EBA\u6232\u6CD5"
   - "\u6050\u6016\u7A3B\u8349\u4EBA"
   ItemUID: 0
-  KnowledgeLevel: 
+  KnowledgeLevel: 000000000a000000
   myItemSort: 1
   myTrickType: 2

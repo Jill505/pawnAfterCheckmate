@@ -111,4 +111,9 @@ public class SaveFile
     public int[] ItemKnowledgeLevelData = new int[1024];
     public int[] CharacterKnowledgeLevelData = new int[1024];
     public int[] StoryKnowledgeLevelData =  new int[1024];
+
+    public int[] MechanicsKnowledgeLevelData = new int[1024];
+    
+    //Stats - Other
+
 }
