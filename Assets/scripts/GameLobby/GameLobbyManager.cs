@@ -42,6 +42,8 @@ public class GameLobbyManager : MonoBehaviour
     public Text playerTrickDesc;
     public SO_Trick trickSOFile;
 
+    public TextMeshProUGUI LevelSortTMP;
+
     public TrickType[] nowShowTrickArray;
     static public int nowSelectingTrickIndex;
     public int nowSelectingTrickIndexInspect;
@@ -124,6 +126,8 @@ public class GameLobbyManager : MonoBehaviour
         cameraController.targetOrthographic = cameraController.NormalOrthographic;
         gameLobbyUIManager.Do_LevelNameFadeIn();
         LoadLobbyLevel(myGameStages[StageIndex].levels[LevelIndex]);
+
+        LevelSortTMP.text = "" + (LevelIndex+1);
 
         AllowNextAndLastButtonInteractable();
     }

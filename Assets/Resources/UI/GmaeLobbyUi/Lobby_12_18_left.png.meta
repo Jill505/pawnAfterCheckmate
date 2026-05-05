@@ -148,10 +148,10 @@ TextureImporter:
       name: Lobby_12_18_left_0
       rect:
         serializedVersion: 2
-        x: 797
-        y: 688
-        width: 508
-        height: 1292
+        x: 782
+        y: 500
+        width: 535
+        height: 1548
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

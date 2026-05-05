@@ -63,6 +63,10 @@ public class GameLobbyUIManager : MonoBehaviour
     public TextMeshProUGUI keyNumberTMP;
     public TextMeshProUGUI skillPointTMP;
 
+    [Header("Level Select Carrier")]
+    public Animator LevelSelectAnimator;
+    public TextMeshProUGUI LevelSelectTMP;
+
     void Awake()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
@@ -274,5 +278,13 @@ public class GameLobbyUIManager : MonoBehaviour
     public void Do_LevelNameFadeIn()
     {
         LevelNameAnimator.Play("Show", -1, 0);
+    }
+
+    public void OnLevelSelectAnimationButtonDown()
+    {
+        bool animState = LevelSelectAnimator.GetBool("LevelSelectActive");
+        LevelSelectAnimator.SetBool("LevelSelectActive", !animState);
+
+        LevelSelectTMP.text = animState ? "^" : "v";
     }
 }
