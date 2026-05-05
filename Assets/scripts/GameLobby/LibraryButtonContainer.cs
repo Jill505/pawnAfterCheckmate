@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LibraryButtonContainer : MonoBehaviour
 {
     public Text myShowText;
+    public Button myButton;
 
     public GameLobbyManager gameLobbyManager;
     public LibraryManager libraryManager;
@@ -20,6 +22,34 @@ public class LibraryButtonContainer : MonoBehaviour
     {
         gameLobbyManager = FindFirstObjectByType<GameLobbyManager>();
         libraryManager = FindFirstObjectByType<LibraryManager>();
+    }
+
+    public void Start()
+    {
+        StarterAnimator();
+    }
+    public void StarterAnimator()
+    {
+        StartCoroutine(StartAnimatorCoroutine());
+    }
+    public IEnumerator StartAnimatorCoroutine()
+    {
+        float alpha = 0f ;
+        float fadeInTime = 0.4f;
+        float fadeTimes = 20;
+        for (int i = 0; i < fadeTimes; i++)
+        {
+            alpha += 1 / fadeTimes;
+
+            ColorBlock cb = myButton.colors;
+            cb.normalColor = new Color(1, 1, 1, alpha);
+            myButton.colors = cb;
+
+            myShowText.color = new Color(1, 1, 1, alpha);
+
+
+            yield return new WaitForSeconds(fadeInTime / fadeTimes);
+        }
     }
 
     public void OnItemButtonDown()

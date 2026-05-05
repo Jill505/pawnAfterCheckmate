@@ -147,12 +147,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myShowText: {fileID: 6157361362272508688}
+  myButton: {fileID: 6771516551876502141}
   gameLobbyManager: {fileID: 0}
   libraryManager: {fileID: 0}
   itemLibData: {fileID: 0}
   enemyLibData: {fileID: 0}
   storyLibData: {fileID: 0}
   characterLibData: {fileID: 0}
+  mechanicsLibData: {fileID: 0}
+  statsLibData: {fileID: 0}
 --- !u!1 &7556972998539775248
 GameObject:
   m_ObjectHideFlags: 0
