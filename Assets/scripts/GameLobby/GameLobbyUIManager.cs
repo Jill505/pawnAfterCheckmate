@@ -38,6 +38,9 @@ public class GameLobbyUIManager : MonoBehaviour
     public Image fadeEffect_Image_B;
     public Image ToLastLevelButton_Image;
 
+    public GameObject RafPt_SelectLevel;
+    public float ShowInterfaceRadius;
+
     [Header("Level Name")]
     public Text LevelName;
     public Animator LevelNameAnimator;
@@ -98,6 +101,8 @@ public class GameLobbyUIManager : MonoBehaviour
             VisualEffect_fadeEffectCa_R();
             VisualEffect_fadeEffectCa_T();
             VisualEffect_fadeEffectCa_B();
+
+            Update_LevelSelect();
         }
 
         SyncPlayerResourcesInformationTMP();
@@ -285,6 +290,14 @@ public class GameLobbyUIManager : MonoBehaviour
         bool animState = LevelSelectAnimator.GetBool("LevelSelectActive");
         LevelSelectAnimator.SetBool("LevelSelectActive", !animState);
 
+        LevelSelectTMP.text = animState ? "^" : "v";
+    }
+
+    public void Update_LevelSelect()
+    {
+        float dist = Vector2.Distance(mousePos, RafPt_SelectLevel.transform.position);
+        bool animState = dist < ShowInterfaceRadius ? true : false;
+        LevelSelectAnimator.SetBool("LevelSelectActive", animState);
         LevelSelectTMP.text = animState ? "^" : "v";
     }
 }

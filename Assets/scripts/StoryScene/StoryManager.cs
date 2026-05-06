@@ -4,6 +4,8 @@ using TMPro;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Unity.Android.Gradle;
+using Unity.VisualScripting;
 
 public class StoryManager : MonoBehaviour
 {
@@ -38,6 +40,7 @@ public class StoryManager : MonoBehaviour
     public bool isAllowGoNextLine;
     public bool isTextFinishLoad;
     public bool CheckFlag;
+    public bool isWaitingForAnswer;
 
     bool _finFlag;
 
@@ -135,6 +138,12 @@ public class StoryManager : MonoBehaviour
                 if (parts[1] == "Wait")
                 {
                     yield return new WaitForSeconds(float.Parse(parts[2]));
+                }
+
+                if (parts[1] == "ChoiceQuestion")
+                {
+                    isWaitingForAnswer = true;
+                    yield return new WaitUntil(() => isWaitingForAnswer == false);
                 }
 
                 continue;
@@ -343,20 +352,26 @@ public class StoryManager : MonoBehaviour
         int q_num = int.Parse(commStr[2]);
         int index = q_num;
 
-        Debug.Log("q_num:" + q_num);
-        Debug.Log("index:" + index);
-
-        for (int i = 0; i < commStr.Length; i++)
-        {
-            Debug.Log("commstr " + i + ": " + commStr[i]);
-        }
-
         for (int i = 0; i < q_num; i++)
         {
             index++;
             ChoiceTexts[i].text = commStr[index];
             index++;
-            ChoiceButtons[i].onClick.AddListener(StoryToLoad.registerEvents[(int.Parse(commStr[index]))].Invoke);
+
+            if (int.TryParse(commStr[index], out int commIndex))
+            {
+                ChoiceButtons[i].onClick.AddListener(StoryToLoad.registerEvents[commIndex].Invoke);
+            }
+            else
+            {
+                //SKIP no event
+            }
+
+            ChoiceButtons[i].onClick.AddListener(()=> {
+                StoryManager SM = FindFirstObjectByType<StoryManager>();
+                SM.isWaitingForAnswer = false;
+                SM.CloseChoiceButtons();
+            });
         }
 
         switch (q_num)
@@ -369,18 +384,8 @@ public class StoryManager : MonoBehaviour
             default: Debug.LogError("系統不支援五個以上的問題 你問題太多了吧"); break;
         }
     }
-
-    public void Close_ChoicePanel()
-    {
-        for (int i = 0; i < ChoiceButtons.Length; i++)
-        {
-            ChoiceButtons[i].gameObject.SetActive(false);
-        }
-    }
-
     public void SetChoiceLayout_1()
     {
-
         for (int i = 0; i < ChoiceButtons.Length; i++)
         {
             ChoiceButtons[i].gameObject.SetActive(false);
@@ -424,6 +429,18 @@ public class StoryManager : MonoBehaviour
         {
             ChoiceButtons[i].gameObject.SetActive(true);
         }
+    }
+    public void CloseChoiceButtons()
+    {
+        for (int i = 0; i < ChoiceButtons.Length; i++)
+        {
+            ChoiceButtons[i].gameObject.SetActive(false);
+        }
+    }
 
+    static public void GlobalCloseChoiceButtons()
+    {
+        StoryManager SM = FindFirstObjectByType<StoryManager>();
+        SM.CloseChoiceButtons();
     }
 }

@@ -1,0 +1,21 @@
+﻿繁體中文,簡體中文,English,日本語
+Comm/CanvasOn,關卡名稱,level name,ステージ名
+Comm/FightStopTimer,关卡叙述,level Desc,ステージ説明
+Comm/SetSpeaker/?,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
+哇!!?! 這是哪？這些人是什麼？,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr
+Comm/SetSpeaker/道士,關卡名稱thn,關卡名稱thn,關卡名稱thn
+這兒乃是人的夢中，你眼前的便是雜念,關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase
+雜念有著不同的形式與能力,關卡名稱rtgh,關卡名稱rtgh,關卡名稱rtgh
+而每回合，新的雜念都會更生出來,關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye
+要是放著這些雜念不管，他們每一回合的能力都會再成長！,關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd
+唯有斬殺「癥結」敵人才能破除這一切,關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr
+你剛來到玉珮中，可能還不太熟悉環境,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
+想像你面前有個鍵盤和滑鼠,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
+只要 左鍵 點擊『你』，就可以看見移動的範圍,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+移動到雜念上，便可以擊殺對方,,,
+而擊殺雜念，將會覆蓋自身的攻擊範圍，並複製對方一定的能力,,,
+在時限內完成左下角的【目標】吧！,,,
+去吧！把他們都幹掉！,,,
+Comm/FightStartTimer,,,
+Comm/CanvasOff,,,
+Comm/GoNextNode,,,

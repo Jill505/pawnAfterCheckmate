@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eca31cc5c0c80245a0041855506374b, type: 3}
-  m_Name: Train_L0
+  m_Name: Train_L3
   m_EditorClassIdentifier: 
-  myMutiLangData: {fileID: 4900000, guid: ce242db493b41d846b228d38e353da00, type: 3}
+  myMutiLangData: {fileID: 4900000, guid: 285e698cc45d5d946b0ef2bdb71716a0, type: 3}
   levelID: 0
-  levelName: "\u95DC\u53610-"
+  levelName: "\u95DC\u53614 - \u72C2\u66B4\u4F10\u4F10\u4F10\u6728\u5DE5"
   SLST: 0
-  levelDesc: "\u6B61\u8FCE\u4F86\u5230 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\n\u9023\u6BBA\u3001\u9644\u8EAB\u3001\u6536\u5272\u6210\u9577\u7684\u58EB\u5175\u5427\uFF01"
+  levelDesc: "\u300C\u73FE\u5728\u5C31\u904A\u73A9 \u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01\u300D"
   goldenTarget:
     chessFile: {fileID: 11400000, guid: c5be287c9cd8bf942a2a9446ff73f518, type: 2}
     isRandomSpawn: 0
-    locationX: 2
+    locationX: 3
     locationY: 3
   missionNodes:
   - missionType: 0
     RequireSurviveRound: 0
-    KillTargetUID: 0
+    KillTargetUID: 2
     KillTargetAmount: 1
     AutoGoNextNode: 0
     ActionOnNodeReach:
@@ -36,7 +36,7 @@ MonoBehaviour:
           m_MethodName: LoadStory
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 652f9f9587517f04ea29f79d2ad49a16, type: 2}
+            m_ObjectArgument: {fileID: 11400000, guid: ac93e25415db30048b8210bd98334101, type: 2}
             m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -44,16 +44,16 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - missionType: 0
-    RequireSurviveRound: 8
+    RequireSurviveRound: 0
     KillTargetUID: 0
     KillTargetAmount: 0
-    AutoGoNextNode: 1
+    AutoGoNextNode: 0
     ActionOnNodeReach:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
           m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
-          m_MethodName: SpawnGoldenTarget
+          m_MethodName: GoNextNode
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -65,11 +65,11 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
           m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
-          m_MethodName: LoadStory
-          m_Mode: 2
+          m_MethodName: SpawnGoldenTarget
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: cb764ec5f8fc627428db136645e7ce6c, type: 2}
-            m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -95,7 +95,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  LevelBgmName: pawn's_(demo)_2
+  LevelBgmName: Time_to_Throw_Out_(ost_3)
   PlayerSpawnPos: {x: 0, y: 0}
   hasPerform: 0
   myPerform:
@@ -590,39 +590,72 @@ MonoBehaviour:
     passable: 1
     performID: DarkerTerrain
   chessInsData:
-  - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-    isRandomSpawn: 0
-    locationX: 4
-    locationY: 2
-  - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-    isRandomSpawn: 0
-    locationX: 4
-    locationY: 4
-  - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-    isRandomSpawn: 0
-    locationX: 4
-    locationY: 6
-  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+  - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
     isRandomSpawn: 0
     locationX: 4
     locationY: 8
+  - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+    isRandomSpawn: 0
+    locationX: 1
+    locationY: 6
+  - chessFile: {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+    isRandomSpawn: 0
+    locationX: 7
+    locationY: 6
   - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
     isRandomSpawn: 0
+    locationX: 5
+    locationY: 2
+  - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    isRandomSpawn: 0
+    locationX: 6
+    locationY: 1
+  - chessFile: {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+    isRandomSpawn: 0
+    locationX: 3
+    locationY: 2
+  - chessFile: {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+    isRandomSpawn: 0
+    locationX: 2
+    locationY: 1
+  structureInsData:
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
     locationX: 5
     locationY: 3
-  - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-    isRandomSpawn: 0
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
     locationX: 5
     locationY: 5
-  - chessFile: {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
-    isRandomSpawn: 0
-    locationX: 5
-    locationY: 7
-  structureInsData: []
-  enemySpawnEachRound: 1
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+    locationX: 3
+    locationY: 3
+  - structureFile: {fileID: 11400000, guid: e5ad5dc6e9f495c43ad789916e76ea9c, type: 2}
+    locationX: 3
+    locationY: 5
+  enemySpawnEachRound: 2
   spawnChessData:
+  - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
   - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
-  spawnChessProbability: 0100000001000000
+  - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+  - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}
+  - {fileID: 11400000, guid: 833050bd72f92c840a9199a3c04b62ad, type: 2}
+  - {fileID: 11400000, guid: 6f9c620d0723a194995f0e1ed1f26df5, type: 2}
+  - {fileID: 11400000, guid: beb7fb3796158b247a769a0779864758, type: 2}
+  - {fileID: 11400000, guid: fe9e5e8250c098f4bb9d90a46cbb0069, type: 2}
+  - {fileID: 11400000, guid: 82d7728af44f52b43a4b08506fb367b2, type: 2}
+  - {fileID: 11400000, guid: 2510d9e78ebfaf24ea1dcc75e8380ed1, type: 2}
+  - {fileID: 11400000, guid: 385c03534983f28408a0f575a12176af, type: 2}
+  - {fileID: 11400000, guid: df6c55007da6de54f8c6bc8acecbe294, type: 2}
+  - {fileID: 11400000, guid: c68ae3560a7868f488cb10ec627faf78, type: 2}
+  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+  - {fileID: 11400000, guid: 8d8d6c0c550d5be4991e3831d3475bed, type: 2}
+  - {fileID: 11400000, guid: a133533844dc9934aaa4a9388f09fe2f, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  - {fileID: 11400000, guid: ed55de498c9e69e47b3a034e2b5e15ef, type: 2}
+  spawnChessProbability: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   special_SpawnChessData: []
   special_GameObjectData: []

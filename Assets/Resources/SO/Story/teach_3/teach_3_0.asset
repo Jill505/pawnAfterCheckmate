@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa89671df1ea8ff4ea3f976541df3df0, type: 3}
+  m_Name: teach_3_0
+  m_EditorClassIdentifier: 
+  comment: 
+  myMutiLangData: {fileID: 4900000, guid: f58c27cbc6b201140b84635fff3629a1, type: 3}
+  conversationContext:
+  - Comm/CanvasOn
+  - Comm/FightStopTimer
+  - Comm/SetImage/1/Ail_photostick
+  - "Comm/SetSpeaker/\u827E\u723E"
+  - "\u9019\u88E1\u662F\u54EA\u88E1? \u9019\u662F\u6559\u5B78\u6587\u5B57\u55CE\uFF1F"
+  - "\u6211\u8981\u600E\u9EBC\u79FB\u52D5\uFF1F"
+  - Comm/SetImage/0/xls
+  - "Comm/SetSpeaker/\u8B1D\u627F\u52F3"
+  - "\u6B61\u8FCE\u4F86\u5230\u7761\u6B7B\u5F8C\u4E4B\u5175\uFF01"
+  - "\u6C92\u932F \u9019\u662F\u7528\u4F86\u6F14\u793A\u7684\u6587\u5B57"
+  - "\u5E25\u5427"
+  - Comm/SetImage/0/alpha
+  - Comm/SetImage/1/alpha
+  - Comm/FightStartTimer
+  - Comm/CanvasOff
+  - Comm/GoNextNode
+  registerEvents: []

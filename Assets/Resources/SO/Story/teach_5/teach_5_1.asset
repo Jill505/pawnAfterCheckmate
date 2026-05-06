@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa89671df1ea8ff4ea3f976541df3df0, type: 3}
+  m_Name: teach_5_1
+  m_EditorClassIdentifier: 
+  comment: 
+  myMutiLangData: {fileID: 4900000, guid: 70624f8d8e4a8bf4e80ae4afdd011bba, type: 3}
+  conversationContext:
+  - Comm/CanvasOn
+  - Comm/FightStopTimer
+  - Comm/SetSpeaker/?
+  - "\u85CD\u8272\u7684\u8B77\u76FE\uFF0C\u662F\u6C92\u898B\u904E\u7684\u76FE\u724C\u7A2E\u985E\u963F"
+  - "Comm/SetSpeaker/\u9053\u58EB"
+  - "\u54CE\u5440\u65BD\u4E3B\uFF0C\u591A\u9EBC\u7CBE\u95E2\u7684\u898B\u89E3\uFF0C\u591A\u9EBC\u7368\u5230\u4E14\u7D30\u5FAE\u7684\u89C0\u5BDF\uFF01"
+  - Comm/SetSpeaker/?
+  - "\u662F\u4E0D\u662F\u770B\u904E\u4F60\u8B1B\u9019\u53E5\u53F0\u8A5E\u963F\u2026"
+  - "Comm/SetSpeaker/\u9053\u58EB"
+  - "\u9019\u7A2E\u65B0\u7684\u76FE\u724C\u5B57\u9762\u610F\u7FA9\u4E0A\u7684\u975E\u5E38\u5730\u597D\u7406\u89E3\uFF0C\u5373\u70BA\u300C\u9023\u64CA\u76FE\u300D"
+  - "\u9867\u540D\u601D\u7FA9\uFF0C\u5C31\u662F\u9700\u8981\u9023\u64CA\u9054\u4E00\u5B9A\u6B21\u6578\u65B9\u53EF\u7834\u89E3\u7684\u76FE\u724C"
+  - "\u5F88\u907A\u61BE\u7684\u5B83\u662F\u5C11\u6578\u7121\u6CD5\u8907\u88FD\u7684\u76FE\u724C\uFF0C\u4E0D\u904E\u6216\u8A31\u67D0\u4E9B\u6232\u6CD5\u6709\u5176\u9580\u9053\uFF1F"
+  - "\u982D\u4E0A\u986F\u793A\u7684\u6578\u5B57\u5373\u70BA\u6240\u9700\u9023\u64CA\u7684\u5C64\u6578\uFF0C\u591A\u591A\u8A66\u8457\u5229\u7528\u6232\u6CD5\u8207\u8EAB\u908A\u7684\u9053\u5177\u8207\u5730\u5F62\u5427\uFF01"
+  - Comm/FightStartTimer
+  - Comm/CanvasOff
+  - Comm/GoNextNode
+  - 
+  - 
+  - 
+  - 
+  - 
+  registerEvents: []

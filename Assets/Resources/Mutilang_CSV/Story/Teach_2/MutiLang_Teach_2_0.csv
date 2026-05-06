@@ -1,0 +1,22 @@
+﻿繁體中文,簡體中文,English,日本語
+Comm/CanvasOn,關卡名稱,level name,ステージ名
+Comm/FightStopTimer,关卡叙述,level Desc,ステージ説明
+Comm/SetSpeaker/道士,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
+新的一天，新的雜念，日昇日落，循環往復,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr
+Comm/SetSpeaker/?,關卡名稱thn,關卡名稱thn,關卡名稱thn
+是沒有見過的新雜念！,關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase
+Comm/SetSpeaker/道士,關卡名稱rtgh,關卡名稱rtgh,關卡名稱rtgh
+施主勿慌，在您眼前的雜念名曰「炸彈」,關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye
+當炸彈閃著紅光時，下個回合移動後它將原地爆炸，並對3x3範圍內的目標造成毀滅性的打擊！,關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd
+當雜念聚眾時，可以嘗試看看將「炸彈」引到它們之間，也許對付打不破的牆體，有令人意想不到的效果？,關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr
+Comm/FightStartTimer,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
+Comm/CanvasOff,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
+Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+,觀察盾牌間的縫隙，複製斜向的能力便可輕鬆將其擊殺,觀察盾牌間的縫隙，複製斜向的能力便可輕鬆將其擊殺,觀察盾牌間的縫隙，複製斜向的能力便可輕鬆將其擊殺
+,Comm/SetSpeaker/?,Comm/SetSpeaker/?,Comm/SetSpeaker/?
+,Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N,Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N,Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N
+,Comm/SetSpeaker/道士,Comm/SetSpeaker/道士,Comm/SetSpeaker/道士
+,多利用「草人戲法」來嘗試側切、找到方向吧！,多利用「草人戲法」來嘗試側切、找到方向吧！,多利用「草人戲法」來嘗試側切、找到方向吧！
+,Comm/FightStartTimer,Comm/FightStartTimer,Comm/FightStartTimer
+,Comm/CanvasOff,Comm/CanvasOff,Comm/CanvasOff
+,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode

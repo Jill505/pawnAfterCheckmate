@@ -1,0 +1,22 @@
+﻿繁體中文,簡體中文,English,日本語
+Comm/CanvasOn,關卡名稱,level name,ステージ名
+Comm/FightStopTimer,关卡叙述,level Desc,ステージ説明
+Comm/SetSpeaker/?,關卡名稱aasasa,關卡名稱aasasa,關卡名稱aasasa
+藍色的護盾，是沒見過的盾牌種類阿,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr,關卡名稱;olkijuhygtr
+Comm/SetSpeaker/道士,關卡名稱thn,關卡名稱thn,關卡名稱thn
+哎呀施主，多麼精闢的見解，多麼獨到且細微的觀察！,關卡名稱mrdase,關卡名稱mrdase,關卡名稱mrdase
+Comm/SetSpeaker/?,關卡名稱rtgh,關卡名稱rtgh,關卡名稱rtgh
+是不是看過你講這句台詞阿…,關卡名稱tehsye,關卡名稱tehsye,關卡名稱tehsye
+Comm/SetSpeaker/道士,關卡名稱wgethsgd,關卡名稱wgethsgd,關卡名稱wgethsgd
+這種新的盾牌字面意義上的非常地好理解，即為「連擊盾」,關卡名稱ewegr,關卡名稱ewegr,關卡名稱ewegr
+顧名思義，就是需要連擊達一定次數方可破解的盾牌,關卡名稱hfthetrhy,關卡名稱hfthetrhy,關卡名稱hfthetrhy
+很遺憾的它是少數無法複製的盾牌，不過或許某些戲法有其門道？,關卡名稱vcbfhm,關卡名稱vcbfhm,關卡名稱vcbfhm
+頭上顯示的數字即為所需連擊的層數，多多試著利用戲法與身邊的道具與地形吧！,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+Comm/FightStartTimer,觀察盾牌間的縫隙，複製斜向的能力便可輕鬆將其擊殺,觀察盾牌間的縫隙，複製斜向的能力便可輕鬆將其擊殺,觀察盾牌間的縫隙，複製斜向的能力便可輕鬆將其擊殺
+Comm/CanvasOff,Comm/SetSpeaker/?,Comm/SetSpeaker/?,Comm/SetSpeaker/?
+Comm/GoNextNode,Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N,Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N,Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N
+,Comm/SetSpeaker/道士,Comm/SetSpeaker/道士,Comm/SetSpeaker/道士
+,多利用「草人戲法」來嘗試側切、找到方向吧！,多利用「草人戲法」來嘗試側切、找到方向吧！,多利用「草人戲法」來嘗試側切、找到方向吧！
+,Comm/FightStartTimer,Comm/FightStartTimer,Comm/FightStartTimer
+,Comm/CanvasOff,Comm/CanvasOff,Comm/CanvasOff
+,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
