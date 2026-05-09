@@ -61,9 +61,7 @@ public enum ability
     RightShield,
 
     //≥s¿ª¨ﬁ
-    HitShield_1,
-    HitShield_2,
-    HitShield_3,
+    HitShield_P,
 
     //ØS© 
     Retard,

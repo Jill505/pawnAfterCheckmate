@@ -75,29 +75,18 @@ public class TroopOutfit : MonoBehaviour
         int requireHit = 0;
         bool check = false;
 
-        foreach (ability abi in myTroop.myAbilities)
+        for (int i = 0; i < myTroop.myAbilities.Length; i++)
         {
-            if (abi == ability.HitShield_1)
+            if (myTroop.myAbilities[i] == ability.HitShield_P)
             {
-                requireHit = 1;
-                check = true;
-                break;
-            }
-            else if (abi == ability.HitShield_2)
-            {
-                requireHit= 2;
-                check = true;
-                break;
-            }
-            else if (abi == ability.HitShield_3)
-            {
-                requireHit = 3;
+                requireHit = int.Parse(myTroop.myAbilitiesParameter[i]);
                 check = true;
                 break;
             }
         }
 
-        if (check)
+
+            if (check)
         {
             //apply
             if (roundManager.playerHitCombo - requireHit < 0)

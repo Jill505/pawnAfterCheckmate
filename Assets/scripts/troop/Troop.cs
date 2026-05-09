@@ -50,6 +50,7 @@ public class Troop : MonoBehaviour
     [Header("能力")]
     public TSAType myTSAType;
     public ability[] myAbilities;
+    public string[] myAbilitiesParameter;
 
 
     [Header("旗子移動數值")]
@@ -90,6 +91,7 @@ public class Troop : MonoBehaviour
         AttackStr = myChessData.AttackStr;
 
         myAbilities = myChessData.abilities;
+        myAbilitiesParameter = myChessData.abilitiesParameter;
         myTSAType = myChessData.myTSAType;
 
 
@@ -714,55 +716,21 @@ public class Troop : MonoBehaviour
             //檢測該單位是否擁有連擊盾牌 有則將其於可移動地塊中刪除
             for (int j = 0; j < ST.myAbilities.Length; j++)
             {
-                switch (ST.myAbilities[j])
+                if (ST.myAbilities[i] == ability.HitShield_P)
                 {
-                    case ability.HitShield_1:
-                        if (roundManager.playerHitCombo >= 1)
+                    if (int.Parse(ST.myAbilitiesParameter[i]) > roundManager.playerHitCombo)
+                    {
+                        //Debug.Log("連擊盾 擊破");
+                    }
+                    else
+                    {
+                        Vec2List.Remove(Vec2List[i]);
+                        if (T.isPlayer)
                         {
-                            Debug.Log("連擊盾1 擊破");
+                            ST.troopOutfit.TriggerUntouchableHint();
                         }
-                        else
-                        {
-                            Vec2List.Remove(Vec2List[i]);
-                            if (T.isPlayer)
-                            {
-                                ST.troopOutfit.TriggerUntouchableHint();
-                            }
-                            Debug.Log("連擊盾1 未擊破");
-                        }
-                        break;
-
-                    case ability.HitShield_2:
-                        if (roundManager.playerHitCombo >= 2)
-                        {
-                            Debug.Log("連擊盾2 擊破");
-                        }
-                        else
-                        {
-                            Debug.Log("連擊盾2 未擊破");
-                            Vec2List.Remove(Vec2List[i]);
-                            if (T.isPlayer)
-                            {
-                                ST.troopOutfit.TriggerUntouchableHint();
-                            }
-                        }
-                        break;
-
-                    case ability.HitShield_3:
-                        if (roundManager.playerHitCombo >= 3)
-                        {
-                            Debug.Log("連擊盾3 擊破");
-                        }
-                        else
-                        {
-                            Vec2List.Remove(Vec2List[i]);
-                            if (T.isPlayer)
-                            {
-                                ST.troopOutfit.TriggerUntouchableHint();
-                            }
-                            Debug.Log("連擊盾3 未擊破");
-                        }
-                        break;
+                        Debug.Log("連擊盾 未擊破");
+                    }
                 }
             }
 

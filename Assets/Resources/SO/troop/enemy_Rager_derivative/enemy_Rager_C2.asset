@@ -25,9 +25,9 @@ MonoBehaviour:
   hp: 1
   skin: {fileID: 1482477462050948769, guid: 6f7eff2b68d3d424c84a5c70e762e810, type: 3}
   myTSAType: 7
-  abilities: 0f0000000d000000
+  abilities: 0c0000000d000000
   abilitiesParameter:
-  - 
+  - 2
   - 
   isGoldenTarget: 0
   horBlockMoveAbility: 2

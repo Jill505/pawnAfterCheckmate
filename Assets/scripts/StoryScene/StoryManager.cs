@@ -4,8 +4,6 @@ using TMPro;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using Unity.Android.Gradle;
-using Unity.VisualScripting;
 
 public class StoryManager : MonoBehaviour
 {
