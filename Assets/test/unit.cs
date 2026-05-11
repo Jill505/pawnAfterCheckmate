@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class unit : MonoBehaviour
@@ -206,6 +207,15 @@ public class unit : MonoBehaviour
                 if (TroopsOnMe != null)
                 {
                     TroopsOnMe.killTroop();
+                    Vector3 _dir_tmp =  gameObject.transform.position - gameManager.PlayerTroop.gameObject.transform.position;
+                    
+                    float angle = Mathf.Atan2(_dir_tmp.y, _dir_tmp.x) * Mathf.Rad2Deg;
+
+                    if (angle < 0) angle += 360f;
+
+                    vFXManager.playerAttackEventDirection = angle;
+
+                    vFXManager.VFX_Slash(angle, transform.position);
                 }
 
                 //player spawn here
@@ -293,6 +303,17 @@ public class unit : MonoBehaviour
                                 roundManager.SelectObjectTroop.CopySoul(TroopsOnMe);
                             }
                             TroopsOnMe.killTroop(gameObject);
+
+
+                            Vector3 _dir_tmp = gameObject.transform.position - gameManager.PlayerTroop.gameObject.transform.position;
+
+                            float angle = Mathf.Atan2(_dir_tmp.y, _dir_tmp.x) * Mathf.Rad2Deg;
+
+                            if (angle < 0) angle += 360f;
+
+                            vFXManager.playerAttackEventDirection = angle;
+
+                            vFXManager.VFX_Slash(angle, transform.position);
 
                             gameManager.hintManager.SpawnHintWordPrefab("À»¯} - " + TroopsOnMe.myChessData.chessName);
                             specialRoundKeepGoingClog = true;

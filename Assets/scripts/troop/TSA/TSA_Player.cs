@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TSA_Player : TroopSpecialAbility
 {
-    public Troop myTroop;
+    //public Troop myTroop;
     public GameObject DieParticleVFX;
 
     public PlayerSecLieVFX PSLVFX;

@@ -13,6 +13,7 @@ public class TSA_KarenBorn : TroopSpecialAbility
         SLSK = FindAnyObjectByType<SLS_Karen>();
         myTroop.OnDieAction += InjectOnDie;
         myTroop.OnDieAction += DieStatInject;
+        myTroop.isGoldenTarget = true;
     }
     public void InjectOnDie()
     {

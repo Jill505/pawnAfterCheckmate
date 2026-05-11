@@ -67,7 +67,7 @@ public class TroopOutfit : MonoBehaviour
 
     public void GoldenTargetOutfit()
     {
-        goldenTargetRing.SetActive(myTroop.myChessData.isGoldenTarget);
+        goldenTargetRing.SetActive(myTroop.isGoldenTarget);
     }
 
     public void hitShieldOutfit()

@@ -62,7 +62,7 @@ public class SLS_Karen: SpecialLevelScript
         else
         {
             //Spawn another troop
-            SpawnKarenTroop();
+            //SpawnKarenTroop();
         }
     }
 
@@ -93,7 +93,7 @@ public class SLS_Karen: SpecialLevelScript
         KarenCanvas = sO_Level.special_GameObjectData[1];
 
         bossHealth = 3;
-        SpawnKarenTroop();
+        //SpawnKarenTroop();
 
         //Update Camera Information
         CameraPosition CP = new CameraPosition();

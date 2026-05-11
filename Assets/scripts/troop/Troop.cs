@@ -489,6 +489,17 @@ public class Troop : MonoBehaviour
                     myNowX = tarUnit.myX;
                     myNowY = tarUnit.myY;
                     roundManager.MakePlayerDie();
+
+                    Vector3 _dir_tmp = gameObject.transform.position - gameManager.PlayerTroop.gameObject.transform.position;
+
+                    float angle = Mathf.Atan2(_dir_tmp.y, _dir_tmp.x) * Mathf.Rad2Deg;
+
+                    if (angle < 0) angle += 360f;
+
+                    vFXManager.playerAttackEventDirection = angle;
+
+                    vFXManager.VFX_Slash(angle, transform.position, true);
+
                     break;
             }
         }
@@ -716,9 +727,9 @@ public class Troop : MonoBehaviour
             //檢測該單位是否擁有連擊盾牌 有則將其於可移動地塊中刪除
             for (int j = 0; j < ST.myAbilities.Length; j++)
             {
-                if (ST.myAbilities[i] == ability.HitShield_P)
+                if (ST.myAbilities[j] == ability.HitShield_P)
                 {
-                    if (int.Parse(ST.myAbilitiesParameter[i]) > roundManager.playerHitCombo)
+                    if (int.Parse(ST.myAbilitiesParameter[j]) <= roundManager.playerHitCombo)
                     {
                         //Debug.Log("連擊盾 擊破");
                     }

@@ -170,6 +170,11 @@ public class TSA_GoldenTarget : TroopSpecialAbility
             for (int i = LinkKillList.Count - 1; i >= 0; i--)
             {
                 //DO kill by List
+                if (gameManager.GetUnitAt((int)LinkKillList[i].x, (int)LinkKillList[i].y) == null)
+                {
+                    break;
+                }
+
                 myTroop.EnemyOnMouseDownEvent(gameManager.GetUnitAt((int)LinkKillList[i].x, (int)LinkKillList[i].y));
                 yield return new WaitForSeconds(0.6f);
             }

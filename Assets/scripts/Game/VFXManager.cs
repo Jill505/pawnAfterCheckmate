@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class VFXManager : MonoBehaviour
@@ -15,6 +16,16 @@ public class VFXManager : MonoBehaviour
 
     public GameObject SlashObject_L;
     public GameObject SlashObject_R;
+
+    public GameObject SlashKillVFX;
+    public Kill_Direction currentKillDirection;
+    
+    public GameObject GameEndCanvasCarrier;
+    public Animator GameEndAnimator;
+    public Image GameEndCanvasBg_L;
+    public Image GameEndCanvasBg_R;
+
+    public float playerAttackEventDirection = 0f;
     
     public void SpawnHintGameObject(int ComboNum)
     {
@@ -91,6 +102,40 @@ public class VFXManager : MonoBehaviour
 
         Destroy(swapL, 5f);
         Destroy(swapR, 5f);
+    }
+
+    public void VFX_Slash(float direction, Vector2 position, bool isBlack = false)
+    {
+        direction += Random.Range(-5f, 5f); //wiggle
+
+        Instantiate(SlashKillVFX, position, Quaternion.Euler(0,0,direction));
+
+        Kill_Direction KD = SlashKillVFX.GetComponent<Kill_Direction>();
+
+        GameEndCanvasCarrier.transform.rotation = Quaternion.Euler(0,0,direction + 90f);
+        GameEndCanvasCarrier.transform.position = position;
+
+        if (KD == null)
+        {
+            Debug.Log("KD null");
+        }
+        else
+        {
+            Debug.Log("KD not null");
+        }
+
+        if (isBlack)
+        {
+            Debug.Log("Triggered, black");
+            KD.mainSlashEffect.color = Color.black;
+            KD.slashEffectLine.color = Color.black;
+        }
+        else
+        {
+            Debug.Log("Triggered, not black");
+            KD.mainSlashEffect.color = Color.white;
+            KD.slashEffectLine.color = Color.white;
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

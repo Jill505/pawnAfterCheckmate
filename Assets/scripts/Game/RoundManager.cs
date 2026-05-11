@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 using TMPro;
+using Unity.VisualScripting;
 
 public class RoundManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class RoundManager : MonoBehaviour
     public VFXManager vFXManager;
     public TimerManager timerManager;
     public RoundProcessManager roundProcessManager;
+    public GameEndCalculator gameEndCalculator;
 
     [Header("Game Information")]
     public bool GameGoing = false;
@@ -391,13 +393,19 @@ public class RoundManager : MonoBehaviour
 
         StartCoroutine(WaitExitCall());
     }
-    IEnumerator WaitExitCall()
+    IEnumerator WaitExitCall(bool isPlayerDie = false)
     {
         //Make time flow slow and maybe a close up?
 
-        //Time.timeScale = 0.6f;
+        Time.timeScale = 0.6f;
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1f;
+
+        gameEndCalculator.EndAnimatorActive(isPlayerDie);
+
+        yield return new WaitForSecondsRealtime(2f);
+
+        yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.Mouse0));
 
         cameraManager.ExitGameCamera();
         yield return new WaitForSeconds(1f);
@@ -414,7 +422,7 @@ public class RoundManager : MonoBehaviour
         gameManager.gameBGM.FadeOut(0.5f);
         soundManager.PlaySFX("bell_lose", true);
 
-        StartCoroutine(WaitExitCall());
+        StartCoroutine(WaitExitCall(true));
     }
 
     public void GameStartFunc()

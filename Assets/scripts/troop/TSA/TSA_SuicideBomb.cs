@@ -108,6 +108,7 @@ public class TSA_SuicideBomb : TroopSpecialAbility
             if (t.isPlayer)
             {
                 roundManager.MakePlayerDie();
+                FindFirstObjectByType<VFXManager>().VFX_Slash(Random.Range(0f, 360f), gameManager.PlayerTroop.transform.position, true);
             }
             else
             {

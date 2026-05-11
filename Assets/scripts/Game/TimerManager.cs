@@ -269,6 +269,7 @@ public class TimerManager : MonoBehaviour
             player.myTroop.leftLife = 0;
             //let player die;
             roundManager.MakePlayerDie();
+            FindFirstObjectByType<VFXManager>().VFX_Slash(Random.Range(0f,360f), gameManager.PlayerTroop.transform.position, true);
         }
     }
 }
