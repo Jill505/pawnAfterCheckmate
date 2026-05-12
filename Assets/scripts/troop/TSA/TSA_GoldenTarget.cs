@@ -96,6 +96,7 @@ public class TSA_GoldenTarget : TroopSpecialAbility
         {
             //玩家不在範圍內，執行普通移動
             Debug.Log("玩家不在檢測範圍內");
+            myTroop.EnemyAutoMoveToNext();
         }
     }
 

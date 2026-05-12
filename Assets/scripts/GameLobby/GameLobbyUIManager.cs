@@ -10,6 +10,7 @@ public class GameLobbyUIManager : MonoBehaviour
 {
     [Header("Ref Component")]
     public GameLobbyCameraController gameLobbyCameraController;
+    public GameLobbyManager gameLobbyManager;
     public SoundManager soundManager;
 
     public GameObject mouseRefGameObject;
@@ -70,14 +71,20 @@ public class GameLobbyUIManager : MonoBehaviour
     public Animator LevelSelectAnimator;
     public TextMeshProUGUI LevelSelectTMP;
 
+    [Header("Load in animator")]
+    public Animator loadAnimator;
+
     void Awake()
     {
         soundManager = FindFirstObjectByType<SoundManager>();
+        gameLobbyManager = FindFirstObjectByType<GameLobbyManager>();   
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartGameButtonAnimator.Play("StartGameButtonHide", -1, 1);
+        loadAnimator.SetTrigger("Active");
+        gameLobbyManager.DoSwitchLobbyLevelNext_Specific(SaveSystem.SF.saveStageIndex, SaveSystem.SF.saveLevelIndex);
     }
 
     // Update is called once per frame
