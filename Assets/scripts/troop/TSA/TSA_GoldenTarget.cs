@@ -16,7 +16,8 @@ public class TSA_GoldenTarget : TroopSpecialAbility
     public HashSet<Vector2> PassPt = new HashSet<Vector2>();
     public List<Vector2> LinkKillList = new List<Vector2>();
     public List<Vector2> AttackRange = new List<Vector2>();
-    
+
+    public Coroutine CycleKillCoroutineContainer;
 
     void Start()
     {
@@ -158,7 +159,15 @@ public class TSA_GoldenTarget : TroopSpecialAbility
 
     public void CycleKillCall()
     {
-        StartCoroutine(CycleKillCoroutine());
+        //Debug.Log("Cycle Kill Trigger");
+        if (CycleKillCoroutineContainer == null)
+        {
+            CycleKillCoroutineContainer = StartCoroutine(CycleKillCoroutine());
+        }
+        else
+        {
+            //Debug.Log("Clog Cycle Kill Coroutine Container");
+        }
     }
     public IEnumerator CycleKillCoroutine()
     {
@@ -170,6 +179,7 @@ public class TSA_GoldenTarget : TroopSpecialAbility
             for (int i = LinkKillList.Count - 1; i >= 0; i--)
             {
                 //DO kill by List
+                //Debug.Log("Link Kill List index is: " + i);
                 if (gameManager.GetUnitAt((int)LinkKillList[i].x, (int)LinkKillList[i].y) == null)
                 {
                     break;
@@ -185,6 +195,7 @@ public class TSA_GoldenTarget : TroopSpecialAbility
             roundManager.EnemyAnimationCoroutineEnd = true;
         }
         roundManager.EnemyAnimationCoroutineEnd = true;
+        CycleKillCoroutineContainer = null;
         yield return null;
     }
     public void DieStatInject()

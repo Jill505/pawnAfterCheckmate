@@ -25,6 +25,9 @@ public class VFXManager : MonoBehaviour
     public Image GameEndCanvasBg_L;
     public Image GameEndCanvasBg_R;
 
+    public GameObject GameEndCanvasMaskCarrier;
+    public GameObject GameEndCanvasReverser;
+
     public float playerAttackEventDirection = 0f;
     
     public void SpawnHintGameObject(int ComboNum)
@@ -114,6 +117,8 @@ public class VFXManager : MonoBehaviour
 
         GameEndCanvasCarrier.transform.rotation = Quaternion.Euler(0,0,direction + 90f);
         GameEndCanvasCarrier.transform.position = position;
+
+        GameEndCanvasReverser.transform.rotation = Quaternion.Euler(0, 0, -direction - 90f);
 
         if (KD == null)
         {

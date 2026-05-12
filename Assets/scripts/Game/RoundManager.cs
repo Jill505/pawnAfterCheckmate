@@ -274,11 +274,11 @@ public class RoundManager : MonoBehaviour
             }
             else
             {
-                if (EnemyAITroop[i].TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
-                {
-                    t.CalculateAttackPlayerPath();
-                    t.CycleKillCall();
-                }
+                //if (EnemyAITroop[i].TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
+                //{
+                //    t.CalculateAttackPlayerPath();
+                //    t.CycleKillCall();
+                //}
             }
 
             EnemyAITroop[i].Action_OnRoundEnd();
@@ -405,11 +405,11 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2f);
 
-        yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.Mouse0));
+        //yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.Mouse0));
 
-        cameraManager.ExitGameCamera();
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(1);
+        //cameraManager.ExitGameCamera();
+        //yield return new WaitForSeconds(1f);
+        //SceneManager.LoadScene(1);
     }
 
     [Header("SPECIAL DECLARE SWAP")]

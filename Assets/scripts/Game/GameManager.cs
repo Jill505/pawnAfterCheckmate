@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
     public void GameInitialization(SO_Level config)
     {
         Debug.Log("關卡生成初始化");
+        Time.timeScale = 1f;
         //載入關卡配置 - 音樂
         bGM_name = config.LevelBgmName;
 

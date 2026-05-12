@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameESCManager : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class GameESCManager : MonoBehaviour
         RoundManager rm = FindFirstObjectByType<RoundManager>();
         rm.gameManager.PlayerTroop.leftLife = 0;
         rm.MakePlayerDie();
+
+        SceneManager.LoadScene(1);
     }
 }
 
