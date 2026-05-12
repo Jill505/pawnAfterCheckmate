@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     static public float SfxVolume = 1f;
 
     public GameObject AudioObject;
+
+    public AK_Audio nowPlayingMusic;
     
     void Start()
     {
@@ -42,6 +44,8 @@ public class SoundManager : MonoBehaviour
         AKA.myAudioClip = sAC;
 
         AKA.PlaySound();
+
+        nowPlayingMusic = AKA;
 
         return AKA;
     }
@@ -97,6 +101,11 @@ public class SoundManager : MonoBehaviour
         }
 
         return AKA;
+    }
+
+    public void NowPlayingMusicFadeOut(float time = 0.5f)
+    {
+        nowPlayingMusic.FadeOut(time);
     }
 }
 

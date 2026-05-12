@@ -1,5 +1,8 @@
+using DG.Tweening;
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class CameraManager : MonoBehaviour
 {
@@ -31,6 +34,17 @@ public class CameraManager : MonoBehaviour
 
     private Vector3 originalPosition;
 
+    public Vector2 OriginalPoint = new Vector2(0,0);
+
+    public float distanceWithMouse = 0f;
+    public float distanceWithMouseX = 0f;
+    public float distanceWithMouseY = 0f;
+
+    public float Curve_X_Sensitive = 0.3f;
+    public float Curve_Y_Sensitive = 0.3f;
+
+    public bool curveVisualizeEffecting = true;
+
 
     private void Awake()
     {
@@ -40,6 +54,7 @@ public class CameraManager : MonoBehaviour
     {
         //Set Camera
         EnterGameCamera();
+        OriginalPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
     }
 
     // Update is called once per frame
@@ -54,7 +69,9 @@ public class CameraManager : MonoBehaviour
         //gameObject.transform.LookAt(targetLookingAt.transform.position);
 
         currentCameraPosition.position = Vector3.Lerp(currentCameraPosition.position, targetCameraPosition.position, fluent * Time.deltaTime);
-
+        
+        
+        CurveVisualize();
     }
 
     public void EnterGameCamera()
@@ -125,6 +142,28 @@ public class CameraManager : MonoBehaviour
         }
 
         shakeObject.transform.localPosition = originalPosition;
+    }
+
+    public void CurveVisualize()
+    {
+        Vector2 mousePosition = Input.mousePosition;
+
+        distanceWithMouseX = mousePosition.x - OriginalPoint.x;
+        distanceWithMouseY = mousePosition.y - OriginalPoint.y;
+
+        distanceWithMouse = Vector2.Distance(mousePosition, OriginalPoint);
+
+
+        Vector3 targetRotation = new Vector3(
+            -distanceWithMouseY * Curve_Y_Sensitive * 0.001f,
+            distanceWithMouseX * Curve_X_Sensitive * 0.001f,
+            0f
+        );
+
+        CameraObject.transform.DOKill();
+
+        CameraObject.transform.DORotate(targetRotation, 0.2f)
+            .SetEase(Ease.OutSine);
     }
 }
 [System.Serializable]

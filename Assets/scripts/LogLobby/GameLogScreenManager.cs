@@ -67,6 +67,8 @@ public class GameLogScreenManager : MonoBehaviour
         soundManager.PlaySFX("bell_lose");
         logScreenAnimator.SetTrigger("LoadGame");
 
+        soundManager.NowPlayingMusicFadeOut();
+
         yield return new WaitForSeconds(1.62f);
 
         SaveSystem.LoadSF();
