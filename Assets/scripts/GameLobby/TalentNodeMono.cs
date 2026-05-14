@@ -25,6 +25,8 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [Header("DATA")]
     public TalentNode talentNode;
 
+    public NodeTreeType myNodeTreeType = NodeTreeType.Main;
+
     public bool allowUnlock = false;
     public bool isUnlock = false;
 
@@ -151,22 +153,26 @@ public class TalentNodeMono : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     public void DrawLinkLine()
     {
-        for (int i = 0; i < talentNode.allowUnlockConditionNodeID.Length; i++)
+        if (myNodeTreeType == NodeTreeType.Main)
         {
-            int drawTargetIndex = talentNode.allowUnlockConditionNodeID[i];
-            Color drawColor = Color.white;
-
-            if (SaveSystem.SF.talentTreeUnlock[talentNode.allowUnlockConditionNodeID[i]])
+            for (int i = 0; i < talentNode.allowUnlockConditionNodeID.Length; i++)
             {
-                drawColor = new Color(1f, 0.88f, 0.11f, 0.9f);
-            }
-            else
-            {
-                drawColor = new Color(1,1,1,0.3f);
-            }
+                int drawTargetIndex = talentNode.allowUnlockConditionNodeID[i];
+                Color drawColor = Color.white;
 
-            talentGameLobbySystem.DrawLine(transform.position, talentGameLobbySystem.talentNodeMonoList[drawTargetIndex].gameObject.transform.position, drawColor, 0.05f);
+                if (SaveSystem.SF.talentTreeUnlock[talentNode.allowUnlockConditionNodeID[i]])
+                {
+                    drawColor = new Color(1f, 0.88f, 0.11f, 0.9f);
+                }
+                else
+                {
+                    drawColor = new Color(1, 1, 1, 0.3f);
+                }
+
+                talentGameLobbySystem.DrawLine(transform.position, talentGameLobbySystem.talentNodeMonoList[drawTargetIndex].gameObject.transform.position, drawColor, 0.05f);
+            }
         }
+
     }
 }
 [System.Serializable]
@@ -175,4 +181,10 @@ public class TalentNode
     public int talentNodeID = 0;
     public int talentNodeUnlockRequirePoint = 1;
     public int[] allowUnlockConditionNodeID = new int[0];
+}
+
+public enum NodeTreeType
+{
+    Main,
+    StrawMan
 }

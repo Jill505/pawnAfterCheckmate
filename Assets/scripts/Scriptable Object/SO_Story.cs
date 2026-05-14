@@ -8,6 +8,9 @@ public class SO_Story : ScriptableObject
     [TextArea(2,13)]
     public string comment;
 
+    public bool isAllowSkip;
+    public int SkipLocation;
+
     [Header("MutiLang update here")]
     public TextAsset myMutiLangData;
 

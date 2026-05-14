@@ -63,18 +63,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
-          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
-          m_MethodName: LoadStory
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: cb764ec5f8fc627428db136645e7ce6c, type: 2}
-            m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - missionType: 1
     RequireSurviveRound: 0
     KillTargetUID: 2
@@ -83,6 +71,18 @@ MonoBehaviour:
     ActionOnNodeReach:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
+          m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
+          m_MethodName: LobbyStoryLoadAsync
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 648e16b8a9283aa4ca97cb8a525c2991, type: 2}
+            m_ObjectArgumentAssemblyTypeName: SO_Story, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 2992773792892897999, guid: c144ba46cf542db41b51ce3ed3545149, type: 3}
           m_TargetAssemblyTypeName: MissionNodeFuncPrefab, Assembly-CSharp
           m_MethodName: PlayerWin

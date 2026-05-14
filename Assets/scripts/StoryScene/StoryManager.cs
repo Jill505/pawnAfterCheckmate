@@ -26,12 +26,18 @@ public class StoryManager : MonoBehaviour
     public bool AllowSkip;
     public bool AllowSkipOneLine;
 
+    public GameObject SkipButtonObject;
+
+    public int SkipLocation = 0;
+
     public float speakInterval_En = 0.1f;
     public float speakInterval_Cn = 0.2f;
 
     [Header("Calculate stuff")]
     public Action StoryEndAction;
     public Coroutine myStoryCoroutine;
+
+    public int _ReadingIndex = 0;
 
     [Header("Loading Calculate Variables")]
     public bool isOnStoryProcessing;
@@ -76,6 +82,8 @@ public class StoryManager : MonoBehaviour
     {
         SpeakerName.text = speakingName;
         SpeakContext.text = speakingContext;
+
+        SkipButtonShowcase();
     }
 
     public void LoadStory()
@@ -114,12 +122,16 @@ public class StoryManager : MonoBehaviour
         isOnStoryProcessing = true;
         StoryToLoad.LoadLangData();
 
+        AllowSkip = StoryToLoad.isAllowSkip;
+        SkipLocation = StoryToLoad.SkipLocation;
+
         Debug.Log("StoryToLoad.strs.Length: " + StoryToLoad.conversationContext.Length);
 
         //解析指令
-        for (int i = 0; i < StoryToLoad.conversationContext.Length; i++)
+        _ReadingIndex = 0;
+        for ( _ReadingIndex = 0; _ReadingIndex < StoryToLoad.conversationContext.Length; _ReadingIndex++)
         {
-            string strRead = StoryToLoad.conversationContext[i];
+            string strRead = StoryToLoad.conversationContext[_ReadingIndex];
 
             //檢測屬性
             //假如是指令
@@ -198,7 +210,27 @@ public class StoryManager : MonoBehaviour
     {
         if (AllowSkip)
         {
+            _ReadingIndex = SkipLocation;
+            CheckFlag = true;
+        }
+    }
+    public void SkipButtonShowcase()
+    {
+        if (!AllowSkip)
+        {
+            //Not show
+            SkipButtonObject.SetActive(false);
+            return;
+        }
 
+        if (_ReadingIndex >= SkipLocation)
+        {
+            //Not show
+            SkipButtonObject.SetActive(false);
+        }
+        else
+        {
+            SkipButtonObject.SetActive(true);
         }
     }
 
@@ -278,6 +310,15 @@ public class StoryManager : MonoBehaviour
             case "PlaySFX":
                 soundManager.PlaySFX(commStr[2]);
                 break;
+
+            case "PlayMusic":
+                soundManager.PlaySFX(commStr[2]);
+                break;
+
+            case "MusicFadeOut":
+                soundManager.NowPlayingMusicFadeOut();
+                break;
+
             case "Clear":
                 speakingName = "";
                 speakingContext = "";
@@ -441,4 +482,5 @@ public class StoryManager : MonoBehaviour
         StoryManager SM = FindFirstObjectByType<StoryManager>();
         SM.CloseChoiceButtons();
     }
+
 }

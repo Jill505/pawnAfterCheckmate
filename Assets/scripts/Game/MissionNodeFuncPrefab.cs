@@ -64,4 +64,10 @@ public class MissionNodeFuncPrefab : MonoBehaviour
 
         RM().SpawnEnemy_RandomSpot(GBIC);
     }
+
+    public void LobbyStoryLoadAsync(SO_Story sO_Story)
+    {
+        GameLobbyStoryAwaker.isSceneStoryLoad = true;
+        GameLobbyStoryAwaker.storyToLoad = sO_Story;
+    }
 }

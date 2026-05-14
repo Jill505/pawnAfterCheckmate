@@ -1,5 +1,4 @@
 using System.IO;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
@@ -91,6 +90,8 @@ public class SaveFile
     public int gameProcess_Level;
 
     public bool[] talentTreeUnlock = new bool[200];
+    public bool[] talentTreeUnlock_Strawman = new bool[200];
+
     public bool[] storyRead = new bool[1024];
 
     //Trick unlock, -1 means hasn't unlock 
