@@ -69,6 +69,9 @@ public class SaveFile
     public string SaveName;
     public AK_Language SelectingLanguage = AK_Language.zh;
 
+    public bool allowDataCollection = true;
+    public bool isWindowsMode = false;
+
     //Player System Setting
     public float BgmVolume = 1f;
     public float SFXVolume = 1f;
@@ -77,7 +80,7 @@ public class SaveFile
     public int saveLevelIndex = 0;
     public int nowSelectingTrickIndex = 0;
 
-    public int difficulty = 0; // 0= easy 1= hard. 為了未來可能加入的新難度
+    public int difficulty = 1; // 0= easy | 1 = stander | 2 = hard.
 
     //GameData
     public int merit = 0 ;

@@ -1360,7 +1360,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2015714768}
+        m_TargetAssemblyTypeName: GameLogScreenManager, Assembly-CSharp
+        m_MethodName: SoundVolumeInformationSync
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &113152865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,6 +3546,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327654002}
+  m_CullTransparentMesh: 1
+--- !u!1 &335607349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335607350}
+  - component: {fileID: 335607352}
+  - component: {fileID: 335607351}
+  m_Layer: 5
+  m_Name: WindowsModeButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &335607350
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335607349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 663339144}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000009536743, y: 0.0000009536743}
+  m_SizeDelta: {x: 72.16, y: 72.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &335607351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335607349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.49845403, g: 0.93207544, b: 0.44845134, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &335607352
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335607349}
   m_CullTransparentMesh: 1
 --- !u!1 &336787769
 GameObject:
@@ -6263,6 +6350,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2114131264}
+  - {fileID: 335607350}
   m_Father: {fileID: 754580338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -7664,7 +7752,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2015714768}
+        m_TargetAssemblyTypeName: GameLogScreenManager, Assembly-CSharp
+        m_MethodName: SoundVolumeInformationSync
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &848616729
 GameObject:
   m_ObjectHideFlags: 0
@@ -9703,7 +9803,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1116772368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2015714768}
+        m_TargetAssemblyTypeName: GameLogScreenManager, Assembly-CSharp
+        m_MethodName: TestGameSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1116772368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10462,7 +10574,7 @@ GameObject:
   - component: {fileID: 1217979725}
   - component: {fileID: 1217979724}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Difficult_DescTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11806,6 +11918,8 @@ MonoBehaviour:
   SFShowCase:
     SaveName: 
     SelectingLanguage: 0
+    allowDataCollection: 1
+    isWindowsMode: 0
     BgmVolume: 1
     SFXVolume: 1
     saveStageIndex: 0
@@ -11819,6 +11933,7 @@ MonoBehaviour:
     gameProcess_Stage: 0
     gameProcess_Level: 0
     talentTreeUnlock: 
+    talentTreeUnlock_Strawman: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     storyRead: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     strawmanLevel: -1
     holdingTrickType: 0
@@ -12488,7 +12603,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1545775332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2015714768}
+        m_TargetAssemblyTypeName: GameLogScreenManager, Assembly-CSharp
+        m_MethodName: TestGameMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1545775332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13672,6 +13799,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb772827485f0b341a33d244d103c173, type: 3}
+--- !u!1 &1656235253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656235256}
+  - component: {fileID: 1656235255}
+  - component: {fileID: 1656235254}
+  m_Layer: 5
+  m_Name: IsAllowDataCollectCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1656235254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656235253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6678696, g: 1, b: 0.6320754, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1656235255
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656235253}
+  m_CullTransparentMesh: 1
+--- !u!224 &1656235256
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656235253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1683057397}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000009536743, y: 0.0000009536743}
+  m_SizeDelta: {x: 75.61, y: 75.61}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1659069768
 GameObject:
   m_ObjectHideFlags: 0
@@ -13993,6 +14195,7 @@ RectTransform:
   m_Children:
   - {fileID: 721413853}
   - {fileID: 500728178}
+  - {fileID: 1656235256}
   m_Father: {fileID: 754580338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -14043,7 +14246,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1683057399}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2015714768}
+        m_TargetAssemblyTypeName: GameLogScreenManager, Assembly-CSharp
+        m_MethodName: SwitchAllowCollectData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1683057399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14668,7 +14883,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1814986430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2015714768}
+        m_TargetAssemblyTypeName: GameLogScreenManager, Assembly-CSharp
+        m_MethodName: DoDiffSwitch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1814986430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16696,8 +16923,12 @@ MonoBehaviour:
   LanguageSelectCanvasAnimator: {fileID: 1542577423}
   testClip: {fileID: 8300000, guid: eb98c36e665fc2048998ba2b7f0aba42, type: 3}
   DiffTextShowcase: {fileID: 115584452}
+  DiffTextShowcaseTMP: {fileID: 1393057822}
+  DiffTextDescTMP: {fileID: 1217979724}
   MusicVolumeTextShowcase: {fileID: 2006092082}
+  MusicVolumeSlider: {fileID: 85191548}
   SFXVolumeTextShowcase: {fileID: 1089642737}
+  SFXVolumeSlider: {fileID: 796536666}
   languageSelectionDropdown: {fileID: 1982243698}
   SelectLangTMP: {fileID: 2090524436}
   ConfirmSelectLangTMP: {fileID: 957861636}
@@ -16708,6 +16939,7 @@ MonoBehaviour:
   - {fileID: 1970032096}
   myCamPos: {fileID: 775552416}
   nowTargetCamPos: {fileID: 2010097879}
+  AllowCollectDataCheckBoxImage: {fileID: 1656235254}
 --- !u!114 &2015714769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16723,6 +16955,7 @@ MonoBehaviour:
   Music: []
   SFXs: []
   AudioObject: {fileID: 2802728769307266718, guid: bc66b7b174d477e46b974fc13f002efd, type: 3}
+  nowPlayingMusic: {fileID: 0}
 --- !u!114 &2015714770
 MonoBehaviour:
   m_ObjectHideFlags: 0

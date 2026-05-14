@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameLogScreenManager : MonoBehaviour
 {
@@ -20,9 +21,13 @@ public class GameLogScreenManager : MonoBehaviour
 
     [Header("UI Refs")]
     public Text DiffTextShowcase;
+    public TextMeshProUGUI DiffTextShowcaseTMP;
+    public TextMeshProUGUI DiffTextDescTMP;
 
     public Text MusicVolumeTextShowcase;
+    public Slider MusicVolumeSlider;
     public Text SFXVolumeTextShowcase;
+    public Slider SFXVolumeSlider;
 
     public TMP_Dropdown languageSelectionDropdown;
 
@@ -33,6 +38,8 @@ public class GameLogScreenManager : MonoBehaviour
     public Transform[] CamPos = new Transform[3];
     public Transform myCamPos;
     public Transform nowTargetCamPos;
+
+    public Image AllowCollectDataCheckBoxImage;
 
     [Header("URL")]
     public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
@@ -45,6 +52,7 @@ public class GameLogScreenManager : MonoBehaviour
     private void Start()
     {
         soundManager.PlayBGM("lobby_demo_1");
+        LogScreenUIInterfaceDataLoad();
     }
     private void Update()
     {
@@ -64,7 +72,7 @@ public class GameLogScreenManager : MonoBehaviour
 
     public IEnumerator StartGameButtonCoroutine()
     {
-        soundManager.PlaySFX("bell_lose");
+        soundManager.PlaySFX("Opening_story_soundeffect_Bell_2");
         logScreenAnimator.SetTrigger("LoadGame");
 
         soundManager.NowPlayingMusicFadeOut();
@@ -118,31 +126,50 @@ public class GameLogScreenManager : MonoBehaviour
         SaveSystem.SaveSF();
     }
 
+    public void LogScreenUIInterfaceDataLoad()
+    {
+        SaveSystem.LoadSF();
+        AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
+        MusicVolumeSlider.value = SaveSystem.SF.BgmVolume;
+        SFXVolumeSlider.value = SaveSystem.SF.SFXVolume;
+    }
+
     public void LobbyUIContextShowcase()
     {
         DiffButtonInformationSync();
-        SoundVolumeInformationSync();
+        //SoundVolumeInformationSync();
     }
     public void DiffButtonInformationSync()
     {
         if (SaveSystem.SF.difficulty == 0)
         {
             DiffTextShowcase.text = "簡單模式";
+            DiffTextShowcaseTMP.text = "簡單模式";
+            DiffTextDescTMP.text = "適合只想要體驗劇情的玩家\n無時間限制";
         }
         else if (SaveSystem.SF.difficulty == 1)
         {
             DiffTextShowcase.text = "普通模式";
+            DiffTextShowcaseTMP.text = "標準模式";
+            DiffTextDescTMP.text = "適合想要正常遊玩的玩家\n有著一分鐘的時間限制";
         }
         else
         {
             DiffTextShowcase.text = "夢魘模式";
+            DiffTextShowcaseTMP.text = "夢魘模式";
+            DiffTextDescTMP.text = "適合想要正常遊玩的玩家\n有著十秒的時間限制\n最原汁原味的睡死後之兵！";
         }
     }
 
     public void SoundVolumeInformationSync()
     {
         MusicVolumeTextShowcase.text = (int)(SaveSystem.SF.BgmVolume * 100) + "%";
+        SaveSystem.SF.BgmVolume = MusicVolumeSlider.value;
+
         SFXVolumeTextShowcase.text = (int)(SaveSystem.SF.SFXVolume* 100) + "%";
+        SaveSystem.SF.SFXVolume = SFXVolumeSlider.value;
+
+        SaveSystem.SaveSF();
     }
     
     public void GameLanguageSettingOnChange()
@@ -246,6 +273,26 @@ public class GameLogScreenManager : MonoBehaviour
         SaveSystem.SaveSF();
     }
 
+    public void TestGameMusicVolume()
+    {
+        GameObject obj = new GameObject();
+        AudioSource AS = obj.AddComponent<AudioSource>();
+        AS.clip = testClip;
+        AS.volume = SaveSystem.SF.BgmVolume;
+        AS.Play();
+        Destroy(obj, testClip.length);
+    }
+
+    public void TestGameSFXVolume()
+    {
+        GameObject obj = new GameObject();
+        AudioSource AS = obj.AddComponent<AudioSource>();
+        AS.clip = testClip;
+        AS.volume = SaveSystem.SF.SFXVolume;
+        AS.Play();
+        Destroy(obj, testClip.length);
+    }
+
     public void GameSFXVolumeSetting(float rate)
     {
         SaveSystem.SF.SFXVolume += rate;
@@ -328,5 +375,13 @@ public class GameLogScreenManager : MonoBehaviour
     {
         //Reload the scene 0?
         SceneManager.LoadScene(0);
+    }
+
+    public void SwitchAllowCollectData()
+    {
+        bool isAllow = SaveSystem.SF.allowDataCollection;
+        SaveSystem.SF.allowDataCollection = !isAllow;
+        AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
+        SaveSystem.SaveSF();
     }
 }

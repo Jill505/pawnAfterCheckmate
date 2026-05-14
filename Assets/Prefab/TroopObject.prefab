@@ -160,6 +160,7 @@ MonoBehaviour:
   myDesc: 
   myTSAType: 0
   myAbilities: 
+  myAbilitiesParameter: []
   horBlockMoveAbility: 0
   verticalBlockMoveAbility: 0
   diagonalBlockMoveAbility: 0
