@@ -43,6 +43,8 @@ public class TimerManager : MonoBehaviour
 
     public bool playerDieClog = false;
 
+    public float timeSpan = 0;
+
     public void InitTimer()
     {
         if (SaveSystem.SF.difficulty == 0)
@@ -103,6 +105,8 @@ public class TimerManager : MonoBehaviour
         roundStartBufferCT = roundStartBufferTime;
         roundTimeEndBufferCT = roundTimeEndBufferTime;
         leftTimeDeadBufferCT = leftTimeDeadBufferTime;
+
+        timeSpan = 0;
     }
 
     public void Awake()
@@ -146,6 +150,11 @@ public class TimerManager : MonoBehaviour
         //if (!isPause || SaveSystem.SF.difficulty >=2) //Game is processing
         if (!isPause) //Game is processing
         {
+            if (gameManager.isGameEnd == false)
+            {
+                timeSpan += Time.deltaTime;
+            }
+
             if (isCountingTime) //it's player's round
             {
                 //go round start buffer

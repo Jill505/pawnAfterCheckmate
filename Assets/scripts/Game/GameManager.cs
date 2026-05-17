@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TrickManager trickManager;
     public TimerManager timerManager;
     public RoundProcessManager roundProcessManager;
+    public GameEndCalculator gameEndCalculator;
 
     public SpecialLevelScript SLS;
 
@@ -73,6 +74,12 @@ public class GameManager : MonoBehaviour
     public AK_Audio gameBGM;
     public string bGM_name = "GiveMeYourFastFist";
 
+    [Header("Stats")]
+    public bool isGameEnd;
+    public int killCount;
+
+    public string LevelName = "";
+    public string LevelID = "";
 
     // Start is called on   ce before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -83,6 +90,8 @@ public class GameManager : MonoBehaviour
         GameTargetUISet();
 
         PlayBgm();
+
+        isGameEnd = false;
     }
 
     // Update is called once per frame
@@ -105,27 +114,37 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            isPressingTab = true;    
-
-            for (int i = 0; i < Troops.Count; i++)
-            {
-                Troop T = Troops[i].GetComponent<Troop>();
-                if (T.isPlayer) continue;
-
-                T.EnemyCalculateAttackRange();
-                for (int j = 0; j < T.OnSelectChessAllowMoveVector.Count; j++)
-                {
-                    GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).isEnemyAttackHighLighting = true ;
-                }
-            }
+            HighlightAllEnemyAttackRange();
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
-            //roundManager.resetUnitSelectState();
-            roundManager.EnemyAttackRangeShowcaseReduce();
-            isPressingTab = false;
+            CancelHighlightAllEnemyAttackRange();
         }
     }
+
+    public void HighlightAllEnemyAttackRange()
+    {
+        isPressingTab = true;
+
+        for (int i = 0; i < Troops.Count; i++)
+        {
+            Troop T = Troops[i].GetComponent<Troop>();
+            if (T.isPlayer) continue;
+
+            T.EnemyCalculateAttackRange();
+            for (int j = 0; j < T.OnSelectChessAllowMoveVector.Count; j++)
+            {
+                GetUnitAt((int)T.OnSelectChessAllowMoveVector[j].x, (int)T.OnSelectChessAllowMoveVector[j].y).isEnemyAttackHighLighting = true;
+            }
+        }
+    }
+    public void CancelHighlightAllEnemyAttackRange()
+    {
+        //roundManager.resetUnitSelectState();
+        roundManager.EnemyAttackRangeShowcaseReduce();
+        isPressingTab = false;
+    }
+
     private void FixedUpdate()
     {
         GameTargetUISet();
@@ -136,9 +155,20 @@ public class GameManager : MonoBehaviour
         string[] langData = new string[] { };
         AK_ToolBox.LoadLangData(config.myMutiLangData, ref langData);
 
+        for (int i = 0; i < langData.Length; i++)
+        {
+            Debug.Log("langData " + i + " is" + langData[i]);
+        }
+
         //levelName.text = "Level Name: " + langData[0];
         levelID_TMP.text = langData[0];
         levelName_TMP.text = langData[1];
+
+        LevelName = langData[1];
+        LevelID = langData[0];
+
+        gameEndCalculator.GameTitle.text = langData[1];
+        gameEndCalculator.GameID.text = langData[0];
     }
 
     public void GameInitialization(SO_Level config)

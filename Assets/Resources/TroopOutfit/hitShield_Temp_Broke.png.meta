@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: 72ef50853294eac41920d353dbae31ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -601287937776892839
+    second: hitShield_Temp_Broke_0
+  - first:
+      213: -4571826207391677992
+    second: hitShield_Temp_Broke_1
+  - first:
+      213: 9034776672106243585
+    second: hitShield_Temp_Broke_2
+  - first:
+      213: 4573410326775328601
+    second: hitShield_Temp_Broke_3
+  - first:
+      213: 5491090458763484398
+    second: hitShield_Temp_Broke_4
+  - first:
+      213: -2100176798497026521
+    second: hitShield_Temp_Broke_5
+  - first:
+      213: -1243496517222180171
+    second: hitShield_Temp_Broke_6
+  - first:
+      213: 7947578165853549589
+    second: hitShield_Temp_Broke_7
+  - first:
+      213: -6306440761730650125
+    second: hitShield_Temp_Broke_8
+  - first:
+      213: 4219915853811921063
+    second: hitShield_Temp_Broke_9
+  - first:
+      213: 9089281417865891191
+    second: hitShield_Temp_Broke_10
+  - first:
+      213: -4614920059632983830
+    second: hitShield_Temp_Broke_11
+  - first:
+      213: -5045924187069021567
+    second: hitShield_Temp_Broke_12
+  - first:
+      213: -411034079612546581
+    second: hitShield_Temp_Broke_13
+  - first:
+      213: -7496902976355543458
+    second: hitShield_Temp_Broke_14
+  - first:
+      213: 3525153218197894988
+    second: hitShield_Temp_Broke_15
+  - first:
+      213: -4466078151759488703
+    second: hitShield_Temp_Broke_16
+  - first:
+      213: 4037469045576292838
+    second: hitShield_Temp_Broke_17
+  - first:
+      213: -3200694196656295727
+    second: hitShield_Temp_Broke_18
+  - first:
+      213: -8590970244115432404
+    second: hitShield_Temp_Broke_19
+  - first:
+      213: -5414154488258396371
+    second: hitShield_Temp_Broke_20
+  - first:
+      213: -4187921714020630184
+    second: hitShield_Temp_Broke_21
+  - first:
+      213: 8701432335815072441
+    second: hitShield_Temp_Broke_22
+  - first:
+      213: 2212097199660829101
+    second: hitShield_Temp_Broke_23
+  - first:
+      213: 8560083340606590856
+    second: hitShield_Temp_Broke_24
+  - first:
+      213: 4395250443973310754
+    second: hitShield_Temp_Broke_25
+  - first:
+      213: -6358327389747075567
+    second: hitShield_Temp_Broke_26
+  - first:
+      213: 3467342589174833449
+    second: hitShield_Temp_Broke_27
+  - first:
+      213: -241182157921091324
+    second: hitShield_Temp_Broke_28
+  - first:
+      213: -7840702944341347903
+    second: hitShield_Temp_Broke_29
+  - first:
+      213: -4847379256076678816
+    second: hitShield_Temp_Broke_30
+  - first:
+      213: 418615246636848195
+    second: hitShield_Temp_Broke_31
+  - first:
+      213: 5610859864906799225
+    second: hitShield_Temp_Broke_32
+  - first:
+      213: 6543604597221455306
+    second: hitShield_Temp_Broke_33
+  - first:
+      213: -1742791900512709010
+    second: hitShield_Temp_Broke_34
+  - first:
+      213: -507934850319349466
+    second: hitShield_Temp_Broke_35
+  - first:
+      213: -1889216731719976829
+    second: hitShield_Temp_Broke_36
+  - first:
+      213: 1281025923978662029
+    second: hitShield_Temp_Broke_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2048
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_0
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1505
+        width: 204
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954c41d6ecbc7a7f0800000000000000
+      internalID: -601287937776892839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_1
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1472
+        width: 177
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d10995794c9d80c0800000000000000
+      internalID: -4571826207391677992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_2
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 1621
+        width: 94
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106e0e5d389f16d70800000000000000
+      internalID: 9034776672106243585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_3
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 1546
+        width: 313
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95feb831674087f30800000000000000
+      internalID: 4573410326775328601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_4
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 1157
+        width: 574
+        height: 677
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec5220eda5443c40800000000000000
+      internalID: 5491090458763484398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_5
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1487
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e4118345caad2e0800000000000000
+      internalID: -2100176798497026521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_6
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 1315
+        width: 281
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba598381863ebee0800000000000000
+      internalID: -1243496517222180171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1113
+        width: 92
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514f958db387b4e60800000000000000
+      internalID: 7947578165853549589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1208
+        width: 72
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff20084a850b78a0800000000000000
+      internalID: -6306440761730650125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_9
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1066
+        width: 115
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0bf786c17209a30800000000000000
+      internalID: 4219915853811921063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1117
+        width: 86
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d847fda4d932e70800000000000000
+      internalID: 9089281417865891191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_11
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 1174
+        width: 96
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae060ca18a284ffb0800000000000000
+      internalID: -4614920059632983830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_12
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 943
+        width: 204
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1820332bfa649f9b0800000000000000
+      internalID: -5045924187069021567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1117
+        width: 78
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be15d1eaea6bb4af0800000000000000
+      internalID: -411034079612546581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_14
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1046
+        width: 26
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5652ca9676a5f790800000000000000
+      internalID: -7496902976355543458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_15
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 1078
+        width: 38
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c47b285cc2cdbe030800000000000000
+      internalID: 3525153218197894988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_16
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 992
+        width: 167
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1491e31559d4502c0800000000000000
+      internalID: -4466078151759488703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_17
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 988
+        width: 130
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9d53d94b8f70830800000000000000
+      internalID: 4037469045576292838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_18
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 1044
+        width: 132
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0b5ad0699d493d0800000000000000
+      internalID: -3200694196656295727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_19
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 1119
+        width: 95
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c7c83741eb6c880800000000000000
+      internalID: -8590970244115432404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1081
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f7548ad2f0dd4b0800000000000000
+      internalID: -5414154488258396371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_21
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1071
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851c7a0c36381e5c0800000000000000
+      internalID: -4187921714020630184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_22
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1077
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bada557b92b1c870800000000000000
+      internalID: 8701432335815072441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_23
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 894
+        width: 151
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da98b62dea2f2be10800000000000000
+      internalID: 2212097199660829101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_24
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 1065
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f489ce1768bc670800000000000000
+      internalID: 8560083340606590856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_25
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 379
+        width: 458
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22938e3edf01ffc30800000000000000
+      internalID: 4395250443973310754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_26
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1032
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1162d784deea2c7a0800000000000000
+      internalID: -6358327389747075567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_27
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 1012
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921695ec6b97e1030800000000000000
+      internalID: 3467342589174833449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_28
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 944
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40183feea1627acf0800000000000000
+      internalID: -241182157921091324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_29
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 528
+        width: 406
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1bc25c63a303390800000000000000
+      internalID: -7840702944341347903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_30
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 519
+        width: 199
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 069c3f5cf36aabcb0800000000000000
+      internalID: -4847379256076678816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_31
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 318
+        width: 795
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3441a5159583fc500800000000000000
+      internalID: 418615246636848195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_32
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 793
+        width: 301
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978144cc157cddd40800000000000000
+      internalID: 5610859864906799225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_33
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 197
+        width: 436
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac57fff26bd8fca50800000000000000
+      internalID: 6543604597221455306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_34
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 84
+        width: 495
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66138c000c50d7e0800000000000000
+      internalID: -1742791900512709010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_35
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 491
+        width: 212
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6298cadd1f373f8f0800000000000000
+      internalID: -507934850319349466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_36
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 79
+        width: 780
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3883b1a546728c5e0800000000000000
+      internalID: -1889216731719976829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitShield_Temp_Broke_37
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 493
+        width: 73
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8090da6a4e17c110800000000000000
+      internalID: 1281025923978662029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hitShield_Temp_Broke_0: -601287937776892839
+      hitShield_Temp_Broke_1: -4571826207391677992
+      hitShield_Temp_Broke_10: 9089281417865891191
+      hitShield_Temp_Broke_11: -4614920059632983830
+      hitShield_Temp_Broke_12: -5045924187069021567
+      hitShield_Temp_Broke_13: -411034079612546581
+      hitShield_Temp_Broke_14: -7496902976355543458
+      hitShield_Temp_Broke_15: 3525153218197894988
+      hitShield_Temp_Broke_16: -4466078151759488703
+      hitShield_Temp_Broke_17: 4037469045576292838
+      hitShield_Temp_Broke_18: -3200694196656295727
+      hitShield_Temp_Broke_19: -8590970244115432404
+      hitShield_Temp_Broke_2: 9034776672106243585
+      hitShield_Temp_Broke_20: -5414154488258396371
+      hitShield_Temp_Broke_21: -4187921714020630184
+      hitShield_Temp_Broke_22: 8701432335815072441
+      hitShield_Temp_Broke_23: 2212097199660829101
+      hitShield_Temp_Broke_24: 8560083340606590856
+      hitShield_Temp_Broke_25: 4395250443973310754
+      hitShield_Temp_Broke_26: -6358327389747075567
+      hitShield_Temp_Broke_27: 3467342589174833449
+      hitShield_Temp_Broke_28: -241182157921091324
+      hitShield_Temp_Broke_29: -7840702944341347903
+      hitShield_Temp_Broke_3: 4573410326775328601
+      hitShield_Temp_Broke_30: -4847379256076678816
+      hitShield_Temp_Broke_31: 418615246636848195
+      hitShield_Temp_Broke_32: 5610859864906799225
+      hitShield_Temp_Broke_33: 6543604597221455306
+      hitShield_Temp_Broke_34: -1742791900512709010
+      hitShield_Temp_Broke_35: -507934850319349466
+      hitShield_Temp_Broke_36: -1889216731719976829
+      hitShield_Temp_Broke_37: 1281025923978662029
+      hitShield_Temp_Broke_4: 5491090458763484398
+      hitShield_Temp_Broke_5: -2100176798497026521
+      hitShield_Temp_Broke_6: -1243496517222180171
+      hitShield_Temp_Broke_7: 7947578165853549589
+      hitShield_Temp_Broke_8: -6306440761730650125
+      hitShield_Temp_Broke_9: 4219915853811921063
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

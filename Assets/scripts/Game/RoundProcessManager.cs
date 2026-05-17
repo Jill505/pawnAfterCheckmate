@@ -109,11 +109,6 @@ public class RoundProcessManager : MonoBehaviour
 
         if (checkFlag)
         {
-            Debug.Log("Check Flag_¥i¥H©ÇcheckFlag");
-            //the node is finish
-            //if (isNodeReachClog == true) return;
-
-            Debug.Log("Check Flag Use");
             myMissionNodes[currentIndex].ActionOnNodeReach.Invoke();
             if (myMissionNodes[currentIndex].AutoGoNextNode)
             {

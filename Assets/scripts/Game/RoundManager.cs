@@ -232,25 +232,19 @@ public class RoundManager : MonoBehaviour
         //Golden Target絕對優先行動
         for (int i = EnemyAITroop.Count-1; i >=0; i--)
         {
+
             //EnemyAnimationCoroutineEnd = true;
             Troop ET = EnemyAITroop[i];
             if (ET.isGoldenTarget == false) continue;
 
+            Debug.Log("Golden Target行動");
+
             ET.Action_PowerActiveOnce();
             ET.CleanFunction_Action_PowerActiveOnce();
 
-            if (ET.isGoldenTarget == false)
+            if (ET.TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
             {
-                EnemyAnimationCoroutineEnd = true;
-                ET.EnemyAutoMoveToNext();
-            }
-            else
-            {
-                if (ET.TryGetComponent<TSA_GoldenTarget>(out TSA_GoldenTarget t))
-                {
-                    t.CalculateAttackPlayerPath();
-                    t.CycleKillCall();
-                }
+                t.CycleKillCall();
             }
 
             ET.Action_OnRoundEnd();
@@ -287,7 +281,7 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForSeconds(enemyMoveDur); 
         }
         //Var 2 - 每次移動一個目標
-        
+
         roundState = RoundState.Finished;
 
         EnemyAIProcessing = null;
@@ -332,6 +326,20 @@ public class RoundManager : MonoBehaviour
                 //SpawnGoldenTarget_Random();
                 break;
         }
+
+
+        if (EnemyAITroop.Count > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+            gameManager.HighlightAllEnemyAttackRange();
+
+            yield return new WaitForSeconds(0.92f);
+
+            gameManager.CancelHighlightAllEnemyAttackRange();
+
+            yield return new WaitForSeconds(0.15f);
+        }
+
 
         if (playerReviving)
         {
@@ -396,6 +404,8 @@ public class RoundManager : MonoBehaviour
     IEnumerator WaitExitCall(bool isPlayerDie = false)
     {
         //Make time flow slow and maybe a close up?
+
+        gameManager.isGameEnd = true;
 
         Time.timeScale = 0.6f;
         soundManager.NowPlayingMusicFadeOut();

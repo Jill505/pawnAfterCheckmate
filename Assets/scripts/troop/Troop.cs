@@ -216,7 +216,7 @@ public class Troop : MonoBehaviour
             gameManager.FrameSkipping();
             vFXManager.VFX_SlashInHalf(this);
 
-
+            gameManager.killCount += 1;
         }
 
         gameManager.Troops.Remove(gameObject);

@@ -23,6 +23,7 @@ public class TroopOutfit : MonoBehaviour
 
     public Text hitShieldCountDownShowcase;
     public GameObject hitShieldImage;
+    public GameObject hitShieldBrokenImage;
 
     public Action TroopOutfitUpdate = () => { };
 
@@ -86,21 +87,23 @@ public class TroopOutfit : MonoBehaviour
         }
 
 
-            if (check)
+        if (check)
         {
             //apply
             if (roundManager.playerHitCombo - requireHit < 0)
             {
                 //Show
-                hitShieldImage.SetActive (true);
-                hitShieldCountDownShowcase.gameObject.SetActive (true);
-                hitShieldCountDownShowcase.text = "" +(requireHit - roundManager.playerHitCombo);
+                hitShieldImage.SetActive(true);
+                hitShieldCountDownShowcase.gameObject.SetActive(true);
+                hitShieldCountDownShowcase.text = "" + (requireHit - roundManager.playerHitCombo);
+                hitShieldBrokenImage.SetActive(false);
             }
             else
             {
                 //Close
                 hitShieldImage.SetActive(false);
                 hitShieldCountDownShowcase.gameObject.SetActive(false);
+                hitShieldBrokenImage.SetActive(true);
             }
         }
         else

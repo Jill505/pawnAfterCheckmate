@@ -30,10 +30,6 @@ public class TSA_GoldenTarget : TroopSpecialAbility
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            CalculateAttackPlayerPath();
-        }
     }
 
     public void CalculateAttackPlayerPath()
@@ -80,7 +76,8 @@ public class TSA_GoldenTarget : TroopSpecialAbility
 
         StartPt = new Vector2(myTroop.myNowX, myTroop.myNowY);
         PassPt.Add(new Vector2((int)myTroop.myNowX, (int)myTroop.myNowY));
-        
+
+        Debug.Log("TSA Golden Target 觸發");
         if (DFS_RecursiveSearchPlayer(StartPt, AttackRange))
         {
             //玩家在範圍內，執行連殺
@@ -91,13 +88,13 @@ public class TSA_GoldenTarget : TroopSpecialAbility
                 Debug.Log("第" + n + "個目標：" + vec);
                 n++;
             }
-        }
+        } /*
         else
         {
             //玩家不在範圍內，執行普通移動
             Debug.Log("玩家不在檢測範圍內");
             myTroop.EnemyAutoMoveToNext();
-        }
+        }*/
     }
 
     public bool DFS_RecursiveSearchPlayer(Vector2 RefPt, List<Vector2> atkRange)
@@ -160,14 +157,15 @@ public class TSA_GoldenTarget : TroopSpecialAbility
 
     public void CycleKillCall()
     {
-        //Debug.Log("Cycle Kill Trigger");
+        Debug.Log("Cycle Kill Trigger Start");
+        CycleKillCoroutineContainer = StartCoroutine(CycleKillCoroutine());
         if (CycleKillCoroutineContainer == null)
         {
-            CycleKillCoroutineContainer = StartCoroutine(CycleKillCoroutine());
+            Debug.Log("Cycle Kill Trigger");
         }
         else
         {
-            //Debug.Log("Clog Cycle Kill Coroutine Container");
+            Debug.Log("Clog Cycle Kill Coroutine Container");
         }
     }
     public IEnumerator CycleKillCoroutine()
@@ -176,9 +174,11 @@ public class TSA_GoldenTarget : TroopSpecialAbility
         
         if (LinkKillList.Count > 0 )
         {
+            Debug.Log("Golden target 連殺");
             //execute cycle kill
             for (int i = LinkKillList.Count - 1; i >= 0; i--)
             {
+                Debug.Log("Golden target 連殺 座標" + i);
                 //DO kill by List
                 //Debug.Log("Link Kill List index is: " + i);
                 if (gameManager.GetUnitAt((int)LinkKillList[i].x, (int)LinkKillList[i].y) == null)
@@ -192,6 +192,7 @@ public class TSA_GoldenTarget : TroopSpecialAbility
         }
         else
         {
+            Debug.Log("Golden target 普通移動");
             myTroop.EnemyAutoMoveToNext();
             roundManager.EnemyAnimationCoroutineEnd = true;
         }
