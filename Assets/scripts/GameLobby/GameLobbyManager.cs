@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using AKTool;
 using TMPro;
+using System;
+using UnityEngine.WSA;
 
 public class GameLobbyManager : MonoBehaviour
 {
@@ -47,6 +49,8 @@ public class GameLobbyManager : MonoBehaviour
     public TrickType[] nowShowTrickArray;
     static public int nowSelectingTrickIndex;
     public int nowSelectingTrickIndexInspect;
+
+    public Animator LevelSelectRoundAnimator;
 
     [Header("Load Level Button")]
     public Button GoNextLevelButton;
@@ -140,17 +144,25 @@ public class GameLobbyManager : MonoBehaviour
 
     public void DoSwitchLobbyLevelNext()
     {
-        nowLevelIndex += 1;
-        if (nowLevelIndex >= myGameStages[nowStageIndex].levels.Length - 1)
-        {
-            nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
-        }
-        gameLobbyUIManager.LoadNextRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+        soundManager.PlaySFX("mask_wearOn_Fix");
+        LevelSelectRoundAnimator.SetTrigger("Active_Right");
 
-        SaveSystem.SF.saveStageIndex = nowStageIndex;
-        SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+        StartCoroutine(Delay(() => {
 
-        SaveSystem.SaveSF();
+            nowLevelIndex += 1;
+            if (nowLevelIndex >= myGameStages[nowStageIndex].levels.Length - 1)
+            {
+                nowLevelIndex = myGameStages[nowStageIndex].levels.Length - 1;
+            }
+            gameLobbyUIManager.LoadNextRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+
+            SaveSystem.SF.saveStageIndex = nowStageIndex;
+            SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+
+            SaveSystem.SaveSF();
+
+        }, 0.5f));
+
     }
 
     public void DoSwitchLobbyLevelNext_Specific(int p_stageIndex, int p_levelIndex)
@@ -171,22 +183,35 @@ public class GameLobbyManager : MonoBehaviour
 
     public void DoSwitchLobbyLevelLast()
     {
-        nowLevelIndex -= 1;
-        if (nowLevelIndex <= 0)
+        soundManager.PlaySFX("mask_wearOn_Fix");
+        LevelSelectRoundAnimator.SetTrigger("Active_Left");
+
+        StartCoroutine(Delay(() =>
         {
-            nowLevelIndex = 0;
-        }
 
-        gameLobbyUIManager.LoadLastRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
+            nowLevelIndex -= 1;
+            if (nowLevelIndex <= 0)
+            {
+                nowLevelIndex = 0;
+            }
 
-        SaveSystem.SF.saveStageIndex = nowStageIndex;
-        SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+            gameLobbyUIManager.LoadLastRoom_Func(() => DoSwitchLobbyLevel(nowStageIndex, nowLevelIndex));
 
-        SaveSystem.SaveSF();
+            SaveSystem.SF.saveStageIndex = nowStageIndex;
+            SaveSystem.SF.saveLevelIndex = nowLevelIndex;
+
+            SaveSystem.SaveSF();
+        }, 0.5f));
     }
     public void DoSwitchLobbyLevelLast_Specific(int p_stageIndex, int p_levelIndex)
     {
-        nowStageIndex = p_stageIndex;
+        soundManager.PlaySFX("mask_wearOn_Fix");
+        LevelSelectRoundAnimator.SetTrigger("Active_Left");
+
+        StartCoroutine(Delay(() =>
+        {
+
+            nowStageIndex = p_stageIndex;
         nowLevelIndex = p_levelIndex;
         if (nowLevelIndex <= 0)
         {
@@ -199,6 +224,7 @@ public class GameLobbyManager : MonoBehaviour
         SaveSystem.SF.saveLevelIndex = nowLevelIndex;
 
         SaveSystem.SaveSF();
+        }, 0.5f));
     }
 
 
@@ -395,5 +421,11 @@ public class GameLobbyManager : MonoBehaviour
     public void CloseSelectStageCanvasObject()
     {
         SelectStageCanvasObject.SetActive(false);
+    }
+
+    System.Collections.IEnumerator Delay(Action action, float t)
+    {
+        yield return new WaitForSeconds(t);
+        action();
     }
 }

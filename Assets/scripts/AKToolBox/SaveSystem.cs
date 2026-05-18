@@ -35,6 +35,7 @@ public class SaveSystem : MonoBehaviour
     {
         string fullPath = Application.persistentDataPath + saveFilePath;
         File.WriteAllText(fullPath, JsonUtility.ToJson(SF));
+        Debug.Log("value Changed!");
     }
 
     static public void LoadSF()
@@ -49,6 +50,8 @@ public class SaveSystem : MonoBehaviour
 
         SaveFile sSF = JsonUtility.FromJson<SaveFile>(File.ReadAllText(fullPath));
         SF = sSF;
+        Debug.Log("volume Declare!");
+        Debug.Log(SaveSystem.SF.BgmVolume + " | " + SaveSystem.SF.SFXVolume);
     }
 
     static public void ResetSF()

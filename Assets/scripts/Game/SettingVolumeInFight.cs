@@ -30,27 +30,6 @@ public class SettingVolumeInFight : MonoBehaviour
         }
     }
 
-    public void AddFiveBgmVolume()
-    {
-        SaveSystem.SF.BgmVolume += 0.05f;
-        SaveSystem.SaveSF();
-    }
-    public void MinusFiveBgmVolume()
-    {
-        SaveSystem.SF.BgmVolume -= 0.05f;
-        SaveSystem.SaveSF();
-    }
-    public void AddFiveSfxVolume()
-    {
-        SaveSystem.SF.SFXVolume += 0.05f;
-        SaveSystem.SaveSF();
-    }
-    public void MinusFiveSfxVolume()
-    {
-        SaveSystem.SF.SFXVolume -= 0.05f;
-        SaveSystem.SaveSF();
-    }
-
 
     public void CloseSettingPanel()
     {

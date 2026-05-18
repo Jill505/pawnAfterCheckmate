@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 6da2fda556741a040abbc703a2866df8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7457857139208061860
+    second: pawnAfterSlumber_EnglishTitle_0
+  - first:
+      213: 4279759098810977391
+    second: pawnAfterSlumber_EnglishTitle_1
+  - first:
+      213: 1326147564462528508
+    second: pawnAfterSlumber_EnglishTitle_2
+  - first:
+      213: -2668187954200236419
+    second: pawnAfterSlumber_EnglishTitle_3
+  - first:
+      213: -555398886138094489
+    second: pawnAfterSlumber_EnglishTitle_4
+  - first:
+      213: 177733776805208235
+    second: pawnAfterSlumber_EnglishTitle_5
+  - first:
+      213: 1923206488855154026
+    second: pawnAfterSlumber_EnglishTitle_6
+  - first:
+      213: -934017865535909957
+    second: pawnAfterSlumber_EnglishTitle_7
+  - first:
+      213: -2507756434110788968
+    second: pawnAfterSlumber_EnglishTitle_8
+  - first:
+      213: 3347565613713918184
+    second: pawnAfterSlumber_EnglishTitle_9
+  - first:
+      213: 1124426483195897813
+    second: pawnAfterSlumber_EnglishTitle_10
+  - first:
+      213: 8051642856364847232
+    second: pawnAfterSlumber_EnglishTitle_11
+  - first:
+      213: -5941372660653125522
+    second: pawnAfterSlumber_EnglishTitle_12
+  - first:
+      213: -3613492729263632771
+    second: pawnAfterSlumber_EnglishTitle_13
+  - first:
+      213: 8604922610532535558
+    second: pawnAfterSlumber_EnglishTitle_14
+  - first:
+      213: -5275528347758826054
+    second: pawnAfterSlumber_EnglishTitle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_0
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 223
+        width: 1468
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a38b100e81af7760800000000000000
+      internalID: 7457857139208061860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_1
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 226
+        width: 95
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ccfd8a932c46b30800000000000000
+      internalID: 4279759098810977391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_2
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 223
+        width: 125
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf7d9830f2c676210800000000000000
+      internalID: 1326147564462528508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_3
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 225
+        width: 84
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e2beb3131b8fad0800000000000000
+      internalID: -2668187954200236419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 226
+        width: 95
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c571bd7a3da48f0800000000000000
+      internalID: -555398886138094489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_5
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 224
+        width: 70
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba02017adef677200800000000000000
+      internalID: 177733776805208235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_6
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 226
+        width: 83
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6d00fdac1a90ba10800000000000000
+      internalID: 1923206488855154026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_7
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 224
+        width: 66
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf0dde23b3b903f0800000000000000
+      internalID: -934017865535909957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_8
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 225
+        width: 84
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a40a15fc8a23dd0800000000000000
+      internalID: -2507756434110788968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_9
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 226
+        width: 70
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e80bb38031f47e20800000000000000
+      internalID: 3347565613713918184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_10
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 225
+        width: 68
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d7eee2dde3ca9f00800000000000000
+      internalID: 1124426483195897813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_11
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 226
+        width: 76
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08030f7b48e2dbf60800000000000000
+      internalID: 8051642856364847232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_12
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 225
+        width: 130
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e609d8b3b010c8da0800000000000000
+      internalID: -5941372660653125522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_13
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 226
+        width: 75
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ec8c1028b4addc0800000000000000
+      internalID: -3613492729263632771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_14
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 224
+        width: 66
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60dc4800683da6770800000000000000
+      internalID: 8604922610532535558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawnAfterSlumber_EnglishTitle_15
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 225
+        width: 84
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abde45d2bee89c6b0800000000000000
+      internalID: -5275528347758826054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ef473f845027b9b479dc3a9760b5f2ce
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pawnAfterSlumber_EnglishTitle_0: 7457857139208061860
+      pawnAfterSlumber_EnglishTitle_1: 4279759098810977391
+      pawnAfterSlumber_EnglishTitle_10: 1124426483195897813
+      pawnAfterSlumber_EnglishTitle_11: 8051642856364847232
+      pawnAfterSlumber_EnglishTitle_12: -5941372660653125522
+      pawnAfterSlumber_EnglishTitle_13: -3613492729263632771
+      pawnAfterSlumber_EnglishTitle_14: 8604922610532535558
+      pawnAfterSlumber_EnglishTitle_15: -5275528347758826054
+      pawnAfterSlumber_EnglishTitle_2: 1326147564462528508
+      pawnAfterSlumber_EnglishTitle_3: -2668187954200236419
+      pawnAfterSlumber_EnglishTitle_4: -555398886138094489
+      pawnAfterSlumber_EnglishTitle_5: 177733776805208235
+      pawnAfterSlumber_EnglishTitle_6: 1923206488855154026
+      pawnAfterSlumber_EnglishTitle_7: -934017865535909957
+      pawnAfterSlumber_EnglishTitle_8: -2507756434110788968
+      pawnAfterSlumber_EnglishTitle_9: 3347565613713918184
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

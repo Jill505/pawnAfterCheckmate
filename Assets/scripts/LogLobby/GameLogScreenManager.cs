@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
 using static UnityEngine.Rendering.DebugUI;
+using JetBrains.Annotations;
+using System.Collections.Generic;
+using System;
 
 public class GameLogScreenManager : MonoBehaviour
 {
@@ -38,21 +41,31 @@ public class GameLogScreenManager : MonoBehaviour
     public Transform[] CamPos = new Transform[3];
     public Transform myCamPos;
     public Transform nowTargetCamPos;
-
+    
     public Image AllowCollectDataCheckBoxImage;
+
+    public Sprite activeSprite;
+    public Sprite notActiveSprite;
 
     [Header("URL")]
     public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
 
+    public bool timeClog = false;
+
     public void Awake()
     {
-        soundManager = FindAnyObjectByType<SoundManager>(); 
+        soundManager = FindAnyObjectByType<SoundManager>();
+        LogScreenUIInterfaceDataLoad();
 
     }
     private void Start()
     {
         soundManager.PlayBGM("lobby_demo_1");
-        LogScreenUIInterfaceDataLoad();
+
+        StartCoroutine(Delay(() =>
+        {
+            timeClog = true;
+        }, 5f));
     }
     private void Update()
     {
@@ -129,7 +142,8 @@ public class GameLogScreenManager : MonoBehaviour
     public void LogScreenUIInterfaceDataLoad()
     {
         SaveSystem.LoadSF();
-        AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
+        //AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
+        AllowCollectDataCheckBoxImage.sprite = SaveSystem.SF.allowDataCollection ? activeSprite : notActiveSprite;
         MusicVolumeSlider.value = SaveSystem.SF.BgmVolume;
         SFXVolumeSlider.value = SaveSystem.SF.SFXVolume;
     }
@@ -163,13 +177,22 @@ public class GameLogScreenManager : MonoBehaviour
 
     public void SoundVolumeInformationSync()
     {
-        MusicVolumeTextShowcase.text = (int)(SaveSystem.SF.BgmVolume * 100) + "%";
-        SaveSystem.SF.BgmVolume = MusicVolumeSlider.value;
+        if (timeClog)
+        {
+            SaveSystem.LoadSF();
 
-        SFXVolumeTextShowcase.text = (int)(SaveSystem.SF.SFXVolume* 100) + "%";
-        SaveSystem.SF.SFXVolume = SFXVolumeSlider.value;
+            MusicVolumeTextShowcase.text = (int)(SaveSystem.SF.BgmVolume * 100) + "%";
+            SaveSystem.SF.BgmVolume = MusicVolumeSlider.value;
 
-        SaveSystem.SaveSF();
+            SFXVolumeTextShowcase.text = (int)(SaveSystem.SF.SFXVolume * 100) + "%";
+            SaveSystem.SF.SFXVolume = SFXVolumeSlider.value;
+
+            SaveSystem.SaveSF();
+
+            Debug.Log("volume changed!");
+            Debug.Log(SaveSystem.SF.BgmVolume + " | " + SaveSystem.SF.SFXVolume);
+            Debug.Log(MusicVolumeSlider.value + " | " + SFXVolumeSlider.value);
+        }
     }
     
     public void GameLanguageSettingOnChange()
@@ -381,7 +404,24 @@ public class GameLogScreenManager : MonoBehaviour
     {
         bool isAllow = SaveSystem.SF.allowDataCollection;
         SaveSystem.SF.allowDataCollection = !isAllow;
-        AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
+        //AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
+
+        if (isAllow)
+        {
+            AllowCollectDataCheckBoxImage.sprite = activeSprite;
+        }
+        else
+        {
+            AllowCollectDataCheckBoxImage.sprite = notActiveSprite;
+        }
+
         SaveSystem.SaveSF();
+    }
+
+    IEnumerator Delay(Action action, float time )
+    {
+        yield return new WaitForSeconds(time );
+
+        action();
     }
 }
