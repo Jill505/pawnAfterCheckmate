@@ -85,6 +85,9 @@ public class SaveFile
 
     public int difficulty = 1; // 0= easy | 1 = stander | 2 = hard.
 
+    public int curveVisualizeLevel = 2; //0 = close / 1 = light / 2 = stander / 3 = hard
+
+
     //GameData
     public int merit = 0 ;
     public int key = 0 ;

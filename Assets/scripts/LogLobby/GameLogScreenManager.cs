@@ -47,6 +47,8 @@ public class GameLogScreenManager : MonoBehaviour
     public Sprite activeSprite;
     public Sprite notActiveSprite;
 
+    public TextMeshProUGUI curveVisualizeLevelButtonText;
+
     [Header("URL")]
     public const string websiteUrl = "https://jill505.github.io/PawnAfterSlumber/";
 
@@ -66,6 +68,7 @@ public class GameLogScreenManager : MonoBehaviour
         {
             timeClog = true;
         }, 5f));
+
     }
     private void Update()
     {
@@ -143,9 +146,10 @@ public class GameLogScreenManager : MonoBehaviour
     {
         SaveSystem.LoadSF();
         //AllowCollectDataCheckBoxImage.gameObject.SetActive(SaveSystem.SF.allowDataCollection);
-        AllowCollectDataCheckBoxImage.sprite = SaveSystem.SF.allowDataCollection ? activeSprite : notActiveSprite;
+        AllowCollectDataCheckBoxImage.sprite = SaveSystem.SF.allowDataCollection ? notActiveSprite : activeSprite;
         MusicVolumeSlider.value = SaveSystem.SF.BgmVolume;
         SFXVolumeSlider.value = SaveSystem.SF.SFXVolume;
+        CurveVisualizeTextSync(SaveSystem.SF.curveVisualizeLevel);
     }
 
     public void LobbyUIContextShowcase()
@@ -424,4 +428,39 @@ public class GameLogScreenManager : MonoBehaviour
 
         action();
     }
+
+    public void ChangeCurveVisualizeLevel()
+    {
+        SaveSystem.LoadSF();
+        int l = SaveSystem.SF.curveVisualizeLevel;
+        l = l + 1 > 3 ? 0 : l + 1;
+
+        CurveVisualizeTextSync(l);
+
+        SaveSystem.SF.curveVisualizeLevel = l;
+        SaveSystem.SaveSF();
+    }
+
+    public void CurveVisualizeTextSync(int l)
+    {
+
+        switch (l)
+        {
+            case 0:
+                curveVisualizeLevelButtonText.text = "關閉";
+                break;
+
+            case 1:
+                curveVisualizeLevelButtonText.text = "輕微";
+                break;
+
+            case 2:
+                curveVisualizeLevelButtonText.text = "標準";
+                break;
+            case 3:
+                curveVisualizeLevelButtonText.text = "強烈";
+                break;
+        }
+    }
+
 }

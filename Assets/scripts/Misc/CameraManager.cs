@@ -45,9 +45,11 @@ public class CameraManager : MonoBehaviour
 
     public bool curveVisualizeEffecting = true;
 
+    public float[] curveVisualizeLevelNumber = new float[4] { 0, 0.8f, 2.2f, 4f };
 
     private void Awake()
     {
+        LoadCurveSetting();
     }
 
     void Start()
@@ -165,6 +167,13 @@ public class CameraManager : MonoBehaviour
         CameraObject.transform.DORotate(targetRotation, 0.2f)
             .SetEase(Ease.OutSine);
     }
+    public void LoadCurveSetting()
+    {
+        SaveSystem.LoadSF();
+        Curve_X_Sensitive = curveVisualizeLevelNumber[SaveSystem.SF.curveVisualizeLevel];
+        Curve_Y_Sensitive = curveVisualizeLevelNumber[SaveSystem.SF.curveVisualizeLevel];
+    }
+
 }
 [System.Serializable]
 public class CameraPosition
