@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class TroopOutfit : MonoBehaviour
 {
     [Header("Manager refs")]
     public RoundManager roundManager;
+    public SoundManager soundManager;
 
     public Troop myTroop;
 
@@ -36,10 +38,14 @@ public class TroopOutfit : MonoBehaviour
 
     public GameObject DeathParticle;
 
+
+    bool _hitShieldBrokeClog = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         roundManager = FindAnyObjectByType<RoundManager>();
+        soundManager = FindFirstObjectByType<SoundManager>();   
     }
 
     // Update is called once per frame
@@ -97,13 +103,26 @@ public class TroopOutfit : MonoBehaviour
                 hitShieldCountDownShowcase.gameObject.SetActive(true);
                 hitShieldCountDownShowcase.text = "" + (requireHit - roundManager.playerHitCombo);
                 hitShieldBrokenImage.SetActive(false);
+
+                _hitShieldBrokeClog = false;
             }
             else
             {
                 //Close
-                hitShieldImage.SetActive(false);
-                hitShieldCountDownShowcase.gameObject.SetActive(false);
-                hitShieldBrokenImage.SetActive(true);
+                
+                if (_hitShieldBrokeClog ==  false)
+                {
+                    hitShieldImage.SetActive(false);
+                    hitShieldCountDownShowcase.gameObject.SetActive(false);
+                    hitShieldBrokenImage.SetActive(true);
+
+                    _hitShieldBrokeClog = true;
+
+                    StartCoroutine(Delay(
+                        () => { soundManager.PlaySFX("hitShield_crack_variant"); }, UnityEngine.Random.Range(0f, 0.3f))
+                        ) ;
+                }
+            
             }
         }
         else
@@ -160,5 +179,11 @@ public class TroopOutfit : MonoBehaviour
             EnergyHighVFXObject.SetActive(false);
             energyHighStarterVFXCLog = false;
         }
+    }
+
+    IEnumerator Delay(Action action, float time)
+    {
+        yield return new WaitForSeconds (time);
+        action();
     }
 }

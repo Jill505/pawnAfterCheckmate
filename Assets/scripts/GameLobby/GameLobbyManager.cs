@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using AKTool;
 using TMPro;
 using System;
-using UnityEngine.WSA;
 
 public class GameLobbyManager : MonoBehaviour
 {
