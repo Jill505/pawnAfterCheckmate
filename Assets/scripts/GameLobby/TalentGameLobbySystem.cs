@@ -24,6 +24,8 @@ public class TalentGameLobbySystem : MonoBehaviour
 
     public int talentListNowLoadingSort = 0 ;
 
+    public TextMeshProUGUI SkillPointTMP;
+
     public void Start()
     {
         LoadTalentNodeUnlock();
@@ -42,6 +44,7 @@ public class TalentGameLobbySystem : MonoBehaviour
         {
             nodeInfoAnimator.SetBool("showNodeInfo", false);
         }
+
     }
     public void ShowNodeInfo()
     {
@@ -66,10 +69,13 @@ public class TalentGameLobbySystem : MonoBehaviour
         }
         SaveSystem.SaveSF();
         LoadTalentNodeUnlock();
+        LoadTalentNodeUnlock();
     }
     public void LoadTalentNodeUnlock()
     {
         ClearAllLines();
+
+        SkillPointTMP.text = SaveSystem.SF.skillPoint + "";
 
         //Main
         if (talentListNowLoadingSort == 0)

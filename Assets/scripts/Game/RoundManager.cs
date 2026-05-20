@@ -406,6 +406,7 @@ public class RoundManager : MonoBehaviour
         //Make time flow slow and maybe a close up?
 
         gameManager.isGameEnd = true;
+        timerManager.isPause = true;    
 
         Time.timeScale = 0.6f;
         soundManager.NowPlayingMusicFadeOut();

@@ -3514,6 +3514,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1438481431}
+        m_TargetAssemblyTypeName: GameESCManager, Assembly-CSharp
+        m_MethodName: QuitInspectESCCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &783656085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4534,7 +4546,7 @@ PrefabInstance:
     - target: {fileID: 8577903923214914723, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: levelInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 35141862cc317e941af2491e7ed59d9d, type: 2}
+      objectReference: {fileID: 11400000, guid: 2c97ca8f03dd77b42a1ae00ca77deede, type: 2}
     - target: {fileID: 8577903923214914723, guid: 862600a1121a9354ca603a4e01ddd697, type: 3}
       propertyPath: playerConfig
       value: 

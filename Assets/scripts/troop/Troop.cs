@@ -871,6 +871,11 @@ public class Troop : MonoBehaviour
         hasLowerShield = otherT.hasLowerShield;
         hasUpperShield = otherT.hasUpperShield;
 
+        if(otherT.myTSAType == TSAType.suicideBomb)
+        {
+            energyHigh = true;
+        }
+        
         //Additional Soul
         if (SaveSystem.SF.talentTreeUnlock[4])
         {

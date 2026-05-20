@@ -18,6 +18,15 @@ Comm/ChoiceQuestion/2/原來如此/N/是這麼回事？/N,Comm/ChoiceQuestion/2/
 Comm/SetSpeaker/道士,Comm/SetSpeaker/道士,Comm/SetSpeaker/道士,Comm/SetSpeaker/道士
 多找看看不同的角度，也許會是破局的關鍵。,多利用「草人戲法」來嘗試側切、找到方向吧！,多利用「草人戲法」來嘗試側切、找到方向吧！,多利用「草人戲法」來嘗試側切、找到方向吧！
 試著去利用「草人戲法」來嘗試側切、找到方向吧！,Comm/FightStartTimer,Comm/FightStartTimer,Comm/FightStartTimer
-Comm/FightStartTimer,Comm/CanvasOff,Comm/CanvasOff,Comm/CanvasOff
-Comm/CanvasOff,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+Comm/Clear,Comm/CanvasOff,Comm/CanvasOff,Comm/CanvasOff
+Comm/SetImage/2/mechanic_introduce_Shield_bg,Comm/GoNextNode,Comm/GoNextNode,Comm/GoNextNode
+.,,,
+Comm/Clear,,,
+Comm/SetImage/2/trick_introduce_strawMan_bg,,,
+.,,,
+Comm/Clear,,,
+Comm/SetImage/2/enemy_Introduce_Tank_bg,,,
+.,,,
+Comm/FightStartTimer,,,
+Comm/CanvasOff,,,
 Comm/GoNextNode,,,

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: teach_4_0
   m_EditorClassIdentifier: 
   comment: 
+  isAllowSkip: 0
+  SkipLocation: 12
   myMutiLangData: {fileID: 4900000, guid: 5f1c1f90d6f9a394faa4fedc3f2a1b38, type: 3}
   conversationContext:
   - Comm/CanvasOn

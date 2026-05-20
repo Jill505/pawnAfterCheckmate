@@ -91,7 +91,7 @@ public class SaveFile
     //GameData
     public int merit = 0 ;
     public int key = 0 ;
-    public int skillPoint = 0;
+    public int skillPoint = 8;
 
     //Game Process
     public int gameProcess;

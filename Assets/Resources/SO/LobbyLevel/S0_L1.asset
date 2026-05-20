@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b5b5387a0818e4c9b7d334db670677, type: 3}
   m_Name: S0_L1
   m_EditorClassIdentifier: 
+  myMutiLangData: {fileID: 0}
+  lobbyLevelID: 0
   backgroundImage: {fileID: 6176511443112562264, guid: b5cc879a53fa8d84cbbdd2e46f051357, type: 3}
   myStageIndex: 0
   myLevelIndex: 1
-  mySO_Level: {fileID: 11400000, guid: 2daa3c1a36a29744c8a9ee28232dc9b3, type: 2}
+  mySO_Level: {fileID: 11400000, guid: c1a380ca2d9315a4fa23b6cfa66a27e6, type: 2}
   mySO_LCOs:
   - {fileID: 11400000, guid: 344006f0b5c4ba141b7f86a1470c14d9, type: 2}
