@@ -19099,6 +19099,7 @@ MonoBehaviour:
   nowShowTrickArray: 0200000003000000
   nowSelectingTrickIndexInspect: 0
   LevelSelectRoundAnimator: {fileID: 1941838356}
+  ESCTabAnimator: {fileID: 296485250}
   GoNextLevelButton: {fileID: 938398097}
   GoLastLevelButton: {fileID: 1807383178}
   LevelClickableObjectList: []
@@ -19143,6 +19144,7 @@ MonoBehaviour:
     saveLevelIndex: 0
     nowSelectingTrickIndex: 0
     difficulty: 0
+    curveVisualizeLevel: 2
     merit: 0
     key: 0
     skillPoint: 0

@@ -51,6 +51,8 @@ public class GameLobbyManager : MonoBehaviour
 
     public Animator LevelSelectRoundAnimator;
 
+    public Animator ESCTabAnimator;
+
     [Header("Load Level Button")]
     public Button GoNextLevelButton;
     public Button GoLastLevelButton;
@@ -401,11 +403,13 @@ public class GameLobbyManager : MonoBehaviour
     {
         ECS_Canvas.SetActive(true);
         isESCIng = true;
+        ESCTabAnimator.SetBool("Active", true);
     }
     public void CloseESCTab()
     {
         ECS_Canvas.SetActive(false);
         isESCIng = false;
+        ESCTabAnimator.SetBool("Active", false);
     }
     public void ESC_backToLobby()
     {
