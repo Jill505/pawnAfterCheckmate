@@ -694,7 +694,19 @@ MonoBehaviour:
     isRandomSpawn: 0
     locationX: 8
     locationY: 0
-  structureInsData: []
+  structureInsData:
+  - structureFile: {fileID: 11400000, guid: 13137f743a2b30943a7ea37530721e45, type: 2}
+    locationX: 7
+    locationY: 3
+  - structureFile: {fileID: 11400000, guid: 13137f743a2b30943a7ea37530721e45, type: 2}
+    locationX: 4
+    locationY: 5
+  - structureFile: {fileID: 11400000, guid: 13137f743a2b30943a7ea37530721e45, type: 2}
+    locationX: 3
+    locationY: 6
+  - structureFile: {fileID: 11400000, guid: 13137f743a2b30943a7ea37530721e45, type: 2}
+    locationX: 1
+    locationY: 7
   enemySpawnEachRound: 2
   spawnChessData:
   - {fileID: 11400000, guid: f02738b4881adad4a8994d9876c26965, type: 2}

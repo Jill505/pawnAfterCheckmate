@@ -15,7 +15,7 @@ MonoBehaviour:
   myMutiLangData: {fileID: 4900000, guid: aa19561ac4096864f81c32e0f27b1974, type: 3}
   trickName: "\u9AD8\u6F32\u6232\u6CD5"
   myTrickType: 3
-  mySprite: {fileID: 6711913997770717108, guid: ae0a36d0c308f8749ad9784d6ebd679f, type: 3}
+  mySprite: {fileID: 21300000, guid: 706cf2094526cdf4bb6fd3e91d844332, type: 3}
   trickRequireEnergy: 100
   maxTrickAmount: 1
   trickDesc: "\u5F97\u5230\u80FD\u91CF\u9AD8\u6F32\u72C0\u614B"
